@@ -23,7 +23,7 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/randomcard/trinity/",
-  "manifest": "https://raw.githubusercontent.com/randomcard/trinity/master/system.json?token=AS2UY5LGRUIR5CCVCXIHJCTAE5BNW",
+  "manifest": "https://raw.githubusercontent.com/randomcard/trinity/master/system.json",
   "download": "https://github.com/randomcard/trinity/archive/test.zip",
   "license": "LICENSE.txt"
 }
