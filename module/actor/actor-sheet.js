@@ -29,6 +29,10 @@ export class TrinityActorSheet extends ActorSheet {
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
     }
+    if (this.actor.data.type == 'Trinity Character') {
+      this._prepareTrinityCharacterItems(data);
+    }
+
 
     return data;
   }
@@ -84,6 +88,74 @@ export class TrinityActorSheet extends ActorSheet {
     actorData.gear = gear;
     actorData.features = features;
     actorData.spells = spells;
+  }
+
+  /**
+   * Organize and classify Items for Trinity Character sheets.
+   *
+   * @param {Object} actorData The actor to prepare.
+   *
+   * @return {undefined}
+   */
+  _prepareTrinityCharacterItems(sheetData) {
+    const actorData = sheetData.actor;
+
+    // Initialize containers.
+    const gear = [];
+    const skills = [];
+    const injuries = [];
+    const paths = [];
+    const features = [];
+    const spells = {
+      0: [],
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+      5: [],
+      6: [],
+      7: [],
+      8: [],
+      9: []
+    };
+
+    // Iterate through items, allocating to containers
+    // let totalWeight = 0;
+    for (let i of sheetData.items) {
+      let item = i.data;
+      i.img = i.img || DEFAULT_TOKEN;
+      // Append to gear.
+      if (i.type === 'item') {
+        gear.push(i);
+      }
+      // Append to features.
+      else if (i.type === 'feature') {
+        features.push(i);
+      }
+      // Append to spells.
+      else if (i.type === 'spell') {
+        if (i.data.spellLevel != undefined) {
+          spells[i.data.spellLevel].push(i);
+        }
+      }
+      else if (i.type === 'skill') {
+        skills.push(i);
+      }
+      else if (i.type === 'injury') {
+        injuries.push(i);
+      }
+      else if (i.type === 'path') {
+        paths.push(i);
+      }
+    }
+
+    // Assign and return
+    actorData.gear = gear;
+    actorData.features = features;
+    actorData.spells = spells;
+    actorData.spells = skills;
+    actorData.spells = injuries;
+    actorData.spells = paths;
   }
 
   /* -------------------------------------------- */

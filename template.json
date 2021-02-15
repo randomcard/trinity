@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character"],
+    "types": ["Trinity Character", "character"],
     "templates": {
       "base": {
         "health": {
@@ -13,6 +13,71 @@
           "min": 0,
           "max": 5
         }
+      }
+    },
+    "Trinity Character": {
+      "templates": ["base"],
+      "biography": "",
+      "defense": 1,
+      "experience": {
+        "earned": 0,
+        "available": 0
+      }
+      "attributes": {
+        "int": {
+          "value": 1,
+          "name": "Intellect",
+          "arena": "Mental",
+          "approach": "Force"
+        },
+        "cun": {
+          "value": 1,
+          "name": "Cunning",
+          "arena": "Mental",
+          "approach": "Finesse"
+        },
+        "res": {
+          "value": 1,
+          "name": "Resolve",
+          "arena": "Mental",
+          "approach": "Resilience"
+        },
+        "mig": {
+          "value": 1,
+          "name": "Might",
+          "arena": "Physical",
+          "approach": "Force"
+        },
+        "dex": {
+          "value": 1,
+          "name": "Dexterity",
+          "arena": "Physical",
+          "approach": "Finesse"
+        },
+        "sta": {
+          "value": 1,
+          "name": "Stamina",
+          "arena": "Physical",
+          "approach": "Resilience"
+        },
+        "pre": {
+          "value": 1,
+          "name": "Presence",
+          "arena": "Social",
+          "approach": "Force"
+        },
+        "man": {
+          "value": 1,
+          "name": "Manipulation",
+          "arena": "Social",
+          "approach": "Finesse"
+        },
+        "com": {
+          "value": 1,
+          "name": "Composure",
+          "arena": "Social",
+          "approach": "Resilience"
+        },
       }
     },
     "character": {
@@ -46,7 +111,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["item", "feature", "spell","skill","specialty","path"],
     "templates": {
       "base": {
         "description": ""
@@ -63,6 +128,20 @@
     "spell": {
       "templates": ["base"],
       "spellLevel": 1
+    },
+    "skill": {
+      "templates": ["base"],
+      "defaultAttribute": "",
+      "value": 0
+    },
+    "specialty": {
+      "templates": ["base"],
+      "defaultSkill": "",
+      "enhancement": 1
+    },
+    "path": {
+      "templates": ["base"],
+      "pathtype": "",
     }
   }
 }
