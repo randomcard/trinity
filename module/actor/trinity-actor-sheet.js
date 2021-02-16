@@ -8,7 +8,7 @@ export class TrinityActorSheet extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["trinity", "sheet", "actor"],
-      template: "systems/trinity/templates/actor/actor-sheet.html",
+      template: "systems/trinity/templates/actor/trinity-actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
@@ -26,8 +26,8 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
     // Prepare items.
-    if (this.actor.data.type == 'character') {
-      this._prepareCharacterItems(data);
+    if (this.actor.data.type == 'Trinity Character') {
+      this._prepareTrinityCharacterItems(data);
     }
 
 
@@ -36,17 +36,20 @@ export class TrinityActorSheet extends ActorSheet {
 
 
   /**
-   * Organize and classify Items for Character sheets.
+   * Organize and classify Items for Trinity Character sheets.
    *
    * @param {Object} actorData The actor to prepare.
    *
    * @return {undefined}
    */
-  _prepareCharacterItems(sheetData) {
+  _prepareTrinityCharacterItems(sheetData) {
     const actorData = sheetData.actor;
 
     // Initialize containers.
     const gear = [];
+    const skills = [];
+    const injuries = [];
+    const paths = [];
     const features = [];
     const spells = {
       0: [],
@@ -80,14 +83,25 @@ export class TrinityActorSheet extends ActorSheet {
           spells[i.data.spellLevel].push(i);
         }
       }
+      else if (i.type === 'skill') {
+        skills.push(i);
+      }
+      else if (i.type === 'injury') {
+        injuries.push(i);
+      }
+      else if (i.type === 'path') {
+        paths.push(i);
+      }
     }
 
     // Assign and return
     actorData.gear = gear;
     actorData.features = features;
     actorData.spells = spells;
+    actorData.spells = skills;
+    actorData.spells = injuries;
+    actorData.spells = paths;
   }
-
 
   /* -------------------------------------------- */
 

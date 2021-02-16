@@ -1,12 +1,15 @@
 // Import Modules
-import { TrinityActor } from "./actor/actor.js";
-import { TrinityActorSheet } from "./actor/actor-sheet.js";
+// import { BasicActor } from "./actor/actor.js";
+// import { BasicActorSheet } from "./actor/actor-sheet.js";
+import { TrinityActor } from "./actor/trinity-actor.js";
+import { TrinityActorSheet } from "./actor/trinity-actor-sheet.js";
 import { TrinityItem } from "./item/item.js";
 import { TrinityItemSheet } from "./item/item-sheet.js";
 
 Hooks.once('init', async function() {
 
   game.trinity = {
+    BasicActor,
     TrinityActor,
     TrinityItem,
     rollItemMacro
