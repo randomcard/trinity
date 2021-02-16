@@ -70,18 +70,6 @@ export class TrinityActorSheet extends ActorSheet {
     const injuries = [];
     const paths = [];
     const features = [];
-    const spells = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: []
-    };
 
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
@@ -95,12 +83,6 @@ export class TrinityActorSheet extends ActorSheet {
       // Append to features.
       else if (i.type === 'feature') {
         features.push(i);
-      }
-      // Append to spells.
-      else if (i.type === 'spell') {
-        if (i.data.spellLevel != undefined) {
-          spells[i.data.spellLevel].push(i);
-        }
       }
       else if (i.type === 'skill') {
         skills.push(i);
@@ -116,7 +98,6 @@ export class TrinityActorSheet extends ActorSheet {
     // Assign and return
     actorData.gear = gear;
     actorData.features = features;
-    actorData.spells = spells;
     actorData.skills = skills;
     actorData.injuries = injuries;
     actorData.paths = paths;
