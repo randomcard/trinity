@@ -18,11 +18,13 @@
     "TrinityCharacter": {
       "templates": ["base"],
       "biography": "",
-      "defense": 1,
+      "defense": {
+        "value": 1
+      },
       "experience": {
         "earned": 0,
         "available": 0
-      }
+      },
       "attributes": {
         "int": {
           "value": 1,
