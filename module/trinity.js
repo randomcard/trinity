@@ -9,7 +9,6 @@ import { TrinityItemSheet } from "./item/item-sheet.js";
 Hooks.once('init', async function() {
 
   game.trinity = {
-    BasicActor,
     TrinityActor,
     TrinityItem,
     rollItemMacro
