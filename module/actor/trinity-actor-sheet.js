@@ -98,9 +98,9 @@ export class TrinityActorSheet extends ActorSheet {
     actorData.gear = gear;
     actorData.features = features;
     actorData.spells = spells;
-    actorData.spells = skills;
-    actorData.spells = injuries;
-    actorData.spells = paths;
+    actorData.skills = skills;
+    actorData.injuries = injuries;
+    actorData.paths = paths;
   }
 
   /* -------------------------------------------- */

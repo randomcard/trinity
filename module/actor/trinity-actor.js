@@ -3,7 +3,6 @@
  * @extends {Actor}
  */
 export class TrinityActor extends Actor {
-
   /**
    * Augment the basic actor data with additional dynamic data.
    */
@@ -35,4 +34,4 @@ export class TrinityActor extends Actor {
     }
   }
 
-}
+// }
