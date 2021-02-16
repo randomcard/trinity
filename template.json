@@ -131,7 +131,6 @@
     },
     "skill": {
       "templates": ["base"],
-      "defaultAttribute": "",
       "value": 0
     },
     "specialty": {
@@ -141,7 +140,7 @@
     },
     "path": {
       "templates": ["base"],
-      "pathtype": "",
+      "pathtype": ""
     }
   }
 }
