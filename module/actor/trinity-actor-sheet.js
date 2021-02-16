@@ -29,7 +29,7 @@ export class TrinityActorSheet extends ActorSheet {
     if (this.actor.data.type == 'TrinityCharacter') {
       return `${path}/trinity-actor-sheet.html`;
     }
-    if (this.actor.data.type == 'Character') {
+    if (this.actor.data.type == 'character') {
       return `${path}/actor-sheet.html`;
     }
   }
