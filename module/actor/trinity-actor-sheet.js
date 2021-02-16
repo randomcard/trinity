@@ -26,7 +26,7 @@ export class TrinityActorSheet extends ActorSheet {
 //    }
 
     // Prepare items.
-    if (this.actor.data.type == 'Trinity Character') {
+    if (this.actor.data.type == 'TrinityCharacter') {
       this._prepareTrinityCharacterItems(data);
     }
 
@@ -36,7 +36,7 @@ export class TrinityActorSheet extends ActorSheet {
 
 
   /**
-   * Organize and classify Items for Trinity Character sheets.
+   * Organize and classify Items for TrinityCharacter sheets.
    *
    * @param {Object} actorData The actor to prepare.
    *

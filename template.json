@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["Trinity Character", "character"],
+    "types": ["TrinityCharacter", "character"],
     "templates": {
       "base": {
         "health": {
@@ -15,7 +15,7 @@
         }
       }
     },
-    "Trinity Character": {
+    "TrinityCharacter": {
       "templates": ["base"],
       "biography": "",
       "defense": 1,

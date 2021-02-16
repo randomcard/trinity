@@ -15,7 +15,7 @@ export class TrinityActor extends Actor {
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    if (actorData.type === 'Trinity Character') this._prepareTrinityCharacterData(actorData);
+    if (actorData.type === 'TrinityCharacter') this._prepareTrinityCharacterData(actorData);
   }
 
   /**
