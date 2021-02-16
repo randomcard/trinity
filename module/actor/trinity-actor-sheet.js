@@ -18,6 +18,23 @@ export class TrinityActorSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
+  get template() {
+    const path = "systems/trinity/templates/actor";
+    // Return a single sheet for all item types.
+    // return `${path}/item-sheet.html`;
+
+    // Alternatively, you could use the following return statement to do a
+    // unique item sheet by type, like `weapon-sheet.html`.
+
+    if (this.actor.data.type == 'TrinityCharacter') {
+      return `${path}/trinity-actor-sheet.html`;
+    }
+    if (this.actor.data.type == 'Character') {
+      return `${path}/actor-sheet.html`;
+    }
+  }
+
+  /** @override */
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
@@ -29,7 +46,9 @@ export class TrinityActorSheet extends ActorSheet {
     if (this.actor.data.type == 'TrinityCharacter') {
       this._prepareTrinityCharacterItems(data);
     }
-
+    if (this.actor.data.type == 'Character') {
+      this._prepareCharacterItems(data);
+    }
 
     return data;
   }
@@ -101,6 +120,59 @@ export class TrinityActorSheet extends ActorSheet {
     actorData.skills = skills;
     actorData.injuries = injuries;
     actorData.paths = paths;
+  }
+
+  /**
+   * Organize and classify Items for Character sheets.
+   *
+   * @param {Object} actorData The actor to prepare.
+   *
+   * @return {undefined}
+   */
+  _prepareCharacterItems(sheetData) {
+    const actorData = sheetData.actor;
+
+    // Initialize containers.
+    const gear = [];
+    const features = [];
+    const spells = {
+      0: [],
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+      5: [],
+      6: [],
+      7: [],
+      8: [],
+      9: []
+    };
+
+    // Iterate through items, allocating to containers
+    // let totalWeight = 0;
+    for (let i of sheetData.items) {
+      let item = i.data;
+      i.img = i.img || DEFAULT_TOKEN;
+      // Append to gear.
+      if (i.type === 'item') {
+        gear.push(i);
+      }
+      // Append to features.
+      else if (i.type === 'feature') {
+        features.push(i);
+      }
+      // Append to spells.
+      else if (i.type === 'spell') {
+        if (i.data.spellLevel != undefined) {
+          spells[i.data.spellLevel].push(i);
+        }
+      }
+    }
+
+    // Assign and return
+    actorData.gear = gear;
+    actorData.features = features;
+    actorData.spells = spells;
   }
 
   /* -------------------------------------------- */
