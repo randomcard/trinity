@@ -3,9 +3,11 @@
  * @extends {ActorSheet}
  */
 
-import { RollPrompt } from 'systems/trinity/module/roll-prompt';
+
 
 export class TrinityActorSheet extends ActorSheet {
+
+import { RollPrompt } from 'systems/trinity/module/roll-prompt';
 
   /** @override */
   static get defaultOptions() {
