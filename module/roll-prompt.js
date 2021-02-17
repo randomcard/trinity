@@ -35,7 +35,7 @@ export class RollPrompt {
     // Roll Attribute by itself if no skill supplied
     if (dataset.attrvalue && !dataset.skillvalue) {
       console.log("Attrib only roll function triggered");
-      let roll = new Roll(rollFormula, this.actor.data.data);
+      let roll = new Roll(rollFormula);
       let label = dataset.attrname ? `Rolling ${dataset.attrname}` : '';
       roll.roll().toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
