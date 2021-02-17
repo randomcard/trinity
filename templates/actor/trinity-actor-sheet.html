@@ -38,7 +38,7 @@
             {{#each data.attributes as |attribute key|}}
               <div class="attribute flexrow flex-group-center">
                 <label for="data.attributes.{{key}}.value" class="resource-label rollable"
-                  data-attr="{{attribute}}">
+                  data-attr="data.attributes.{{key}}">
                   {{attribute.name}}
                 </label>
                 <br> <!-- Added to try to rearrange layout. May need to remove -->
