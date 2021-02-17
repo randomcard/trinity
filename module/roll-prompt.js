@@ -1,4 +1,4 @@
-import { TrinityActorSheet } from 'systems/trinity/module/actor/trinity-actor';
+// import { TrinityActorSheet } from 'systems/trinity/module/actor/trinity-actor';
 console.log("roll-prompt.js imported?");
 
 export class RollPrompt {

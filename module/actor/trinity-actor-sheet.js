@@ -3,7 +3,7 @@
  * @extends {ActorSheet}
  */
 
-// import { RollPrompt } from 'systems/trinity/module/roll-prompt';
+import { RollPrompt } from 'systems/trinity/module/roll-prompt';
 
 export class TrinityActorSheet extends ActorSheet {
 
