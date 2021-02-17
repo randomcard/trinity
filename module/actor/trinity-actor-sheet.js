@@ -256,12 +256,12 @@ export class TrinityActorSheet extends ActorSheet {
 
 _onRoll(event) {
   event.preventDefault();
-  const element = event.currentTarget;
-  const dataset = element.dataset;
-  console.log("Debug to figure out click to roll");
-  console.log(event);
-  console.log(element);
-  console.log(dataset);
+//  const element = event.currentTarget;
+//  const dataset = element.dataset;
+//  console.log("Debug to figure out click to roll");
+//  console.log(event);
+//  console.log(element);
+//  console.log(dataset);
   RollPrompt.tRoll(event);
 }
 
