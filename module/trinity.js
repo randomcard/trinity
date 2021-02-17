@@ -6,7 +6,7 @@ import { TrinityActorSheet } from "./actor/trinity-actor-sheet.js";
 import { TrinityItem } from "./item/item.js";
 import { TrinityItemSheet } from "./item/item-sheet.js";
 console.log("Imported Actor/Item/Sheets");
-import { RollPrompt } from "./roll-prompt";
+import { RollPrompt } from "./roll-prompt.js";
 console.log("Imported RollPrompt");
 
 Hooks.once('init', async function() {
