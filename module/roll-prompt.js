@@ -17,11 +17,13 @@ export class RollPrompt {
 
     // Test Section: Pull needed info from just attr/skill name and target actor
     console.log(targetActor);
-    const targetAttr = targetActor.data.data.attributes.filter(a => a.name === dataset.attr);
-    const targetAttr = targetActor.data.data.attributes.find(a => a.name === dataset.attr);
+//    console.log(Object.values(users).filter(user => user.user_id === 1));
+    let targetAttr = Object.values(targetActor.data.data.attributes).filter(attribute => attribute.name === dataset.attr));
+//    let targetAttr = targetActor.data.data.attributes.filter(attribute => attributes.name === dataset.attr);
+//    const targetAttr = targetActor.data.data.attributes.find(a => a.name === dataset.attr);
     console.log(targetAttr);
 
-    const targetSkill = targetActor.data.items.find(i => i._id === dataset.skillid);
+//    const targetSkill = targetActor.data.items.find(i => i._id === dataset.skillid);
     console.log(targetSkill);
 
     // Roll Formula
