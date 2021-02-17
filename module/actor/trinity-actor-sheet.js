@@ -262,7 +262,7 @@ _onRoll(event) {
 //  console.log(event);
 //  console.log(element);
 //  console.log(dataset);
-  RollPrompt.tRoll(event);
+  RollPrompt.tRoll(event, this.actor);
 }
 
 

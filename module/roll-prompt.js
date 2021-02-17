@@ -5,15 +5,22 @@ export class RollPrompt {
   // Problem??
   // template = template || 'systems/trinity/templates/roll-prompt.html';
 
-  static async tRoll(event) {
+  static async tRoll(event, targetActor) {
 
     const element = event.currentTarget;
     const dataset = element.dataset;
 
-    console.log("Debug in the tRoll function, event / element / dataset");
-    console.log(event);
-    console.log(element);
-    console.log(dataset);
+    console.log("Debug in the tRoll function");
+//    console.log(event);
+//    console.log(element);
+//    console.log(dataset);
+
+    // Test Section: Pull needed info from just attr/skill name and target actor
+    let targetAttr = targetActor.data.data.attributes.find(a => a.name === dataset.attr);
+    console.log(targetAttr);
+
+    let targetSkill = targetActor.data.items.find(i => i._id === dataset.skillid);
+    console.log(targetSkill);
 
     // Roll Formula
     // Get info, if available, defaults if not
