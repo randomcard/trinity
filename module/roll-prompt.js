@@ -18,7 +18,7 @@ export class RollPrompt {
     // Test Section: Pull needed info from just attr/skill name and target actor
     console.log(targetActor);
 //    console.log(Object.values(users).filter(user => user.user_id === 1));
-    let targetAttr = Object.values(targetActor.data.data.attributes).filter(attribute => attribute.name === dataset.attr));
+    let targetAttr = Object.values(targetActor.data.data.attributes).filter(attribute => attribute.name === dataset.attr);
 //    let targetAttr = targetActor.data.data.attributes.filter(attribute => attributes.name === dataset.attr);
 //    const targetAttr = targetActor.data.data.attributes.find(a => a.name === dataset.attr);
     console.log(targetAttr);
