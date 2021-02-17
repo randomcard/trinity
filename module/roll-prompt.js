@@ -13,10 +13,14 @@ export class RollPrompt {
     console.log("Debug in the tRoll function");
 //    console.log(event);
 //    console.log(element);
-//    console.log(dataset);
+    console.log(dataset);
 
     // Test Section: Pull needed info from just attr/skill name and target actor
+    console.log("Target Actor");
     console.log(targetActor);
+    console.log("dataset.attr");
+    console.log(targetActor);
+    console.log(Object.values(targetActor.data.data.attributes));
 //    console.log(Object.values(users).filter(user => user.user_id === 1));
     let targetAttr = Object.values(targetActor.data.data.attributes).filter(attribute => attribute.name === dataset.attr);
 //    let targetAttr = targetActor.data.data.attributes.filter(attribute => attributes.name === dataset.attr);
@@ -24,7 +28,7 @@ export class RollPrompt {
     console.log(targetAttr);
 
 //    const targetSkill = targetActor.data.items.find(i => i._id === dataset.skillid);
-    console.log(targetSkill);
+    console.log(targetSkill || 'No targetSkill');
 
     // Roll Formula
     // Get info, if available, defaults if not
