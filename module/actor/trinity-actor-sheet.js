@@ -226,11 +226,11 @@ export class TrinityActorSheet extends ActorSheet {
     return this.actor.createOwnedItem(itemData);
   }
 
-  /**
+  /** -- Original-ish code
    * Handle clickable rolls.
    * @param {Event} event   The originating click event
    * @private
-   */
+   *
   _onRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
@@ -248,8 +248,31 @@ export class TrinityActorSheet extends ActorSheet {
     }
   }
 
-// Code taken from PF2e, update in progress, replacing _onRoll above.
+*/
+
+// Code somewhat taken from PF2e, update in progress, replacing _onRoll above.
+// RollPrompt.tRoll
+
+
+_onRoll(event) {
+  event.preventDefault();
+  const element = event.currentTarget;
+  const dataset = element.dataset;
+  console.log("Debug to figure out click to roll");
+  console.log(event);
+  console.log(element);
+  console.log(dataset);
+  RollPrompt.tRoll(event);
+}
+
+
+
 /*
+
+
+
+
+
   _onRoll(event: JQuery.Event, skillName: string) {
       const skl = this.data.data.skills[skillName];
       const rank = CONFIG.PF2E.proficiencyLevels[skl.rank];
