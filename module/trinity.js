@@ -5,7 +5,9 @@ import { TrinityActor } from "./actor/trinity-actor.js";
 import { TrinityActorSheet } from "./actor/trinity-actor-sheet.js";
 import { TrinityItem } from "./item/item.js";
 import { TrinityItemSheet } from "./item/item-sheet.js";
-// import { RollPrompt } from "systems/trinity/module/roll-prompt";
+console.log("Imported Actor/Item/Sheets");
+import { RollPrompt } from "./roll-prompt";
+console.log("Imported RollPrompt");
 
 Hooks.once('init', async function() {
 

@@ -28,6 +28,7 @@ export class RollPrompt {
     let dscaPart = dataset.dramaScale || 1;
 
     rollFormula = `${dicePart}d10x${explPart}cs>=${succPart}`;
+    console.log(rollFormula);
 //  let rollFormula = "(@attributes.{{key}}.value)d10x10cs>=8"
 
     // Roll Attribute by itself if no skill supplied
@@ -60,6 +61,7 @@ For the roll description
 .attrName = Attribute Name
 .attrArena = Attribute Arena
 .attrApproach = Attribute Approach
+Idea: import the top level skill / attrib date that will include all of these
 
 For much later, for spending successes:
 .complications
