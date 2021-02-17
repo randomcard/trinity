@@ -18,7 +18,9 @@ export class RollPrompt {
     // Roll Formula
     // Get info, if available, defaults if not
     let skilPart = dataset.skillValue || 0;
+    console.log(dataset.attrValue);
     let attrPart = dataset.attrValue || 0;
+    console.log(attrPart);
     let dicePart = skilPart+attrPart;
     let explPart = dataset.explode || 10;
     let succPart = dataset.successValue || 7;
@@ -32,7 +34,7 @@ export class RollPrompt {
 
     // Roll Attribute by itself if no skill supplied
     if (dataset.attrValue && !dataset.skillValue) {
-
+      console.log("Attrib only roll function triggered");
       let roll = new Roll(rollFormula, this.actor.data.data);
       let label = dataset.attrName ? `Rolling ${dataset.attrName}` : '';
       roll.roll().toMessage({
