@@ -22,7 +22,7 @@ export class RollPrompt {
     console.log(dataset.attr);
     console.log(Object.values(targetActor.data.data.attributes));
 //    console.log(Object.values(users).filter(user => user.user_id === 1));
-    let targetAttr = Object.values(targetActor.data.data.attributes).filter(attribute => attribute.name === dataset.attr);
+    let targetAttr = Object.values(targetActor.data.data.attributes).filter(attribute => attribute.name === dataset.attrname);
 //    let targetAttr = targetActor.data.data.attributes.filter(attribute => attributes.name === dataset.attr);
 //    const targetAttr = targetActor.data.data.attributes.find(a => a.name === dataset.attr);
     console.log(targetAttr);
@@ -34,7 +34,8 @@ export class RollPrompt {
     // Get info, if available, defaults if not
     let skilPart = dataset.skillvalue || 0;
     console.log(dataset.attrvalue);
-    let attrPart = dataset.attrvalue || 0;
+//    let attrPart = dataset.attrvalue || 0;
+    let attrPart = targetAttr.value || 0;
     console.log(attrPart);
     let dicePart = skilPart+attrPart;
     let explPart = dataset.explode || 10;
