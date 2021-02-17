@@ -32,7 +32,7 @@ export class RollPrompt {
     if (dataset.attrValue && !dataset.skillValue) {
 
       let roll = new Roll(rollFormula, this.actor.data.data);
-      let label = dataset.skillName ? `Rolling ${dataset.skillName}` : '';
+      let label = dataset.attrName ? `Rolling ${dataset.attrName}` : '';
       roll.roll().toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label
