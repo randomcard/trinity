@@ -1,8 +1,10 @@
 import { TrinityActorSheet } from 'systems/trinity/module/actor/trinity-actor';
+console.log("roll-prompt.js imported?");
 
 export class RollPrompt {
 
-  template = template || 'systems/trinity/templates/roll-prompt.html';
+  // Problem??
+  // template = template || 'systems/trinity/templates/roll-prompt.html';
 
   static async tRoll(event) {
 
