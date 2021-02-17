@@ -37,9 +37,10 @@
           <div class="attributes grid grid-3col">
             {{#each data.attributes as |attribute key|}}
               <div class="attribute flexrow flex-group-center">
-                <label for="data.attributes.{{key}}.value" class="resource-label">{{attribute.name}}</label>
+                <label for="data.attributes.{{key}}.value" class="resource-label rollable" data-roll="(@attributes.{{key}}.value)d10x10cs>=8" data-label="{{attribute.name}}">{{attribute.name}}</label>
+                <br> <!-- Added to try to rearrange layout. May need to remove -->
                 <input type="text" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
-                <span class="attribute-roll rollable" data-roll="(@attributes.{{key}}.value)d10x10cs>=8" data-label="{{attribute.name}}"><i class="fas fa-dice-d20"></i></span>
+                <!-- <span class="attribute-roll rollable" data-roll="(@attributes.{{key}}.value)d10x10cs>=8" data-label="{{attribute.name}}"><i class="fas fa-dice-d20"></i></span> -->
               </div>
             {{/each}}
           </div>

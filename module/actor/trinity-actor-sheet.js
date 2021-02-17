@@ -2,6 +2,9 @@
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
+
+// import { RollPrompt } from 'systems/trinity/module/roll-prompt';
+
 export class TrinityActorSheet extends ActorSheet {
 
   /** @override */
@@ -232,6 +235,8 @@ export class TrinityActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
+    console.log("Debug to figure out click to roll");
+    console.log(dataset);
 
     if (dataset.roll) {
       let roll = new Roll(dataset.roll, this.actor.data.data);
@@ -242,5 +247,28 @@ export class TrinityActorSheet extends ActorSheet {
       });
     }
   }
+
+// Code taken from PF2e, update in progress, replacing _onRoll above.
+/*
+  _onRoll(event: JQuery.Event, skillName: string) {
+      const skl = this.data.data.skills[skillName];
+      const rank = CONFIG.PF2E.proficiencyLevels[skl.rank];
+      const parts = ['@mod', '@itemBonus'];
+      const flavor = `${rank} ${CONFIG.PF2E.skills[skillName]} Skill Check`;
+
+      // Call the roll helper utility
+      DicePF2e.d20Roll({
+          event,
+          parts,
+          data: {
+              mod: skl.value - skl.item,
+              itemBonus: skl.item,
+          },
+          title: flavor,
+          speaker: ChatMessage.getSpeaker({ actor: this }),
+      });
+  }
+//End copied code
+*/
 
 }
