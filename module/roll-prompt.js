@@ -27,7 +27,7 @@ export class RollPrompt {
     let nscaPart = dataset.narraScale || 1;
     let dscaPart = dataset.dramaScale || 1;
 
-    rollFormula = `${dicePart}d10x${explPart}cs>=${succPart}`;
+    let rollFormula = `${dicePart}d10x${explPart}cs>=${succPart}`;
     console.log(rollFormula);
 //  let rollFormula = "(@attributes.{{key}}.value)d10x10cs>=8"
 
