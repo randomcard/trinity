@@ -18,7 +18,7 @@ export class RollPrompt {
     // Roll Formula
     // Get info, if available, defaults if not
     let skilPart = dataset.skillValue || 0;
-    let attrPart = dataset.value || 0;
+    let attrPart = dataset.attrValue || 0;
     let dicePart = skilPart+attrPart;
     let explPart = dataset.explode || 10;
     let succPart = dataset.successValue || 7;
