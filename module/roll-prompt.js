@@ -11,8 +11,11 @@ export class RollPrompt {
 // and references that with a target Actor
   static async tRoll(event, targetActor) {
 
+// Declare variables
     const element = event.currentTarget;
     const dataset = element.dataset;
+    var targetAttr = [];
+    var targetSkill = [];
 
 // STEP 1: Check for available info and process it.
 // STEP 1A: Attribute info
