@@ -100,7 +100,7 @@ export class RollPrompt {
 //  let rollFormula = "(@attributes.{{key}}.value)d10x10cs>=8"
 
     // Roll Attribute by itself if no skill supplied
-    if (dataset.attrvalue && !dataset.skillvalue) {
+    if (dataset.attrname && !dataset.skillid) {
       console.log("Attrib only roll function triggered");
       let roll = new Roll(rollFormula);
       let label = dataset.attrname ? `Rolling ${dataset.attrname}` : '';
