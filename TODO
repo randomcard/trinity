@@ -1,1 +1,2 @@
 Rolling: pass through only key info, and have the roll function pull needed associated data from the actor & item.
+done-ish

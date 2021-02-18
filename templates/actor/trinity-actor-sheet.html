@@ -38,8 +38,8 @@
             {{#each data.attributes as |attribute key|}}
               <div class="attribute flexrow flex-group-center">
                 <label for="data.attributes.{{key}}.value" class="resource-label rollable"
-                  data-attrvalue="{{attribute.value}}"
-                  data-attr="{{attribute}}"
+                  <!-- data-attrvalue="{{attribute.value}}"
+                  data-attr="{{attribute}}" -->
                   data-attrname="{{attribute.name}}">
                   {{attribute.name}}
                 </label>
@@ -135,7 +135,8 @@
                         <a class="item-control item-edit" title="Edit Skill"><i class="fas fa-edit"></i></a>
                         <a class="item-control item-delete" title="Delete Skill"><i class="fas fa-trash"></i></a>
                         <a class="item-control rollable" title="Roll Skill"
-                          data-roll="d20+@abilities.{{key}}.mod" data-label="{{item.name}}">
+                          data-skillid="{{item._id}}"
+                          data-label="{{item.name}}">
                           <i class="fas fa-dice-d20"></i></a>
                     </div>
                 </li>

@@ -5,10 +5,49 @@ export class RollPrompt {
   // Problem??
   // template = template || 'systems/trinity/templates/roll-prompt.html';
 
+
+// Main Roll function
+// Takes event from click (which will have the attribute / skill / specialty name or ID),
+// and references that with a target Actor
   static async tRoll(event, targetActor) {
 
     const element = event.currentTarget;
     const dataset = element.dataset;
+
+// STEP 1: Check for available info and process it.
+// STEP 1A: Attribute info
+    if (typeof dataset.attrname !== 'undefined' && dataset.attrname !== null) {
+      let targetAttr = Object.values(targetActor.data.data.attributes).filter(attribute => attribute.name === dataset.attrname);
+      // If the dataset has dataset.attrname, use it get full actor attrib data
+    }
+
+// STEP 1B: Skill info
+    if (typeof dataset.skillid !== 'undefined' && dataset.skillid !== null) {
+      let targetSkill = Object.values(targetActor.data.items).filter(skill => skill._id === dataset.skillid);
+      // If the dataset has dataset.skillid, use it get full item skill data
+    }
+
+// STEP 2: Set defaults, and overwriting with data found in step 1.
+    let attrPart = targetAttr[0].value || 0;
+    let skilPart = targetSkill[0].value || 0;
+    let dicePart = skilPart+attrPart;
+    let explPart = dataset.explode || 10;
+    let succPart = dataset.successvalue || 7;
+    let enhaPart = dataset.enhancements || 0;
+    // narrative scale must be minimum 1
+    let nscaPart = dataset.narrascale || 1;
+    // measure dramatic scale in difference (i.e. a scale 1 person vs. a scale 1 obstacle is 0)
+    let dscaPart = dataset.dramascale || 0;
+
+// STEP 3: Open Prompt with new defaults.
+
+
+
+
+
+
+
+/**
 
     console.log("Debug in the tRoll function");
 //    console.log(event);
@@ -41,10 +80,15 @@ export class RollPrompt {
     let explPart = dataset.explode || 10;
     let succPart = dataset.successvalue || 7;
     let enhaPart = dataset.enhancements || 0;
+    // narrative scale must be minimum 1
     let nscaPart = dataset.narrascale || 1;
-    let dscaPart = dataset.dramascale || 1;
+    // measure dramatic scale in difference (i.e. a scale 1 person vs. a scale 1 obstacle is 0)
+    let dscaPart = dataset.dramascale || 0;
 
-    let rollFormula = `${dicePart}d10x${explPart}cs>=${succPart}`;
+*//
+
+//  let rollFormula = `${dicePart}d10x${explPart}cs>=${succPart}`;
+    let rollFormula = `((${dicePart}d10x${explPart}cs>=${succPart})+(${enhaPart}+${dscaPart}))*${nscaPart}`;
     console.log(rollFormula);
 //  let rollFormula = "(@attributes.{{key}}.value)d10x10cs>=8"
 
