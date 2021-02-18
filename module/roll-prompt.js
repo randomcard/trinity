@@ -18,12 +18,16 @@ export class RollPrompt {
 // STEP 1A: Attribute info
     if (typeof dataset.attrname !== 'undefined' && dataset.attrname !== null) {
       let targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
+      console.log("Found Attribute Info:");
+      console.log(targetAttr);
       // If the dataset has dataset.attrname, use it get full actor attrib data
     }
 
 // STEP 1B: Skill info
     if (typeof dataset.skillid !== 'undefined' && dataset.skillid !== null) {
       let targetSkill = Object.values(targetActor.data.items).find(skill => skill._id === dataset.skillid);
+      console.log("Found Skill Info:");
+      console.log(targetSkill);
       // If the dataset has dataset.skillid, use it get full item skill data
     }
 
