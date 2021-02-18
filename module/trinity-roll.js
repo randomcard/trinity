@@ -1,6 +1,6 @@
 // import { TrinityActorSheet } from 'systems/trinity/module/actor/trinity-actor';
 
-export class RollPrompt {
+export class TrinityRoll {
 
   // Problem??
   // template = template || 'systems/trinity/templates/roll-prompt.html';
@@ -17,7 +17,7 @@ export class RollPrompt {
     var targetAttr = [];
     var targetSkill = [];
 
-// STEP 1: Check for available info and process it.
+// STEP 1: Check for available info from actor and process it.
 // STEP 1A: Attribute info
     if (typeof dataset.attrname !== 'undefined' && dataset.attrname !== null) {
       targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
@@ -45,6 +45,21 @@ export class RollPrompt {
     let nscaPart = dataset.narrascale || 1;
     // measure dramatic scale in difference (i.e. a scale 1 person vs. a scale 1 obstacle is 0)
     let dscaPart = dataset.dramascale || 0;
+
+    var rollParts = {
+      attr : attrPart,
+      skil : skilPart,
+      dice : skilPart+attrPart,
+      expl : explPart,
+      succ : succPart,
+      enha : enhaPart,
+      nsca : nscaPart,
+      dsca : dscaPart
+    };
+
+    console.log("rollParts Object:");
+    console.log(rollParts);
+
 
 // STEP 3: Open Prompt with new defaults.
 

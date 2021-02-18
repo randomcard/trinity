@@ -3,7 +3,7 @@
  * @extends {ActorSheet}
  */
 
-import { RollPrompt } from "/systems/trinity/module/roll-prompt.js";
+import { TrinityRoll } from "/systems/trinity/module/trinity-roll.js";
 
 export class TrinityActorSheet extends ActorSheet {
 
@@ -251,7 +251,7 @@ export class TrinityActorSheet extends ActorSheet {
 */
 
 // Code somewhat taken from PF2e, update in progress, replacing _onRoll above.
-// RollPrompt.tRoll
+// TrinityRoll.tRoll
 
 
 _onRoll(event) {
@@ -262,7 +262,7 @@ _onRoll(event) {
 //  console.log(event);
 //  console.log(element);
 //  console.log(dataset);
-  RollPrompt.tRoll(event, this.actor);
+  TrinityRoll.tRoll(event, this.actor);
 }
 
 
