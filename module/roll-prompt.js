@@ -85,7 +85,7 @@ export class RollPrompt {
     // measure dramatic scale in difference (i.e. a scale 1 person vs. a scale 1 obstacle is 0)
     let dscaPart = dataset.dramascale || 0;
 
-*//
+*/
 
 //  let rollFormula = `${dicePart}d10x${explPart}cs>=${succPart}`;
     let rollFormula = `((${dicePart}d10x${explPart}cs>=${succPart})+(${enhaPart}+${dscaPart}))*${nscaPart}`;
