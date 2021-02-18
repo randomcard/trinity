@@ -17,19 +17,19 @@ export class RollPrompt {
 // STEP 1: Check for available info and process it.
 // STEP 1A: Attribute info
     if (typeof dataset.attrname !== 'undefined' && dataset.attrname !== null) {
-      let targetAttr = Object.values(targetActor.data.data.attributes).filter(attribute => attribute.name === dataset.attrname);
+      let targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
       // If the dataset has dataset.attrname, use it get full actor attrib data
     }
 
 // STEP 1B: Skill info
     if (typeof dataset.skillid !== 'undefined' && dataset.skillid !== null) {
-      let targetSkill = Object.values(targetActor.data.items).filter(skill => skill._id === dataset.skillid);
+      let targetSkill = Object.values(targetActor.data.items).find(skill => skill._id === dataset.skillid);
       // If the dataset has dataset.skillid, use it get full item skill data
     }
 
 // STEP 2: Set defaults, and overwriting with data found in step 1.
-    let attrPart = targetAttr[0].value || 0;
-    let skilPart = targetSkill[0].value || 0;
+    let attrPart = targetAttr.value || 0;
+    let skilPart = targetSkill.value || 0;
     let dicePart = skilPart+attrPart;
     let explPart = dataset.explode || 10;
     let succPart = dataset.successvalue || 7;
