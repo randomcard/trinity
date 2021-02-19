@@ -1,6 +1,6 @@
 export class TrinityRollPrompt {
 
-  static async tRollPrompt(rollParts) {
+  static async tRollPrompt(rollParts, targetActor) {
 
 // Open Dialog with received options
 //  function renderPrompt () {
@@ -16,7 +16,7 @@ export class TrinityRollPrompt {
             icon: "<i class='fas fa-redo'></i>",
     			  label: "Roll",
     			  callback: () => {
-              resolve();
+              rollParts();
     			//	  actionType = "remove";
             }
           },
