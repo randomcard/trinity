@@ -17,7 +17,9 @@ export class TrinityRollPrompt {
     			  label: "Roll",
     			  callback: () => {
               for (let part of Object.keys(rollParts)) {
-                rollParts[part] = document.getElementsByTagName(part).value || rollParts[part];
+                rollParts[part] = document.getElementByID(part).value || rollParts[part];
+                console.log("rollParts."+part+":");
+                console.log(rollParts[part]);
               }
     			//	  actionType = "remove";
             }
