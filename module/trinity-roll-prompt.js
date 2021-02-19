@@ -48,7 +48,8 @@ export class TrinityRollPrompt {
     }).render(true);
 //    }
 // return the updated rollParts
-
+    console.log("rollParts, just before return statement:");
+    console.log(rollParts);
     return rollParts;
   }
 
