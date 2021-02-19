@@ -49,7 +49,7 @@ export class TrinityRollPrompt {
 
   static async getSettings(html, rollParts){
     for (let part of rollParts) {
-      rollParts[part] = document.getElementByName("attr").value) || rollParts[part];
+      rollParts[part] = document.getElementByName("attr").value || rollParts[part];
 //      if (html.find('#'+i._id)[0].checked) {
 //        iSelect = html.find('#'+i._id)[0].value;
     }
