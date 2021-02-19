@@ -7,7 +7,7 @@ export class TrinityRollPrompt {
 //    let newRollParts = rollParts;
     const actor = this.actor;
     const html = await renderTemplate("systems/trinity/templates/roll-prompt.html");
-    const d = Dialog.prompt({
+    const d = new Dialog.prompt({
         title: "Roll Options",
         content: html,
         // label: 'testButton',
