@@ -1,4 +1,5 @@
 // import { TrinityActorSheet } from 'systems/trinity/module/actor/trinity-actor';
+import { TrinityRollPrompt } from "/systems/trinity/module/trinity-roll-prompt.js";
 
 export class TrinityRoll {
 
@@ -39,7 +40,7 @@ export class TrinityRoll {
     let skilPart = targetSkill.value || 0;
     let dicePart = skilPart+attrPart;
     let explPart = dataset.explode || 10;
-    let succPart = dataset.successvalue || 7;
+    let succPart = dataset.successvalue || 8;
     let enhaPart = dataset.enhancements || 0;
     // narrative scale must be minimum 1
     let nscaPart = dataset.narrascale || 1;
@@ -62,7 +63,7 @@ export class TrinityRoll {
 
 
 // STEP 3: Open Prompt with new defaults.
-
+    rollParts = TrinityRollPrompt.tRollPrompt(rollParts);
 
 
 
