@@ -10,9 +10,28 @@ export class TrinityRollPrompt {
     const d = Dialog.prompt({
         title: "Roll Options",
         content: html,
-        label: 'testButton',
+        // label: 'testButton',
+        buttons: {
+          roll: {
+            icon: "<i class='fas fa-redo'></i>",
+    			  label: "Roll",
+    			  callback: () => {
+              result();
+    			//	  actionType = "remove";
+            }
+          },
+          cancel: {
+            icon: "<i class='fas fa-times'></i>",
+            label: "Cancel",
+            callback: () => {
+              result();
+          //	  actionType = "remove";
+            }
+          },
+        },
+        default:"roll",
         callback: html => {
-            console.log(html, actor);
+//            console.log(html, actor);
 /*
             let passionName = html[0].querySelector('.newPassion').value
             let passionValue = html[0].querySelector('.newPassionValue').value
