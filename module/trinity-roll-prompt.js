@@ -16,7 +16,7 @@ export class TrinityRollPrompt {
             icon: "<i class='fas fa-redo'></i>",
     			  label: "Roll",
     			  callback: () => {
-              result();
+              resolve();
     			//	  actionType = "remove";
             }
           },
@@ -24,7 +24,7 @@ export class TrinityRollPrompt {
             icon: "<i class='fas fa-times'></i>",
             label: "Cancel",
             callback: () => {
-              result();
+          //    resolve();
           //	  actionType = "remove";
             }
           },
