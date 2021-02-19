@@ -54,7 +54,7 @@ export class TrinityRollPrompt {
 // return the updated rollParts
     console.log("rollParts, just before return statement:");
     console.log(rollParts);
-    return resolve(rollParts);
+    return rollParts;
   }
 
 }
