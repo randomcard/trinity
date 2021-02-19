@@ -19,7 +19,7 @@ export class TrinityRollPrompt {
     			  callback: () => {
               for (let part of Object.keys(rollParts)) {
                 if (document.getElementById(part)){
-                  rollParts[part] = document.getElementById(part).value || rollParts[part];
+                  rollParts[part] = parseInt(document.getElementById(part).value) || rollParts[part];
                 }
                 console.log("rollParts."+part+":");
                 console.log(rollParts[part]);
@@ -32,13 +32,14 @@ export class TrinityRollPrompt {
             icon: "<i class='fas fa-times'></i>",
             label: "Cancel",
             callback: () => {
-          //    resolve();
+              resolve();
           //	  actionType = "remove";
             }
           },
         },
         default:"roll",
         callback: html => {
+          resolve();
 //            console.log(html, actor);
 /*
             let passionName = html[0].querySelector('.newPassion').value
@@ -53,7 +54,7 @@ export class TrinityRollPrompt {
 // return the updated rollParts
     console.log("rollParts, just before return statement:");
     console.log(rollParts);
-    return rollParts;
+    return resolve(rollParts);
   }
 
 }
