@@ -7,7 +7,8 @@ export class TrinityRollPrompt {
 //    let newRollParts = rollParts;
     const actor = this.actor;
     const html = await renderTemplate("systems/trinity/templates/roll-prompt.html");
-    const d = new Dialog({
+    const d = await new Promise(rollParts => {
+        new Dialog({
         title: "Roll Options",
         content: html,
         // label: 'testButton',
@@ -46,6 +47,7 @@ export class TrinityRollPrompt {
                 "data.passions": [...actor.data.passions, [passionName, passionValue]]
 */      }
     }).render(true);
+  });
 //    }
 // return the updated rollParts
     console.log("rollParts, just before return statement:");
