@@ -16,7 +16,9 @@ export class TrinityRollPrompt {
             icon: "<i class='fas fa-redo'></i>",
     			  label: "Roll",
     			  callback: () => {
-              rollParts = getSettings(html, rollParts);
+              for (let part of rollParts) {
+                rollParts[part] = document.getElementByName(part).value || rollParts[part];
+              }
     			//	  actionType = "remove";
             }
           },
@@ -42,19 +44,8 @@ export class TrinityRollPrompt {
     }).render(true);
 //    }
 // return the updated rollParts
-    return rollParts;
 
-
-  }
-
-  static async getSettings(html, rollParts){
-    for (let part of rollParts) {
-      rollParts[part] = document.getElementByName("attr").value || rollParts[part];
-//      if (html.find('#'+i._id)[0].checked) {
-//        iSelect = html.find('#'+i._id)[0].value;
-    }
     return rollParts;
   }
-
 
 }
