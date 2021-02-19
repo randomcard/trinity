@@ -16,7 +16,7 @@ export class TrinityRollPrompt {
             icon: "<i class='fas fa-redo'></i>",
     			  label: "Roll",
     			  callback: () => {
-              for (let part of rollParts) {
+              for (let part of Object.keys(rollParts)) {
                 rollParts[part] = document.getElementByName(part).value || rollParts[part];
               }
     			//	  actionType = "remove";
