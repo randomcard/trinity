@@ -22,6 +22,7 @@ export class TrinityRoll {
 // STEP 1A: Attribute info
     if (typeof dataset.attrname !== 'undefined' && dataset.attrname !== null) {
       targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
+      // targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
       console.log("Found Attribute Info:");
       console.log(targetAttr);
       // If the dataset has dataset.attrname, use it get full actor attrib data
