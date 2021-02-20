@@ -53,6 +53,12 @@ export class TrinityActorSheet extends ActorSheet {
       this._prepareCharacterItems(data);
     }
 
+// Test section - can I add more data here for other stuff?
+    if (rollParts){
+      data.rollParts = rollparts;
+    }
+
+
     return data;
   }
 
