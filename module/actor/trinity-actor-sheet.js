@@ -54,7 +54,7 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
 // Test section - can I add more data here for other stuff?
-    if (rollParts){
+    if (typeof rollparts !== 'undefined'){
       data.rollParts = rollparts;
     }
 
