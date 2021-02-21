@@ -1,0 +1,14 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <section class="sheet-body">
+    <div class="attributes grid grid-3col">
+      {{#each data.attributes as |attribute key|}}
+        <div class="attribute flexrow flex-group-center clickable" id="{{key}}">
+          <label for="data.attributes.{{key}}.value" class="resource-label " data-attrname="{{attribute.name}}">
+            {{attribute.name}}
+          </label>
+          <input type="text" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+</form>

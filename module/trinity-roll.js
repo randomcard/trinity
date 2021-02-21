@@ -19,7 +19,17 @@ export class TrinityRoll {
     var targetSkill = [];
 
 // STEP 1: Check for available info from actor and process it.
-// STEP 1A: Attribute info
+// Actor info
+/*    if (typeof targetActor !== 'undefined' ) {
+      targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
+      // targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
+      console.log("Found Attribute Info:");
+      console.log(targetAttr);
+      // If the dataset has dataset.attrname, use it get full actor attrib data
+    }
+*/
+
+// Attribute info
     if (typeof dataset.attrname !== 'undefined' && dataset.attrname !== null) {
       targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
       // targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
@@ -28,7 +38,7 @@ export class TrinityRoll {
       // If the dataset has dataset.attrname, use it get full actor attrib data
     }
 
-// STEP 1B: Skill info
+// Skill info
     if (typeof dataset.skillid !== 'undefined' && dataset.skillid !== null) {
       targetSkill = Object.values(targetActor.data.items).find(skill => skill._id === dataset.skillid);
       console.log("Found Skill Info:");

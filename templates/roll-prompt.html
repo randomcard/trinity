@@ -4,19 +4,25 @@
   <section class="sheet-body">
     {{log "MyItem" this}}
     <div class="rollprompt grid grid-2col">
+
       <div class="attr flexrow flex-group-center">
-        <!--
-        <label for="rollParts.attr" class="resource-label">
-          rollParts.attr
-        </label>
-        -->
         <input type="number" id="attr" value="{{this.roll.attr}}" data-dtype="Number"/>
       </div>
       <div class="attr flexrow flex-group-center">
         <label for="attr" class="resource-label">
-          {{rollParts.attr}} Label
+          Attribute Name {{rollParts.attr}}
         </label>
       </div>
+
+      <div class="skill flexrow flex-group-center">
+        <input type="number" id="skil" value="{{this.roll.skil}}" data-dtype="Number"/>
+      </div>
+      <div class="skill flexrow flex-group-center">
+        <label for="skil" class="resource-label">
+          Skill Name {{rollParts.attr}}
+        </label>
+      </div>
+
     </div>
   </section>
 </form>
