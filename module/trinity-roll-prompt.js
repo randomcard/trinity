@@ -7,11 +7,11 @@ export class TrinityRollPrompt {
 //    let newRollParts = rollParts;
 //    const actor = this.actor;
     const html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor});
-    const d = await new Promise(resolve => {
+    const rollDialog = await new Promise(resolve => {
         new Dialog({
         title: "Roll Options",
+        id: "rdialog",
         content: html,
-        // label: 'testButton',
         buttons: {
           roll: {
             icon: "<i class='fas fa-redo'></i>",

@@ -50,9 +50,21 @@ Hooks.once('init', async function() {
   });
 });
 
+
+/* -------------------------------------------- */
+/*  Hooks                                       */
+/* -------------------------------------------- */
+
 Hooks.once("ready", async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createTrinityMacro(data, slot));
+  // Hook for roll dialog - perhaps better done with extening dialog class and using active listeners, but this seems earier for now:
+  Hooks.on('renderDialog', (dialog, html) => {
+    if (dialog.data.id === "rdialog") {
+      html.getElementById("attr").on('click', event => { console.log("Test: Hook for attr click worked!"); );
+    }
+  });
+
 });
 
 /* -------------------------------------------- */
