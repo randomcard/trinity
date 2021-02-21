@@ -120,7 +120,7 @@ export class TrinityRoll {
 */
 
 //  let rollFormula = `${dicePart}d10x${explPart}cs>=${succPart}`;
-    let rollFormula = `((${rollParts.dice}d10x${rollParts.expl}cs>=${rollParts.succ})+(${rollParts.enha}+${rollParts.dsca}))*${rollParts.nsca}`;
+    let rollFormula = `(((${rollParts.attr}+${rollParts.skil})d10x${rollParts.expl}cs>=${rollParts.succ})+(${rollParts.enha}+${rollParts.dsca}))*${rollParts.nsca}`;
     console.log(rollFormula);
 //  let rollFormula = "(@attributes.{{key}}.value)d10x10cs>=8"
 
