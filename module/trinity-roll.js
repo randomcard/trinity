@@ -18,6 +18,9 @@ export class TrinityRoll {
     var targetAttr = [];
     var targetSkill = [];
 
+    // Elements table, or picked elements, will include the details of the selected roll components. Will be an originator of rollparts
+    var pickedElements = {};
+
 // STEP 1: Check for available info from actor and process it.
 // Actor info
 /*    if (typeof targetActor !== 'undefined' ) {
@@ -32,6 +35,18 @@ export class TrinityRoll {
 // Attribute info
     if (typeof dataset.attrname !== 'undefined' && dataset.attrname !== null) {
       targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
+      // targetAttr.id = targetAttr.name;
+      pickedElements[targetAttr.name] = targetAttr;
+      console.log("Picked Elements:");
+      console.log(pickedElements);
+      /*
+      let pickedElement = {
+        id: targetAttr.name,
+        name: targetAttr.name,
+        value: targetAttr.value,
+        arena: app
+      };
+      */
       // targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
       console.log("Found Attribute Info:");
       console.log(targetAttr);
