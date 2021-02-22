@@ -63,7 +63,7 @@ Hooks.once("ready", async function() {
     if (dialog.data.id === "rdialog") {
       html.find(".attr").on('click', event => {
         console.log("Test: Attr Roller Hook");
-        console.log(dialog.data); 
+        console.log(html.data); 
       });
     }
   });
