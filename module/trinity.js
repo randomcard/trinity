@@ -61,7 +61,7 @@ Hooks.once("ready", async function() {
   // Hook for roll dialog - perhaps better done with extening dialog class and using active listeners, but this seems earier for now:
   Hooks.on('renderDialog', (dialog, html) => {
     if (dialog.data.id === "rdialog") {
-      html.getElementById("attr").on('click', event => { console.log("Test: Hook for attr click worked!"); });
+      html.find("attr").on('click', event => { console.log("Test: Hook for attr click worked!"); });
     }
   });
 
