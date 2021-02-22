@@ -5,12 +5,12 @@
     {{log "MyItem" this}}
     <div class="rollprompt grid grid-2col">
 
-      <div class="attr flexrow flex-group-center">
+      <div class="attr-edit flexrow flex-group-center"><<!-- Change the div class back to attr once it becomes a non-editable element-->
         <input type="number" id="attr" value="{{this.roll.attr}}" data-dtype="Number"/>
       </div>
       <div class="attr flexrow flex-group-center">
         <label for="attr" class="resource-label clickable">
-          Attribute Name {{rollParts.attr}}
+          Attribute Name {{this.roll.attrname}}
         </label>
       </div>
 
@@ -19,7 +19,7 @@
       </div>
       <div class="skill flexrow flex-group-center">
         <label for="skil" class="resource-label clickable">
-          Skill Name {{rollParts.attr}}
+          Skill Name {{this.roll.skilname}}
         </label>
       </div>
 
