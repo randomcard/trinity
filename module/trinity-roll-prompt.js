@@ -1,12 +1,12 @@
 export class TrinityRollPrompt {
 
-  static async tRollPrompt(rollParts, targetActor) {
+  static async tRollPrompt(rollParts, targetActor, pickedElements) {
 
 // Open Dialog with received options
 //  function renderPrompt () {
 //    let newRollParts = rollParts;
 //    const actor = this.actor;
-    const html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor});
+    const html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
     const rollDialog = await new Promise(resolve => {
         new Dialog({
         title: "Roll Options",
