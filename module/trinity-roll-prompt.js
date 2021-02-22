@@ -48,7 +48,8 @@ export class TrinityRollPrompt {
             actor.update({
                 "data.passions": [...actor.data.passions, [passionName, passionValue]]
 */      }
-    }).render(true);
+//    }).render(true);
+      });
   });
 //    }
 // return the updated rollParts
@@ -68,7 +69,8 @@ export class TrinityRollPrompt {
           console.log(rollParts);
         });
       }
-    }).render(true);
+    });
+    rollDialog.render(true);
 
   }
 
