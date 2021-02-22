@@ -48,17 +48,17 @@ export class TrinityRollPrompt {
             actor.update({
                 "data.passions": [...actor.data.passions, [passionName, passionValue]]
 */      }
-//    }).render(true);
-      });
+    }).render(true);
+
   });
 //    }
 // return the updated rollParts
     console.log("rollParts, just before return statement:");
     console.log(rollParts);
 //  Original:
-//  return rollParts;
+  return rollParts;
 //  Test hook:
-
+/*
     Hooks.on('renderDialog', (dialog, html, data, input) => {
       if (dialog.data.id === "rdialog") {
         html.find(".attr").on('click', event => {
@@ -71,7 +71,7 @@ export class TrinityRollPrompt {
       }
     });
     rollDialog.render(true);
-
+*/
   }
 
 }
