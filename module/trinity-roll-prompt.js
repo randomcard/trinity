@@ -54,7 +54,22 @@ export class TrinityRollPrompt {
 // return the updated rollParts
     console.log("rollParts, just before return statement:");
     console.log(rollParts);
-    return rollParts;
+//  Original:
+//  return rollParts;
+//  Test hook:
+
+    Hooks.on('renderDialog', (dialog, html, data, input) => {
+      if (dialog.data.id === "rdialog") {
+        html.find(".attr").on('click', event => {
+          console.log("Test: Attr Roller Hook");
+          console.log(dialog);
+          console.log(html);
+          console.log(data);
+          console.log(rollParts);
+        });
+      }
+    }).render(true);
+
   }
 
 }
