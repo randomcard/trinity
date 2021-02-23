@@ -1,26 +1,25 @@
+import { Picker } from "/systems/trinity/module/picker.js";
+
 export class RDialog extends Dialog {
 
   constructor(data, params, options) {
     super(data, options);
-    console.log("Constructor, this: ----------------");
-    console.log(this);
-    console.log("Constructor, params: ----------------");
-    console.log(params);
     this.actor = params.targetActor;
+    this.pickedElements = params.pickedElements;
     console.log("Constructor, after actor set: ----------------");
     console.log(this);
   }
 
   activateListeners(html) {
     super.activateListeners(html);
+
+    // Launch Attribute Picker
     html.find('.attr-label').click(ev => {
         ev.preventDefault();
-
         console.log("Test: Attr Roller Hook");
         console.log(this);
-        console.log(ev);
-        console.log(html);
-        console.log(targetActor);
+        Picker.pDialog("attr", this.actor, this.pickedElements);
+        this.pickedElements = await new Promise(resolve => {resolve(Picker.pDialog("attr", this.actor, this.pickedElements))});
         this.render(); // Is this needed?
     });
   }
@@ -102,6 +101,10 @@ export class TrinityRollPrompt {
 // return the updated rollParts
     console.log("rollParts, just before return statement:");
     console.log(rollParts);
+    console.log("pickedElements, just before return statement:");
+    console.log(pickedElements);
+    console.log("this, just before return statement:");
+    console.log(this);
 //  Original:
   return rollParts;
 //  Test hook:
