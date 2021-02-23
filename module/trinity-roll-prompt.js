@@ -7,6 +7,12 @@ export class TrinityRollPrompt {
 //    let newRollParts = rollParts;
 //    const actor = this.actor;
     const html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
+
+    html.on("click", ".attr", ev => {
+      console.log(html[0]);
+      console.log(html[1]);
+    });
+    
     const rollDialog = await new Promise(resolve => {
         new Dialog({
         title: "Roll Options",
@@ -52,6 +58,7 @@ export class TrinityRollPrompt {
 
   });
   /* Test Section, Can I add listeners here?
+  Hooks.on('renderDialog', (dialog, html, data, input) => {
   rollDialog.activateListeners(html) {
     html.find(".attr").on('click', event => {
       console.log("Test: Attr Roller Hook");
@@ -61,7 +68,7 @@ export class TrinityRollPrompt {
       console.log(arg4)
     });
   };
-  End Test Section */
+   End Test Section */
 //    }
 // return the updated rollParts
     console.log("rollParts, just before return statement:");
