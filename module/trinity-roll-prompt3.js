@@ -7,15 +7,14 @@ export class RDialog extends Dialog {
 
   activateListeners(html) {
     super.activateListeners(html);
-    html.find('.clickable').click(ev => {
+    html.find('.attr-label').click(ev => {
         ev.preventDefault();
+
         console.log("Test: Attr Roller Hook");
-        console.log(this.caller);
+        console.log(this.actor);
         console.log(ev);
         console.log(html);
-        console.log(data);
-        console.log(arg3);
-        console.log(arg4);
+        console.log(targetActor);
         this.render(); // Is this needed?
     });
   }
