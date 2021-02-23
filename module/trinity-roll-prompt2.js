@@ -1,3 +1,62 @@
+export class TrinityActorSheet extends Dialog {
+
+  /** @override */
+  static get defaultOptions() {
+    return mergeObject(super.defaultOptions, {
+      classes: ["trinity", "sheet", "dialog"],
+      template: "systems/trinity/templates/roll-prompt.html",
+      title: "Roll Options",
+      id: "rdialog",
+      content: html,
+      buttons: {
+        roll: {
+          icon: "<i class='fas fa-redo'></i>",
+          label: "Roll",
+          callback: () => {
+            for (let part of Object.keys(rollParts)) {
+              if (document.getElementById(part)){
+                rollParts[part] = parseInt(document.getElementById(part).value) || rollParts[part];
+              }
+              console.log("rollParts."+part+":");
+              console.log(rollParts[part]);
+            }
+            resolve(rollParts);
+          }
+        },
+        cancel: {
+          icon: "<i class='fas fa-times'></i>",
+          label: "Cancel",
+          callback: () => {
+            resolve();
+          }
+        },
+      },
+      default:"roll",
+      callback: html => {
+        resolve();
+      }
+    });
+  }
+
+  /** @override */
+  getData() {
+    const data = super.getData();
+    data.dtypes = ["String", "Number", "Boolean"];
+
+    // Prepare items.
+    if (this.actor.data.type == 'TrinityCharacter') {
+      this._prepareTrinityCharacterItems(data);
+    }
+    if (this.actor.data.type == 'Character') {
+      this._prepareCharacterItems(data);
+    }
+
+}
+
+
+
+
+/* Original */
 export class TrinityRollPrompt {
 
   static async tRollPrompt(rollParts, targetActor, pickedElements) {
@@ -49,16 +108,7 @@ export class TrinityRollPrompt {
                 "data.passions": [...actor.data.passions, [passionName, passionValue]]
 */      }
     }).render(true);
-    /* Test Section, Can I add listeners here? */
-    rollDialog.activateListeners(html) {
-      html.find(".attr").on('click', event => {
-        console.log("Test: Attr Roller Hook");
-        console.log(html);
-        console.log(data);
-        console.log(arg3);
-        console.log(arg4);
-    };
-    /* End Test Section */
+
   });
 //    }
 // return the updated rollParts
