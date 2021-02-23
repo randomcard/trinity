@@ -49,18 +49,19 @@ export class TrinityRollPrompt {
                 "data.passions": [...actor.data.passions, [passionName, passionValue]]
 */      }
     }).render(true);
-    /* Test Section, Can I add listeners here? */
-    rollDialog.activateListeners(html) {
-      html.find(".attr").on('click', event => {
-        console.log("Test: Attr Roller Hook");
-        console.log(html);
-        console.log(data);
-        console.log(arg3);
-        console.log(arg4)
-      });
-    };
-    /* End Test Section */
+
   });
+  /* Test Section, Can I add listeners here? */
+  rollDialog.activateListeners(html) {
+    html.find(".attr").on('click', event => {
+      console.log("Test: Attr Roller Hook");
+      console.log(html);
+      console.log(data);
+      console.log(arg3);
+      console.log(arg4)
+    });
+  };
+  /* End Test Section */
 //    }
 // return the updated rollParts
     console.log("rollParts, just before return statement:");
