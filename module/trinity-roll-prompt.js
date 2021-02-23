@@ -51,7 +51,7 @@ export class TrinityRollPrompt {
     }).render(true);
 
   });
-  /* Test Section, Can I add listeners here? */
+  /* Test Section, Can I add listeners here?
   rollDialog.activateListeners(html) {
     html.find(".attr").on('click', event => {
       console.log("Test: Attr Roller Hook");
@@ -61,7 +61,7 @@ export class TrinityRollPrompt {
       console.log(arg4)
     });
   };
-  /* End Test Section */
+  End Test Section */
 //    }
 // return the updated rollParts
     console.log("rollParts, just before return statement:");
