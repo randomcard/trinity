@@ -8,11 +8,6 @@ export class TrinityRollPrompt {
 //    const actor = this.actor;
     const html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
 
-    html.on("click", ".attr", ev => {
-      console.log(html[0]);
-      console.log(html[1]);
-    });
-
     const rollDialog = await new Promise(resolve => {
         new Dialog({
         title: "Roll Options",
@@ -58,7 +53,7 @@ export class TrinityRollPrompt {
 
   });
   //Another hook/data test
-  document.find('.attr').addEventListener("click", ()=> {
+  html.find('.attr').addEventListener("click", ()=> {
     console.log(this);
   });
 
