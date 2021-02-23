@@ -57,7 +57,7 @@ export class TrinityRollPrompt {
         console.log(data);
         console.log(arg3);
         console.log(arg4)
-      };
+      });
     };
     /* End Test Section */
   });
