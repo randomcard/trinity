@@ -4,6 +4,8 @@ export class RDialog extends Dialog {
     super(data, options);
     console.log("Constructor, this: ----------------");
     console.log(this);
+    console.log("Constructor, params: ----------------");
+    console.log(params);
     this.actor = params[0];
   }
 
