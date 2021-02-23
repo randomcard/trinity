@@ -11,7 +11,7 @@ export class RDialog extends Dialog {
         ev.preventDefault();
 
         console.log("Test: Attr Roller Hook");
-        console.log(this.actor);
+        console.log(this);
         console.log(ev);
         console.log(html);
         console.log(targetActor);
