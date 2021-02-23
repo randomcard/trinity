@@ -6,7 +6,9 @@ export class RDialog extends Dialog {
     console.log(this);
     console.log("Constructor, params: ----------------");
     console.log(params);
-    this.actor = params[0];
+    this.actor = params.targetActor;
+    console.log("Constructor, after actor set: ----------------");
+    console.log(this);
   }
 
   activateListeners(html) {
