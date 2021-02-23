@@ -12,7 +12,7 @@ export class TrinityRollPrompt {
       console.log(html[0]);
       console.log(html[1]);
     });
-    
+
     const rollDialog = await new Promise(resolve => {
         new Dialog({
         title: "Roll Options",
@@ -57,6 +57,11 @@ export class TrinityRollPrompt {
     }).render(true);
 
   });
+  //Another hook/data test
+  document.find('.attr').addEventListener("click", ()=> {
+    console.log(this);
+  }
+
   /* Test Section, Can I add listeners here?
   Hooks.on('renderDialog', (dialog, html, data, input) => {
   rollDialog.activateListeners(html) {
