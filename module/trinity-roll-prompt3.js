@@ -1,10 +1,10 @@
 export class RDialog extends Dialog {
 
-  constructor(data, options, actor) {
+  constructor(data, params, options) {
     super(data, options);
     console.log("Constructor, this: ----------------");
     console.log(this);
-    this.actor = actor;
+    this.actor = params[0];
   }
 
   activateListeners(html) {
@@ -77,7 +77,7 @@ export class TrinityRollPrompt {
             actor.update({
                 "data.passions": [...actor.data.passions, [passionName, passionValue]]
 */      }
-    }).render(true);
+    }, {targetActor, pickedElements}).render(true);
 
   });
 
