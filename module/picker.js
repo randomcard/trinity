@@ -20,6 +20,7 @@ export class Picker {
             icon: "<i class='fas fa-redo'></i>",
             label: "Update",
             callback: () => {
+              /* Needs updating to update pickedElements
               for (let part of Object.keys(rollParts)) {
                 if (document.getElementById(part)){
                   rollParts[part] = parseInt(document.getElementById(part).value) || rollParts[part];
@@ -27,8 +28,7 @@ export class Picker {
                 console.log("rollParts."+part+":");
                 console.log(rollParts[part]);
               }
-              resolve(rollParts);
-          //	  actionType = "remove";
+              resolve(rollParts); */
             }
           },
           cancel: {
