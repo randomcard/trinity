@@ -46,3 +46,5 @@ export class Picker {
     }).render(true);
   });
 }
+
+}
