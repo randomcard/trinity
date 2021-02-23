@@ -53,7 +53,7 @@ export class TrinityRollPrompt {
 
   });
   //Another hook/data test
-  html.find('.attr').addEventListener("click", ()=> {
+  rollDialog.find('.attr').addEventListener("click", ()=> {
     console.log(this);
   });
 
