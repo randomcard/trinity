@@ -42,95 +42,24 @@ export class TrinityActorSheet extends Dialog {
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
-
-    // Prepare items.
-    if (this.actor.data.type == 'TrinityCharacter') {
-      this._prepareTrinityCharacterItems(data);
-    }
-    if (this.actor.data.type == 'Character') {
-      this._prepareCharacterItems(data);
-    }
-
+    return data;
 }
 
-
-
-
-/* Original */
-export class TrinityRollPrompt {
-
-  static async tRollPrompt(rollParts, targetActor, pickedElements) {
-
-// Open Dialog with received options
-//  function renderPrompt () {
-//    let newRollParts = rollParts;
-//    const actor = this.actor;
-    const html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
-    const rollDialog = await new Promise(resolve => {
-        new Dialog({
-        title: "Roll Options",
-        id: "rdialog",
-        content: html,
-        buttons: {
-          roll: {
-            icon: "<i class='fas fa-redo'></i>",
-    			  label: "Roll",
-    			  callback: () => {
-              for (let part of Object.keys(rollParts)) {
-                if (document.getElementById(part)){
-                  rollParts[part] = parseInt(document.getElementById(part).value) || rollParts[part];
-                }
-                console.log("rollParts."+part+":");
-                console.log(rollParts[part]);
-              }
-              resolve(rollParts);
-    			//	  actionType = "remove";
-            }
-          },
-          cancel: {
-            icon: "<i class='fas fa-times'></i>",
-            label: "Cancel",
-            callback: () => {
-              resolve();
-          //	  actionType = "remove";
-            }
-          },
-        },
-        default:"roll",
-        callback: html => {
-          resolve();
-//            console.log(html, actor);
-/*
-            let passionName = html[0].querySelector('.newPassion').value
-            let passionValue = html[0].querySelector('.newPassionValue').value
-
-            actor.update({
-                "data.passions": [...actor.data.passions, [passionName, passionValue]]
-*/      }
-    }).render(true);
-
-  });
-//    }
-// return the updated rollParts
-    console.log("rollParts, just before return statement:");
-    console.log(rollParts);
-//  Original:
-  return rollParts;
-//  Test hook:
-/*
-    Hooks.on('renderDialog', (dialog, html, data, input) => {
-      if (dialog.data.id === "rdialog") {
-        html.find(".attr").on('click', event => {
-          console.log("Test: Attr Roller Hook");
-          console.log(dialog);
-          console.log(html);
-          console.log(data);
-          console.log(rollParts);
-        });
-      }
-    });
-    rollDialog.render(true);
-*/
+  /** @override */
+  activateListeners(html) {
+    super.activateListeners(html);
+    html.find('.clickable').click(this._onRoll.bind(this));
   }
 
-}
+  _onRoll(event) {
+    event.preventDefault();
+  //  const element = event.currentTarget;
+  //  const dataset = element.dataset;
+    console.log("new onRoll function from rollprompt2");
+    console.log(event);
+  //  console.log(element);
+  //  console.log(dataset);
+  //  ex: TrinityRoll.tRoll(event, this.actor);
+  }
+
+} // End of Extend

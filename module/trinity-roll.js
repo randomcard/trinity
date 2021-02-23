@@ -1,5 +1,5 @@
-// import { TrinityActorSheet } from 'systems/trinity/module/actor/trinity-actor';
-import { TrinityRollPrompt } from "/systems/trinity/module/trinity-roll-prompt.js";
+// import { TrinityRollPrompt } from "/systems/trinity/module/trinity-roll-prompt.js";
+import { TrinityRollPrompt } from "/systems/trinity/module/trinity-roll-prompt2.js";
 
 export class TrinityRoll {
 
