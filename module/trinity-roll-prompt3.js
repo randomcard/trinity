@@ -1,24 +1,24 @@
 export class RDialog extends Dialog {
 
-    constructor(caller, data, options) {
-        super(data, options);
+  constructor(data, options, actor) {
+    super(data, options);
+    this.actor = actor;
+  }
 
-        this.caller = caller;
-    }
-
-    activateListeners(html) {
-        html.find('.clickable').click(ev => {
-            ev.preventDefault();
-            console.log("Test: Attr Roller Hook");
-            console.log(this.caller);
-            console.log(ev);
-            console.log(html);
-            console.log(data);
-            console.log(arg3);
-            console.log(arg4);
-            this.render();
-        });
-    }
+  activateListeners(html) {
+    super.activateListeners(html);
+    html.find('.clickable').click(ev => {
+        ev.preventDefault();
+        console.log("Test: Attr Roller Hook");
+        console.log(this.caller);
+        console.log(ev);
+        console.log(html);
+        console.log(data);
+        console.log(arg3);
+        console.log(arg4);
+        this.render(); // Is this needed?
+    });
+  }
 }
 
 export class TrinityRollPrompt {
