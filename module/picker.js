@@ -1,7 +1,7 @@
 export class Picker {
 
   static async pDialog(pickType, targetActor, pickedElements) {
-    const html = await renderTemplate("systems/trinity/templates/pickers/roll-prompt.html", {picked: pickedElements, actor: targetActor});
+    const html = await renderTemplate("systems/trinity/templates/pickers/pick-attr.html", {picked: pickedElements, actor: targetActor});
     const pickDialog = await new Promise(resolve => {
         new Dialog({
         title: "Pick Element",
