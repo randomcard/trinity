@@ -8,7 +8,7 @@ export class TrinityRollPrompt {
 //    const actor = this.actor;
     const html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
     //Another hook/data test
-    html.find('.attr').addEventListener("click", ()=> {
+    html.getElementById('attr-label').addEventListener("click", ()=> {
       console.log(this);
     });
 
