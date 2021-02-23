@@ -1,7 +1,15 @@
 export class Picker {
 
   static async pDialog(pickType, targetActor, pickedElements) {
+
+    // add some conditional code here to change the template depending on pickType - attr, skil, etc.
+    console.log("Picker, what does it have?");
+    console.log(this);
+    console.log(pickType);
+    console.log(targetActor);
+    console.log(pickedElements);
     const html = await renderTemplate("systems/trinity/templates/pickers/pick-attr.html", {picked: pickedElements, actor: targetActor});
+
     const pickDialog = await new Promise(resolve => {
         new Dialog({
         title: "Pick Element",
