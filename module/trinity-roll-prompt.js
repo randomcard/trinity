@@ -60,7 +60,7 @@ export class TrinityRollPrompt {
   //Another hook/data test
   document.find('.attr').addEventListener("click", ()=> {
     console.log(this);
-  }
+  });
 
   /* Test Section, Can I add listeners here?
   Hooks.on('renderDialog', (dialog, html, data, input) => {
