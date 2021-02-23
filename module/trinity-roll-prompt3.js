@@ -18,8 +18,8 @@ export class RDialog extends Dialog {
         ev.preventDefault();
         console.log("Test: Attr Roller Hook");
         console.log(this);
-        Picker.pDialog("attr", this.actor, this.pickedElements);
-        this.pickedElements = await new Promise(resolve => {resolve(Picker.pDialog("attr", this.actor, this.pickedElements))});
+        this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements);
+        //this.pickedElements = await new Promise(resolve => {resolve(Picker.pDialog("attr", this.actor, this.pickedElements))});
         this.render(); // Is this needed?
     });
   }
