@@ -1,4 +1,4 @@
-export class TrinityActorSheet extends Dialog {
+export class TrinityRollPrompt extends Dialog {
 
   /** @override */
   static get defaultOptions() {
