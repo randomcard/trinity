@@ -1,5 +1,6 @@
 // import { TrinityRollPrompt } from "/systems/trinity/module/trinity-roll-prompt.js";
-import { TrinityRollPrompt } from "/systems/trinity/module/trinity-roll-prompt2.js";
+import { RDialog } from "/systems/trinity/module/trinity-roll-prompt3.js";
+import { TrinityRollPrompt } from "/systems/trinity/module/trinity-roll-prompt3.js";
 
 export class TrinityRoll {
 
