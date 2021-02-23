@@ -56,7 +56,8 @@ export class TrinityRollPrompt {
         console.log(html);
         console.log(data);
         console.log(arg3);
-        console.log(arg4);
+        console.log(arg4)
+      };
     };
     /* End Test Section */
   });
