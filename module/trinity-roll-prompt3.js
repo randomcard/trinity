@@ -19,8 +19,14 @@ export class RDialog extends Dialog {
         // this.render(false);
 
         // Somewhat working code: doesn't return properly:
-        // this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements).then(this.render(true));
-        openAttrPicker();
+        this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements).then({
+          console.log("Inside call to open picker dialog");
+          html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
+          this.render(true);
+        });
+
+
+        //openAttrPicker();
         /*
         this.pickedElements = async function() {
           console.log("Inside call to open picker dialog");
@@ -38,15 +44,16 @@ export class RDialog extends Dialog {
     });
   }
 
+/* Doesn't work?
   async function openAttrPicker() {
     // Open Attr Picker Dialog
-    this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements).then(this.render(true));
+    this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
     // Re-Render template
     html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
     // Refresh Roll Prompt when done
     this.render(true);
   }
-
+*/
 }
 
 export class TrinityRollPrompt {
