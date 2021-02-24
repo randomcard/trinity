@@ -19,7 +19,13 @@ export class RDialog extends Dialog {
         // this.render(false);
 
         // Somewhat working code: doesn't return properly:
-        this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
+        let placeholder = await Picker.pDialog("attr", this.actor, this.pickedElements);
+        console.log("Placeholder:");
+        console.log(placeholder);
+        this.pickedElements = placeholder;
+        console.log("this.pickedElements:");
+        console.log(this.pickedElements);
+        // this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
         html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
         this.render(true);
 
