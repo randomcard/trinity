@@ -20,15 +20,15 @@ export class Picker {
             icon: "<i class='fas fa-redo'></i>",
             label: "Update",
             callback: () => {
-                html.find('.input').each((i, li) => {
-                  if (li.checked) {  // maybe i[0]
-                    pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === li.value);
-                    console.log("Picker, Update button, pickedElement:");
-                    console.log(pickedElements);
-                  }
-                });
-
-
+              console.log("Testing getElementsByClassName:");
+              console.log(document.getElementsByClassName('input'));
+              for (let i of document.getElementsByClassName('input')) {
+                if (i.checked) {  // maybe i[0]
+                  pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value);
+                  console.log("Picker, Update button, pickedElement:");
+                  console.log(pickedElements);
+                }
+              };
 
 /*
 
