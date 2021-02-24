@@ -19,7 +19,7 @@ export class RDialog extends Dialog {
         this.render(false);
 
         // Somewhat working code: doesn't return properly:
-        this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements);
+        this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements).then(this.render(true));
 
         /*
         this.pickedElements = async function() {
