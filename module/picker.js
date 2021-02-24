@@ -29,6 +29,8 @@ export class Picker {
                   console.log(pickedElements);
                 }
               };
+              console.log(pickedElements);
+              resolve(pickedElements);
 
 /*
 
@@ -72,7 +74,7 @@ pickedElements.attr = targetAttr;
 /* End Code Snippets */
 
 
-              resolve(pickedElements);
+
               /* Needs updating to update pickedElements
               for (let part of Object.keys(rollParts)) {
                 if (document.getElementById(part)){
