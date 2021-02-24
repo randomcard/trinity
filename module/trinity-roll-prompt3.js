@@ -16,11 +16,12 @@ export class RDialog extends Dialog {
     // Launch Attribute Picker
     html.find('.attr-label').click(ev => {
         ev.preventDefault();
+        this.render(false);
         console.log("Test: Attr Roller Hook");
         console.log(this);
         this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements);
         //this.pickedElements = await new Promise(resolve => {resolve(Picker.pDialog("attr", this.actor, this.pickedElements))});
-        this.render(); // Is this needed?
+        this.render(true); // Is this needed?
     });
   }
 }

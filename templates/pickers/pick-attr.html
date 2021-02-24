@@ -3,11 +3,11 @@
   <section class="sheet-body">
     <div class="attributes grid grid-3col">
       {{#each this.actor.data.data.attributes as |attribute key|}}
-        <div class="attribute flexrow flex-group-center clickable" id="{{key}}">
-          <label for="data.attributes.{{key}}" class="resource-label " data-attrname="{{attribute.name}}">
+        <div class="attribute flexrow flex-group-center" id="{{key}}">
+          <label for="data.attributes.{{key}}" class="resource-label" data-attrname="{{attribute.name}}">
             {{attribute.name}}
           </label>
-          <input type="radio" name="data.attributes.{{key}}" value="{{attribute.name}}" data-dtype="Number"/>
+          <input type="radio" id="{{attribute}}" class="input" name="{{attribute}}" value="{{attribute.name}}">
         </div>
       {{/each}}
     </div>

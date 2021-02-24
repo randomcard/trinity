@@ -20,6 +20,31 @@ export class Picker {
             icon: "<i class='fas fa-redo'></i>",
             label: "Update",
             callback: () => {
+              for (let i of html.find('.input') {
+                if (i.checked) {  // maybe i[0]
+                  pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value);
+                }
+              };
+
+/* Various useful code snippets
+targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
+pickedElements.attr = targetAttr;
+
+              if (html.find('#'+i._id)[0].checked) {
+                iSelect = html.find('#'+i._id)[0].value;
+              }
+
+              for (let part of Object.keys(rollParts)) {
+                if (document.getElementById(part)){
+                  rollParts[part] = parseInt(document.getElementById(part).value) || rollParts[part];
+                }
+                console.log("rollParts."+part+":");
+                console.log(rollParts[part]);
+              }
+/* End Code Snippets */
+
+
+              resolve(pickedElements);
               /* Needs updating to update pickedElements
               for (let part of Object.keys(rollParts)) {
                 if (document.getElementById(part)){
@@ -35,14 +60,14 @@ export class Picker {
             icon: "<i class='fas fa-times'></i>",
             label: "Cancel",
             callback: () => {
-              resolve();
+              resolve(pickedElements);
           //	  actionType = "remove";
             }
           },
         },
         default:"roll",
         callback: html => {
-          resolve();
+          resolve(pickedElements);
 //            console.log(html, actor);
 /*
             let passionName = html[0].querySelector('.newPassion').value
