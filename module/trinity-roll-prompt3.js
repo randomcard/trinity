@@ -14,15 +14,14 @@ export class RDialog extends Dialog {
     super.activateListeners(html);
 
     // Launch Attribute Picker
-    html.find('.attr-label').click(ev => {
+    html.find('.attr-label').click(async ev => {
         ev.preventDefault();
         // this.render(false);
 
         // Somewhat working code: doesn't return properly:
-        this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements).then({
-          console.log("Inside call to open picker dialog");
-          html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
-          this.render(true);
+        this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
+        html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
+        this.render(true);
         });
 
 
