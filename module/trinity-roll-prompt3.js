@@ -22,7 +22,6 @@ export class RDialog extends Dialog {
         this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
         html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
         this.render(true);
-        });
 
 
         //openAttrPicker();
