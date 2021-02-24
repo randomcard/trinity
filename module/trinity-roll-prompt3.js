@@ -10,7 +10,7 @@ export class RDialog extends Dialog {
     console.log(this);
   }
 
-  activateListeners(html) {
+  async activateListeners(html) {
     super.activateListeners(html);
 
     // Launch Attribute Picker
@@ -18,15 +18,21 @@ export class RDialog extends Dialog {
         ev.preventDefault();
         this.render(false);
 
-        // this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements);
+        // Somewhat working code: doesn't return properly:
+        this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
+
+        /*
         this.pickedElements = async function() {
           console.log("Inside call to open picker dialog");
           await new Promise(resolve => (resolve(Picker.pDialog("attr", this.actor, this.pickedElements))));
-          
-        };
 
+        };
+*/
         console.log("Post Picker Dialog Call");
+
+
         //this.pickedElements = await new Promise(resolve => {resolve(Picker.pDialog("attr", this.actor, this.pickedElements))});
+
         this.render(true); // Is this needed?
     });
   }
