@@ -20,7 +20,7 @@ export class RDialog extends Dialog {
 
         // Somewhat working code: doesn't return properly:
         this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
-        html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: targetActor, elements: pickedElements});
+        html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: pickedElements});
         this.render(true);
 
 
