@@ -38,7 +38,7 @@ export class RDialog extends Dialog {
     });
   }
 
-  async openAttrPicker(p1, p2, p3) {
+  async function openAttrPicker() {
     // Open Attr Picker Dialog
     this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements).then(this.render(true));
     // Re-Render template
