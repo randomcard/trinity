@@ -20,7 +20,7 @@ export class Picker {
             icon: "<i class='fas fa-redo'></i>",
             label: "Update",
             callback: () => {
-              for (let i of html.find('.input')) {
+              for (let i of html.filter('.input')) {
                 if (i.checked) {  // maybe i[0]
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value);
                   console.log("Picker, Update button, pickedElement:");
