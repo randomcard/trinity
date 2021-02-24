@@ -20,7 +20,7 @@ export class Picker {
             icon: "<i class='fas fa-redo'></i>",
             label: "Update",
             callback: () => {
-              let h = html.getElementsByClassName('input');
+              let h = html.find('.input');
               Array.prototype.forEach.call(h, function(i) {
                 if (i.checked) {  // maybe i[0]
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value);
