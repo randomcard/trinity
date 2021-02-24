@@ -16,11 +16,11 @@ export class RDialog extends Dialog {
     // Launch Attribute Picker
     html.find('.attr-label').click(ev => {
         ev.preventDefault();
-        this.render(false);
+        // this.render(false);
 
         // Somewhat working code: doesn't return properly:
-        this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements).then(this.render(true));
-
+        // this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements).then(this.render(true));
+        openAttrPicker();
         /*
         this.pickedElements = async function() {
           console.log("Inside call to open picker dialog");
@@ -34,9 +34,19 @@ export class RDialog extends Dialog {
 
         //this.pickedElements = await new Promise(resolve => {resolve(Picker.pDialog("attr", this.actor, this.pickedElements))});
 
-        // this.render(true); // Is this needed?
+        this.render(true); // Is this needed?
     });
   }
+
+  async openAttrPicker(p1, p2, p3) {
+    // Open Attr Picker Dialog
+    this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements).then(this.render(true));
+    // Re-Render template
+    html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
+    // Refresh Roll Prompt when done
+    this.render(true);
+  }
+
 }
 
 export class TrinityRollPrompt {
@@ -47,7 +57,7 @@ export class TrinityRollPrompt {
 //  function renderPrompt () {
 //    let newRollParts = rollParts;
 //    const actor = this.actor;
-    const html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
+    let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
     /*Another hook/data test
     html.getElementById('attr-label').addEventListener("click", ()=> {
       console.log(this);
