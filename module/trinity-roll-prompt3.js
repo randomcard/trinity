@@ -20,6 +20,7 @@ export class RDialog extends Dialog {
         console.log("Test: Attr Roller Hook");
         console.log(this);
         this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements);
+        console.log("Post Picker Dialog Call");
         //this.pickedElements = await new Promise(resolve => {resolve(Picker.pDialog("attr", this.actor, this.pickedElements))});
         this.render(true); // Is this needed?
     });
