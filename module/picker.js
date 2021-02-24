@@ -20,6 +20,18 @@ export class Picker {
             icon: "<i class='fas fa-redo'></i>",
             label: "Update",
             callback: () => {
+                html.find('.input').each((i, li) => {
+                  if (li.checked) {  // maybe i[0]
+                    pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === li.value);
+                    console.log("Picker, Update button, pickedElement:");
+                    console.log(pickedElements);
+                  }
+                });
+
+
+
+/*
+
               let h = html.find('.input');
               Array.prototype.forEach.call(h, function(i) {
                 if (i.checked) {  // maybe i[0]
@@ -29,6 +41,7 @@ export class Picker {
                 }
                 console.log(i.tagName);
               });
+
 
 /*
               for (let i of html.filter('.input')) {
