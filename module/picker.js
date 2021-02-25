@@ -31,7 +31,7 @@ export class Picker {
               };
               console.log(pickedElements);
               // resolve(pickedElements);
-              resolve(pickedElements);
+              resolve(Object.values(pickedElements));
 /*
 
               let h = html.find('.input');
