@@ -30,8 +30,8 @@ export class Picker {
                 }
               };
               console.log(pickedElements);
-              resolve(pickedElements.attr);
-
+              // resolve(pickedElements);
+              return(pickedElements);
 /*
 
               let h = html.find('.input');
