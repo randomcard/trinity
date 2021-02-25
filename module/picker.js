@@ -10,7 +10,8 @@ export class Picker {
     console.log(pickedElements);
     const html = await renderTemplate("systems/trinity/templates/pickers/pick-attr.html", {picked: pickedElements, actor: targetActor});
 
-    const pickDialog = await new Promise(resolve => {
+    // const pickDialog = await new Promise(resolve => {
+    return new Promise((resolve, reject) => {
         new Dialog({
         title: "Pick Element",
         id: "picker",
