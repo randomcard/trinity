@@ -30,7 +30,7 @@ export class Picker {
                 }
               };
               console.log(pickedElements);
-              resolve(pickedElements);
+              resolve(pickedElements.attr);
 
 /*
 
