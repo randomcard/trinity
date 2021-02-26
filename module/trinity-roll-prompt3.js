@@ -6,8 +6,6 @@ export class RDialog extends Dialog {
     super(data, options);
     this.actor = params.targetActor;
     this.pickedElements = params.pickedElements;
-    console.log("Constructor, after actor set: ----------------");
-    console.log(this);
   }
 
   activateListeners(html) {
@@ -32,7 +30,7 @@ export class RDialog extends Dialog {
         console.log(this.pickedElements);
         // this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
         html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
-        this.render(true);
+        RDialog.render(true);
 
 
         //openAttrPicker();
