@@ -66,7 +66,7 @@ export class RDialog extends Dialog {
 
   }
 
-  async _onElementClick(event) {
+  _onElementClick(event) {
     event.preventDefault();
     this.render(false);
     console.log("Listener, this");
