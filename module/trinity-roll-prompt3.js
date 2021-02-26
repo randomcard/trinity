@@ -22,12 +22,10 @@ export class RDialog extends Dialog {
         // let placeholder = await Picker.pDialog("attr", this.actor, this.pickedElements);
         // rollParts = await new Promise(resolve => {resolve(TrinityRollPrompt.tRollPrompt(rollParts, targetActor, pickedElements))});
         // let pickedElements = await new Promise(resolve => {resolve(Picker.pDialog("attr", this.actor, this.pickedElements))});
-        var pickedElements = {};
-        console.log(await Picker.pDialog("attr", this.actor, this.pickedElements));
+        // var pickedElements = {};
+        this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
         // pickedElements.attr = await Picker.pDialog("attr", this.actor, this.pickedElements);
-        console.log("pickedElements:");
-        console.log(pickedElements);
-        this.pickedElements = pickedElements;
+        // this.pickedElements = pickedElements;
         console.log("this.pickedElements:");
         console.log(this.pickedElements);
         // this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);

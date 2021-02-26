@@ -32,7 +32,7 @@ export class Picker {
               };
               console.log(pickedElements);
               // resolve(pickedElements);
-              resolve("Picker Resolve Test Text");
+              resolve(pickedElements);
 /*
 
               let h = html.find('.input');
