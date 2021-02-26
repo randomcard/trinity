@@ -66,7 +66,8 @@ export class RDialog extends Dialog {
 
   }
 
-  _onElementClick(event) {
+
+  async _onElementClick(event) {
     event.preventDefault();
     this.render(false);
     console.log("Listener, this");
@@ -75,7 +76,7 @@ export class RDialog extends Dialog {
     console.log("this.pickedElements:");
     console.log(this.pickedElements);
     this.content = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
-    this.render();
+    this.render(true);
   }
 
 /* Doesn't work?
