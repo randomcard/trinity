@@ -30,7 +30,7 @@ export class RDialog extends Dialog {
         console.log(this.pickedElements);
         // this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
         html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
-        this.render(true);
+        this.render();
 
 
         //openAttrPicker();
