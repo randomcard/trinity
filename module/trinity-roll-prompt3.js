@@ -12,6 +12,7 @@ export class RDialog extends Dialog {
     super.activateListeners(html);
 
     // Launch Attribute Picker
+    /*
     html.find('.attr-label').click(async ev => {
         ev.preventDefault();
         this.render(false);
@@ -33,15 +34,17 @@ export class RDialog extends Dialog {
         this.render(true);
 
 
-        //openAttrPicker();
-        /*
-        this.pickedElements = async function() {
-          console.log("Inside call to open picker dialog");
-          await new Promise(resolve => (resolve(Picker.pDialog("attr", this.actor, this.pickedElements))));
 
-        };
-*/
-        console.log(this.pickedElements);
+
+        //openAttrPicker();
+
+//        this.pickedElements = async function() {
+//          console.log("Inside call to open picker dialog");
+//          await new Promise(resolve => (resolve(Picker.pDialog("attr", this.actor, this.pickedElements))));
+
+//        };
+
+        console.log(this);
         console.log("Post Picker Dialog Call");
 
 
@@ -49,6 +52,25 @@ export class RDialog extends Dialog {
 
 
     });
+*/
+
+    // Attribute Picker v2
+    // based on html.find('.rollable').click(this._onRoll.bind(this));
+    // maybe we need the bind to hold the this properly
+    html.find('.attr-label').click(this._onElementClick.bind(this));
+
+  }
+
+  async _onElementClick(event) {
+    event.preventDefault();
+    this.render(false);
+    console.log("Listener, this");
+    console.log(this);
+    this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
+    console.log("this.pickedElements:");
+    console.log(this.pickedElements);
+    this.content = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
+    this.render(true);
   }
 
 /* Doesn't work?
