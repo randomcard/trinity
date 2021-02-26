@@ -16,7 +16,9 @@ export class RDialog extends Dialog {
     // Launch Attribute Picker
     html.find('.attr-label').click(async ev => {
         ev.preventDefault();
-        // this.render(false);
+        this.render(false);
+        console.log("Listener, this");
+        console.log(this);
 
         // Somewhat working code: doesn't return properly:
         // let placeholder = await Picker.pDialog("attr", this.actor, this.pickedElements);
@@ -30,7 +32,7 @@ export class RDialog extends Dialog {
         console.log(this.pickedElements);
         // this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
         html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
-        rollDialog.render(true);
+        this.render(true);
 
 
         //openAttrPicker();
