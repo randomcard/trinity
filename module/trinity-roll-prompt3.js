@@ -8,6 +8,11 @@ export class RDialog extends Dialog {
     this.pickedElements = params.pickedElements;
   }
 
+  getData(options) {
+    const data = super.getData(options);
+    return data;
+  }
+
   activateListeners(html) {
     super.activateListeners(html);
 
@@ -70,7 +75,7 @@ export class RDialog extends Dialog {
     console.log("this.pickedElements:");
     console.log(this.pickedElements);
     this.content = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
-    this.render(true);
+    this.render();
   }
 
 /* Doesn't work?
