@@ -138,7 +138,7 @@ export class TrinityRollPrompt {
             icon: "<i class='fas fa-times'></i>",
             label: "Refresh",
             callback: () => {
-              render(true);
+              this.render(true);
           //	  actionType = "remove";
             }
           },
