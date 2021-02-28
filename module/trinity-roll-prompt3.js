@@ -134,6 +134,14 @@ export class TrinityRollPrompt {
           //	  actionType = "remove";
             }
           },
+          refresh: {
+            icon: "<i class='fas fa-times'></i>",
+            label: "Refresh",
+            callback: () => {
+              render(true);
+          //	  actionType = "remove";
+            }
+          },
         },
         default:"roll",
         callback: html => {
