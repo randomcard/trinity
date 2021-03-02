@@ -71,6 +71,8 @@ async function rollDialog(rollParts, targetActor, pickedElements) {
         icon: "<i class='fas fa-times'></i>",
         label: "Refresh",
         callback: () => {
+          console.log("Refresh Render This:")
+          console.log(this);
           this.render(true);
         }
       },
