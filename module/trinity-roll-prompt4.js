@@ -57,14 +57,14 @@ async function rollDialog(rollParts, targetActor, pickedElements) {
             console.log("rollParts."+part+":");
             console.log(rollParts[part]);
           }
-          resolve(rollParts);
+          return rollParts;
         }
       },
       cancel: {
         icon: "<i class='fas fa-times'></i>",
         label: "Cancel",
         callback: () => {
-          resolve();
+          return;
         }
       },
       refresh: {
@@ -77,7 +77,7 @@ async function rollDialog(rollParts, targetActor, pickedElements) {
     },
     default:"roll",
     callback: html => {
-      resolve();
+      return;
     }
   }, {targetActor, pickedElements}).render(true);
 }
