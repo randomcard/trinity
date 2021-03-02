@@ -36,12 +36,13 @@ class RDialog extends Dialog {
     event.preventDefault();
     console.log("Listener, this");
     console.log(this);
-    await this.render(false);
+    this.render(false);
     this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
     console.log("this.pickedElements:");
     console.log(this.pickedElements);
     this.content = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
-    this.render(true);
+    // test w/ false (should be true though)
+    this.render(false);
   }
 
 }
