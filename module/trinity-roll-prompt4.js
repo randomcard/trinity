@@ -14,6 +14,12 @@ class RDialog extends Dialog {
     return data;
   }
 
+  async _render(force = false, options = {}) {
+    // Stuff Before rendering
+    await super._render(force, options);
+    // Stuff After rendering
+  }
+
   activateListeners(html) {
     super.activateListeners(html);
 
