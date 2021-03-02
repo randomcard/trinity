@@ -3,11 +3,13 @@ export class Picker {
   static async pDialog(pickType, targetActor, pickedElements) {
 
     // add some conditional code here to change the template depending on pickType - attr, skil, etc.
+    /*
     console.log("Picker, what does it have?");
     console.log(this);
     console.log(pickType);
     console.log(targetActor);
     console.log(pickedElements);
+    */
     const html = await renderTemplate("systems/trinity/templates/pickers/pick-attr.html", {picked: pickedElements, actor: targetActor});
 
     // const pickDialog = await new Promise(resolve => {
@@ -21,16 +23,20 @@ export class Picker {
             icon: "<i class='fas fa-redo'></i>",
             label: "Update",
             callback: () => {
+              /*
               console.log("Testing getElementsByClassName:");
               console.log(document.getElementsByClassName('input'));
+              */
               for (let i of document.getElementsByClassName('input')) {
                 if (i.checked) {  // maybe i[0]
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value);
+                  /*
                   console.log("Picker, Update button, pickedElement:");
                   console.log(pickedElements);
+                  */
                 }
               };
-              console.log(pickedElements);
+              // console.log(pickedElements);
               // resolve(pickedElements);
               resolve(pickedElements);
 /*

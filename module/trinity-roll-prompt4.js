@@ -48,47 +48,49 @@ class RDialog extends Dialog {
 
 async function rollDialog(rollParts, targetActor, pickedElements) {
   let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
-  new RDialog({
-    title: "Roll Options",
-    id: "rdialog",
-    content: html,
-    buttons: {
-      roll: {
-        icon: "<i class='fas fa-redo'></i>",
-        label: "Roll",
-        callback: () => {
-          for (let part of Object.keys(rollParts)) {
-            if (document.getElementById(part)){
-              rollParts[part] = parseInt(document.getElementById(part).value) || rollParts[part];
+  return new Promise((resolve, reject) => {
+    new RDialog({
+      title: "Roll Options",
+      id: "rdialog",
+      content: html,
+      buttons: {
+        roll: {
+          icon: "<i class='fas fa-redo'></i>",
+          label: "Roll",
+          callback: () => {
+            for (let part of Object.keys(rollParts)) {
+              if (document.getElementById(part)){
+                rollParts[part] = parseInt(document.getElementById(part).value) || rollParts[part];
+              }
+              console.log("rollParts."+part+":");
+              console.log(rollParts[part]);
             }
-            console.log("rollParts."+part+":");
-            console.log(rollParts[part]);
+            return rollParts;
           }
-          return rollParts;
-        }
+        },
+        cancel: {
+          icon: "<i class='fas fa-times'></i>",
+          label: "Cancel",
+          callback: () => {
+            return;
+          }
+        },
+        refresh: {
+          icon: "<i class='fas fa-times'></i>",
+          label: "Refresh",
+          callback: () => {
+            console.log("Refresh Render This:")
+            console.log(this);
+            this.render(true);
+          }
+        },
       },
-      cancel: {
-        icon: "<i class='fas fa-times'></i>",
-        label: "Cancel",
-        callback: () => {
-          return;
-        }
-      },
-      refresh: {
-        icon: "<i class='fas fa-times'></i>",
-        label: "Refresh",
-        callback: () => {
-          console.log("Refresh Render This:")
-          console.log(this);
-          this.render(true);
-        }
-      },
-    },
-    default:"roll",
-    callback: html => {
-      return;
-    }
-  }, {targetActor, pickedElements}).render(true);
+      default:"roll",
+      callback: html => {
+        return;
+      }
+    }, {targetActor, pickedElements}).render(true);
+  }
 }
 
 //* Export Functions *//
