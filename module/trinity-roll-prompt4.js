@@ -27,9 +27,9 @@ class RDialog extends Dialog {
 
   async _onElementClick(event) {
     event.preventDefault();
-    this.render(false);
     console.log("Listener, this");
     console.log(this);
+    this.render(false);
     this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
     console.log("this.pickedElements:");
     console.log(this.pickedElements);
