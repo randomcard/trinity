@@ -1,6 +1,11 @@
 // import { TrinityRollPrompt } from "/systems/trinity/module/trinity-roll-prompt.js";
-import { RDialog } from "/systems/trinity/module/trinity-roll-prompt3.js";
-import { TrinityRollPrompt } from "/systems/trinity/module/trinity-roll-prompt3.js";
+//* Import Version 3 *//
+// import { RDialog } from "/systems/trinity/module/trinity-roll-prompt3.js";
+// import { TrinityRollPrompt } from "/systems/trinity/module/trinity-roll-prompt3.js";
+
+//* Import Version 4 *//
+import {RDialog, rollDialog} from "/systems/trinity/module/trinity-roll-prompt4.js";
+
 
 export class TrinityRoll {
 
@@ -91,7 +96,10 @@ export class TrinityRoll {
 
 // STEP 3: Open Prompt with new defaults.
 //original, before attempting to change it to a promise:    rollParts = TrinityRollPrompt.tRollPrompt(rollParts);
+/* Version 3, which mostly worked except for redering calls
     rollParts = await new Promise(resolve => {resolve(TrinityRollPrompt.tRollPrompt(rollParts, targetActor, pickedElements))});
+*/
+    rollParts = await new Promise(resolve => {resolve(rollDialog(rollParts, targetActor, pickedElements))});
     console.log("rollParts after prompt resolves:");
     console.log(rollParts);
 
