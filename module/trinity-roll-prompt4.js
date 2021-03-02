@@ -40,10 +40,11 @@ class RDialog extends Dialog {
 
 
 function rollDialog(rollParts, targetActor, pickedElements) {
+  let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
   new RDialog({
     title: "Roll Options",
     id: "rdialog",
-    content: {renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});},
+    content: html,
     buttons: {
       roll: {
         icon: "<i class='fas fa-redo'></i>",
