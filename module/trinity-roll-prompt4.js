@@ -21,7 +21,7 @@ class RDialog extends Dialog {
     // based on html.find('.rollable').click(this._onRoll.bind(this));
     // maybe we need the bind to hold the this properly
     //html.find('.attr-label').click(this._onElementClick.bind(this));
-    html.find('.attr-label').click(this._onElementClick);
+    html.find('.attr-label').click(this._onElementClick.bind(this));
 
   }
 
@@ -29,7 +29,7 @@ class RDialog extends Dialog {
     event.preventDefault();
     console.log("Listener, this");
     console.log(this);
-    this.render(false);
+    await this.render(false);
     this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
     console.log("this.pickedElements:");
     console.log(this.pickedElements);
