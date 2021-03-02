@@ -96,10 +96,11 @@ export class TrinityRoll {
 
 // STEP 3: Open Prompt with new defaults.
 //original, before attempting to change it to a promise:    rollParts = TrinityRollPrompt.tRollPrompt(rollParts);
-/* Version 3, which mostly worked except for redering calls
+/* Version 3, which mostly worked except for rendering calls
     rollParts = await new Promise(resolve => {resolve(TrinityRollPrompt.tRollPrompt(rollParts, targetActor, pickedElements))});
 */
-    rollParts = await new Promise(resolve => {resolve(rollDialog(rollParts, targetActor, pickedElements))});
+//    rollParts = await new Promise(resolve => {resolve(rollDialog(rollParts, targetActor, pickedElements))});
+    rollParts = await rollDialog(rollParts, targetActor, pickedElements);
     console.log("rollParts after prompt resolves:");
     console.log(rollParts);
 
