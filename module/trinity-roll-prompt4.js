@@ -15,9 +15,9 @@ class RDialog extends Dialog {
   }
 
   async _render(force = false, options = {}) {
-    // Stuff Before rendering
+    console.log("RDialog Starts Rendering");
     await super._render(force, options);
-    // Stuff After rendering
+    console.log("RDialog Stops Rendering");
   }
 
   activateListeners(html) {
@@ -65,14 +65,14 @@ async function rollDialog(rollParts, targetActor, pickedElements) {
               console.log("rollParts."+part+":");
               console.log(rollParts[part]);
             }
-            return rollParts;
+            resolve(rollParts);
           }
         },
         cancel: {
           icon: "<i class='fas fa-times'></i>",
           label: "Cancel",
           callback: () => {
-            return;
+            resolve();
           }
         },
         refresh: {
@@ -87,7 +87,7 @@ async function rollDialog(rollParts, targetActor, pickedElements) {
       },
       default:"roll",
       callback: html => {
-        return;
+        resolve();
       }
     }, {targetActor, pickedElements}).render(true);
   });
