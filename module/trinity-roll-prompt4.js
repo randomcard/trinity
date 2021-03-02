@@ -90,7 +90,7 @@ async function rollDialog(rollParts, targetActor, pickedElements) {
         return;
       }
     }, {targetActor, pickedElements}).render(true);
-  }
+  });
 }
 
 //* Export Functions *//
