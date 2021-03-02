@@ -39,7 +39,7 @@ class RDialog extends Dialog {
 }
 
 
-function rollDialog(rollParts, targetActor, pickedElements) {
+async function rollDialog(rollParts, targetActor, pickedElements) {
   let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
   new RDialog({
     title: "Roll Options",
