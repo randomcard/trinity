@@ -42,7 +42,8 @@ class RDialog extends Dialog {
     console.log(this.pickedElements);
     this.content = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
     // test w/ false (should be true though)
-    this.render(false);
+    console.log("Render Attempt, w/ log:");
+    this.render(false, {log : true});
   }
 
 }
