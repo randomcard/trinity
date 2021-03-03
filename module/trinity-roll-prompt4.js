@@ -18,7 +18,7 @@ class RDialog extends Dialog {
     console.log("RDialog Starts Rendering -- This:");
     console.log(this);
     await super._render(force, options);
-    console.log("RDialog Stops Rendering");
+//    console.log("RDialog Stops Rendering");
   }
 
   activateListeners(html) {
@@ -43,7 +43,7 @@ class RDialog extends Dialog {
     this.content = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
     // test w/ false (should be true though)
     console.log("Render Attempt, w/ log:");
-    this.render(false, {log : true});
+    this.render(false, {log : true, renderContext : "ElementClick Refresh"});
   }
 
 }
@@ -92,7 +92,7 @@ async function rollDialog(rollParts, targetActor, pickedElements) {
       callback: html => {
         resolve();
       }
-    }, {targetActor, pickedElements}).render(true);
+    }, {targetActor, pickedElements}).render(true, {log : true, renderContext : "RDialog Render (render option)"});
   });
 }
 
