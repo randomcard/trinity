@@ -40,7 +40,7 @@ class RDialog extends Dialog {
     this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
     console.log("this.pickedElements:");
     console.log(this.pickedElements);
-    this.content = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
+    // this.content = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
     // test w/ false (should be true though)
     console.log("Render Attempt, w/ log:");
     this.render(false, {log : true, renderContext : "ElementClick Refresh"});
