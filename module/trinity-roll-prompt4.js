@@ -14,7 +14,8 @@ class RDialog extends Dialog {
     return data;
   }
 
-  async _render(force = false, options = {}) {
+//  async _render(force = false, options = {}) {
+  async _render(force, options = {}) {
     console.log("RDialog Starts Rendering -- This:");
     console.log(this);
     await super._render(force, options);
