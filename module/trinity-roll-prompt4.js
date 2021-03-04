@@ -93,7 +93,7 @@ async function rollDialog(rollParts, targetActor, pickedElements) {
       callback: html => {
         resolve();
       }
-    }, {targetActor, pickedElements}).render(true, {log : true, renderContext : "RDialog Render (render option)"}).bind(this);
+    }, {targetActor, pickedElements}).render(true, {log : true, renderContext : "RDialog Render (render option)"});
   });
 }
 

@@ -192,7 +192,8 @@ export class TrinityActorSheet extends ActorSheet {
     });
 
     // Rollable abilities.
-    html.find('.rollable').click(this._onRoll.bind(this));
+    // html.find('.rollable').click(this._onRoll.bind(this));
+    html.find('.rollable').click(this._onRoll);
 
     // Drag events for macros.
     if (this.actor.owner) {
