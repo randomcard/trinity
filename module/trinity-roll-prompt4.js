@@ -31,7 +31,7 @@ class RDialog extends Dialog {
     //html.find('.attr-label').click(this._onElementClick.bind(this));
     //html.find('.attr-label').click(this._onElementClick.bind(this));
     html.find('.attr-label').click((event) => {
-      this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
+      // this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
       renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements}).render();
     });
 
