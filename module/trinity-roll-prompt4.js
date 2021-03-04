@@ -29,7 +29,11 @@ class RDialog extends Dialog {
     // based on html.find('.rollable').click(this._onRoll.bind(this));
     // maybe we need the bind to hold the this properly
     //html.find('.attr-label').click(this._onElementClick.bind(this));
-    html.find('.attr-label').click(this._onElementClick.bind(this));
+    //html.find('.attr-label').click(this._onElementClick.bind(this));
+    html.find('.attr-label').click((event) => {
+      this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
+      renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements}).render();
+    });
 
   }
 
