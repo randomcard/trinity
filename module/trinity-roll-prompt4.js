@@ -34,7 +34,7 @@ class RDialog extends Dialog {
       // this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
       this.pickedElements.attr.name = "testattr";
       renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: this.actor, elements: this.pickedElements});
-      this.render(false);
+      this.render(true);
     });
 
   }
