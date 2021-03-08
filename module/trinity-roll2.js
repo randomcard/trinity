@@ -71,7 +71,7 @@ export function trinityRoll(event, targetActor) {
 
   }
 
-  let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
+  let html = renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
 
   new RDialog({
     title: "Roll Options",
