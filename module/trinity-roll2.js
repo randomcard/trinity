@@ -1,5 +1,5 @@
-//* Import Version 4 *//
-import {RDialog, rollDialog} from "/systems/trinity/module/trinity-roll-prompt4.js";
+//* Import Functions *//
+import { Picker } from "/systems/trinity/module/picker.js";
 
 export async function trinityRoll(event, targetActor) {
 
