@@ -105,7 +105,8 @@ export async function trinityRoll(event, targetActor) {
         callback: () => {
           console.log("Refresh Render This:")
           console.log(this);
-          render(true);
+          // render(true);
+          return trinityRoll(event, targetActor);
         }
       },
     },
