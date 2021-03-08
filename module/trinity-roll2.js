@@ -78,6 +78,7 @@ export async function trinityRoll(event, targetActor) {
   }
 
   let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
+
   console.log("Post html render, pre dialog call, this:");
   console.log(this);
 
@@ -124,7 +125,7 @@ export async function trinityRoll(event, targetActor) {
     }
   }, {targetActor, pickedElements});
 
-  rollDialog.render();
+  rollDialog.render(true);
 
 // END DIALOG Section
 
