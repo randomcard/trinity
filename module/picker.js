@@ -1,3 +1,6 @@
+// trinity roll 2
+import { trinityRoll } from "/systems/trinity/module/trinity-roll2.js";
+
 export class Picker {
 
   static async pDialog(pickType, targetActor, pickedElements) {
