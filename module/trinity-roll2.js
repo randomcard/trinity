@@ -1,7 +1,7 @@
 //* Import Functions *//
 import { Picker } from "/systems/trinity/module/picker.js";
 
-export async function trinityRoll(event, targetActor) {
+export async function trinityRoll(event, targetActor, pickedElements) {
 
   // Declare variables
   const element = event.currentTarget;
@@ -10,7 +10,7 @@ export async function trinityRoll(event, targetActor) {
   var targetSkill = [];
 
   // Elements table, or picked elements, will include the details of the selected roll components. Will be an originator of rollparts
-  var pickedElements = {};
+  var pickedElements = pickedElements || {};
 
   // Attribute info
   if (typeof dataset.attrname !== 'undefined' && dataset.attrname !== null) {
@@ -69,9 +69,6 @@ export async function trinityRoll(event, targetActor) {
         // Call Option picker
         pickedElements = Picker.pDialog("attr", targetActor, pickedElements);
         rollDialog.close();
-        // trinityRoll(event, targetActor);
-        pickedElements.attr.name = "testattr";
-        return;
       });
     }
 
