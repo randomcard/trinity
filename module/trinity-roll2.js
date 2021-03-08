@@ -62,7 +62,7 @@ export async function trinityRoll(event, targetActor) {
       super.activateListeners(html);
       html.find('.attr-label').click((event) => {
         // Call Option picker
-        this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
+        this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements);
         console.log("activateListeners called")
         console.log(this)
         this.pickedElements.attr.name = "testattr";
