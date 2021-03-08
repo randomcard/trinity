@@ -62,8 +62,9 @@ export async function trinityRoll(event, targetActor) {
       super.activateListeners(html);
       html.find('.attr-label').click((event) => {
         // Call Option picker
-        // this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
+        this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
         console.log("activateListeners called")
+        console.log(this)
         this.pickedElements.attr.name = "testattr";
         return;
       });
@@ -72,6 +73,8 @@ export async function trinityRoll(event, targetActor) {
   }
 
   let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
+  console.log("Post html render, pre dialog call, this:");
+  console.log(this);
 
   new RDialog({
     title: "Roll Options",
