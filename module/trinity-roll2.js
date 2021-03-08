@@ -57,18 +57,19 @@ export async function trinityRoll(event, targetActor) {
 
     constructor(data, params, options) {
       super(data, options);
-      this.actor = params.targetActor;
-      this.pickedElements = params.pickedElements;
+      targetActor = params.targetActor;
+      pickedElements = params.pickedElements;
     }
 
-    activateListeners(html) {
+    async activateListeners(html) {
       super.activateListeners(html);
       html.find('.attr-label').click((event) => {
+        console.log("activateListeners called");
+        console.log(this);
         // Call Option picker
-        this.pickedElements = Picker.pDialog("attr", this.actor, this.pickedElements);
-        console.log("activateListeners called")
-        console.log(this)
-        this.pickedElements.attr.name = "testattr";
+        pickedElements = await Picker.pDialog("attr", targetActor, pickedElements);
+        trinityRoll(event, targetActor);
+        pickedElements.attr.name = "testattr";
         return;
       });
     }
