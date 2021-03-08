@@ -3,7 +3,12 @@
  * @extends {ActorSheet}
  */
 
-import { TrinityRoll } from "/systems/trinity/module/trinity-roll.js";
+//trinity roll 1
+// import { TrinityRoll } from "/systems/trinity/module/trinity-roll.js";
+
+// trinity roll 2
+import { trinityRoll } from "/systems/trinity/module/trinity-roll2.js";
+
 
 export class TrinityActorSheet extends ActorSheet {
 
@@ -268,7 +273,13 @@ _onRoll(event) {
 //  console.log(event);
 //  console.log(element);
 //  console.log(dataset);
-  TrinityRoll.tRoll(event, this.actor);
+
+// trinity-roll
+//  TrinityRoll.tRoll(event, this.actor);
+
+// trinity-roll2
+  trinityRoll(event, this.actor);
+
 }
 
 
