@@ -65,7 +65,7 @@ export async function trinityRoll(event, targetActor) {
         // this.pickedElements = await Picker.pDialog("attr", this.actor, this.pickedElements);
         console.log("activateListeners called")
         this.pickedElements.attr.name = "testattr";
-        return;
+        return();
       });
     }
 
@@ -89,14 +89,14 @@ export async function trinityRoll(event, targetActor) {
             console.log("rollParts."+part+":");
             console.log(rollParts[part]);
           }
-          resolve(rollParts);
+          return(rollParts);
         }
       },
       cancel: {
         icon: "<i class='fas fa-times'></i>",
         label: "Cancel",
         callback: () => {
-          resolve();
+          return();
         }
       },
       refresh: {
@@ -105,13 +105,13 @@ export async function trinityRoll(event, targetActor) {
         callback: () => {
           console.log("Refresh Render This:")
           console.log(this);
-          this.render(true);
+          render(true);
         }
       },
     },
     default:"roll",
     callback: html => {
-      resolve();
+      return();
     }
   }, {targetActor, pickedElements}).render(true);
 
