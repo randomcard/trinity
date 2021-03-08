@@ -61,14 +61,15 @@ export async function trinityRoll(event, targetActor) {
       pickedElements = params.pickedElements;
     }
 
-    async activateListeners(html) {
+    activateListeners(html) {
       super.activateListeners(html);
       html.find('.attr-label').click((event) => {
         console.log("activateListeners called");
         console.log(this);
         // Call Option picker
-        pickedElements = await Picker.pDialog("attr", targetActor, pickedElements);
-        trinityRoll(event, targetActor);
+        pickedElements = Picker.pDialog("attr", targetActor, pickedElements);
+        rollDialog.close();
+        // trinityRoll(event, targetActor);
         pickedElements.attr.name = "testattr";
         return;
       });
@@ -80,7 +81,7 @@ export async function trinityRoll(event, targetActor) {
   console.log("Post html render, pre dialog call, this:");
   console.log(this);
 
-  new RDialog({
+  let rollDialog = new RDialog({
     title: "Roll Options",
     id: "rdialog",
     content: html,
@@ -121,7 +122,9 @@ export async function trinityRoll(event, targetActor) {
     callback: html => {
       return;
     }
-  }, {targetActor, pickedElements}).render(true);
+  }, {targetActor, pickedElements});
+
+  rollDialog.render();
 
 // END DIALOG Section
 
