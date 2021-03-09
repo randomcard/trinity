@@ -1,0 +1,16 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <section class="sheet-body">
+    <div class="items grid grid-1col">
+      {{#each this.actor.data.items as |item key|}}
+        <div class="item flexrow flex-group-center" id="{{key}}">
+          <label for="{{item._id}}" class="resource-label" data-skilname="{{item.name}}">
+            {{item.name}}
+          </label>
+          <input type="radio" id="{{item._id}}" class="input" name="skil" value="{{item.name}}">
+        </div>
+      {{else}}
+        No Eligible Items Found.
+      {{/each}}
+    </div>
+  </section>
+</form>

@@ -13,6 +13,19 @@ export class Picker {
     console.log(targetActor);
     console.log(pickedElements);
     */
+    switch(pickType) {
+      case "attr":
+        const html = await renderTemplate("systems/trinity/templates/pickers/pick-attr.html", {picked: pickedElements, actor: targetActor});
+        break;
+      case "skil":
+        let pItems = actor.items.filter(f => f.data.type.includes("skill"));
+        const html = await renderTemplate("systems/trinity/templates/pickers/pick-skil.html", {items: pItems, actor: targetActor});
+        break;
+      default:
+        ui.notifications.warn("No Picker Type Found.");
+        return;
+    }
+
     const html = await renderTemplate("systems/trinity/templates/pickers/pick-attr.html", {picked: pickedElements, actor: targetActor});
 
     // const pickDialog = await new Promise(resolve => {

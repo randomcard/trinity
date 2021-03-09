@@ -35,6 +35,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     console.log(targetSkill);
   }
 
+/*
   // Set defaults, and overwriting with data found earlier.   << Move this section to front -- nvrmnd
   let attrPart = targetAttr.value || 0;
   let skilPart = targetSkill.value || 0;
@@ -57,6 +58,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     nsca : nscaPart,
     dsca : dscaPart
   };
+  */
 
 // DIALOG Section
   class RDialog extends Dialog {
@@ -69,13 +71,21 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
     activateListeners(html) {
       super.activateListeners(html);
+
+      // ATTR Click
       html.find('.attr-label').click((event) => {
-        console.log("activateListeners called");
-        console.log(this);
         // Call Option picker
         pickedElements = Picker.pDialog("attr", targetActor, pickedElements);
         rollDialog.close();
       });
+
+      // SKIL Click
+      html.find('.skil-label').click((event) => {
+        // Call Option picker
+        pickedElements = Picker.pDialog("skil", targetActor, pickedElements);
+        rollDialog.close();
+      });
+
     }
 
   }
@@ -119,7 +129,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           console.log("Refresh Render This:")
           console.log(this);
           // render(true);
-          return trinityRoll(targetActor, null, event);
+          pickedElements = Object.create(pickedElementsProto);
+          return trinityRoll(targetActor, pickedElements, event);
         }
       },
     },
@@ -138,7 +149,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         console.log(rollFormula);
 
         let roll = new Roll(rollFormula);
-        let label = dataset.attrname ? `Rolling ${dataset.attrname}` : '';
+        let label = p.attr.name ? `Rolling ${p.attr.name}` : '';
         roll.roll().toMessage({
           speaker: ChatMessage.getSpeaker({ actor: targetActor }),
           flavor: label
