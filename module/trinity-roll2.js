@@ -5,7 +5,6 @@ import { Picker } from "/systems/trinity/module/picker.js";
 export async function trinityRoll(targetActor, pickedElements, event) {
 
   // Declare variables
-  const event = event || {};
   const element = event.currentTarget || {};
   const dataset = element.dataset || {};
   var targetAttr = [];
