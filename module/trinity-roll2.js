@@ -109,6 +109,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           for (let part of Object.keys(pickedElements)) {
             if (document.getElementById(part)){
               pickedElements[part].value = parseInt(document.getElementById(part).value) || pickedElements[part].value;
+              console.log("Found Part:");
+              console.log(part);
             }
             // console.log("rollParts."+part+":");
             // console.log(rollParts[part]);

@@ -24,7 +24,7 @@ export class Picker {
         console.log(targetActor.items);
         let pItems = targetActor.items.filter(f => f.type.includes("skill"));
         console.log("pItems");
-        console.log(pItems);        
+        console.log(pItems);
         html = await renderTemplate("systems/trinity/templates/pickers/pick-skil.html", {items: pItems, actor: targetActor});
         break;
       default:
@@ -50,7 +50,7 @@ export class Picker {
               for (let i of document.getElementsByClassName('input')) {
                 if (i.checked) {  // maybe i[0]
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
-                  pickedElements.skil = Object.values(targetActor.items).find(item => items._id === i.value) || pickedElements.skil;
+                  pickedElements.skil = Object.values(targetActor.items).find(item => item._id === i.value) || pickedElements.skil;
 
                   /*
                   console.log("Picker, Update button, pickedElement:");
