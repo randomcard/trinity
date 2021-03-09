@@ -101,7 +101,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
             console.log("rollParts."+part+":");
             console.log(rollParts[part]);
           }
-          _roll(pickedElements);
+          _roll(targetActor, pickedElements);
           return;
         }
       },
@@ -112,14 +112,14 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           return;
         }
       },
-      refresh: {
+      reset: {
         icon: "<i class='fas fa-times'></i>",
-        label: "Refresh",
+        label: "Reset",
         callback: () => {
           console.log("Refresh Render This:")
           console.log(this);
           // render(true);
-          return trinityRoll(event, targetActor);
+          return trinityRoll(targetActor, null, event);
         }
       },
     },
@@ -133,14 +133,14 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
 // END DIALOG Section
 
-  function _roll(p) {
+  function _roll(targetActor, p) {
         let rollFormula = `(((${p.attr.value}+${p.skil.value})d10x${p.expl.value}cs>=${p.succ.value})+(${p.enha.value}+${p.dsca.value}))*${p.nsca.value}`;
         console.log(rollFormula);
 
         let roll = new Roll(rollFormula);
         let label = dataset.attrname ? `Rolling ${dataset.attrname}` : '';
         roll.roll().toMessage({
-          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          speaker: ChatMessage.getSpeaker({ actor: targetActor }),
           flavor: label
         });
   }
