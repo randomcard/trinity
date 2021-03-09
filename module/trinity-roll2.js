@@ -90,7 +90,9 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
   }
 
-  let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
+
+  // let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
+  let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: targetActor, elements: pickedElements});
 
   console.log("Post html render, pre dialog call, this:");
   console.log(this);
@@ -104,12 +106,12 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         icon: "<i class='fas fa-redo'></i>",
         label: "Roll",
         callback: () => {
-          for (let part of Object.keys(rollParts)) {
+          for (let part of Object.keys(pickedElements)) {
             if (document.getElementById(part)){
-              rollParts[part] = parseInt(document.getElementById(part).value) || rollParts[part];
+              pickedElements[part].value = parseInt(document.getElementById(part).value) || pickedElements[part].value;
             }
-            console.log("rollParts."+part+":");
-            console.log(rollParts[part]);
+            // console.log("rollParts."+part+":");
+            // console.log(rollParts[part]);
           }
           _roll(targetActor, pickedElements);
           return;
