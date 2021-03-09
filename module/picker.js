@@ -123,6 +123,7 @@ pickedElements.attr = targetAttr;
             icon: "<i class='fas fa-times'></i>",
             label: "Cancel",
             callback: () => {
+              trinityRoll(targetActor, pickedElements);
               resolve(pickedElements);
           //	  actionType = "remove";
             }
