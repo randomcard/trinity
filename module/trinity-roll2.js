@@ -128,6 +128,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         icon: "<i class='fas fa-times'></i>",
         label: "Cancel",
         callback: () => {
+          pickedElements = null;
           return;
         }
       },
@@ -138,13 +139,14 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           console.log("Refresh Render This:")
           console.log(this);
           // render(true);
-          pickedElements = Object.create(pickedElementsProto);
+          pickedElements = pickedElementsProto;
           return trinityRoll(targetActor, pickedElements, event);
         }
       },
     },
     default:"roll",
     callback: html => {
+      pickedElements = null;
       return;
     }
   }, {targetActor, pickedElements});

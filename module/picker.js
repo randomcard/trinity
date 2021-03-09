@@ -39,10 +39,13 @@ export class Picker {
             icon: "<i class='fas fa-redo'></i>",
             label: "Update",
             callback: () => {
-              /*
+
               console.log("Testing getElementsByClassName:");
               console.log(document.getElementsByClassName('input'));
-              */
+
+              console.log("targetActor.items:");
+              console.log(targetActor.items);
+
               for (let i of document.getElementsByClassName('input')) {
                 if (i.checked) {  // maybe i[0]
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
