@@ -5,7 +5,7 @@ export class Picker {
 
   static async pDialog(pickType, targetActor, pickedElements) {
 
-    // var html = {};
+    var html = {};
 
     // add some conditional code here to change the template depending on pickType - attr, skil, etc.
     /*
@@ -17,11 +17,11 @@ export class Picker {
     */
     switch(pickType) {
       case "attr":
-        const html = await renderTemplate("systems/trinity/templates/pickers/pick-attr.html", {picked: pickedElements, actor: targetActor});
+        html = await renderTemplate("systems/trinity/templates/pickers/pick-attr.html", {picked: pickedElements, actor: targetActor});
         break;
       case "skil":
         let pItems = actor.items.filter(f => f.data.type.includes("skill"));
-        const html = await renderTemplate("systems/trinity/templates/pickers/pick-skil.html", {items: pItems, actor: targetActor});
+        html = await renderTemplate("systems/trinity/templates/pickers/pick-skil.html", {items: pItems, actor: targetActor});
         break;
       default:
         ui.notifications.warn("No Picker Type Found.");
