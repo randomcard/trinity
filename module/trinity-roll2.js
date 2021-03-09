@@ -1,15 +1,17 @@
 //* Import Functions *//
 import { Picker } from "/systems/trinity/module/picker.js";
 
-export async function trinityRoll(event, targetActor, pickedElements) {
+// export async function trinityRoll(event, targetActor, pickedElements) {
+export async function trinityRoll(targetActor, pickedElements, event) {
 
   // Declare variables
+  const event = event || {};
   const element = event.currentTarget || {};
   const dataset = element.dataset || {};
   var targetAttr = [];
   var targetSkill = [];
 
-  // Elements table, or picked elements, will include the details of the selected roll components. Will be an originator of rollparts
+  // Elements table, or picked elements, will include the details of the selected roll components. (Replacing rollParts)
   var pickedElements = pickedElements || {};
 
   // Attribute info

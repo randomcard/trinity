@@ -278,7 +278,8 @@ _onRoll(event) {
 //  TrinityRoll.tRoll(event, this.actor);
 
 // trinity-roll2
-  trinityRoll(event, this.actor);
+//  trinityRoll(event, this.actor);
+  trinityRoll(this.actor, null, event);
 
 }
 

@@ -41,7 +41,10 @@ export class Picker {
               };
               // console.log(pickedElements);
               // resolve(pickedElements);
-              trinityRoll(null, targetActor, pickedElements);
+
+              // trinityRoll(null, targetActor, pickedElements);
+              trinityRoll(targetActor, pickedElements);
+
               resolve(pickedElements);
 /*
 
