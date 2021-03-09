@@ -20,7 +20,7 @@ export class Picker {
         html = await renderTemplate("systems/trinity/templates/pickers/pick-attr.html", {picked: pickedElements, actor: targetActor});
         break;
       case "skil":
-        let pItems = actor.items.filter(f => f.data.type.includes("skill"));
+        let pItems = targetActor.items.filter(f => f.data.type.includes("skill"));
         html = await renderTemplate("systems/trinity/templates/pickers/pick-skil.html", {items: pItems, actor: targetActor});
         break;
       default:
