@@ -20,7 +20,11 @@ export class Picker {
         html = await renderTemplate("systems/trinity/templates/pickers/pick-attr.html", {picked: pickedElements, actor: targetActor});
         break;
       case "skil":
+        console.log("targetActor.items");
+        console.log(targetActor.items);
         let pItems = targetActor.items.filter(f => f.type.includes("skill"));
+        console.log("pItems");
+        console.log(pItems);        
         html = await renderTemplate("systems/trinity/templates/pickers/pick-skil.html", {items: pItems, actor: targetActor});
         break;
       default:
@@ -47,7 +51,7 @@ export class Picker {
                 if (i.checked) {  // maybe i[0]
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
                   pickedElements.skil = Object.values(targetActor.items).find(item => items._id === i.value) || pickedElements.skil;
-                  
+
                   /*
                   console.log("Picker, Update button, pickedElement:");
                   console.log(pickedElements);
