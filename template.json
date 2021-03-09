@@ -116,7 +116,11 @@
     "types": ["item", "feature", "spell","skill","specialty","path"],
     "templates": {
       "base": {
-        "description": ""
+        "description": "",
+        "enhancement" : {
+          "active" : false,
+          "value" : 0
+        }
       }
     },
     "item": {
@@ -137,8 +141,7 @@
     },
     "specialty": {
       "templates": ["base"],
-      "defaultSkill": "",
-      "enhancement": 1
+      "defaultSkill": ""
     },
     "path": {
       "templates": ["base"],

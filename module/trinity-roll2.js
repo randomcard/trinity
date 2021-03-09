@@ -1,5 +1,6 @@
 //* Import Functions *//
 import { Picker } from "/systems/trinity/module/picker.js";
+import { pickedElementsProto } from "/systems/trinity/module/protos.js";
 
 // export async function trinityRoll(event, targetActor, pickedElements) {
 export async function trinityRoll(targetActor, pickedElements, event) {
@@ -12,7 +13,10 @@ export async function trinityRoll(targetActor, pickedElements, event) {
   var targetSkill = [];
 
   // Elements table, or picked elements, will include the details of the selected roll components. (Replacing rollParts)
-  var pickedElements = pickedElements || {};
+  // Build defaults if empty
+  pickedElements = pickedElements || Object.create(pickedElementsProto);
+  // Build if Empty
+
 
   // Attribute info
   if (typeof dataset.attrname !== 'undefined' && dataset.attrname !== null) {
@@ -31,7 +35,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     console.log(targetSkill);
   }
 
-  // Set defaults, and overwriting with data found earlier.   << Move this section to front
+  // Set defaults, and overwriting with data found earlier.   << Move this section to front -- nvrmnd
   let attrPart = targetAttr.value || 0;
   let skilPart = targetSkill.value || 0;
   let dicePart = skilPart+attrPart;
@@ -97,7 +101,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
             console.log("rollParts."+part+":");
             console.log(rollParts[part]);
           }
-          return rollParts;
+          _roll(pickedElements);
+          return;
         }
       },
       cancel: {
@@ -127,6 +132,20 @@ export async function trinityRoll(targetActor, pickedElements, event) {
   rollDialog.render(true);
 
 // END DIALOG Section
+
+  function _roll(p) {
+        let rollFormula = `(((${p.attr.value}+${p.skil.value})d10x${p.expl.value}cs>=${p.succ.value})+(${p.enha.value}+${p.dsca.value}))*${p.nsca.value}`;
+        console.log(rollFormula);
+
+        let roll = new Roll(rollFormula);
+        let label = dataset.attrname ? `Rolling ${dataset.attrname}` : '';
+        roll.roll().toMessage({
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          flavor: label
+        });
+  }
+
+
 
 return;
 
