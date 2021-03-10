@@ -135,10 +135,10 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         icon: "<i class='fas fa-times'></i>",
         label: "Reset",
         callback: () => {
-          console.log("Refresh Render This:")
-          console.log(this);
+          console.log("Refresh Roller")
           // render(true);
-          pickedElements = pickedElementsProto;
+          pickedElements = null;
+          event = {};
           return trinityRoll(targetActor, pickedElements, event);
         }
       },
