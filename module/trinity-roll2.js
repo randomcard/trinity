@@ -99,9 +99,6 @@ export async function trinityRoll(targetActor, pickedElements, event) {
   // let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
   let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: targetActor, elements: pickedElements});
 
-  console.log("Post html render, pre dialog call, this:");
-  console.log(this);
-
   let rollDialog = new RDialog({
     title: "Roll Options",
     id: "rdialog",

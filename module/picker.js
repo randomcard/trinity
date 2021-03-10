@@ -22,6 +22,7 @@ export class Picker {
       case "skil":
         let pItems = targetActor.items.filter(f => f.type.includes("skill"));
         console.log("pItems");
+        console.log(typeof pItems);
         console.log(pItems);
         html = await renderTemplate("systems/trinity/templates/pickers/pick-skil.html", {items: pItems, actor: targetActor});
         break;
@@ -53,9 +54,10 @@ export class Picker {
                 if (i.checked) {  // maybe i[0]
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
                   // pickedElements.skil = Object.values(targetActor.items).find(item => item.value.data._id === i.value) || pickedElements.skil;
+                  console.log(typeof targetActor.items);
                   console.log(targetActor.items.find(item => item._id === i.value));
                   pickedElements.skil = targetActor.items.find(item => item._id.includes(i.value)) || pickedElements.skil;
-
+                  // pickedElements.skil = targetActor.items.find(f    => f.type.includes("skill"));
 
                   /*
                   console.log("Picker, Update button, pickedElement:");
