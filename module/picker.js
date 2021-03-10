@@ -48,12 +48,13 @@ export class Picker {
 
               console.log("targetActor.items:");
               console.log(targetActor.items);
-              console.log("targetActor.items:");
+              console.log("Object.values targetActor.items:");
               console.log(Object.values(targetActor.items));
-              console.log("targetActor.items:");
+              console.log("Object.keys targetActor.items:");
               console.log(Object.keys(targetActor.items));
-              console.log("targetActor.items:");
+              console.log("Object.entries targetActor.items:");
               console.log(Object.entries(targetActor.items));
+
               // console.log(targetActor.items.find(item => item._id === i.value));
 
               for (let i of document.getElementsByClassName('input')) {
@@ -63,7 +64,7 @@ export class Picker {
                   console.log("pickedElements.skil");
                   console.log(pickedElements.skil);
                   //console.log(typeof targetActor.items);
-                  //console.log(targetActor.items.find(item => item._id === i.value));
+                  console.log(targetActor.items.find(item => item._id === i.value));
                   // pickedElements.skil = targetActor.items.find(item => item._id.includes(i.value)) || pickedElements.skil;
                   // pickedElements.skil = targetActor.items.find(f    => f.type.includes("skill"));
 
