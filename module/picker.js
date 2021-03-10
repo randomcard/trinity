@@ -63,7 +63,7 @@ export class Picker {
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
 
                   // skil
-                  pickedElements.skil = targetActor.items.data.find(item => item._id === i.id) || pickedElements.skil;
+                  pickedElements.skil = targetActor.items.find(item => item._id === i.id).data || pickedElements.skil;
                 }
               };
 
