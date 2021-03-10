@@ -47,7 +47,7 @@ export class Picker {
 
               console.log("targetActor.items:");
               console.log(targetActor.items);
-              console.log(targetActor.items.find(item => item._id === i.value));
+              // console.log(targetActor.items.find(item => item._id === i.value));
 
               for (let i of document.getElementsByClassName('input')) {
                 if (i.checked) {  // maybe i[0]
