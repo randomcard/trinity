@@ -17,7 +17,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
   if (typeof pickedElements === 'undefined' || pickedElements === null) {
     console.log("Creating default pickedElements");
     pickedElements = {};
-    pickedElements.push(pickedElementsProto);
+    Object.assign(pickedElements, pickedElementsProto);
     console.log(pickedElements);
   }
   // pickedElements = pickedElements || Object.create(pickedElementsProto);
