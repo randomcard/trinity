@@ -66,7 +66,7 @@ export class Picker {
                   console.log("i");
                   console.log(i);
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
-                  pickedElements.skil = Object.values(targetActor.items).find(item => item._id === i.key) || pickedElements.skil;
+                  pickedElements.skil = Object.values(targetActor.items).find(item => item._id === i.id) || pickedElements.skil;
                   console.log("pickedElements.skil");
                   console.log(pickedElements.skil);
                   //console.log(typeof targetActor.items);
