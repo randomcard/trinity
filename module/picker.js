@@ -59,27 +59,11 @@ export class Picker {
 
               for (let i of document.getElementsByClassName('input')) {
                 if (i.checked) {  // maybe i[0]
-                  console.log("i.value");
-                  console.log(i.value);
-                  console.log("i.id");
-                  console.log(i.id);
-                  console.log("i");
-                  console.log(i);
+                  // attr
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
-                  // pickedElements.skil = Object.values(targetActor.items).find(item => item._id === i.id) || pickedElements.skil;
-                  console.log("pickedElements.skil");
-                  console.log(pickedElements.skil);
-                  //console.log(typeof targetActor.items);
-                  console.log(targetActor.items.find(item => item._id === i.value));
-                  pickedElements.skil = targetActor.items.find(item => item._id === i.id) || pickedElements.skil;
-                  // pickedElements.skil = targetActor.items.find(f    => f.type.includes("skill"));
 
-                  /*
-                  console.log("Picker, Update button, pickedElement:");
-                  console.log(pickedElements);
-                  */
-                  console.log("pickedElements.skil");
-                  console.log(pickedElements.skil);
+                  // skil
+                  pickedElements.skil = targetActor.items.find(item => item._id === i.id) || pickedElements.skil;
                 }
               };
 
