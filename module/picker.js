@@ -48,12 +48,18 @@ export class Picker {
 
               console.log("targetActor.items:");
               console.log(targetActor.items);
+              console.log("targetActor.items:");
+              console.log(Object.values(targetActor.items));
+              console.log("targetActor.items:");
+              console.log(Object.keys(targetActor.items));
+              console.log("targetActor.items:");
+              console.log(Object.entries(targetActor.items));
               // console.log(targetActor.items.find(item => item._id === i.value));
 
               for (let i of document.getElementsByClassName('input')) {
                 if (i.checked) {  // maybe i[0]
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
-                  pickedElements.skil = Object.keys(targetActor.items).find(item => item.value.data._id === i.value) || pickedElements.skil;
+                  pickedElements.skil = Object.entries(targetActor.items).find(item => item.value.data._id === i.value) || pickedElements.skil;
                   console.log("pickedElements.skil");
                   console.log(pickedElements.skil);
                   //console.log(typeof targetActor.items);
