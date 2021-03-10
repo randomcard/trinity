@@ -47,12 +47,14 @@ export class Picker {
 
               console.log("targetActor.items:");
               console.log(targetActor.items);
+              console.log(targetActor.items.find(item => item._id === i.value));
 
               for (let i of document.getElementsByClassName('input')) {
                 if (i.checked) {  // maybe i[0]
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
                   // pickedElements.skil = Object.values(targetActor.items).find(item => item.value.data._id === i.value) || pickedElements.skil;
-                  pickedElements.skil = targetActor.items.find(item => item._id === i.value) || pickedElements.skil;
+                  console.log(targetActor.items.find(item => item._id === i.value));
+                  pickedElements.skil = targetActor.items.find(item => item._id.includes(i.value)) || pickedElements.skil;
 
 
                   /*
