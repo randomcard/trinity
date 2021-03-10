@@ -155,7 +155,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 // END DIALOG Section
 
   function _roll(targetActor, p) {
-        let rollFormula = `(((${p.attr.value}+${p.skil.value})d10x${p.expl.value}cs>=${p.succ.value})+(${p.enha.value}+${p.dsca.value}))*${p.nsca.value}`;
+        let rollFormula = `(((${p.attr.value}+${p.skil.data.value})d10x${p.expl.value}cs>=${p.succ.value})+(${p.enha.data.value}+${p.dsca.value}))*${p.nsca.value}`;
         console.log(rollFormula);
 
         let roll = new Roll(rollFormula);
