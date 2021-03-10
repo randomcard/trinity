@@ -59,6 +59,8 @@ export class Picker {
 
               for (let i of document.getElementsByClassName('input')) {
                 if (i.checked) {  // maybe i[0]
+                  console.log("i.value");
+                  console.log(i.value);
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
                   pickedElements.skil = Object.entries(targetActor.items).find(item => item.value.data._id === i.value) || pickedElements.skil;
                   console.log("pickedElements.skil");
