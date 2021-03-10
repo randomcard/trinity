@@ -5,12 +5,16 @@ export const pickedElementsProto = {
   },
   skil : {
     name : "No Skill Selected",
-    value : 0
+    data : {
+      value : 0
+    }
   },
-  // Eventually, change the value to be a function that loops through item IDs that are attached to PickedElements
+  // Eventually, change 'value' to be a function that loops through item IDs that are attached to PickedElements
   enha : {
     name : "No Enhancements Selected",
-    value : 0
+    data : {
+      value : 0
+    }
   },
   expl : {
     name : "Standard",
