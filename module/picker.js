@@ -61,8 +61,12 @@ export class Picker {
                 if (i.checked) {  // maybe i[0]
                   console.log("i.value");
                   console.log(i.value);
+                  console.log("i.key");
+                  console.log(i.key);
+                  console.log("i");
+                  console.log(i);
                   pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
-                  pickedElements.skil = Object.entries(targetActor.items).find(item => item.value.data._id === i.value) || pickedElements.skil;
+                  pickedElements.skil = Object.values(targetActor.items).find(item => item._id === i.key) || pickedElements.skil;
                   console.log("pickedElements.skil");
                   console.log(pickedElements.skil);
                   //console.log(typeof targetActor.items);
