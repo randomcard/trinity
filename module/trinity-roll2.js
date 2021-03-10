@@ -118,6 +118,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
             // console.log(rollParts[part]);
           }
           _roll(targetActor, pickedElements);
+          pickedElements = null;
           return;
         }
       },

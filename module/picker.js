@@ -59,11 +59,14 @@ export class Picker {
 
               for (let i of document.getElementsByClassName('input')) {
                 if (i.checked) {  // maybe i[0]
-                  // attr
-                  pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
-
-                  // skil
-                  pickedElements.skil = targetActor.items.find(item => item._id === i.id).data || pickedElements.skil;
+                  switch(pickType) {
+                    case "attr":
+                      pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
+                      break;
+                    case "skil":
+                      pickedElements.skil = targetActor.items.find(item => item._id === i.id).data || pickedElements.skil;
+                      break;
+                  }
                 }
               };
 
