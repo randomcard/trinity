@@ -65,7 +65,7 @@ export class Picker {
                       break;
                     case "skil":
                       pickedElements.skil = targetActor.items.find(item => item._id === i.id).data || pickedElements.skil;
-                      pickedElements.skil.value = pickedElements.skil.data.value
+                      pickedElements.skil.value = pickedElements.skil.data.value;
                       break;
                   }
                 }
