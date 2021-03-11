@@ -147,14 +147,14 @@
       "templates": ["base"],
       "pathtype": ""
     },
-    "complication" : {
+    "complication": {
       "templates": ["base"],
       "impact": ""
     },
-    "stunt" : {
+    "stunt": {
       "templates": ["base"],
       "costDescription": "",
       "costType": "",
-      "value"
+      "value": 0
   }
 }
