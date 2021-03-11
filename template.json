@@ -113,7 +113,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell","skill","specialty","path"],
+    "types": ["item", "feature", "spell","skill","specialty","path","complication","stunt"],
     "templates": {
       "base": {
         "description": "",
