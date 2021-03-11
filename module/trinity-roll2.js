@@ -92,6 +92,13 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         rollDialog.close();
       });
 
+      // ENHA click
+      html.find('.enha-label').click((event) => {
+        // Call Option picker
+        pickedElements = Picker.pDialog("enha", targetActor, pickedElements);
+        rollDialog.close();
+      });
+
     }
 
   }

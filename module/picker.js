@@ -26,6 +26,13 @@ export class Picker {
         console.log(pItems);
         html = await renderTemplate("systems/trinity/templates/pickers/pick-skil.html", {items: pItems, actor: targetActor});
         break;
+      case "enha":
+        let pItems = targetActor.items.filter(f => f.data.enhancement.active === true);
+        console.log("pItems");
+        console.log(typeof pItems);
+        console.log(pItems);
+        html = await renderTemplate("systems/trinity/templates/pickers/pick-enha.html", {items: pItems, actor: targetActor});
+        break;
       default:
         ui.notifications.warn("No Picker Type Found.");
         return;
@@ -58,7 +65,7 @@ export class Picker {
               // console.log(targetActor.items.find(item => item._id === i.value));
 
               for (let i of document.getElementsByClassName('input')) {
-                if (i.checked) {  // maybe i[0]
+                if (i.checked) {  // maybe i[0], might not work with Enha/Checkbox
                   switch(pickType) {
                     case "attr":
                       pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
@@ -66,6 +73,11 @@ export class Picker {
                     case "skil":
                       pickedElements.skil = targetActor.items.find(item => item._id === i.id).data || pickedElements.skil;
                       pickedElements.skil.value = pickedElements.skil.data.value;
+                      break;
+                    case "enha":
+                      pickedElements.enha = targetActor.items.find(item => item._id === i.id).data || pickedElements.enha;
+                      pickedElements.enha.value = pickedElements.enha.value + pickedElements.enha[i].data.value;
+                      pickedElements.enha.name = pickedElements.enha.name + '•' + pickedElements.enha[i].name;
                       break;
                   }
                 }
