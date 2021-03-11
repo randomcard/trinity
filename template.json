@@ -146,6 +146,15 @@
     "path": {
       "templates": ["base"],
       "pathtype": ""
-    }
+    },
+    "complication" : {
+      "templates": ["base"],
+      "impact": ""
+    },
+    "stunt" : {
+      "templates": ["base"],
+      "costDescription": "",
+      "costType": "",
+      "value"
   }
 }
