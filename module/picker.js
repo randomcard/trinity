@@ -22,12 +22,11 @@ export class Picker {
         break;
       case "skil":
         pItems = targetActor.items.filter(f => f.type.includes("skill"));
-        console.log("pItems");
-        console.log(typeof pItems);
-        console.log(pItems);
         html = await renderTemplate("systems/trinity/templates/pickers/pick-skil.html", {items: pItems, actor: targetActor});
         break;
       case "enha":
+        console.log("targetActor.items");
+        console.log(targetActor.items);
         pItems = targetActor.items.filter(f => f.data.enhancement.active === true);
         console.log("pItems");
         console.log(typeof pItems);
