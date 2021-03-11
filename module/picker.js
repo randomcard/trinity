@@ -27,7 +27,7 @@ export class Picker {
       case "enha":
         console.log("targetActor.items");
         console.log(targetActor.items);
-        pItems = targetActor.items.filter(f => f.data.enhancement.active === true);
+        pItems = targetActor.items.filter(f => f.data.data.enhancement.active === true);
         console.log("pItems");
         console.log(typeof pItems);
         console.log(pItems);
