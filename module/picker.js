@@ -6,6 +6,7 @@ export class Picker {
   static async pDialog(pickType, targetActor, pickedElements) {
 
     var html = {};
+    let pItems = {};
 
     // add some conditional code here to change the template depending on pickType - attr, skil, etc.
     /*
@@ -20,14 +21,14 @@ export class Picker {
         html = await renderTemplate("systems/trinity/templates/pickers/pick-attr.html", {picked: pickedElements, actor: targetActor});
         break;
       case "skil":
-        let pItems = targetActor.items.filter(f => f.type.includes("skill"));
+        pItems = targetActor.items.filter(f => f.type.includes("skill"));
         console.log("pItems");
         console.log(typeof pItems);
         console.log(pItems);
         html = await renderTemplate("systems/trinity/templates/pickers/pick-skil.html", {items: pItems, actor: targetActor});
         break;
       case "enha":
-        let pItems = targetActor.items.filter(f => f.data.enhancement.active === true);
+        pItems = targetActor.items.filter(f => f.data.enhancement.active === true);
         console.log("pItems");
         console.log(typeof pItems);
         console.log(pItems);
