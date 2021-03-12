@@ -4,6 +4,7 @@ export class TRoll extends Roll {
     super(formula, data={});
     console.log("In constructor:");
     console.log(enh);
+    let enhmod = enh;
   }
 
   evaluate({minimize=false, maximize=false}={}) {
@@ -48,7 +49,7 @@ export class TRoll extends Roll {
     console.log(total);
     // MY TOTALLY HACKY HACK - NOT AT ALL THE RIGHT WAY TO DO This
     if (total >= 1) {
-      total = total + enh;
+      total = total + enhmod;
     }
     // END OF HACKY HACK
 
