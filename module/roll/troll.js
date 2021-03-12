@@ -1,4 +1,4 @@
-export default class TRoll extends Roll {
+export class TRoll extends Roll {
   evaluate({minimize=false, maximize=false}={}) {
 
     console.log("CUSTOM tROLL CLASS - tRoll.evaluate");
