@@ -68,14 +68,19 @@ export class Picker {
                 if (i.checked) {  // maybe i[0], might not work with Enha/Checkbox
                   switch(pickType) {
                     case "attr":
+                      console.log("case attr");
                       pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
                       break;
                     case "skil":
+                      console.log("case skil");
                       pickedElements.skil = targetActor.items.find(item => item._id === i.id).data || pickedElements.skil;
                       pickedElements.skil.value = pickedElements.skil.data.value;
                       break;
                     case "enha":
-                      pickedElements.enha = targetActor.items.find(item => item._id === i.id).data || pickedElements.enha;
+                      console.log("case enha");
+                      console.log("targetActor.items.find(item => item._id === i.id)");
+                      console.log(targetActor.items.find(item => item._id === i.id));
+                      pickedElements.enha[i] = targetActor.items.find(item => item._id === i.id) || pickedElements.enha;
                       pickedElements.enha.value = pickedElements.enha.value + pickedElements.enha[i].data.value;
                       pickedElements.enha.name = pickedElements.enha.name + '•' + pickedElements.enha[i].name;
                       break;
