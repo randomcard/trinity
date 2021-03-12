@@ -6,6 +6,7 @@ import { TrinityActorSheet } from "./actor/trinity-actor-sheet.js";
 import { TrinityItem } from "./item/item.js";
 import { TrinityItemSheet } from "./item/item-sheet.js";
 import { TrinityRoll } from "./trinity-roll.js";
+import { TRoll } from "./roll/troll.js";
 
 Hooks.once('init', async function() {
 
@@ -27,6 +28,9 @@ Hooks.once('init', async function() {
   // Define custom Entity classes
   CONFIG.Actor.entityClass = TrinityActor;
   CONFIG.Item.entityClass = TrinityItem;
+
+  // Define custom Roll class
+  CONFIG.Dice.rolls.unshift(TRoll);
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
