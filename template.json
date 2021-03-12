@@ -75,7 +75,7 @@
     }
   },
   "Item": {
-    "types": ["item", "edge", "skill", "specialty", "path", "complication", "stunt", "gift"],
+    "types": ["item", "edge", "skill", "specialty", "path", "complication", "stunt", "gift", "trick"],
     "templates": {
       "base": {
         "description": "",
