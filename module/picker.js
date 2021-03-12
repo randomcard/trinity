@@ -80,8 +80,8 @@ export class Picker {
                       console.log("case enha");
                       console.log("targetActor.items.find(item => item._id === i.id)");
                       console.log(targetActor.items.find(item => item._id === i.id));
-                      pickedElements.enha[i] = targetActor.items.find(item => item._id === i.id) || pickedElements.enha;
-                      pickedElements.enha.value = pickedElements.enha.value + pickedElements.enha[i].data.value;
+                      pickedElements.enha[i.id] = targetActor.items.find(item => item._id === i.id).data || pickedElements.enha;
+                      pickedElements.enha.value = pickedElements.enha.value + parseInt(pickedElements.enha[i.id].data.value);
                       pickedElements.enha.name = pickedElements.enha.name + '•' + pickedElements.enha[i].name;
                       break;
                   }
