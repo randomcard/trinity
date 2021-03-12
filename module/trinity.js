@@ -14,7 +14,7 @@ Hooks.once('init', async function() {
     TrinityActor,
     TrinityItem,
     rollItemMacro,
-    Troll
+    TRoll
   };
 
   /**
