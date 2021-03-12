@@ -2,6 +2,8 @@ export class TRoll extends Roll {
 
   constructor(formula, data={}, enh) {
     super(formula, data={});
+    console.log("In constructor:");
+    console.log(enh);
   }
 
   evaluate({minimize=false, maximize=false}={}) {
