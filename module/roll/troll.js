@@ -41,12 +41,13 @@ export class TRoll extends Roll {
     console.log(this.results);
 
     // Step 4 - safely evaluate the final total
-    const total = this._safeEval(this.results.join(" "));
+    var total = this._safeEval(this.results.join(" "));
     if ( !Number.isNumeric(total) ) {
       throw new Error(game.i18n.format("DICE.ErrorNonNumeric", {formula: this.formula}));
     }
     console.log("TRoll.evaluate Step 4: total");
     console.log(total);
+
     // MY TOTALLY HACKY HACK - NOT AT ALL THE RIGHT WAY TO DO This
     if (total >= 1) {
       total = total + this.enh;
