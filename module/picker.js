@@ -79,7 +79,7 @@ export class Picker {
                       console.log("targetActor.items.find(item => item._id === i.id)");
                       console.log(targetActor.items.find(item => item._id === i.id));
                       pickedElements.enha[i.id] = targetActor.items.find(item => item._id === i.id).data || pickedElements.enha;
-                      pickedElements.enha.value = pickedElements.enha.value + parseInt(pickedElements.enha[i.id].data.value);
+                      pickedElements.enha.value = parseInt(pickedElements.enha.value) + parseInt(pickedElements.enha[i.id].data.enhancement.value);
                       pickedElements.enha.name = pickedElements.enha.name + '•' + pickedElements.enha[i.id].name;
                       console.log(pickedElements);
                       break;
