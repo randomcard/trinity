@@ -13,7 +13,8 @@ Hooks.once('init', async function() {
   game.trinity = {
     TrinityActor,
     TrinityItem,
-    rollItemMacro
+    rollItemMacro,
+    Troll
   };
 
   /**
