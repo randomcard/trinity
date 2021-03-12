@@ -61,7 +61,7 @@ export class Picker {
                       // pickedElements.enha.name = pickedElements.enha.name + '•' + pickedElements.enha[i.id].name;
 
                       console.log("enha case name assignment");
-                      console.log(pickedElementsProto.ench.name);
+                      console.log(pickedElementsProto.enha.name);
                       pickedElements.enha.name = ((pickedElements.enha.name === pickedElementsProto.enha.name) ? (pickedElements.enha[i.id].name) : (pickedElements.enha.name + ' • ' + pickedElements.enha[i.id].name));
 
                       console.log(pickedElements);
