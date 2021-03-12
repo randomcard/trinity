@@ -166,16 +166,22 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 // END DIALOG Section
 
   function _roll(targetActor, p) {
-        let rollFormula = `(((${p.attr.value}+${p.skil.value})d10x${p.expl.value}cs>=${p.succ.value})+(${p.enha.value}+${p.dsca.value}))*${p.nsca.value}`;
-        console.log(rollFormula);
+    /* Old Formula, w/ wrong NScale
+    let rollFormula = `(((${p.attr.value}+${p.skil.value})d10x${p.expl.value}cs>=${p.succ.value})+(${p.enha.value}+${p.dsca.value}))*${p.nsca.value}`;
+    */
 
-        // let roll = new Roll(rollFormula);
-        let roll = new game.trinity.TRoll(rollFormula);
-        let label = p.attr.name ? `Rolling ${p.attr.name}` : '';
-        roll.roll().toMessage({
-          speaker: ChatMessage.getSpeaker({ actor: targetActor }),
-          flavor: label
-        });
+    let rollFormula = `((${p.attr.value}+${p.skil.value})d10x${p.expl.value}cs>=${p.succ.value})*${p.nsca.value}`;
+    let enhaValue = parseInt(p.enha.value) + parseInt(p.dsca.value);
+
+    console.log(rollFormula);
+
+    // let roll = new Roll(rollFormula);
+    let roll = new game.trinity.TRoll(rollFormula);
+    let label = p.attr.name ? `Rolling ${p.attr.name}` : '';
+    roll.roll().toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: targetActor }),
+      flavor: label
+    });
   }
 
 
