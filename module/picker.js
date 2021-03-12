@@ -1,5 +1,6 @@
 // trinity roll 2
 import { trinityRoll } from "/systems/trinity/module/trinity-roll2.js";
+import { pickedElementsProto } from "/systems/trinity/module/protos.js";
 
 export class Picker {
 
@@ -25,12 +26,7 @@ export class Picker {
         html = await renderTemplate("systems/trinity/templates/pickers/pick-skil.html", {items: pItems, actor: targetActor});
         break;
       case "enha":
-        console.log("targetActor.items");
-        console.log(targetActor.items);
         pItems = targetActor.items.filter(f => f.data.data.enhancement.active === true);
-        console.log("pItems");
-        console.log(typeof pItems);
-        console.log(pItems);
         html = await renderTemplate("systems/trinity/templates/pickers/pick-enha.html", {items: pItems, actor: targetActor});
         break;
       default:
@@ -49,21 +45,6 @@ export class Picker {
             icon: "<i class='fas fa-redo'></i>",
             label: "Update",
             callback: () => {
-
-              console.log("Testing getElementsByClassName:");
-              console.log(document.getElementsByClassName('input'));
-
-              console.log("targetActor.items:");
-              console.log(targetActor.items);
-              console.log("Object.values targetActor.items:");
-              console.log(Object.values(targetActor.items));
-              console.log("Object.keys targetActor.items:");
-              console.log(Object.keys(targetActor.items));
-              console.log("Object.entries targetActor.items:");
-              console.log(Object.entries(targetActor.items));
-
-              // console.log(targetActor.items.find(item => item._id === i.value));
-
               for (let i of document.getElementsByClassName('input')) {
                 if (i.checked) {  // maybe i[0], might not work with Enha/Checkbox
                   switch(pickType) {
@@ -75,13 +56,15 @@ export class Picker {
                       pickedElements.skil.value = pickedElements.skil.data.value;
                       break;
                     case "enha":
-                      console.log("case enha");
-                      console.log("targetActor.items.find(item => item._id === i.id)");
-                      console.log(targetActor.items.find(item => item._id === i.id));
                       pickedElements.enha[i.id] = targetActor.items.find(item => item._id === i.id).data || pickedElements.enha;
                       pickedElements.enha.value = parseInt(pickedElements.enha.value) + parseInt(pickedElements.enha[i.id].data.enhancement.value);
-                      pickedElements.enha.name = pickedElements.enha.name + '•' + pickedElements.enha[i.id].name;
+                      // pickedElements.enha.name = pickedElements.enha.name + '•' + pickedElements.enha[i.id].name;
+
+
+                      pickedElements.enha.name = ((pickedElements.enha.name === pickedElementsProto.ench.name) ? (pickedElements.enha[i.id].name) : (pickedElements.enha.name + ' • ' + pickedElements.enha[i.id].name));
+
                       console.log(pickedElements);
+
                       break;
                   }
                 }

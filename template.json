@@ -1,18 +1,9 @@
 {
   "Actor": {
-    "types": ["TrinityCharacter", "character"],
+    "types": ["TrinityCharacter"],
     "templates": {
       "base": {
-        "health": {
-          "value": 10,
-          "min": 0,
-          "max": 10
-        },
-        "power": {
-          "value": 5,
-          "min": 0,
-          "max": 5
-        }
+
       }
     },
     "TrinityCharacter": {
@@ -81,59 +72,44 @@
           "approach": "Resilience"
         }
       }
-    },
-    "character": {
-      "templates": ["base"],
-      "biography": "",
-      "attributes": {
-        "level": {
-          "value": 1
-        }
-      },
-      "abilities": {
-        "str": {
-          "value": 10
-        },
-        "dex": {
-          "value": 10
-        },
-        "con": {
-          "value": 10
-        },
-        "int": {
-          "value": 10
-        },
-        "wis": {
-          "value": 10
-        },
-        "cha": {
-          "value": 10
-        }
-      }
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell","skill","specialty","path","complication","stunt"],
+    "types": ["item", "edge", "skill", "specialty", "path", "complication", "stunt", "gift"],
     "templates": {
       "base": {
         "description": "",
         "enhancement" : {
           "active" : false,
-          "value" : 0
+          "value" : 0,
+          "relevance" : ""
         }
       }
     },
     "item": {
       "templates": ["base"],
       "quantity": 1,
-      "weight": 0
+      "weapon" : {
+        "isWeapon" : false,
+        "tags" : ""
+      },
+      "armor" : {
+        "isArmor" : false,
+        "tags" : ""
+      },
+      "vehicle" : {
+        "isVehicle" : false,
+        "name" : "",
+        "tags" : "",
+        "size" : 1,
+        "handling" : 1,
+        "speed" : 1,
+        "cost" : 1
+      }
     },
-    "feature": {
-      "templates": ["base"]
-    },
-    "spell": {
+    "edge": {
       "templates": ["base"],
-      "spellLevel": 1
+      "value": 0
     },
     "skill": {
       "templates": ["base"],
@@ -141,7 +117,7 @@
     },
     "specialty": {
       "templates": ["base"],
-      "defaultSkill": ""
+      "skillOrigin": ""
     },
     "path": {
       "templates": ["base"],
@@ -149,13 +125,23 @@
     },
     "complication": {
       "templates": ["base"],
-      "impact": ""
+      "relevance": ""
     },
     "stunt": {
       "templates": ["base"],
       "costDescription": "",
       "costType": "",
       "value": 0
+    },
+    "gift" : {
+      "templates": ["base"],
+      "keywords" : "",
+      "system" : ""
+    },
+    "trick" : {
+      "templates": ["base"],
+      "skillOrigin": ""
     }
+
   }
 }
