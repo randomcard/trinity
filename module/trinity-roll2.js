@@ -170,7 +170,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         console.log(rollFormula);
 
         // let roll = new Roll(rollFormula);
-        let roll = new TRoll(rollFormula);
+        let roll = new game.trinity.TRoll(rollFormula);
         let label = p.attr.name ? `Rolling ${p.attr.name}` : '';
         roll.roll().toMessage({
           speaker: ChatMessage.getSpeaker({ actor: targetActor }),
