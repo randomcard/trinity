@@ -126,7 +126,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
             // console.log(rollParts[part]);
           }
           _roll(targetActor, pickedElements);
-          pickedElements = null;
+          pickedElements = {};
           Object.assign(pickedElements, pickedElementsProto);
           return;
         }
@@ -135,7 +135,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         icon: "<i class='fas fa-times'></i>",
         label: "Cancel",
         callback: () => {
-          pickedElements = null;
+          pickedElements = {};
           Object.assign(pickedElements, pickedElementsProto);
           return;
         }
@@ -146,7 +146,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         callback: () => {
           console.log("Refresh Roller");
           // render(true);
-          pickedElements = null;
+          pickedElements = {};
           Object.assign(pickedElements, pickedElementsProto);
           event = {};
           return trinityRoll(targetActor, pickedElements, event);
@@ -155,7 +155,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     },
     default:"roll",
     callback: html => {
-      pickedElements = null;
+      pickedElements = {};
       Object.assign(pickedElements, pickedElementsProto);
       return;
     }

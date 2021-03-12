@@ -27,7 +27,7 @@ export class Picker {
         break;
       case "enha":
         pItems = targetActor.items.filter(f => f.data.data.enhancement.active === true);
-        pickedElements.enha = null;
+        pickedElements.enha = {};
         Object.assign(pickedElements.enha, pickedElementsProto.enha);
         html = await renderTemplate("systems/trinity/templates/pickers/pick-enha.html", {items: pItems, actor: targetActor});
         break;
