@@ -4,8 +4,14 @@
       {{#each this.items as |item key|}}
         <div class="item flexrow flex-group-center" id="{{key}}">
           <label for="{{item.data._id}}" class="resource-label" data-skilname="{{item.data.name}}">
-            {{item.name}}<br>
-            {{item.data.enhancement.relevance}}
+            <table>
+              <tr>
+                <td rowspan="2">{{item.data.data.enhancement.relevance}}</td>
+                <td>{{item.name}}</td>
+              </tr>
+              <tr>
+                <td>{{item.data.data.enhancement.relevance}}</td>
+              </tr>
           </label>
           <input type="checkbox" id="{{item.data._id}}" class="input" name="enha" value="{{item.data.name}}">
         </div>
