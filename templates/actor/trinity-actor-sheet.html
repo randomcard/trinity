@@ -53,7 +53,7 @@
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a>
         <a class="item" data-tab="items">Items</a>
-        <a class="item" data-tab="features">Features</a>
+        <a class="item" data-tab="edges">Edges</a>
         <a class="item" data-tab="skills">Skills</a>
     </nav>
 
@@ -88,8 +88,8 @@
             </ol>
         </div>
 
-        {{!-- Owned Features Tab --}}
-        <div class="tab features" data-group="primary" data-tab="features">
+        {{!-- Owned Edges Tab --}}
+        <div class="tab edges" data-group="primary" data-tab="edges">
             <ol class="items-list">
                 <li class="item flexrow item-header">
                   <div class="item-image"></div>
@@ -98,7 +98,7 @@
                     <a class="item-control item-create" title="Create item" data-type="feature"><i class="fas fa-plus"></i> Add item</a>
                   </div>
                 </li>
-            {{#each actor.features as |item id|}}
+            {{#each actor.edges as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}">
                     <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
                     <h4 class="item-name">{{item.name}}</h4>
@@ -112,7 +112,7 @@
         </div>
 
         {{!-- Owned Skills Tab --}}
-        <div class="tab features" data-group="primary" data-tab="skills">
+        <div class="tab edges" data-group="primary" data-tab="skills">
             <ol class="items-list">
                 <li class="item flexrow item-header">
                   <div class="item-image"></div>
