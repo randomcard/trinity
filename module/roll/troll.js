@@ -44,6 +44,11 @@ export class TRoll extends Roll {
     }
     console.log("TRoll.evaluate Step 4: total");
     console.log(total);
+    // MY TOTALLY HACKY HACK - NOT AT ALL THE RIGHT WAY TO DO This
+    if (total >= 1) {
+      total = total + enh;
+    }
+    // END OF HACKY HACK
 
     // Store final outputs
     this._total = total;
