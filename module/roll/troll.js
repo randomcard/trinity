@@ -42,8 +42,8 @@ export class TRoll extends Roll {
     if ( !Number.isNumeric(total) ) {
       throw new Error(game.i18n.format("DICE.ErrorNonNumeric", {formula: this.formula}));
     }
-    console.log("TRoll.evaluate Step 4: this.total");
-    console.log(this.total);
+    console.log("TRoll.evaluate Step 4: total");
+    console.log(total);
 
     // Store final outputs
     this._total = total;
