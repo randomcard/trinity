@@ -33,13 +33,16 @@
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             {{!-- As you add new fields, add them in here! --}}
-            <div class="resource">
-              <label class="resource-label">Enhancement</label>
-                <input type="checkbox" name="data.enhancement.active" value="{{data.enhancement.active}}" data-dtype="Boolean" {{checked data.enhancement.active}}/>
-            </div>
-            <div class="resource">
-              <label class="resource-label">Enhancement Value</label>
-                <input type="input" name="data.enhancement.value" value="{{data.enhancement.value}}" data-dtype="Number"/>
+            <input type="checkbox" name="data.enhancement.active" value="{{data.enhancement.active}}" data-dtype="Boolean" {{checked data.enhancement.active}}/>
+            <div class="grid">
+              <div class="resource">
+                <label class="resource-label">Enhancement Value</label>
+                  <input type="input" name="data.enhancement.value" value="{{data.enhancement.value}}" data-dtype="Number"/>
+              </div>
+              <div class="resource">
+                <label class="resource-label">Enhancement Condition</label>
+                  <input type="input" name="data.enhancement.relevance" value="{{data.enhancement.relevance}}" data-dtype="Number"/>
+              </div>
             </div>
         </div>
     </section>

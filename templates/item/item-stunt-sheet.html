@@ -23,9 +23,18 @@
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             {{!-- As you add new fields, add them in here! --}}
-            <div class="resource">
-              <label class="resource-label">Spell Level</label>
-                <input type="text" name="data.spellLevel" value="{{data.spellLevel}}" data-dtype="Number"/>
+            <div>
+              <input type="checkbox" name="data.enhancement.active" value="{{data.enhancement.active}}" data-dtype="Boolean" {{checked data.enhancement.active}}/>
+              <div class="grid">
+                <div class="resource">
+                  <label class="resource-label">Enhancement Value</label>
+                    <input type="input" name="data.enhancement.value" value="{{data.enhancement.value}}" data-dtype="Number"/>
+                </div>
+                <div class="resource">
+                  <label class="resource-label">Enhancement Condition</label>
+                    <input type="input" name="data.enhancement.relevance" value="{{data.enhancement.relevance}}" data-dtype="Number"/>
+                </div>
+              </div>
             </div>
         </div>
     </section>
