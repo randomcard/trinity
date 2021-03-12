@@ -81,9 +81,9 @@ export class TrinityActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const skills = [];
-    const injuries = [];
+    const complications = [];
     const paths = [];
-    const features = [];
+    const edges = [];
 
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
@@ -94,15 +94,15 @@ export class TrinityActorSheet extends ActorSheet {
       if (i.type === 'item') {
         gear.push(i);
       }
-      // Append to features.
-      else if (i.type === 'feature') {
-        features.push(i);
+      // Append to edges.
+      else if (i.type === 'edge') {
+        edges.push(i);
       }
       else if (i.type === 'skill') {
         skills.push(i);
       }
-      else if (i.type === 'injury') {
-        injuries.push(i);
+      else if (i.type === 'complication') {
+        complications.push(i);
       }
       else if (i.type === 'path') {
         paths.push(i);
@@ -111,9 +111,9 @@ export class TrinityActorSheet extends ActorSheet {
 
     // Assign and return
     actorData.gear = gear;
-    actorData.features = features;
+    actorData.edges = edges;
     actorData.skills = skills;
-    actorData.injuries = injuries;
+    actorData.complications = complications;
     actorData.paths = paths;
   }
 
@@ -129,7 +129,7 @@ export class TrinityActorSheet extends ActorSheet {
 
     // Initialize containers.
     const gear = [];
-    const features = [];
+    const edges = [];
     const spells = {
       0: [],
       1: [],
@@ -152,9 +152,9 @@ export class TrinityActorSheet extends ActorSheet {
       if (i.type === 'item') {
         gear.push(i);
       }
-      // Append to features.
-      else if (i.type === 'feature') {
-        features.push(i);
+      // Append to edges.
+      else if (i.type === 'edge') {
+        edges.push(i);
       }
       // Append to spells.
       else if (i.type === 'spell') {
@@ -166,7 +166,7 @@ export class TrinityActorSheet extends ActorSheet {
 
     // Assign and return
     actorData.gear = gear;
-    actorData.features = features;
+    actorData.edges = edges;
     actorData.spells = spells;
   }
 
