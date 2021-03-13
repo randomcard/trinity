@@ -256,31 +256,9 @@
 /* ---------------------------------------- */
 /* Custom for Trinity (Non-Boilerplate)     */
 /* ---------------------------------------- */
-.trinity .table {
-  width: 100%;
-  border-collapse: collapse;
-  background: rgba(0, 0, 0, 0.05);
-  border-top: 1px none #7a7971;
-  border-bottom: 1px none #7a7971;
-  margin: 0.5em 0;
-}
-.trinity .table .thead {
-  background: rgba(0, 0, 0, 0.5);
-  color: #f0f0e0;
-  text-shadow: 1px 1px #000;
-  border-bottom: 1px none #000;
-}
-.trinity .table .tr:nth-child(even) {
-  background-color: transparent;
-}
-.trinity .table .td:first-child {
-  padding-left: 2px;
-}
-.trinity .table .td,
-.trinity .table .th {
-  padding: 0.25em 0;
-}
 
-.trinity .big {
-  font-size:150%;
+.flex-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
