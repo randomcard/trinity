@@ -3,10 +3,10 @@
     <div class="items grid grid-1col">
       {{#each this.items as |item key|}}
         <div class="item flexrow flex-group-center" id="{{key}}">
-          <div class="flex-group-left-i">
+          <div class="flex-group-left-i min-content">
             <input type="checkbox" id="{{item.data._id}}" class="input" name="enha" value="{{item.data.name}}">
           </div>
-          <div class="flex-group-left-i big">
+          <div class="flex-group-left-i big min-content">
             <b>{{item.data.data.enhancement.value}}</b>
           </div>
           <div class="flex-group-right-i">

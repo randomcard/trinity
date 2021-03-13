@@ -288,3 +288,8 @@
 .big {
   font-size: x-large;
 }
+
+.min-content {
+  width: -moz-min-content;
+  width: min-content;
+}
