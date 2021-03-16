@@ -187,7 +187,10 @@ export class TrinityActorSheet extends ActorSheet {
    */
   _onItemCreate(event) {
     event.preventDefault();
+
+    console.log("_onItemCreate(event)");
     console.log(event); // <--- Need to figure out how to handle subtypes
+
     const header = event.currentTarget;
     // Get the type of item to create.
     const type = header.dataset.type;
