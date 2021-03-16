@@ -1,1 +1,91 @@
-FULL DATA
+{{!-- Full Data --}}
+FULL DATA - Debug / Edit
+
+{{!-- Biographical Info --}}
+<h3>Biographical Info</h3>
+<label for="name" class="resource-label"> Name: </label>
+  <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+
+<label for="player" class="resource-label"> Player: </label>
+  <input name="player" type="text" value="{{actor.data.player}}"/>
+
+<label for="concept" class="resource-label"> Concept: </label>
+  <input name="concept" type="text" value="{{actor.data.concept}}"/>
+
+{{!-- Paths --}}
+Paths
+
+{{!-- Skills --}}
+Skills
+
+
+{{!-- Attributes --}}
+<h3>Attributes</h3>
+{{#each data.attributes as |attribute key|}}
+  <div class="attribute flexrow flex-group-center">
+    <label for="{{key}}.value" class="resource-label rollable">
+      {{attribute.name}}
+    </label>
+    <input type="text" name="{{key}}.value" value="{{actor.data.attribute.value}}" data-dtype="Number"/>
+  </div>
+{{/each}}
+
+
+{{!-- Health --}}
+Health Boxes
+
+
+{{!-- Flags --}}
+<h3>Flags</h3>
+<label for="isTalent" class="resource-label"> Talent: </label>
+  <input type="checkbox" name="isTalent" value="{{actor.data.flags.isTalent}}" data-dtype="Boolean" {{checked actor.data.flags.isTalent}}/>
+
+
+{{!-- Talent Powers / Stats --}}
+Moment of inspiration
+facets
+inspiration
+
+
+{{!-- Gifts --}}
+Attributes
+
+
+{{!-- Edges --}}
+Edges
+
+
+{{!-- Specialties --}}
+Specialties
+
+
+{{!-- Skill Tricks --}}
+Skill Tricks
+
+
+{{!-- Contacts --}}
+Contacts
+
+
+{{!-- Bonds --}}
+Bonds
+
+
+{{!-- Effects --}}
+Effects
+
+
+{{!-- Gear --}}
+Attributes
+
+
+{{!-- Armor --}}
+Attributes
+
+
+{{!-- Weapons --}}
+Attributes
+
+
+{{!-- Vehicles --}}
+Vehicles
