@@ -82,6 +82,21 @@ Hooks.once("ready", async function() {
 
 });
 
+Hooks.once( "init", function() {
+  loadTrinityTemplates();
+});
+
+// Templates:
+
+async function loadTrinityTemplates()
+{
+  // register templates parts
+  const templatePaths = [
+    "systems/trinity/templates/actor/partials/full-data.html"
+  ];
+  return loadTemplates( templatePaths );
+}
+
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
