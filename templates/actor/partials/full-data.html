@@ -2,7 +2,7 @@
 FULL DATA - Debug / Edit
 
 {{!-- Biographical Info --}}
-<h3>Biographical Info</h3>
+<h2>Biographical Info</h2>
 <label for="name" class="resource-label"> Name: </label>
   <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
 
@@ -13,79 +13,83 @@ FULL DATA - Debug / Edit
   <input name="concept" type="text" value="{{actor.data.concept}}"/>
 
 {{!-- Paths --}}
-Paths
+<h2>Paths</h2>
 
 {{!-- Skills --}}
-Skills
+<h2>Skills</h2>
 
 
 {{!-- Attributes --}}
-<h3>Attributes</h3>
+<h2>Attributes</h2>
 {{#each data.attributes as |attribute key|}}
   <div class="attribute flexrow flex-group-center">
     <label for="{{key}}.value" class="resource-label rollable">
       {{attribute.name}}
     </label>
-    <input type="text" name="{{key}}.value" value="{{actor.data.attribute.value}}" data-dtype="Number"/>
+    <input type="text" name="{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
   </div>
 {{/each}}
 
 
 {{!-- Health --}}
-Health Boxes
+<h2>Health Boxes</h2>
 
 
 {{!-- Flags --}}
-<h3>Flags</h3>
+<h2>Flags</h2>
 <label for="isTalent" class="resource-label"> Talent: </label>
-  <input type="checkbox" name="isTalent" value="{{actor.data.flags.isTalent}}" data-dtype="Boolean" {{checked actor.data.flags.isTalent}}/>
+  <input type="checkbox" name="isTalent" value="{{data.flags.isTalent}}" data-dtype="Boolean" {{checked data.flags.isTalent}}/>
 
 
 {{!-- Talent Powers / Stats --}}
+{{#if data.flags.isTalent}}
+<h2>Talent Powers</h2>
 Moment of inspiration
 facets
 inspiration
+{{/if}}
 
 
 {{!-- Gifts --}}
+<h2>Gifts</h2>
 Attributes
 
 
 {{!-- Edges --}}
-Edges
+<h2>Edges</h2>
 
 
 {{!-- Specialties --}}
-Specialties
+<h2>Specialties</h2>
 
 
 {{!-- Skill Tricks --}}
-Skill Tricks
+<h2>Skill Tricks</h2>
 
 
 {{!-- Contacts --}}
-Contacts
+<h2>Contacts</h2>
 
 
 {{!-- Bonds --}}
-Bonds
+<h2>Bonds</h2>
 
 
 {{!-- Effects --}}
-Effects
+<h2>Effects</h2>
 
 
 {{!-- Gear --}}
-Attributes
+<h2>Attributes</h2>
 
 
 {{!-- Armor --}}
-Attributes
+<h2>Attributes</h2>
 
 
 {{!-- Weapons --}}
-Attributes
+<h2>Attributes</h2>
 
 
 {{!-- Vehicles --}}
-Vehicles
+<h2>Vehicles</h2>
