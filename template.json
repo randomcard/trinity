@@ -1,22 +1,39 @@
 {
   "Actor": {
-    "types": ["TrinityCharacter"],
+    "types": ["TrinityCharacter", "TrinityNPC"],
     "templates": {
       "base": {
-
+        "biography": "",
+        "defense": {
+          "value": 1
+        },
+        "flags" : {
+          "isTalent" : true
+        }
+      },
+      "talent" : {
+        "moment" : "",
+        "facets" : {
+          "destructive" : 0,
+          "intuitive" : 0,
+          "reflective" : 0
+        },
+        "inspiration" : {
+          "max" : 0,
+          "current" : 0
+        }
       }
     },
     "TrinityCharacter": {
-      "templates": ["base"],
-      "biography": "",
-      "defense": {
-        "value": 1
-      },
+      "templates": ["base", "talent"],
+      "player" : "",
+      "concept" : "",
       "experience": {
         "earned": 0,
         "available": 0
       },
       "attributes": {
+        "favoredApproach" : "",
         "int": {
           "value": 1,
           "name": "Intellect",
@@ -75,15 +92,22 @@
     }
   },
   "Item": {
-    "types": ["item", "edge", "skill", "specialty", "path", "complication", "stunt", "gift", "trick"],
+    "types": ["item", "edge", "skill", "specialty", "path", "complication", "stunt", "gift", "trick", "bonus", "contact", "bond"],
     "templates": {
       "base": {
         "description": "",
         "enhancement" : {
-          "active" : false,
+          "isEnhancement" : false,
           "value" : 0,
           "relevance" : ""
-        }
+        },
+        "complication" : {
+          "isComplication" : false,
+          "value" : 0,
+          "relevance" : ""
+        },
+        "defaultSkill" : "",
+        "defaultAttribute" : ""
       }
     },
     "item": {
