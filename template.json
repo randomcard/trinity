@@ -32,8 +32,8 @@
         "earned": 0,
         "available": 0
       },
+      "favoredApproach" : "",
       "attributes": {
-        "favoredApproach" : "",
         "int": {
           "value": 1,
           "name": "Intellect",
