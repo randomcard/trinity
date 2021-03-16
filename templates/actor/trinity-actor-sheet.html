@@ -112,7 +112,7 @@
         </div>
 
         {{!-- Owned Skills Tab --}}
-        <div class="tab edges" data-group="primary" data-tab="skills">
+        <div class="tab skills" data-group="primary" data-tab="skills">
             <ol class="items-list">
                 <li class="item flexrow item-header">
                   <div class="item-image"></div>
@@ -138,6 +138,11 @@
             {{/each}}
             </ol>
         </div>
+
+        {{!-- Data Entry Tab --}}
+        <div class="tab data-entry" data-group="primary" data-tab="data-entry">
+
+        {{> "systems/swade/templates/actors/partials/powers-tab.html"}}
 
     </section>
 </form>

@@ -92,7 +92,7 @@
     }
   },
   "Item": {
-    "types": ["item", "edge", "skill", "specialty", "path", "complication", "stunt", "gift", "trick", "bonus", "contact", "bond"],
+    "types": ["item", "edge", "skill", "specialty", "path", "effect", "stunt", "gift", "trick", "contact", "bond"],
     "templates": {
       "base": {
         "description": "",
@@ -106,6 +106,19 @@
           "value" : 0,
           "relevance" : ""
         },
+        "flags" : {
+          "isEnhancement" : false,
+          "isComplication" : false,
+          "isGear" : false,
+          "isWeapon" : false,
+          "isArmor" : false,
+          "isVehicle" : false,
+          "isHealth" : false
+        },
+        "health" : {
+          "value" : 0,
+          "injured" : false
+        },
         "defaultSkill" : "",
         "defaultAttribute" : ""
       }
@@ -113,16 +126,16 @@
     "item": {
       "templates": ["base"],
       "quantity": 1,
+      "gear": {
+        "tags" : ""
+      },
       "weapon" : {
-        "isWeapon" : false,
         "tags" : ""
       },
       "armor" : {
-        "isArmor" : false,
         "tags" : ""
       },
       "vehicle" : {
-        "isVehicle" : false,
         "name" : "",
         "tags" : "",
         "size" : 1,
@@ -147,9 +160,8 @@
       "templates": ["base"],
       "pathtype": ""
     },
-    "complication": {
-      "templates": ["base"],
-      "relevance": ""
+    "effect": {
+      "templates": ["base"]
     },
     "stunt": {
       "templates": ["base"],
@@ -165,7 +177,17 @@
     "trick" : {
       "templates": ["base"],
       "skillOrigin": ""
-    }
+    },
+    "contact" : {
+      "templates": ["base"],
+      "value" : 0,
+      "pathOrigin": ""
+    },
+    "bond" : {
+      "templates": ["base"],
+      "value" : 0,
+      "skillOrigin": ""
+    },
 
   }
 }

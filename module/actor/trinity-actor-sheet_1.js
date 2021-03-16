@@ -54,6 +54,9 @@ export class TrinityActorSheet extends ActorSheet {
     if (this.actor.data.type == 'TrinityCharacter') {
       this._prepareTrinityCharacterItems(data);
     }
+    if (this.actor.data.type == 'Character') {
+      this._prepareCharacterItems(data);
+    }
 
 // Test section - can I add more data here for other stuff?
 // No
@@ -77,67 +80,94 @@ export class TrinityActorSheet extends ActorSheet {
 
     // Initialize containers.
     const gear = [];
-    const weapons = [];
-    const armors = [];
-    const vehicles = [];
-    const edges = [];
     const skills = [];
-    const specialties = [];
+    const complications = [];
     const paths = [];
-    const effects = [];
-    const stunts = [];
-    const gifts = [];
-    const tricks = [];
-    const contacts = [];
-    const bonds = [];
-    const healthboxes = [];
-
+    const edges = [];
 
     // Iterate through items, allocating to containers
     // let totalWeight = 0;
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
-
       // Append to gear.
-      if (i.type === 'item' && i.data.flags.isGear === true) { gear.push(i); }
-      if (i.type === 'item' && i.data.flags.isWeapon === true) { weapons.push(i); }
-      if (i.type === 'item' && i.data.flags.isArmor === true) { armors.push(i); }
-      if (i.type === 'item' && i.data.flags.isVehicle === true) { vehicles.push(i); }
-
-      // Append to other types.
-      if (i.type === 'edge') { edges.push(i); }
-      if (i.type === 'skill') { skills.push(i); }
-      if (i.type === 'specialty') { specialties.push(i); }
-      if (i.type === 'path') { paths.push(i); }
-      if (i.data.flags.isComplication === true) { complications.push(i); }
-      if (i.type === 'stunt') { stunts.push(i); }
-      if (i.type === 'gift') { gifts.push(i); }
-      if (i.type === 'trick') { tricks.push(i); }
-      if (i.type === 'effect' && i.data.flags.isHealth === false) { effects.push(i); }
-      if (i.type === 'contact') { contacts.push(i); }
-      if (i.type === 'bond') { bonds.push(i); }
-      if (i.data.flags.isHealth === true) { healthboxes.push(i); }
-
+      if (i.type === 'item') {
+        gear.push(i);
+      }
+      // Append to edges.
+      else if (i.type === 'edge') {
+        edges.push(i);
+      }
+      else if (i.type === 'skill') {
+        skills.push(i);
+      }
+      else if (i.type === 'complication') {
+        complications.push(i);
+      }
+      else if (i.type === 'path') {
+        paths.push(i);
+      }
     }
 
     // Assign and return
     actorData.gear = gear;
-    actorData.weapons = weapons;
-    actorData.armors = armors;
-    actorData.vehicles = vehicles;
     actorData.edges = edges;
     actorData.skills = skills;
-    actorData.specialties = specialties;
+    actorData.complications = complications;
     actorData.paths = paths;
-    actorData.effects = effects;
-    actorData.stunts = stunts;
-    actorData.gifts = gifts;
-    actorData.tricks = tricks;
-    actorData.contacts = contacts;
-    actorData.bonds = bonds;
-    actorData.healthboxes = healthboxes;
+  }
 
+  /**
+   * Organize and classify Items for Character sheets.
+   *
+   * @param {Object} actorData The actor to prepare.
+   *
+   * @return {undefined}
+   */
+  _prepareCharacterItems(sheetData) {
+    const actorData = sheetData.actor;
+
+    // Initialize containers.
+    const gear = [];
+    const edges = [];
+    const spells = {
+      0: [],
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+      5: [],
+      6: [],
+      7: [],
+      8: [],
+      9: []
+    };
+
+    // Iterate through items, allocating to containers
+    // let totalWeight = 0;
+    for (let i of sheetData.items) {
+      let item = i.data;
+      i.img = i.img || DEFAULT_TOKEN;
+      // Append to gear.
+      if (i.type === 'item') {
+        gear.push(i);
+      }
+      // Append to edges.
+      else if (i.type === 'edge') {
+        edges.push(i);
+      }
+      // Append to spells.
+      else if (i.type === 'spell') {
+        if (i.data.spellLevel != undefined) {
+          spells[i.data.spellLevel].push(i);
+        }
+      }
+    }
+
+    // Assign and return
+    actorData.gear = gear;
+    actorData.edges = edges;
+    actorData.spells = spells;
   }
 
   /* -------------------------------------------- */
@@ -187,7 +217,6 @@ export class TrinityActorSheet extends ActorSheet {
    */
   _onItemCreate(event) {
     event.preventDefault();
-    console.log(event); // <--- Need to figure out how to handle subtypes
     const header = event.currentTarget;
     // Get the type of item to create.
     const type = header.dataset.type;
@@ -208,12 +237,79 @@ export class TrinityActorSheet extends ActorSheet {
     return this.actor.createOwnedItem(itemData);
   }
 
+  /** -- Original-ish code
+   * Handle clickable rolls.
+   * @param {Event} event   The originating click event
+   * @private
+   *
   _onRoll(event) {
     event.preventDefault();
-    trinityRoll(this.actor, null, event);
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    console.log("Debug to figure out click to roll");
+    console.log(dataset);
+
+    if (dataset.roll) {
+      let roll = new Roll(dataset.roll, this.actor.data.data);
+      let label = dataset.label ? `Rolling ${dataset.label}` : '';
+      roll.roll().toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: label
+      });
+    }
+  }
+
+*/
+
+// Code somewhat taken from PF2e, update in progress, replacing _onRoll above.
+// TrinityRoll.tRoll
+
+
+_onRoll(event) {
+  event.preventDefault();
+//  const element = event.currentTarget;
+//  const dataset = element.dataset;
+//  console.log("Debug to figure out click to roll");
+//  console.log(event);
+//  console.log(element);
+//  console.log(dataset);
+
+// trinity-roll
+//  TrinityRoll.tRoll(event, this.actor);
+
+// trinity-roll2
+//  trinityRoll(event, this.actor);
+  trinityRoll(this.actor, null, event);
 
 }
 
 
+
+/*
+
+
+
+
+
+  _onRoll(event: JQuery.Event, skillName: string) {
+      const skl = this.data.data.skills[skillName];
+      const rank = CONFIG.PF2E.proficiencyLevels[skl.rank];
+      const parts = ['@mod', '@itemBonus'];
+      const flavor = `${rank} ${CONFIG.PF2E.skills[skillName]} Skill Check`;
+
+      // Call the roll helper utility
+      DicePF2e.d20Roll({
+          event,
+          parts,
+          data: {
+              mod: skl.value - skl.item,
+              itemBonus: skl.item,
+          },
+          title: flavor,
+          speaker: ChatMessage.getSpeaker({ actor: this }),
+      });
+  }
+//End copied code
+*/
 
 }
