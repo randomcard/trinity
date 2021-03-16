@@ -4,13 +4,13 @@ FULL DATA - Debug / Edit
 {{!-- Biographical Info --}}
 <h2>Biographical Info</h2>
 <label for="fd-name" class="resource-label"> Name: </label>
-  <input name="fd-name" type="text" value="{{actor.name}}" placeholder="Name"/>
+  <input name="fd-name" type="text" value="{{name}}" placeholder="Name"/>
 
 <label for="fd-player" class="resource-label"> Player: </label>
-  <input name="fd-player" type="text" value="{{actor.data.player}}"/>
+  <input name="fd-player" type="text" value="{{data.player}}"/>
 
 <label for="fd-concept" class="resource-label"> Concept: </label>
-  <input name="fd-concept" type="text" value="{{actor.data.concept}}"/>
+  <input name="fd-concept" type="text" value="{{data.concept}}"/>
 
 {{!-- Paths --}}
 <h2>Paths</h2>
@@ -38,11 +38,11 @@ FULL DATA - Debug / Edit
 {{!-- Flags --}}
 <h2>Flags</h2>
 <label for="fd-isTalent" class="resource-label"> Talent: </label>
-  <input type="checkbox" name="fd-isTalent" value="{{data.flags.isTalent}}" data-dtype="Boolean" {{checked data.flags.isTalent}}/>
+  <input type="checkbox" name="fd-isTalent" value="{{data.data.flags.isTalent}}" data-dtype="Boolean" {{checked data.data.flags.isTalent}}/>
 
 
 {{!-- Talent Powers / Stats --}}
-{{#if data.flags.isTalent}}
+{{#if data.data.flags.isTalent}}
 <h2>Talent Powers</h2>
 Moment of inspiration
 facets
@@ -84,11 +84,11 @@ Attributes
 
 
 {{!-- Armor --}}
-<h2>Attributes</h2>
+<h2>Armor</h2>
 
 
 {{!-- Weapons --}}
-<h2>Attributes</h2>
+<h2>Weapons</h2>
 
 
 {{!-- Vehicles --}}
