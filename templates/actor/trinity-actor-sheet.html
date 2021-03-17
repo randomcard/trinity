@@ -1,7 +1,7 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
 
     {{!-- Sheet Header --}}
-    <header class="sheet-header sticky">Trinity-Actor-Sheet<br>
+    <header class="sheet-header">Trinity-Actor-Sheet<br>
         <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
         <div class="header-fields">
             <h1 class="charname"><span class="boxed"> {{actor.name}} </span> </h1>
@@ -37,11 +37,11 @@
           <div class="attributes grid grid-3col">
             {{#each data.attributes as |attribute key|}}
               <div class="attribute flexrow flex-group-center">
-                <label for="data.attributes.{{key}}.value" class="resource-label rollable" data-attrname="{{attribute.name}}">
+                <span class="resource-label rollable" data-attrname="{{attribute.name}}">
                   {{attribute.name}}
-                </label>
+                </span>
                 <br> <!-- Added to try to rearrange layout. May need to remove -->
-                <input type="text" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number" disabled/>
+                <span class="boxed"> {{attribute.value}} </span>
                 <!-- <span class="attribute-roll rollable" data-roll="(@attributes.{{key}}.value)d10x10cs>=8" data-label="{{attribute.name}}"><i class="fas fa-dice-d20"></i></span> -->
               </div>
             {{/each}}
