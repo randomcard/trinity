@@ -1,10 +1,11 @@
 {{!-- Full Data --}}
 FULL DATA - Debug / Edit
+{{log "full-data logging, this:" this}}
 
 {{!-- Biographical Info --}}
 <h2>Biographical Info</h2>
 <label for="fd-name" class="resource-label"> Name: </label>
-  <input name="fd-name" type="text" value="{{name}}" placeholder="Name"/>
+  <input name="fd-name" type="text" value="{{data.name}}" placeholder="Name"/>
 
 <label for="fd-player" class="resource-label"> Player: </label>
   <input name="fd-player" type="text" value="{{data.player}}"/>
@@ -38,7 +39,7 @@ FULL DATA - Debug / Edit
 {{!-- Flags --}}
 <h2>Flags</h2>
 <label for="fd-isTalent" class="resource-label"> Talent: </label>
-  <input type="checkbox" name="fd-isTalent" value="{{data.data.flags.isTalent}}" data-dtype="Boolean" {{checked data.data.flags.isTalent}}/>
+  <input type="checkbox" name="fd-isTalent" value="{{data.flags.isTalent}}" data-dtype="Boolean" {{checked data.flags.isTalent}}/>
 
 
 {{!-- Talent Powers / Stats --}}
