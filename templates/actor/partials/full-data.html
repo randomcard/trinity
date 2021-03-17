@@ -1,18 +1,18 @@
 {{!-- Full Data --}}
 FULL DATA - Debug / Edit
 {{log "full-data logging, this:" this}}
-{{!-- Seems like the values/default settings needs full path, but 'name' references use actor as default or not?--}}
+{{!-- Trying name w/o full path, values w/ --}}
 
 {{!-- Biographical Info --}}
 <h2>Biographical Info</h2>
 <label for="fd-name" class="resource-label"> Name: </label>
-  <input id="fd-name" name="actor.name" type="text" value="{{name}}" placeholder="Name"/>
+  <input id="fd-name" name="name" type="text" value="{{name}}" placeholder="Name"/>
 
 <label for="fd-player" class="resource-label"> Player: </label>
-  <input id="fd-player" name="actor.data.player" type="text" value="{{data.player}}"/>
+  <input id="fd-player" name="data.player" type="text" value="{{actor.data.player}}"/>
 
 <label for="fd-concept" class="resource-label"> Concept: </label>
-  <input id="fd-concept" name="actor.data.concept" type="text" value="{{data.concept}}"/>
+  <input id="fd-concept" name="data.concept" type="text" value="{{actor.data.concept}}"/>
 
 {{!-- Paths --}}
 <h2>Paths</h2>
