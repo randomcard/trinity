@@ -6,7 +6,7 @@ FULL DATA - Debug / Edit
 {{!-- Biographical Info --}}
 <h2>Biographical Info</h2>
 <label for="fd-name" class="resource-label"> Name: </label>
-  <input id="fd-name" name="name" type="text" value="{{name}}" placeholder="Name"/>
+  <input id="fd-name" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
 
 <label for="fd-player" class="resource-label"> Player: </label>
   <input id="fd-player" name="data.player" type="text" value="{{actor.data.player}}"/>
@@ -40,7 +40,7 @@ FULL DATA - Debug / Edit
 {{!-- Flags --}}
 <h2>Flags</h2>
 <label for="fd-isTalent" class="resource-label"> Talent: </label>
-  <input type="checkbox" id="fd-isTalent" name="{{data.flags.isTalent}}" value="{{data.flags.isTalent}}" data-dtype="Boolean" {{checked this.data.flags.isTalent}}/>
+  <input type="checkbox" id="fd-isTalent" name="data.flags.isTalent" value="{{actor.data.flags.isTalent}}" data-dtype="Boolean" {{checked this.data.flags.isTalent}}/>
 
 
 {{!-- Talent Powers / Stats --}}
