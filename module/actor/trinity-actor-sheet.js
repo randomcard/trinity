@@ -157,6 +157,8 @@ export class TrinityActorSheet extends ActorSheet {
       console.log(this);
     });
     */
+
+    /* Failed attempt to make a sticky header
     html.onscroll = function() {stickyHeader()};
     var header = document.getElementById("actor-header");
     var sticky = header.offsetTop;
@@ -167,6 +169,7 @@ export class TrinityActorSheet extends ActorSheet {
         header.classList.remove("sticky");
       }
     }
+    */
 
 
     // Add Inventory Item

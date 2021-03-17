@@ -294,6 +294,16 @@
   width: min-content;
 }
 
+.boxed {
+  margin:0 0 10px;
+    overflow:hidden;
+    padding:10px;
+    background-color:#F5F5F5;
+    border:1px solid #DDDDDD;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
 /* Sticky header stuff:
 
 /* The sticky class is added to the header with JS when it reaches its scroll position */
