@@ -14,13 +14,22 @@
       "talent" : {
         "moment" : "",
         "facets" : {
-          "destructive" : 0,
-          "intuitive" : 0,
-          "reflective" : 0
+          "des" : {
+            "name" : "Destructive",
+            "value" : 0
+          },
+          "int" : {
+            "name" : "Intuitive",
+            "value" : 0
+          },
+          "ref" : {
+            "name" : "Reflective",
+            "value" : 0
+          }
         },
         "inspiration" : {
           "max" : 0,
-          "current" : 0
+          "value" : 0
         }
       }
     },

@@ -1,12 +1,12 @@
 {{!-- Full Data --}}
 FULL DATA - Debug / Edit
 {{log "full-data logging, this:" this}}
-{{!-- Trying name w/o full path, values w/ --}}
+{{!-- Get values from actor, input names from data? --}}
 
 {{!-- Biographical Info --}}
 <h2>Biographical Info</h2>
 <label for="fd-name" class="resource-label"> Name: </label>
-  <input id="fd-name" name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+  <input id="fd-name" name="actor.name" type="text" value="{{actor.name}}"/>
 
 <label for="fd-player" class="resource-label"> Player: </label>
   <input id="fd-player" name="data.player" type="text" value="{{actor.data.player}}"/>
@@ -25,10 +25,8 @@ FULL DATA - Debug / Edit
 <h2>Attributes</h2>
 {{#each data.attributes as |attribute key|}}
   <div class="attribute flexrow flex-group-center">
-    <label for="fd-{{key}}.value" class="resource-label rollable">
-      {{attribute.name}}
-    </label>
-    <input type="text" id="fd-{{key}}.value" name="{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
+    <label for="fd-{{key}}" class="resource-label rollable"> {{attribute.name}} </label>
+    <input type="text" id="fd-{{key}}" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
   </div>
 {{/each}}
 
@@ -46,9 +44,26 @@ FULL DATA - Debug / Edit
 {{!-- Talent Powers / Stats --}}
 {{#if actor.data.flags.isTalent}}
 <h2>Talent Powers</h2>
-Moment of inspiration
-facets
-inspiration
+<label for="fd-moment" class="resource-label"> Moment of Inspiration: </label>
+  <input id="fd-moment" name="data.talent.moment" type="text" value="{{actor.data.talent.moment}}"/>
+
+<h3>Facets:</h3>
+{{#each data.talent.facets as |facet key|}}
+  <div class="facet flexrow flex-group-center">
+    <label for="fd-{{key}}" class="resource-label rollable"> {{facet.name}} </label>
+    <input type="text" id="fd-{{key}}" name="data.talent.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
+  </div>
+{{/each}}
+
+<h3>Inspiration:</h3>
+<div class="inspiration flexrow flex-group-center">
+  <label for="fd-inspiration-max" class="resource-label rollable"> Max: </label>
+  <input type="text" id="fd-inspiration-max" name="data.talent.inspiration.max" value="{{actor.data.talent.inspiration.max}}" data-dtype="Number"/>
+</div>
+<div class="inspiration flexrow flex-group-center">
+  <label for="fd-inspiration-value" class="resource-label rollable"> Current: </label>
+  <input type="text" id="fd-inspiration-value" name="data.talent.inspiration.value" value="{{actor.data.talent.inspiration.value}}" data-dtype="Number"/>
+</div>
 {{/if}}
 
 
