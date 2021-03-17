@@ -157,6 +157,17 @@ export class TrinityActorSheet extends ActorSheet {
       console.log(this);
     });
     */
+    html.onscroll = function() {stickyHeader()};
+    var header = document.getElementById("actor-header");
+    var sticky = header.offsetTop;
+    function stickyHeader() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    }
+
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
