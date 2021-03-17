@@ -6,7 +6,7 @@ FULL DATA - Debug / Edit
 {{!-- Biographical Info --}}
 <h2>Biographical Info</h2>
 <label for="fd-name" class="resource-label"> Name: </label>
-  <input id="fd-name" name="name" type="text" value="{{actor.name}}"/>
+  <input class="duplicate" id="fd-name" name="name" type="text" value="{{actor.name}}"/>
 
 <label for="fd-player" class="resource-label"> Player: </label>
   <input id="fd-player" name="data.player" type="text" value="{{actor.data.player}}"/>
@@ -26,7 +26,7 @@ FULL DATA - Debug / Edit
 {{#each data.attributes as |attribute key|}}
   <div class="attribute flexrow flex-group-center">
     <label for="fd-{{key}}" class="resource-label rollable"> {{attribute.name}} </label>
-    <input type="text" id="fd-{{key}}" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number" readonly />
+    <input class="duplicate" type="text" id="fd-{{key}}" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number" readonly />
   </div>
 {{/each}}
 
