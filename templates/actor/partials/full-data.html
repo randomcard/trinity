@@ -5,13 +5,13 @@ FULL DATA - Debug / Edit
 {{!-- Biographical Info --}}
 <h2>Biographical Info</h2>
 <label for="fd-name" class="resource-label"> Name: </label>
-  <input name="fd-name" type="text" value="{{data.name}}" placeholder="Name"/>
+  <input name="fd-name" type="text" value="{{actor.name}}" placeholder="Name"/>
 
-<label for="fd-player" class="resource-label"> Player: </label>
-  <input name="fd-player" type="text" value="{{data.player}}"/>
+<label for="actor.data.player" class="resource-label"> Player: </label>
+  <input name="actor.data.player" type="text" value="{{actor.data.player}}"/>
 
-<label for="fd-concept" class="resource-label"> Concept: </label>
-  <input name="fd-concept" type="text" value="{{data.concept}}"/>
+<label for="data.concept" class="resource-label"> Concept: </label>
+  <input name="data.concept" type="text" value="{{data.concept}}"/>
 
 {{!-- Paths --}}
 <h2>Paths</h2>
@@ -39,7 +39,7 @@ FULL DATA - Debug / Edit
 {{!-- Flags --}}
 <h2>Flags</h2>
 <label for="fd-isTalent" class="resource-label"> Talent: </label>
-  <input type="checkbox" name="fd-isTalent" value="{{data.flags.isTalent}}" data-dtype="Boolean" {{checked data.flags.isTalent}}/>
+  <input type="checkbox" name="fd-isTalent" value="{{data.flags.isTalent}}" data-dtype="Boolean" {{checked this.data.flags.isTalent}}/>
 
 
 {{!-- Talent Powers / Stats --}}
@@ -52,8 +52,10 @@ inspiration
 
 
 {{!-- Gifts --}}
+{{#if data.data.flags.isTalent}}
 <h2>Gifts</h2>
 Attributes
+{{/if}}
 
 
 {{!-- Edges --}}
