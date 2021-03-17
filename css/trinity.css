@@ -299,7 +299,7 @@
     overflow:hidden;
     padding:5px;
     background-color:rgba(200, 200, 200, 0.4);
-    border:1px solid #DDDDDD;
+    border:1px solid gray;
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }

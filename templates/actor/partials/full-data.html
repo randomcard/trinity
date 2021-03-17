@@ -51,7 +51,7 @@ FULL DATA - Debug / Edit
 {{#each actor.data.talent.facets as |facet key|}}
   <div class="facet flexrow flex-group-center">
     <label for="fd-{{key}}" class="resource-label rollable"> {{facet.name}} </label>
-    <input type="text" id="fd-{{key}}" name="data.talent.facets.{{key}}.value" value="{{actor.data.facet.value}}" data-dtype="Number"/>
+    <input type="text" id="fd-{{key}}" name="data.talent.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
   </div>
 {{/each}}
 
@@ -70,7 +70,7 @@ FULL DATA - Debug / Edit
 {{!-- Gifts --}}
 {{#if actor.data.flags.isTalent}}
 <h2>Gifts</h2>
-Attributes
+Gift stuff here.
 {{/if}}
 
 
