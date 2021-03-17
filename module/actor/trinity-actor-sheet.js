@@ -150,11 +150,13 @@ export class TrinityActorSheet extends ActorSheet {
     if (!this.options.editable) return;
 
     // Attempt to block normal handling of duplicate input boxes (which would return unwanted arrays)
+    /*
     html.find('.duplicate').change(event => {
       event.preventDefault();
       console.log("Block default behavior for duplicate? This:");
       console.log(this);
     });
+    */
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));

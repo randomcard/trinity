@@ -4,7 +4,7 @@
     <header class="sheet-header">Boilerplate actor-sheet
         <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
         <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+            <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name" disabled /></h1>
             {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
             use both the "grid" and "grid-Ncol" class where "N" can be any number
             from 1 to 12 and will create that number of columns.  --}}
@@ -36,7 +36,7 @@
             {{#each data.abilities as |ability key|}}
               <div class="ability flexrow flex-group-center">
                 <label for="data.abilities.{{key}}.value" class="resource-label">{{key}}</label>
-                <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+                <input type="text" name="data.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" disabled />
                 <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod" data-label="{{key}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
               </div>
             {{/each}}
