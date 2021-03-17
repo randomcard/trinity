@@ -52,6 +52,7 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="main">Main</a>
         <a class="item" data-tab="items">Items</a>
         <a class="item" data-tab="edges">Edges</a>
         <a class="item" data-tab="skills">Skills</a>
@@ -64,6 +65,12 @@
         {{!-- Biography Tab --}}
         <div class="tab biography" data-group="primary" data-tab="description">
             {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- "Main" Tab - testing ground for partials --}}
+        <div class="tab main" data-group="primary" data-tab="main">
+            {{!-- Partials go here --}}
+            {{> "systems/trinity/templates/actor/partials/attributes.html"}}
         </div>
 
         {{!-- Owned Items Tab --}}

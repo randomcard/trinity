@@ -48,10 +48,10 @@ FULL DATA - Debug / Edit
   <input id="fd-moment" name="data.talent.moment" type="text" value="{{actor.data.talent.moment}}"/>
 
 <h3>Facets:</h3>
-{{#each data.talent.facets as |facet key|}}
+{{#each actor.data.talent.facets as |facet key|}}
   <div class="facet flexrow flex-group-center">
     <label for="fd-{{key}}" class="resource-label rollable"> {{facet.name}} </label>
-    <input type="text" id="fd-{{key}}" name="data.talent.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
+    <input type="text" id="fd-{{key}}" name="data.talent.facets.{{key}}.value" value="{{actor.data.facet.value}}" data-dtype="Number"/>
   </div>
 {{/each}}
 

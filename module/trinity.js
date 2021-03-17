@@ -93,6 +93,7 @@ async function loadTrinityTemplates()
   // register templates parts
   const templatePaths = [
     "systems/trinity/templates/actor/partials/full-data.html"
+    "systems/trinity/templates/actor/partials/attributes.html"
   ];
   return loadTemplates( templatePaths );
 }
