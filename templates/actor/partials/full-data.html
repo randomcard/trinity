@@ -5,13 +5,13 @@ FULL DATA - Debug / Edit
 {{!-- Biographical Info --}}
 <h2>Biographical Info</h2>
 <label for="fd-name" class="resource-label"> Name: </label>
-  <input name="fd-name" type="text" value="{{actor.name}}" placeholder="Name"/>
+  <input id="fd-name" name="actor.name" type="text" value="{{actor.name}}" placeholder="Name"/>
 
-<label for="actor.data.player" class="resource-label"> Player: </label>
-  <input name="actor.data.player" type="text" value="{{actor.data.player}}"/>
+<label for="fd-player" class="resource-label"> Player: </label>
+  <input id="fd-player" name="data.player" type="text" value="{{actor.data.player}}"/>
 
-<label for="data.concept" class="resource-label"> Concept: </label>
-  <input name="data.concept" type="text" value="{{data.concept}}"/>
+<label for="fd-concept" class="resource-label"> Concept: </label>
+  <input id="fd-concept" name="data.concept" type="text" value="{{data.concept}}"/>
 
 {{!-- Paths --}}
 <h2>Paths</h2>
@@ -43,7 +43,7 @@ FULL DATA - Debug / Edit
 
 
 {{!-- Talent Powers / Stats --}}
-{{#if data.data.flags.isTalent}}
+{{#if actor.data.flags.isTalent}}
 <h2>Talent Powers</h2>
 Moment of inspiration
 facets
@@ -52,7 +52,7 @@ inspiration
 
 
 {{!-- Gifts --}}
-{{#if data.data.flags.isTalent}}
+{{#if actor.data.flags.isTalent}}
 <h2>Gifts</h2>
 Attributes
 {{/if}}
