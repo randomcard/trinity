@@ -114,7 +114,6 @@
   text-align: center;
 }
 
-/*
 .flex-left {
   -webkit-box-align: left;
   -ms-flex-align: left;
@@ -134,7 +133,6 @@
   justify-content: right;
   text-align: right;
 }
-*/
 
 .flex-between {
   -webkit-box-pack: justify;

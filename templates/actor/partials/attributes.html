@@ -3,9 +3,9 @@
 <h2>Attributes</h2>
 
 <div class="grid grid-3col">
-  <div class="flexrow flex-group-center">
-    <span class="resource-label rollable" data-attrname="{{actor.data.attributes.int.name}}"> {{actor.data.attributes.int.name}} </span>
-    <span class="boxed"> {{actor.data.attributes.int.value}} </span>
+  <div class="flexrow flex-group-center rollable">
+    <span class="resource-label rollable flex-left" data-attrname="{{actor.data.attributes.int.name}}"> {{actor.data.attributes.int.name}} </span>
+    <span class="flex-right boxed"> {{toDots actor.data.attributes.int.value}} </span>
   </div>
 
   <div class="flexrow flex-group-center">
