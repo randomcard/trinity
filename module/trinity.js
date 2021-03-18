@@ -58,15 +58,11 @@ Hooks.once('init', async function() {
     let dots = '';
     let filled = '<i class="fa fa-circle"></i>';
     let empty = '<i class="fa fa-circle-o"></i>';
-    for (let i = 0; i < n; i++) {
-      if (i === 5) {
-        dots += ' ';
-      }
-			dots += filled;
+    for (let i = 0; i < Math.max(n, 5); i++) {
+      if (i === 5) { dots += ' '; }
+      if (i < n) { dots += filled; }
+        else {dots += empty;}
 		}
-    for (let i = dots.length; i < 5; i++) {
-      dots += empty;
-    }
     return dots;
 	});
 
