@@ -67,6 +67,7 @@ Hooks.once('init', async function() {
     for (let i = dots.length; i < 5; i++) {
       dots += empty;
     }
+    return dots;
 	});
 
 });
