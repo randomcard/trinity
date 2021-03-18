@@ -219,6 +219,7 @@ export class TrinityActorSheet extends ActorSheet {
     const type = header.dataset.type;
 
     // Subtype / Flag handling
+    /*
     if (typeof header.dataset.flag !== 'undefined' && header.dataset.flag !== null) {
       console.log("Create Item Flag Handling");
       header.dataset.flags = [];
@@ -226,6 +227,7 @@ export class TrinityActorSheet extends ActorSheet {
       header.dataset.flags[header.dataset.flag] = true;
       console.log(event);
     }
+    */
 
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
@@ -237,6 +239,9 @@ export class TrinityActorSheet extends ActorSheet {
       type: type,
       data: data
     };
+
+    console.log(itemData);
+
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.data["type"];
 
