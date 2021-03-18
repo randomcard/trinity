@@ -329,6 +329,11 @@
   border-radius: 10px;
 }
 
+.small-note {
+  font-size: small;
+  font-style: italic;
+}
+
 /* May need to remove / rename these */
 .trinity-table {
   border-collapse: collapse;
