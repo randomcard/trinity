@@ -222,6 +222,7 @@ export class TrinityActorSheet extends ActorSheet {
     if (typeof header.dataset.flag !== 'undefined' && header.dataset.flag !== null) {
       console.log("Create Item Flag Handling");
       header.dataset.flags = {};
+      console.log(event);
       header.dataset.flags[header.dataset.flag] = true;
       console.log(event);
     }
