@@ -1,56 +1,6 @@
 {{!-- Attribute Partial - Read-Only --}}
 
 <h2>Attributes</h2>
-
-<div class="grid grid-3col">
-  <div class="flexcol flex-group-center rollable boxed" data-attrname="{{actor.data.attributes.int.name}}">
-    <span class="resource-label"> {{actor.data.attributes.int.name}} </span>
-    <span class="dots"> {{{toDots actor.data.attributes.int.value}}} </span>
-    <span class="small-note"> {{actor.data.attributes.int.approach}} - {{actor.data.attributes.int.arena}} </span>
-  </div>
-
-  <div class="flexrow flex-group-center">
-    <span class="resource-label rollable" data-attrname="{{actor.data.attributes.mig.name}}"> {{actor.data.attributes.mig.name}} </span>
-    <span class="boxed"> {{actor.data.attributes.mig.value}} </span>
-  </div>
-
-  <div class="flexrow flex-group-center">
-    <span class="resource-label rollable" data-attrname="{{actor.data.attributes.pre.name}}"> {{actor.data.attributes.pre.name}} </span>
-    <span class="boxed"> {{actor.data.attributes.pre.value}} </span>
-  </div>
-
-  <div class="flexrow flex-group-center">
-    <span class="resource-label rollable" data-attrname="{{actor.data.attributes.cun.name}}"> {{actor.data.attributes.cun.name}} </span>
-    <span class="boxed"> {{actor.data.attributes.cun.value}} </span>
-  </div>
-
-  <div class="flexrow flex-group-center">
-    <span class="resource-label rollable" data-attrname="{{actor.data.attributes.dex.name}}"> {{actor.data.attributes.dex.name}} </span>
-    <span class="boxed"> {{actor.data.attributes.dex.value}} </span>
-  </div>
-
-  <div class="flexrow flex-group-center">
-    <span class="resource-label rollable" data-attrname="{{actor.data.attributes.man.name}}"> {{actor.data.attributes.man.name}} </span>
-    <span class="boxed"> {{actor.data.attributes.man.value}} </span>
-  </div>
-
-  <div class="flexrow flex-group-center">
-    <span class="resource-label rollable" data-attrname="{{actor.data.attributes.res.name}}"> {{actor.data.attributes.res.name}} </span>
-    <span class="boxed"> {{actor.data.attributes.res.value}} </span>
-  </div>
-
-  <div class="flexrow flex-group-center">
-    <span class="resource-label rollable" data-attrname="{{actor.data.attributes.sta.name}}"> {{actor.data.attributes.sta.name}} </span>
-    <span class="boxed"> {{actor.data.attributes.sta.value}} </span>
-  </div>
-
-  <div class="flexrow flex-group-center">
-    <span class="resource-label rollable" data-attrname="{{actor.data.attributes.com.name}}"> {{actor.data.attributes.com.name}} </span>
-    <span class="boxed"> {{actor.data.attributes.com.value}} </span>
-  </div>
-</div>
-
-<h2>New iteration Test</h2>
 <div class="attributes grid grid-3row">
   {{#each actor.data.attributes as |attribute key|}}
   <div class="flexcol flex-group-center rollable boxed" data-attrname="{{attribute.name}}" id="{{key}}">
@@ -60,43 +10,3 @@
   </div>
   {{/each}}
 </div>
-
-
-
-
-<h2>Table Test</h2>
-<table class="trinity-table">
-  <tr>
-    <th></th>
-    <th>Mental</th>
-    <th>Physical</th>
-    <th>Social</th>
-  </tr>
-  <tr>
-    <td>Force</td>
-    <td>
-      <span class="resource-label rollable flex-left" data-attrname="{{actor.data.attributes.int.name}}"> {{actor.data.attributes.int.name}} </span>
-      <span class="boxed flex-right"> {{{toDots actor.data.attributes.int.value}}} </span>
-    </td>
-    <td>
-      <span class="resource-label rollable" data-attrname="{{actor.data.attributes.mig.name}}"> {{actor.data.attributes.mig.name}} </span>
-      <span class="boxed"> {{{toDots actor.data.attributes.mig.value}}} </span>
-    </td>
-    <td>
-      <span class="resource-label rollable" data-attrname="{{actor.data.attributes.pre.name}}"> {{actor.data.attributes.pre.name}} </span>
-      <span class="boxed"> {{{toDots actor.data.attributes.pre.value}}} </span>
-    </td>
-  </tr>
-  <tr>
-    <td>Finess</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Resilience</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>

@@ -34,8 +34,9 @@
 }
 
 .grid-3row {
-  grid-row: span 3 / span 3;
-  grid-template-rows: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto auto auto;
+  grid-auto-flow: column;
 }
 
 .grid-4col {
