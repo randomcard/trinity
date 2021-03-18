@@ -53,6 +53,22 @@ Hooks.once('init', async function() {
   Handlebars.registerHelper('toLowerCase', function(str) {
     return str.toLowerCase();
   });
+
+  Handlebars.registerHelper('toDots', function(n) {
+    let dots = '';
+    let filled = '●';
+    let empty = '○'
+    for (let i = 0; i < n; i++) {
+      if (i === 5) {
+        dots += ' ';
+      }
+			dots += filled;
+		}
+    for (let i = dots.length; i < 5; i++) {
+      dots += empty;
+    }
+	});
+
 });
 
 
