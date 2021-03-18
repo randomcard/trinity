@@ -329,6 +329,10 @@
   border-radius: 10px;
 }
 
+.dots {
+  letter-spacing: 3px;
+}
+
 .small-note {
   font-size: small;
   font-style: italic;
