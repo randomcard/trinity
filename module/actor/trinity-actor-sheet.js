@@ -218,17 +218,6 @@ export class TrinityActorSheet extends ActorSheet {
     // Get the type of item to create.
     const type = header.dataset.type;
 
-    // Subtype / Flag handling
-    /*
-    if (typeof header.dataset.flag !== 'undefined' && header.dataset.flag !== null) {
-      console.log("Create Item Flag Handling");
-      header.dataset.flags = [];
-      console.log(event);
-      header.dataset.flags[header.dataset.flag] = true;
-      console.log(event);
-    }
-    */
-
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
     // Initialize a default name.
@@ -239,6 +228,13 @@ export class TrinityActorSheet extends ActorSheet {
       type: type,
       data: data
     };
+
+    // Subtype / Flag handling
+    if (typeof header.dataset.flag !== 'undefined' && header.dataset.flag !== null) {
+      console.log("Create Item Flag Handling");
+      itemData.data.flags = {};
+      itemData.data.flags[header.dataset.flag] = true;
+    }
 
     console.log(itemData);
 
