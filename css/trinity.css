@@ -326,14 +326,14 @@
 }
 
 /* May need to remove / rename these */
-.trinity, .table {
+.trinity-table {
   border-collapse: collapse;
   border: 1px transparent black;
   table-layout: fixed;
   width: 90%;
 }
 
-.trinity, .th, .td {
+.trinity-table-data {
   text-align: center;
   padding: 15px;
   border-bottom: 1px solid #ddd;
