@@ -114,6 +114,26 @@
   text-align: center;
 }
 
+.flex-left {
+  -webkit-box-align: left;
+  -ms-flex-align: left;
+  align-items: left;
+  -webkit-box-pack: left;
+  -ms-flex-pack: left;
+  justify-content: left;
+  text-align: left;
+}
+
+.flex-right {
+  -webkit-box-align: right;
+  -ms-flex-align: right;
+  align-items: right;
+  -webkit-box-pack: right;
+  -ms-flex-pack: right;
+  justify-content: right;
+  text-align: right;
+}
+
 .flex-between {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
@@ -127,8 +147,8 @@
 
 .trinity .sheet-header {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 210px;
-  flex: 0 0 210px;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -295,11 +315,23 @@
 }
 
 .boxed {
-  margin:0 0 10px;
-    overflow:hidden;
-    padding:5px;
-    background-color:rgba(200, 200, 200, 0.4);
-    border:1px solid gray;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
+  overflow:hidden;
+  padding:5px;
+  background-color:rgba(200, 200, 200, 0.4);
+  border:1px solid gray;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.trinity, .table {
+  border-collapse: collapse;
+  border: 1px transparent black;
+  table-layout: fixed;
+  width: 90%;
+}
+
+.trinity, .th, .td {
+  text-align: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
 }
