@@ -114,6 +114,7 @@
   text-align: center;
 }
 
+/*
 .flex-left {
   -webkit-box-align: left;
   -ms-flex-align: left;
@@ -133,6 +134,7 @@
   justify-content: right;
   text-align: right;
 }
+*/
 
 .flex-between {
   -webkit-box-pack: justify;
@@ -323,6 +325,7 @@
   border-radius: 10px;
 }
 
+/* May need to remove / rename these */
 .trinity, .table {
   border-collapse: collapse;
   border: 1px transparent black;
