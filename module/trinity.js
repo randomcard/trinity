@@ -56,8 +56,8 @@ Hooks.once('init', async function() {
 
   Handlebars.registerHelper('toDots', function(n) {
     let dots = '';
-    let filled = '●';
-    let empty = '○';
+    let filled = '<i class="fa fa-circle"></i>';
+    let empty = '<i class="fa fa-circle-o"></i>';
     for (let i = 0; i < n; i++) {
       if (i === 5) {
         dots += ' ';
