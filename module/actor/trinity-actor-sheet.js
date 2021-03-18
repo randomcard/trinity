@@ -217,6 +217,15 @@ export class TrinityActorSheet extends ActorSheet {
     const header = event.currentTarget;
     // Get the type of item to create.
     const type = header.dataset.type;
+
+    // Subtype / Flag handling
+    if (typeof header.dataset.flag !== 'undefined' && header.dataset.flag !== null) {
+      console.log("Create Item Flag Handling");
+      header.dataset.flags = {};
+      header.dataset.flags[header.dataset.flag] = true;
+      console.log(event);
+    }
+
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
     // Initialize a default name.
