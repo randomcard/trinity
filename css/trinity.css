@@ -135,9 +135,15 @@
 }
 
 .flex-between {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
+  -webkit-box-pack: space-between;
+  -ms-flex-pack: space-between;
   justify-content: space-between;
+}
+
+.flex-evenly {
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
 }
 
 /* Styles limited to trinity sheets */

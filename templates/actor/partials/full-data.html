@@ -45,24 +45,24 @@ FULL DATA - Debug / Edit
 {{#if actor.data.flags.isTalent}}
 <h2>Talent Powers</h2>
 <label for="fd-moment" class="resource-label"> Moment of Inspiration: </label>
-  <input id="fd-moment" name="data.talent.moment" type="text" value="{{actor.data.talent.moment}}"/>
+  <input id="fd-moment" name="data.moment" type="text" value="{{actor.data.moment}}"/>
 
 <h3>Facets:</h3>
-{{#each data.talent.facets as |facet key|}}
+{{#each data.facets as |facet key|}}
   <div class="facet flexrow flex-group-center">
     <label for="fd-{{key}}" class="resource-label"> {{facet.name}} </label>
-    <input type="text" id="fd-{{key}}" name="data.talent.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
+    <input type="text" id="fd-{{key}}" name="data.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
   </div>
 {{/each}}
 
 <h3>Inspiration:</h3>
 <div class="inspiration flexrow flex-group-center">
   <label for="fd-inspiration-max" class="resource-label rollable"> Max: </label>
-  <input type="text" id="fd-inspiration-max" name="data.talent.inspiration.max" value="{{actor.data.talent.inspiration.max}}" data-dtype="Number"/>
+  <input type="text" id="fd-inspiration-max" name="data.inspiration.max" value="{{actor.data.inspiration.max}}" data-dtype="Number"/>
 </div>
 <div class="inspiration flexrow flex-group-center">
   <label for="fd-inspiration-value" class="resource-label rollable"> Current: </label>
-  <input type="text" id="fd-inspiration-value" name="data.talent.inspiration.value" value="{{actor.data.talent.inspiration.value}}" data-dtype="Number"/>
+  <input type="text" id="fd-inspiration-value" name="data.inspiration.value" value="{{actor.data.inspiration.value}}" data-dtype="Number"/>
 </div>
 {{/if}}
 
