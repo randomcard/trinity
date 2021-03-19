@@ -358,7 +358,7 @@
   font-size: 15px;
 }
 
-.active, .collapsible:hover {
+.collapsible-active, .collapsible:hover {
   background-color: #ccc;
 }
 
@@ -379,6 +379,6 @@
   margin-left: 5px;
 }
 
-.active:after {
+.collapsible-active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
