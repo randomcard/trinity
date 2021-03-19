@@ -346,28 +346,35 @@
   font-style: italic;
 }
 
+/* Collapsible CSS */
 .collapsible {
-  background-color: #eee;
+  background-color: LightSteelBlue;
   color: #444;
   cursor: pointer;
-  padding: 10px;
+  padding: 5px;
   width: 100%;
   border: none;
   text-align: left;
   outline: none;
   font-size: 15px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.collapsible-active {
+  border-radius: 10px 10px 0px 0px;
 }
 
 .collapsible-active, .collapsible:hover {
-  background-color: #ccc;
+  background-color: LightSkyBlue;
 }
 
 .collapsible-content {
-  padding: 0 18px;
-  background-color: white;
+  padding: 5px 15px;
+  /* background-color: white; */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+  border-radius: 0px 0px 10px 10px;
 }
 
 .collapsible:after {
