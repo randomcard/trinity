@@ -183,7 +183,7 @@ export class TrinityActorSheet extends ActorSheet {
           }
         });
       }
-    }
+    });
 
 
     // Add Inventory Item
