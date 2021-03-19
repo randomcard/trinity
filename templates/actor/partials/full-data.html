@@ -18,7 +18,8 @@ FULL DATA - Debug / Edit
 
 
 {{!-- Paths --}}
-<h2>Paths</h2>
+<button type="button" class="collapsible">Paths</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -38,9 +39,11 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
 
 {{!-- Skills --}}
-<h2>Skills</h2>
+<button type="button" class="collapsible">Skills</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -65,31 +68,39 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
 
 
 {{!-- Attributes --}}
-<h2>Attributes</h2>
+<button type="button" class="collapsible">Attributes</button>
+<div class="collapsible-content">
 {{#each data.attributes as |attribute key|}}
   <div class="attribute flexrow flex-group-center">
     <label for="fd-{{key}}" class="resource-label rollable"> {{attribute.name}} </label>
     <input type="text" id="fd-{{key}}" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
   </div>
 {{/each}}
+</div>
 
 
 {{!-- Health --}}
-<h2>Health Boxes</h2>
+<button type="button" class="collapsible">Health Boxes</button>
+<div class="collapsible-content">
+
+</div>
 
 
 {{!-- Flags --}}
-<h2>Flags</h2>
+<button type="button" class="collapsible">Flags</button>
+<div class="collapsible-content">
 <label for="fd-isTalent" class="resource-label"> Talent: </label>
   <input type="checkbox" id="fd-isTalent" name="data.flags.isTalent" value="{{actor.data.flags.isTalent}}" data-dtype="Boolean" {{checked this.data.flags.isTalent}}/>
-
+</div>
 
 {{!-- Talent Powers / Stats --}}
 {{#if actor.data.flags.isTalent}}
-<h2>Talent Powers</h2>
+<button type="button" class="collapsible">Talent Powers</button>
+<div class="collapsible-content">
 <label for="fd-moment" class="resource-label"> Moment of Inspiration: </label>
   <input id="fd-moment" name="data.moment" type="text" value="{{actor.data.moment}}"/>
 
@@ -111,11 +122,12 @@ FULL DATA - Debug / Edit
   <input type="text" id="fd-inspiration-value" name="data.inspiration.value" value="{{actor.data.inspiration.value}}" data-dtype="Number"/>
 </div>
 {{/if}}
-
+</div>
 
 {{!-- Gifts --}}
 {{#if actor.data.flags.isTalent}}
-<h2>Gifts</h2>
+<button type="button" class="collapsible">Gifts</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -135,11 +147,13 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
 {{/if}}
 
 
 {{!-- Edges --}}
-<h2>Edges</h2>
+<button type="button" class="collapsible">Edges</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -159,9 +173,11 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
 
 {{!-- Specialties --}}
-<h2>Specialties</h2>
+<button type="button" class="collapsible">Specialties</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -181,9 +197,11 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
 
 {{!-- Skill Tricks --}}
-<h2>Skill Tricks</h2>
+<button type="button" class="collapsible">Skill Tricks</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -203,9 +221,11 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
 
 {{!-- Contacts --}}
-<h2>Contacts</h2>
+<button type="button" class="collapsible">Contacts</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -225,9 +245,11 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
 
 {{!-- Bonds --}}
-<h2>Bonds</h2>
+<button type="button" class="collapsible">Bonds</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -247,10 +269,12 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
 
 
 {{!-- Effects --}}
-<h2>Effects</h2>
+<button type="button" class="collapsible">Effects</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -270,10 +294,12 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
 
 
 {{!-- Gear --}}
-<h2>Gear</h2>
+<button type="button" class="collapsible">Gear</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -293,9 +319,11 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
 
 {{!-- Armor --}}
-<h2>Armor</h2>
+<button type="button" class="collapsible">Armor</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -315,10 +343,12 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
 
 
 {{!-- Weapons --}}
-<h2>Weapons</h2>
+<button type="button" class="collapsible">Weapons</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -338,10 +368,12 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
 
 
 {{!-- Vehicles --}}
-<h2>Vehicles</h2>
+<button type="button" class="collapsible">Vehicles</button>
+<div class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -361,3 +393,4 @@ FULL DATA - Debug / Edit
     </li>
 {{/each}}
 </ol>
+</div>
