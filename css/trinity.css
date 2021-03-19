@@ -369,13 +369,19 @@
 }
 
 .collapsible-content {
-  padding: 5px 15px;
+  /* padding: 5px 15px; */
   /* background-color: white; */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+  /* border-radius: 0px 0px 10px 10px;
+  border:1px solid gray; */
+}
+
+.collapsible-content-active {
   border-radius: 0px 0px 10px 10px;
   border:1px solid gray;
+  padding: 5px 15px;
 }
 
 .collapsible:after {

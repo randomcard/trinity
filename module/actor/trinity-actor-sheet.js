@@ -194,18 +194,11 @@ export class TrinityActorSheet extends ActorSheet {
         this.classList.toggle("collapsible-active");
         var content = this.nextElementSibling;
         if (content.style.maxHeight){
+          content.classList.toggle("collapsible-content-active");
           content.style.maxHeight = null;
         } else {
-          // content.style.maxHeight = content.scrollHeight + "px";
-          content.style.maxHeight = (content.scrollHeight+content.offsetHeight) + "px";
-          console.log("scrollHeight:");
-          console.log(content.scrollHeight);
-          console.log("clientHeight:");
-          console.log(content.clientHeight);
-          console.log("offsetHeight:");
-          console.log(content.offsetHeight);
-          console.log("getBoundingClientRect().height:");
-          console.log(content.getBoundingClientRect().height);
+          content.classList.toggle("collapsible-content-active");
+          content.style.maxHeight = content.scrollHeight + "px";
         }
       });
     }
