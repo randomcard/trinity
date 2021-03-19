@@ -197,7 +197,15 @@ export class TrinityActorSheet extends ActorSheet {
           content.style.maxHeight = null;
         } else {
           // content.style.maxHeight = content.scrollHeight + "px";
-          content.style.maxHeight = content.getBoundingClientRect().height + "px";
+          content.style.maxHeight = content.scrollHeight + "px";
+          console.log("scrollHeight:");
+          console.log(content.scrollHeight);
+          console.log("clientHeight:");
+          console.log(content.clientHeight);
+          console.log("offsetHeight:");
+          console.log(content.offsetHeight);
+          console.log("getBoundingClientRect().height:");
+          console.log(content.getBoundingClientRect().height);
         }
       });
     }
