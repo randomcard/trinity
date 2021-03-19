@@ -375,6 +375,7 @@
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   border-radius: 0px 0px 10px 10px;
+  border:1px solid gray;
 }
 
 .collapsible:after {
