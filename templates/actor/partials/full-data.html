@@ -4,15 +4,19 @@ FULL DATA - Debug / Edit
 {{!-- Get values from actor, input names from data? --}}
 
 {{!-- Biographical Info --}}
-<h2>Biographical Info</h2>
-<label for="fd-name" class="resource-label"> Name: </label>
-  <input id="fd-name" name="name" type="text" value="{{actor.name}}"/>
+<button type="button" class="collapsible">Biographical Info</button>
+<div class="collapsible-content">
+  <h2>Biographical Info</h2>
+  <label for="fd-name" class="resource-label"> Name: </label>
+    <input id="fd-name" name="name" type="text" value="{{actor.name}}"/>
 
-<label for="fd-player" class="resource-label"> Player: </label>
-  <input id="fd-player" name="data.player" type="text" value="{{actor.data.player}}"/>
+  <label for="fd-player" class="resource-label"> Player: </label>
+    <input id="fd-player" name="data.player" type="text" value="{{actor.data.player}}"/>
 
-<label for="fd-concept" class="resource-label"> Concept: </label>
-  <input id="fd-concept" name="data.concept" type="text" value="{{actor.data.concept}}"/>
+  <label for="fd-concept" class="resource-label"> Concept: </label>
+    <input id="fd-concept" name="data.concept" type="text" value="{{actor.data.concept}}"/>
+</div>
+
 
 {{!-- Paths --}}
 <h2>Paths</h2>
@@ -93,8 +97,8 @@ FULL DATA - Debug / Edit
 <h3>Facets:</h3>
 {{#each data.facets as |facet key|}}
   <div class="facet flexrow flex-group-center">
-    <label for="fd-{{key}}" class="resource-label"> {{facet.name}} </label>
-    <input type="text" id="fd-{{key}}" name="data.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
+    <label for="fd-facet-{{key}}" class="resource-label"> {{facet.name}} </label>
+    <input type="text" id="fd-facet-{{key}}" name="data.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
   </div>
 {{/each}}
 
