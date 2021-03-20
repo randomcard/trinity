@@ -108,6 +108,13 @@ export class TrinityActorSheet extends ActorSheet {
       healthBoxes.bruised.filled = bruisedNum - healthBoxes.bruised.extra;
       healthBoxes.bruised.empty = 0;
     }
+    console.log("Bruised Healthboxes");
+    console.log(healthBoxes.bruised.extra);
+    console.log(healthBoxes.bruised.filled);
+    console.log(healthBoxes.bruised.empty);
+    console.log(this.actor.data.data.healthboxes.bruised);
+    console.log(this.actor.data.items.filter(h => h.flags.isInjury && h.injury.value === 1));
+    console.log(bruisedNum);
 
     // Injured (2)
     let injuredNum = Object.keys(this.actor.data.items.filter(h => h.flags.isInjury && h.injury.value === 2)).length;
