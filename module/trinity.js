@@ -54,6 +54,9 @@ Hooks.once('init', async function() {
     return str.toLowerCase();
   });
 
+  Handlebars.registerHelper('varToString', function(v) {
+    return Object.keys({v})[0];
+
   Handlebars.registerHelper('toDots', function(n) {
     let dots = '';
     let filled = '<i class="fa fa-circle"></i>';
@@ -65,6 +68,25 @@ Hooks.once('init', async function() {
 		}
     return dots;
 	});
+
+  Handlebars.registerHelper('toFilledBoxes', function(n) {
+    let boxes = '';
+    let filledBox = '<i class="fas fa-square"></i>';
+    for (let i = 0; i < n; i++) {
+      if (i < n) { boxes += filledBox; }
+		}
+    return boxes;
+	});
+
+  Handlebars.registerHelper('toEmptyBoxes', function(n) {
+    let boxes = '';
+    let emptyBox = '<i class="far fa-square"></i>';
+    for (let i = 0; i < n; i++) {
+      if (i < n) { boxes += emptyBox; }
+		}
+    return boxes;
+	});
+
 
 });
 
@@ -106,7 +128,8 @@ async function loadTrinityTemplates()
   // register templates parts
   const templatePaths = [
     "systems/trinity/templates/actor/partials/full-data.html",
-    "systems/trinity/templates/actor/partials/attributes.html"
+    "systems/trinity/templates/actor/partials/attributes.html",
+    "systems/trinity/templates/actor/partials/healthboxes.html"
   ];
   return loadTemplates( templatePaths );
 }

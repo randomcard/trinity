@@ -90,7 +90,47 @@ export class TrinityActorSheet extends ActorSheet {
     const tricks = [];
     const contacts = [];
     const bonds = [];
-    const healthboxes = [];
+    const healthBoxes = [];
+    healthBoxes.bruised = [];
+    healthBoxes.injured = [];
+    healthBoxes.maimed = [];
+
+    // Create healthboxes
+    // Get # of injuries - Turn this into a loop to reduce code...
+    // might need to change .length to some other counter, if it's an object
+    // Bruised (1)
+    let bruisedNum = this.actor.data.items.filter(h => h.flags.isInjury && h.injury.value === 1).length;
+    if (bruisedNum <= this.actor.data.data.healthboxes.bruised) {
+      healthBoxes.bruised.filled = bruisedNum;
+      healthBoxes.bruised.empty = this.actor.data.data.healthboxes.bruised - healthBoxes.bruised.filled;
+      healthBoxes.bruised.extra = 0;
+    } else {
+      healthBoxes.bruised.extra = bruisedNum - this.actor.data.data.healthboxes.bruised;
+      healthBoxes.bruised.filled = bruisedNum - healthBoxes.bruised.extra;
+      healthBoxes.bruised.empty = 0;
+    }
+
+    // Injured (2)
+    let injuredNum = this.actor.data.items.find(h => h.flags.isInjury && h.injury.value === 1).length;
+    if (injuredNum <= this.actor.data.data.healthboxes.injured) {
+      healthBoxes.injured.filled = injuredNum;
+      healthBoxes.injured.empty = this.actor.data.data.healthboxes.injured - healthBoxes.injured.filled;
+    } else {
+      healthBoxes.injured.extra = injuredNum - this.actor.data.data.healthboxes.injured;
+      healthBoxes.injured.filled = injuredNum - healthBoxes.injured.extra;
+      healthBoxes.injured.empty = 0;
+    }
+
+    // Maimed (4)
+    let maimedNum = this.actor.data.items.find(h => h.flags.isInjury && h.injury.value === 1).length;
+    if (maimedNum <= this.actor.data.data.healthboxes.maimed) {
+      healthBoxes.maimed.filled = maimedNum;
+      healthBoxes.maimed.empty = this.actor.data.data.healthboxes.maimed - healthBoxes.maimed.filled;
+    } else {
+      healthBoxes.maimed.extra = maimedNum - this.actor.data.data.healthboxes.maimed;
+      healthBoxes.maimed.filled = maimedNum - healthBoxes.maimed.extra;
+      healthBoxes.maimed.empty = 0;
+    }
 
 
     // Iterate through items, allocating to containers
@@ -114,10 +154,9 @@ export class TrinityActorSheet extends ActorSheet {
       if (i.type === 'stunt') { stunts.push(i); }
       if (i.type === 'gift') { gifts.push(i); }
       if (i.type === 'trick') { tricks.push(i); }
-      if (i.type === 'effect' && i.data.flags.isHealth === false) { effects.push(i); }
+      if (i.type === 'effect') { effects.push(i); }
       if (i.type === 'contact') { contacts.push(i); }
       if (i.type === 'bond') { bonds.push(i); }
-      if (i.data.flags.isHealth === true) { healthboxes.push(i); }
 
     }
 

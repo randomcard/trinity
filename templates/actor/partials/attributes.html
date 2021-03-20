@@ -5,7 +5,7 @@
   {{#each actor.data.attributes as |attribute key|}}
   <div class="flexcol flex-group-center rollable boxed" data-attrname="{{attribute.name}}" id="{{key}}">
     <span class="resource-label"> {{attribute.name}} </span>
-    <span class="dots"> {{{toDots attribute.value}}} </span>
+    <span class="icons"> {{{toDots attribute.value}}} </span>
     <span class="small-note"> {{attribute.approach}} - {{attribute.arena}} </span>
   </div>
   {{/each}}

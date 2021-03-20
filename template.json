@@ -42,6 +42,11 @@
         "available": 0
       },
       "favoredApproach" : "",
+      "healthboxes" : {
+        "bruised" : 1,
+        "injured" : 1,
+        "maimed" : 1
+      },
       "attributes": {
         "int": {
           "value": 1,
@@ -122,11 +127,7 @@
           "isWeapon" : false,
           "isArmor" : false,
           "isVehicle" : false,
-          "isHealth" : false
-        },
-        "health" : {
-          "value" : 0,
-          "injured" : false
+          "isInjury" : false
         },
         "defaultSkill" : "",
         "defaultAttribute" : ""
@@ -170,7 +171,10 @@
       "pathtype": ""
     },
     "effect": {
-      "templates": ["base"]
+      "templates": ["base"],
+      "injury" : {
+        "value" : 0
+      }
     },
     "stunt": {
       "templates": ["base"],
