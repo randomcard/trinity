@@ -79,6 +79,15 @@ Hooks.once('init', async function() {
     return boxes;
 	});
 
+  Handlebars.registerHelper('toExtraBoxes', function(n) {
+    let boxes = '';
+    let filledBox = '<i class="fas fa-plus-square"></i>';
+    for (let i = 0; i < n; i++) {
+      if (i < n) { boxes += filledBox; }
+		}
+    return boxes;
+	});
+
   Handlebars.registerHelper('toEmptyBoxes', function(n) {
     let boxes = '';
     let emptyBox = '<i class="far fa-square"></i>';
