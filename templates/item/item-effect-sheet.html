@@ -23,6 +23,16 @@
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             {{!-- As you add new fields, add them in here! --}}
+            <label for="data.flags.isInjury" class="resource-label">Injury Flag</label>
+            <input type="checkbox" name="data.flags.isInjury" value="{{data.flags.isInjury}}" data-dtype="Boolean" {{data.flags.isInjury}}/>
+            {{#if actor.data.flags.isInjury}}
+            <div class="resource">
+              <label class="resource-label">Injury Value</label>
+                <input type="input" name="data.injury.value" value="{{data.injury.value}}" data-dtype="Number"/>
+            </div>
+            {{/if}}
+            <hr>
+
             <input type="checkbox" name="data.enhancement.isEnhancement" value="{{data.enhancement.isEnhancement}}" data-dtype="Boolean" {{checked data.enhancement.isEnhancement}}/>
             <div class="grid">
               <div class="resource">
