@@ -99,7 +99,7 @@ export class TrinityActorSheet extends ActorSheet {
     // Get # of injuries - Turn this into a loop to reduce code...
     // might need to change .length to some other counter, if it's an object
     // Bruised (1)
-    let bruisedNum = this.actor.data.items.filter(h => h.flags.isInjury && h.injury.value === 1).length;
+    let bruisedNum = Object.keys(this.actor.data.items.filter(h => h.flags.isInjury && h.injury.value === 1)).length;
     if (bruisedNum <= this.actor.data.data.healthboxes.bruised) {
       healthBoxes.bruised.filled = bruisedNum;
       healthBoxes.bruised.empty = this.actor.data.data.healthboxes.bruised - healthBoxes.bruised.filled;
@@ -111,7 +111,7 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
     // Injured (2)
-    let injuredNum = this.actor.data.items.find(h => h.flags.isInjury && h.injury.value === 1).length;
+    let injuredNum = Object.keys(this.actor.data.items.find(h => h.flags.isInjury && h.injury.value === 1)).length;
     if (injuredNum <= this.actor.data.data.healthboxes.injured) {
       healthBoxes.injured.filled = injuredNum;
       healthBoxes.injured.empty = this.actor.data.data.healthboxes.injured - healthBoxes.injured.filled;
@@ -122,7 +122,7 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
     // Maimed (4)
-    let maimedNum = this.actor.data.items.find(h => h.flags.isInjury && h.injury.value === 1).length;
+    let maimedNum = Object.keys(this.actor.data.items.find(h => h.flags.isInjury && h.injury.value === 1)).length;
     if (maimedNum <= this.actor.data.data.healthboxes.maimed) {
       healthBoxes.maimed.filled = maimedNum;
       healthBoxes.maimed.empty = this.actor.data.data.healthboxes.maimed - healthBoxes.maimed.filled;
