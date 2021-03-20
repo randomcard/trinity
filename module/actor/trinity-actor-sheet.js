@@ -174,7 +174,7 @@ export class TrinityActorSheet extends ActorSheet {
     actorData.tricks = tricks;
     actorData.contacts = contacts;
     actorData.bonds = bonds;
-    actorData.healthboxes = healthboxes;
+    actorData.healthBoxes = healthBoxes;
 
   }
 
