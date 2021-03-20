@@ -56,6 +56,7 @@ Hooks.once('init', async function() {
 
   Handlebars.registerHelper('varToString', function(v) {
     return Object.keys({v})[0];
+  });
 
   Handlebars.registerHelper('toDots', function(n) {
     let dots = '';
