@@ -128,7 +128,7 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
     // Maimed (4)
-    let maimedNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value >=3 1))).length;
+    let maimedNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value >= 3 ))).length;
     if (maimedNum <= this.actor.data.data.healthboxes.maimed) {
       healthBoxes.maimed.filled = maimedNum;
       healthBoxes.maimed.empty = this.actor.data.data.healthboxes.maimed - healthBoxes.maimed.filled;
