@@ -113,7 +113,8 @@ export class TrinityActorSheet extends ActorSheet {
     console.log(healthBoxes.bruised.filled);
     console.log(healthBoxes.bruised.empty);
     console.log(this.actor.data.data.healthboxes.bruised);
-    console.log(this.actor.data.items.filter(h => h.flags.isInjury && h.injury.value === 1));
+    console.log(this.actor.data.items.filter(h => h.flags.isInjury && (h.injury.value === 1)));
+    console.log(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === 1)));
     console.log(bruisedNum);
 
     // Injured (2)
@@ -128,7 +129,7 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
     // Maimed (4)
-    let maimedNum = Object.keys(this.actor.data.items.filter(h => h.flags.isInjury && h.injury.value === 4)).length;
+    let maimedNum = Object.keys(this.actor.data.items.filter(h => h.flags.isInjury && h.injury.value >= 4)).length;
     if (maimedNum <= this.actor.data.data.healthboxes.maimed) {
       healthBoxes.maimed.filled = maimedNum;
       healthBoxes.maimed.empty = this.actor.data.data.healthboxes.maimed - healthBoxes.maimed.filled;
