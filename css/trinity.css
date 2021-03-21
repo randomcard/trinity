@@ -399,3 +399,7 @@
 .collapsible-active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
+
+.fit {
+  width : auto;
+}

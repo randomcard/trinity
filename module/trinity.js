@@ -75,9 +75,9 @@ Hooks.once('init', async function() {
     let extraBox = '<i class="fas fa-plus-square"></i>';
     let filledBox = '<i class="fas fa-square"></i>';
     let emptyBox = '<i class="far fa-square"></i>';
-    for (let i = 0; i < h.extra; i++) { boxes += extraBox; }
     for (let i = 0; i < h.filled; i++) { boxes += filledBox; }
     for (let i = 0; i < h.empty; i++) { boxes += emptyBox; }
+    for (let i = 0; i < h.extra; i++) { boxes += extraBox; }
     return boxes;
 	});
 
