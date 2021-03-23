@@ -180,6 +180,11 @@ export class TrinityActorSheet extends ActorSheet {
     console.log("Skills, needing sorted:");
     console.log(skills);
 
+//    var points = [40, 100, 1, 5, 25, 10];
+//    skills.sort(function(a, b){return b-a});
+    skills.sort((a, b) => a.name.localeCompare(b.name))
+    console.log(skills);
+
     // Assign and return
     actorData.gear = gear;
     actorData.weapons = weapons;

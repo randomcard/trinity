@@ -23,7 +23,7 @@
   {{#each actor.healthBoxes as |healthBox key|}}
   <div class="grid grid-2col clickable lowmargin" data-hbname="{{healthBox.name}}" id="{{key}}">
     <div class="resource-label">{{healthBox.name}} </div>
-    <div class="big icons">{{{toHealthBoxes healthBox.value}}}</div>
+    <div class="big icons">{{{toHealthBoxes healthBox}}}</div>
   </div>
   {{/each}}
 </div>
