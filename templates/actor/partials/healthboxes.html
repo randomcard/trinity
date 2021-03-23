@@ -22,20 +22,10 @@
 
 <h2>Healthboxes V2 (iterate)</h2>
 <div class="healthboxes boxed flexcol fit">
-  {{#each actor.healthBoxes as |healthBox key|}}
+  {{#each this.actor.healthBoxes as |healthBox key|}}
   <div class="grid grid-2col clickable lowmargin" data-hbname="{{healthBox.name}}" id="{{key}}">
-    <div class="resource-label">Test {{healthBox.name}}</div>
+    <div class="resource-label">{{healthBox.name}}</div>
     <div class="big icons">{{{toHealthBoxes healthBox}}}</div>
-  </div>
-  {{/each}}
-</div>
-
-<h2>Skills</h2>
-<div class="skills grid grid-2col-colflow fit">
-  {{#each actor.skills as |skill key|}}
-  <div class="flexcol flex-group-center rollable boxed" data-skillid="{{skill._id}}" id="{{key}}">
-    <span class="resource-label"> {{skill.name}} </span>
-    <span class="icons"> {{{toDots skill.data.value}}} </span>
   </div>
   {{/each}}
 </div>
