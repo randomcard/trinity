@@ -401,5 +401,5 @@
 }
 
 .fit {
-  width : auto;
+  width : fit-content;
 }

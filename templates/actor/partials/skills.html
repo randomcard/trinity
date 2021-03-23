@@ -1,0 +1,13 @@
+<h2>Skills</h2>
+<div class="items grid grid-1col">
+  {{#each this.items as |item key|}}
+    <div class="item flexrow flex-group-center" id="{{key}}">
+      <label for="{{item.data._id}}" class="resource-label" data-skilname="{{item.data.name}}">
+        {{item.name}}
+      </label>
+      <input type="radio" id="{{item.data._id}}" class="input" name="skil" value="{{item.data.name}}">
+    </div>
+  {{else}}
+    No Eligible Items Found.
+  {{/each}}
+</div>

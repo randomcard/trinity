@@ -94,6 +94,8 @@ export class TrinityActorSheet extends ActorSheet {
     healthBoxes.bruised = [];
     healthBoxes.injured = [];
     healthBoxes.maimed = [];
+    healthBoxes.takenOut = [];
+
 
     // Create healthboxes
     // Get # of injuries - Turn this into a loop to reduce code...
@@ -120,8 +122,8 @@ export class TrinityActorSheet extends ActorSheet {
       healthBoxes.injured.empty = 0;
     }
 
-    // Maimed (4)
-    let maimedNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value >= 3 ))).length;
+    // Maimed (Value 3, Condition level 4)
+    let maimedNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === 3 ))).length;
     if (maimedNum <= this.actor.data.data.healthboxes.maimed) {
       healthBoxes.maimed.filled = maimedNum;
       healthBoxes.maimed.empty = this.actor.data.data.healthboxes.maimed - healthBoxes.maimed.filled;
@@ -131,9 +133,21 @@ export class TrinityActorSheet extends ActorSheet {
       healthBoxes.maimed.empty = 0;
     }
 
+    // Taken Out (Value 4, Condition Level "Taken Out")
+    let takenOutNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === 4 ))).length;
+    if (takenOutNum <= this.actor.data.data.healthboxes.takenOut) {
+      healthBoxes.takenOut.filled = takenOutNum;
+      healthBoxes.takenOut.empty = this.actor.data.data.healthboxes.takenOut - healthBoxes.takenOut.filled;
+    } else {
+      healthBoxes.takenOut.extra = takenOutNum - this.actor.data.data.healthboxes.takenOut;
+      healthBoxes.takenOut.filled = takenOutNum - healthBoxes.takenOut.extra;
+      healthBoxes.takenOut.empty = 0;
+    }
+
+
+
 
     // Iterate through items, allocating to containers
-    // let totalWeight = 0;
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
