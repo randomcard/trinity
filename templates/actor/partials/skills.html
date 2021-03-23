@@ -3,9 +3,9 @@
 <h2>Skills</h2>
 <div class="skills grid grid-2col fit">
   {{#each actor.skills as |skill key|}}
-  <div class="flexcol flex-group-center rollable boxed" data-attrname="{{skill.name}}" id="{{key}}">
+  <div class="flexcol flex-group-center rollable boxed" data-skilname="{{skill.name}}" id="{{key}}">
     <span class="resource-label"> {{skill.name}} </span>
-    <span class="icons"> {{{toDots skill.value}}} </span>
+    <span class="icons"> {{{toDots skill.data.value}}} </span>
   </div>
   {{/each}}
 </div>

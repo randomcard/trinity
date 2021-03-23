@@ -28,6 +28,12 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.grid-2col-colflow {
+  grid-row: span 2 / span 2;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: column;
+}
+
 .grid-3col {
   grid-column: span 3 / span 3;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -406,4 +412,8 @@
 
 .lowmargin {
   margin: 5px;
+}
+
+.grid-flow-column {
+  grid-auto-flow: column;
 }
