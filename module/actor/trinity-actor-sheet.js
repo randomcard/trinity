@@ -156,15 +156,16 @@ export class TrinityActorSheet extends ActorSheet {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
 
-      // Append to gear.
+      // "item" sub-types - Gear / Weapon / Armor / Vehicle
       if (i.type === 'item' && i.data.flags.isGear === true) { gear.push(i); }
       if (i.type === 'item' && i.data.flags.isWeapon === true) { weapons.push(i); }
       if (i.type === 'item' && i.data.flags.isArmor === true) { armors.push(i); }
       if (i.type === 'item' && i.data.flags.isVehicle === true) { vehicles.push(i); }
 
-      // Append to other types.
+      // Other item types
       if (i.type === 'edge') { edges.push(i); }
       if (i.type === 'skill') { skills.push(i); }
+      skills.sort((a, b) => a.name.localeCompare(b.name));
       if (i.type === 'specialty') { specialties.push(i); }
       if (i.type === 'path') { paths.push(i); }
       if (i.data.flags.isComplication === true) { complications.push(i); }
@@ -176,14 +177,6 @@ export class TrinityActorSheet extends ActorSheet {
       if (i.type === 'bond') { bonds.push(i); }
 
     }
-
-    console.log("Skills, needing sorted:");
-    console.log(skills);
-
-//    var points = [40, 100, 1, 5, 25, 10];
-//    skills.sort(function(a, b){return b-a});
-    skills.sort((a, b) => a.name.localeCompare(b.name))
-    console.log(skills);
 
     // Assign and return
     actorData.gear = gear;

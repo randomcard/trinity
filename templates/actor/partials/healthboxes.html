@@ -1,3 +1,5 @@
+{{log "Healthboxes logging, this:" this}}
+
 <h2>Healthboxes</h2>
 <div class="boxed flexcol fit">
   <div class="grid grid-2col clickable bruised">
@@ -21,6 +23,16 @@
 <h2>Healthboxes V2 (iterate)</h2>
 <div class="healthboxes boxed flexcol fit">
   {{#each actor.healthBoxes as |healthBox key|}}
+  <div class="grid grid-2col clickable lowmargin" data-hbname="{{healthBox.name}}" id="{{key}}">
+    <div class="resource-label">{{healthBox.name}} </div>
+    <div class="big icons">{{{toHealthBoxes healthBox}}}</div>
+  </div>
+  {{/each}}
+</div>
+
+<h2>Healthboxes V3 (iterate - lowercase?)</h2>
+<div class="healthboxes boxed flexcol fit">
+  {{#each actor.healthboxes as |healthBox key|}}
   <div class="grid grid-2col clickable lowmargin" data-hbname="{{healthBox.name}}" id="{{key}}">
     <div class="resource-label">{{healthBox.name}} </div>
     <div class="big icons">{{{toHealthBoxes healthBox}}}</div>

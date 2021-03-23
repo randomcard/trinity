@@ -1,13 +1,11 @@
+{{!-- Skill Partial - Read-Only --}}
+
 <h2>Skills</h2>
-<div class="items grid grid-1col">
-  {{#each this.items as |item key|}}
-    <div class="item flexrow flex-group-center" id="{{key}}">
-      <label for="{{item.data._id}}" class="resource-label" data-skilname="{{item.data.name}}">
-        {{item.name}}
-      </label>
-      <input type="radio" id="{{item.data._id}}" class="input" name="skil" value="{{item.data.name}}">
-    </div>
-  {{else}}
-    No Eligible Items Found.
+<div class="skills grid grid-2col fit">
+  {{#each actor.skills as |skill key|}}
+  <div class="flexcol flex-group-center rollable boxed" data-attrname="{{skill.name}}" id="{{key}}">
+    <span class="resource-label"> {{skill.name}} </span>
+    <span class="icons"> {{{toDots skill.value}}} </span>
+  </div>
   {{/each}}
 </div>

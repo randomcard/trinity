@@ -152,7 +152,8 @@ async function loadTrinityTemplates()
   const templatePaths = [
     "systems/trinity/templates/actor/partials/full-data.html",
     "systems/trinity/templates/actor/partials/attributes.html",
-    "systems/trinity/templates/actor/partials/healthboxes.html"
+    "systems/trinity/templates/actor/partials/healthboxes.html",
+    "systems/trinity/templates/actor/partials/skills.html"
   ];
   return loadTemplates( templatePaths );
 }
