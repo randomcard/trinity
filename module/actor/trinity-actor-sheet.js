@@ -177,6 +177,9 @@ export class TrinityActorSheet extends ActorSheet {
 
     }
 
+    console.log("Skills, needing sorted:");
+    console.log(skills);
+
     // Assign and return
     actorData.gear = gear;
     actorData.weapons = weapons;

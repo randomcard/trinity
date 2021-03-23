@@ -403,3 +403,7 @@
 .fit {
   width : fit-content;
 }
+
+.lowmargin {
+  margin: 5px;
+}
