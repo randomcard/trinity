@@ -37,6 +37,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
   // Skill info
   if (typeof dataset.skillid !== 'undefined' && dataset.skillid !== null) {
     targetSkill = Object.values(targetActor.data.items).find(skill => skill._id === dataset.skillid);
+    pickedElements.skil.name = targetSkill.name;
+    pickedElements.skil.value = targetSkill.data.value;
     console.log("Found Skill Info:");
     console.log(targetSkill);
   }

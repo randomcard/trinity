@@ -1,7 +1,7 @@
 {{!-- Skill Partial - Read-Only --}}
 
 <h2>Skills</h2>
-<div class="skills grid grid-2col fit">
+<div class="skills grid grid-2col-colflow fit">
   {{#each actor.skills as |skill key|}}
   <div class="flexcol flex-group-center rollable boxed" data-skilname="{{skill.name}}" id="{{key}}">
     <span class="resource-label"> {{skill.name}} </span>
