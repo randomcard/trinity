@@ -87,8 +87,8 @@
 <div class="collapsible-content">
   {{#each data.healthboxes as |healthbox key|}}
     <div class="healthbox flexrow flex-group-center">
-      <label for="fd-healthbox-{{key}}" class="resource-label"> {{varToString healthbox}} </label>
-      <input type="text" id="fd-healthbox-{{key}}" name="data.healthboxes.{{key}}" value="{{healthbox}}" data-dtype="Number"/>
+      <label for="fd-healthbox-{{key}}" class="resource-label"> {{healthbox.name}} </label>
+      <input type="text" id="fd-healthbox-{{key}}" name="data.healthboxes.{{key}}" value="{{healthbox.value}}" data-dtype="Number"/>
     </div>
   {{/each}}
 </div>

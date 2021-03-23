@@ -43,10 +43,22 @@
       },
       "favoredApproach" : "",
       "healthboxes" : {
-        "bruised" : 1,
-        "injured" : 1,
-        "maimed" : 1,
-        "takenOut" : 1
+        "bru" : {
+          "value" : 1,
+          "name" : "Bruised"
+        },
+        "inj" : {
+          "value" : 1,
+          "name" : "Injured"
+        },
+        "mai" : {
+          "value" : 1,
+          "name" : "Maimed"
+        },
+        "tak" : {
+          "value" : 1,
+          "name" : "Taken Out"
+        }
       },
       "attributes": {
         "int": {

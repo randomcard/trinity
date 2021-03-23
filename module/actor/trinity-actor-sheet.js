@@ -92,54 +92,58 @@ export class TrinityActorSheet extends ActorSheet {
     const bonds = [];
     const healthBoxes = [];
     healthBoxes.bruised = [];
+    healthBoxes.bruised.name = this.actor.data.data.healthboxes.bru.name;
     healthBoxes.injured = [];
+    healthBoxes.injured.name = this.actor.data.data.healthboxes.inj.name;
     healthBoxes.maimed = [];
+    healthBoxes.maimed.name = this.actor.data.data.healthboxes.mai.name;
     healthBoxes.takenOut = [];
+    healthBoxes.takenOut.name = this.actor.data.data.healthboxes.tak.name;
 
 
     // Create healthboxes
     // Get # of injuries - Turn this into a loop to reduce code...
     // Bruised (1)
     let bruisedNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === 1))).length;
-    if (bruisedNum <= this.actor.data.data.healthboxes.bruised) {
+    if (bruisedNum <= this.actor.data.data.healthboxes.bru.value) {
       healthBoxes.bruised.filled = bruisedNum;
-      healthBoxes.bruised.empty = this.actor.data.data.healthboxes.bruised - healthBoxes.bruised.filled;
+      healthBoxes.bruised.empty = this.actor.data.data.healthboxes.bru.value - healthBoxes.bruised.filled;
       healthBoxes.bruised.extra = 0;
     } else {
-      healthBoxes.bruised.extra = bruisedNum - this.actor.data.data.healthboxes.bruised;
+      healthBoxes.bruised.extra = bruisedNum - this.actor.data.data.healthboxes.bru.value;
       healthBoxes.bruised.filled = bruisedNum - healthBoxes.bruised.extra;
       healthBoxes.bruised.empty = 0;
     }
 
     // Injured (2)
     let injuredNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === 2))).length;
-    if (injuredNum <= this.actor.data.data.healthboxes.injured) {
+    if (injuredNum <= this.actor.data.data.healthboxes.inj.value) {
       healthBoxes.injured.filled = injuredNum;
-      healthBoxes.injured.empty = this.actor.data.data.healthboxes.injured - healthBoxes.injured.filled;
+      healthBoxes.injured.empty = this.actor.data.data.healthboxes.inj.value - healthBoxes.injured.filled;
     } else {
-      healthBoxes.injured.extra = injuredNum - this.actor.data.data.healthboxes.injured;
+      healthBoxes.injured.extra = injuredNum - this.actor.data.data.healthboxes.inj.value;
       healthBoxes.injured.filled = injuredNum - healthBoxes.injured.extra;
       healthBoxes.injured.empty = 0;
     }
 
     // Maimed (Value 3, Condition level 4)
     let maimedNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === 3 ))).length;
-    if (maimedNum <= this.actor.data.data.healthboxes.maimed) {
+    if (maimedNum <= this.actor.data.data.healthboxes.mai.value) {
       healthBoxes.maimed.filled = maimedNum;
-      healthBoxes.maimed.empty = this.actor.data.data.healthboxes.maimed - healthBoxes.maimed.filled;
+      healthBoxes.maimed.empty = this.actor.data.data.healthboxes.mai.value - healthBoxes.maimed.filled;
     } else {
-      healthBoxes.maimed.extra = maimedNum - this.actor.data.data.healthboxes.maimed;
+      healthBoxes.maimed.extra = maimedNum - this.actor.data.data.healthboxes.mai.value;
       healthBoxes.maimed.filled = maimedNum - healthBoxes.maimed.extra;
       healthBoxes.maimed.empty = 0;
     }
 
     // Taken Out (Value 4, Condition Level "Taken Out")
     let takenOutNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === 4 ))).length;
-    if (takenOutNum <= this.actor.data.data.healthboxes.takenOut) {
+    if (takenOutNum <= this.actor.data.data.healthboxes.tak.value) {
       healthBoxes.takenOut.filled = takenOutNum;
-      healthBoxes.takenOut.empty = this.actor.data.data.healthboxes.takenOut - healthBoxes.takenOut.filled;
+      healthBoxes.takenOut.empty = this.actor.data.data.healthboxes.tak.value - healthBoxes.takenOut.filled;
     } else {
-      healthBoxes.takenOut.extra = takenOutNum - this.actor.data.data.healthboxes.takenOut;
+      healthBoxes.takenOut.extra = takenOutNum - this.actor.data.data.healthboxes.tak.value;
       healthBoxes.takenOut.filled = takenOutNum - healthBoxes.takenOut.extra;
       healthBoxes.takenOut.empty = 0;
     }

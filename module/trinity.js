@@ -54,9 +54,11 @@ Hooks.once('init', async function() {
     return str.toLowerCase();
   });
 
+/* Not used now, fixed template
   Handlebars.registerHelper('varToString', function(v) {
     return Object.keys({v})[0];
   });
+*/
 
   Handlebars.registerHelper('toDots', function(n) {
     let dots = '';
