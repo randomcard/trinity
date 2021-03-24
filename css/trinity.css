@@ -411,9 +411,21 @@
 }
 
 .lowmargin {
-  margin: 5px;
+  margin: 2px;
 }
 
 .grid-flow-column {
   grid-auto-flow: column;
+}
+
+.right-vcenter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.left-vcenter {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }

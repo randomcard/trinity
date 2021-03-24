@@ -268,6 +268,7 @@ export class TrinityActorSheet extends ActorSheet {
     for (let i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function() {
         this.classList.toggle("collapsible-active");
+        console.log("Collapisable Listener, uses This:", this);
         var content = this.nextElementSibling;
         if (content.style.maxHeight){
           content.classList.toggle("collapsible-content-active");
