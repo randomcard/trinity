@@ -90,7 +90,23 @@ export class TrinityActorSheet extends ActorSheet {
     const tricks = [];
     const contacts = [];
     const bonds = [];
-    const healthBoxes = [];
+//    const healthBoxes = [];
+    const healthBoxes = {
+      bruised : {
+        name : this.actor.data.data.healthboxes.bru.name
+      },
+      injured : {
+        name : this.actor.data.data.healthboxes.inj.name
+      },
+      maimed : {
+        name : this.actor.data.data.healthboxes.mai.name
+      },
+      takenOut : {
+        name : this.actor.data.data.healthboxes.tak.name
+      }
+    };
+
+/*
     healthBoxes.bruised = [];
     healthBoxes.bruised.name = this.actor.data.data.healthboxes.bru.name;
     healthBoxes.injured = [];
@@ -99,7 +115,7 @@ export class TrinityActorSheet extends ActorSheet {
     healthBoxes.maimed.name = this.actor.data.data.healthboxes.mai.name;
     healthBoxes.takenOut = [];
     healthBoxes.takenOut.name = this.actor.data.data.healthboxes.tak.name;
-
+*/
 
     // Create healthboxes
     // Get # of injuries - Turn this into a loop to reduce code...
