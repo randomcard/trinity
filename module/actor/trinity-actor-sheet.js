@@ -12,6 +12,26 @@ import { trinityRoll } from "/systems/trinity/module/trinity-roll2.js";
 
 export class TrinityActorSheet extends ActorSheet {
 
+  constructor(actor, options) {
+    super(actor, options);
+
+    /* Example from the CPR system:
+    // Moved this to the constructor since this only needs to be set on the Sheet Object
+    // The first time it is created.  The contents are then loaded from the User Settings
+    // if they exist.
+    this.options.collapsedSections = [];
+    const collapsedSections = SystemUtils.GetUserSetting("sheetConfig", "sheetCollapsedSections", this.id);
+    if (collapsedSections) {
+      this.options.collapsedSections = collapsedSections;
+    }
+    */
+
+    let htmlSaved = {};
+
+
+  }
+
+
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -55,11 +75,35 @@ export class TrinityActorSheet extends ActorSheet {
       this._prepareTrinityCharacterItems(data);
     }
 
-// Test section - can I add more data here for other stuff?
-// No
-//    if (typeof rollparts !== 'undefined'){
-//      data.rollParts = rollparts;
-//    }
+// Replace parts of HTML with parts of HTMLSaved, which should have the CSS changes for Collapsibles
+/*
+if (htmlSaved !== null) {
+var coll = document.getElementsByClassName("collapsible");
+var collOld = htmlSaved.getElementsByClassName("collapsible");
+
+for (let i = 0; i < coll.length; i++) {
+  coll[i]
+
+    this.classList.toggle("collapsible-active");
+    console.log("Collapsible Listener, uses This:", this);
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.classList.toggle("collapsible-content-active");
+      content.style.maxHeight = null;
+    } else {
+      content.classList.toggle("collapsible-content-active");
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+    // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
+    htmlSaved = JSON.parse(JSON.stringify(html));
+  });
+}
+*/
+
+}
+
+
+
 
     return data;
   }
@@ -268,7 +312,7 @@ export class TrinityActorSheet extends ActorSheet {
     for (let i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function() {
         this.classList.toggle("collapsible-active");
-        console.log("Collapisable Listener, uses This:", this);
+        console.log("Collapsible Listener, uses This:", this);
         var content = this.nextElementSibling;
         if (content.style.maxHeight){
           content.classList.toggle("collapsible-content-active");
@@ -277,6 +321,8 @@ export class TrinityActorSheet extends ActorSheet {
           content.classList.toggle("collapsible-content-active");
           content.style.maxHeight = content.scrollHeight + "px";
         }
+        // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
+        htmlSaved = JSON.parse(JSON.stringify(html));
       });
     }
 
