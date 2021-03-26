@@ -77,7 +77,7 @@ export class TrinityActorSheet extends ActorSheet {
 
 // Replace parts of HTML with parts of HTMLSaved, which should have the CSS changes for Collapsibles
 
-if (htmlSaved !== null) {
+if (this.htmlSaved !== null) {
   var coll = document.getElementsByClassName("collapsible");
   var collOld = this.htmlSaved.getElementsByClassName("collapsible");
 
