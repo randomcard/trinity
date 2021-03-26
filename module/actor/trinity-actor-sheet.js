@@ -26,7 +26,7 @@ export class TrinityActorSheet extends ActorSheet {
     }
     */
 
-    let htmlSaved = {};
+    // let htmlSaved = {};
 
 
   }
@@ -317,7 +317,8 @@ for (let i = 0; i < coll.length; i++) {
           content.style.maxHeight = content.scrollHeight + "px";
         }
         // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
-        htmlSaved = JSON.parse(JSON.stringify(html));
+        // htmlSaved = JSON.parse(JSON.stringify(html));
+        // it couldn't see htmlSaved - not in scope?
       });
     }
 
