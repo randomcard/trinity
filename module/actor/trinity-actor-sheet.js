@@ -76,29 +76,30 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
 // Replace parts of HTML with parts of HTMLSaved, which should have the CSS changes for Collapsibles
-/*
+
 if (htmlSaved !== null) {
-var coll = document.getElementsByClassName("collapsible");
-var collOld = htmlSaved.getElementsByClassName("collapsible");
+  var coll = document.getElementsByClassName("collapsible");
+  var collOld = this.htmlSaved.getElementsByClassName("collapsible");
 
-for (let i = 0; i < coll.length; i++) {
-  coll[i]
-
-    this.classList.toggle("collapsible-active");
-    console.log("Collapsible Listener, uses This:", this);
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.classList.toggle("collapsible-content-active");
-      content.style.maxHeight = null;
-    } else {
-      content.classList.toggle("collapsible-content-active");
-      content.style.maxHeight = content.scrollHeight + "px";
+  for (let i = 0; i < coll.length; i++) {
+    coll[i] = collOld[i];
+      /*
+      this.classList.toggle("collapsible-active");
+      console.log("Collapsible Listener, uses This:", this);
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.classList.toggle("collapsible-content-active");
+        content.style.maxHeight = null;
+      } else {
+        content.classList.toggle("collapsible-content-active");
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+      */
+      // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
+      // htmlSaved = JSON.parse(JSON.stringify(html));
     }
-    // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
-    htmlSaved = JSON.parse(JSON.stringify(html));
-  });
 }
-*/
+
 
     return data;
   }
@@ -317,7 +318,8 @@ for (let i = 0; i < coll.length; i++) {
           content.style.maxHeight = content.scrollHeight + "px";
         }
         // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
-        this.htmlSaved = JSON.parse(JSON.stringify(html));
+        // this.htmlSaved = JSON.parse(JSON.stringify(html));
+        this.htmlSaved = html;
         console.log("htmlSaved", this.htmlSaved);
         // it couldn't see htmlSaved - not in scope?
       });
