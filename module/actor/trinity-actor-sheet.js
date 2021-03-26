@@ -323,10 +323,10 @@ if (this.htmlSaved !== null) {
         // this.htmlSaved = JSON.parse(JSON.stringify(html));
         this.htmlSaved = coll;
         console.log("htmlSaved", this.htmlSaved);
+        console.log("Array coll:", Array.from(coll));
         // it couldn't see htmlSaved - not in scope?
       });
     }
-
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
