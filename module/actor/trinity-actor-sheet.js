@@ -26,7 +26,7 @@ export class TrinityActorSheet extends ActorSheet {
     }
     */
 
-    this.htmlSaved = {};
+    this.htmlSaved = [];
 
 
   }
@@ -78,6 +78,7 @@ export class TrinityActorSheet extends ActorSheet {
 // Replace parts of HTML with parts of HTMLSaved, which should have the CSS changes for Collapsibles
 
 if (this.htmlSaved !== null) {
+  console.log("getData this:", this);
   var coll = document.getElementsByClassName("collapsible");
   console.log("getData coll:", coll);
   var collOld = this.htmlSaved;
@@ -323,7 +324,7 @@ if (this.htmlSaved !== null) {
         // this.htmlSaved = JSON.parse(JSON.stringify(html));
         this.htmlSaved = coll;
         console.log("htmlSaved", this.htmlSaved);
-        console.log("Array coll:", Array.from(coll));
+        console.log("Listener this:", this);
         // it couldn't see htmlSaved - not in scope?
       });
     }
