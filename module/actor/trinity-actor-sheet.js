@@ -79,7 +79,9 @@ export class TrinityActorSheet extends ActorSheet {
 
 if (this.htmlSaved !== null) {
   var coll = document.getElementsByClassName("collapsible");
-  var collOld = this.htmlSaved.getElementsByClassName("collapsible");
+  console.log("getData coll:", coll);
+  var collOld = this.htmlSaved;
+  console.log("getData collOld:", collOld);
 
   for (let i = 0; i < coll.length; i++) {
     coll[i] = collOld[i];
@@ -319,7 +321,7 @@ if (this.htmlSaved !== null) {
         }
         // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
         // this.htmlSaved = JSON.parse(JSON.stringify(html));
-        this.htmlSaved = html;
+        this.htmlSaved = coll;
         console.log("htmlSaved", this.htmlSaved);
         // it couldn't see htmlSaved - not in scope?
       });
