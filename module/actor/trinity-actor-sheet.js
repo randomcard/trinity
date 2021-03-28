@@ -306,9 +306,9 @@ if (this.htmlSaved !== null) {
       }
     });
     */
-    html.find('.collapsible').click(ev => {
-      const collapsibleElement = $(event.currentTarget).parents(".collapsible");
-      console.log("Collapsible Listener, HTML.find style. ev:", ev);
+    html.find('.collapsible').click(e => {
+      const collapsibleElement = e.currentTarget.parents(".collapsible");
+      console.log("Collapsible Listener, HTML.find style. e:", e);
       console.log("Collapsible Listener, HTML.find style. this:", this);
       console.log("Collapsible Listener, HTML.find style. collapsibleElement:", collapsibleElement);
       // this.classList.toggle("collapsible-active");
