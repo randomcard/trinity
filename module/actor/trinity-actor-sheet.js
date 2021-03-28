@@ -82,6 +82,7 @@ if (this.options.collapsedSections !== null) {
   console.log("this.options.collapsedSections is not null");
   console.log(document);
   console.log(this);
+  console.log(html);
   for (let c of this.options.collapsedSections) {
     // html.find(c).
     var cElement = document.getElementById(c);
