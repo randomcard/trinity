@@ -130,12 +130,8 @@ if (content.style.maxHeight){
       // htmlSaved = JSON.parse(JSON.stringify(html));
     }
  */
-
+  return data;
 }
-
-
-    return data;
-  }
 
 
   /**
