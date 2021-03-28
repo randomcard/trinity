@@ -14,6 +14,7 @@ export class TrinityActorSheet extends ActorSheet {
 
   constructor(actor, options) {
     super(actor, options);
+    this.options.collapsedSections = [];
 
     /* Example from the CPR system:
     // Moved this to the constructor since this only needs to be set on the Sheet Object
@@ -26,7 +27,7 @@ export class TrinityActorSheet extends ActorSheet {
     }
     */
 
-    this.htmlSaved = [];
+    // this.htmlSaved = [];
 
 
   }
@@ -306,9 +307,9 @@ if (this.htmlSaved !== null) {
       }
     });
     */
-    html.find('.collapsible').click(e => {
-      const collapsibleElement = e.currentTarget;
-      console.log("Collapsible Listener, HTML.find style. e:", e);
+    html.find('.collapsible').click(event => {
+      const collapsibleElement = event.currentTarget;
+      console.log("Collapsible Listener, HTML.find style. event:", event);
       console.log("Collapsible Listener, HTML.find style. this:", this);
       console.log("Collapsible Listener, HTML.find style. collapsibleElement:", collapsibleElement);
       // this.classList.toggle("collapsible-active");
@@ -325,8 +326,17 @@ if (this.htmlSaved !== null) {
       // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
       // this.htmlSaved = JSON.parse(JSON.stringify(html));
       // this.htmlSaved = coll;
-      console.log("htmlSaved", this.htmlSaved);
-      console.log("Listener this:", this);
+
+      if (this.options.collapsedSections.includes(event.currentTarget.id)) {
+		  // if IF is true, remove section from options
+        this.options.collapsedSections = this.options.collapsedSections.filter((sectionName) => sectionName !== event.currentTarget.id);
+      } else {
+		  // otherwise, add it
+        this.options.collapsedSections.push(event.currentTarget.id);
+      }
+
+      console.log("collapsedSections", this.options.collapsedSections);
+      
     });
 
 
