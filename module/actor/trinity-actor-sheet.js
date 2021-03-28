@@ -306,7 +306,29 @@ if (this.htmlSaved !== null) {
       }
     });
     */
+    html.find('.collapsible').click(ev => {
+      console.log("Collapsible Listener, HTML.find style. ev:", ev);
+      console.log("Collapsible Listener, HTML.find style. this:", this);
+      this.classList.toggle("collapsible-active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.classList.toggle("collapsible-content-active");
+        content.style.maxHeight = null;
+      } else {
+        content.classList.toggle("collapsible-content-active");
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+      // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
+      // this.htmlSaved = JSON.parse(JSON.stringify(html));
+      // this.htmlSaved = coll;
+      console.log("htmlSaved", this.htmlSaved);
+      console.log("Listener this:", this);
+    });
+
+
+    /*
     var coll = document.getElementsByClassName("collapsible");
+    var self = this;
 
     for (let i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function() {
@@ -328,6 +350,7 @@ if (this.htmlSaved !== null) {
         // it couldn't see htmlSaved - not in scope?
       });
     }
+    */
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
