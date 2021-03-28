@@ -87,7 +87,7 @@ if (this.options.collapsedSections !== null) {
     cElement.classList.toggle("collapsible-active");
     // var content = cElement.nextElementSibling;
     cElement.nextElementSibling.classList.toggle("collapsible-content-active");
-    cElement.nextElementSibling.style.maxHeight = content.scrollHeight + "px";
+    cElement.nextElementSibling.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
   }
 }
 
