@@ -307,7 +307,7 @@ if (this.htmlSaved !== null) {
     });
     */
     html.find('.collapsible').click(e => {
-      const collapsibleElement = e.currentTarget.parents(".collapsible");
+      const collapsibleElement = e.currentTarget;
       console.log("Collapsible Listener, HTML.find style. e:", e);
       console.log("Collapsible Listener, HTML.find style. this:", this);
       console.log("Collapsible Listener, HTML.find style. collapsibleElement:", collapsibleElement);
