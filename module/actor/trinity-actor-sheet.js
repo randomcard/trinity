@@ -307,10 +307,14 @@ if (this.htmlSaved !== null) {
     });
     */
     html.find('.collapsible').click(ev => {
+      const collapsibleElement = $(event.currentTarget).parents(".collapsible");
       console.log("Collapsible Listener, HTML.find style. ev:", ev);
       console.log("Collapsible Listener, HTML.find style. this:", this);
-      this.classList.toggle("collapsible-active");
-      var content = this.nextElementSibling;
+      console.log("Collapsible Listener, HTML.find style. collapsibleElement:", collapsibleElement);
+      // this.classList.toggle("collapsible-active");
+      collapsibleElement.classList.toggle("collapsible-active");
+      // $(collapsibleElement).find(".collapsible").toggleClass("collapsible-active");
+      var content = collapsibleElement.nextElementSibling;
       if (content.style.maxHeight){
         content.classList.toggle("collapsible-content-active");
         content.style.maxHeight = null;
