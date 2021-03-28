@@ -80,6 +80,8 @@ export class TrinityActorSheet extends ActorSheet {
 
 if (this.options.collapsedSections !== null) {
   console.log("this.options.collapsedSections is not null");
+  console.log(document);
+  console.log(this);
   for (let c of this.options.collapsedSections) {
     // html.find(c).
     var cElement = document.getElementById(c);
