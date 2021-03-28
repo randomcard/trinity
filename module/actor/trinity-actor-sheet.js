@@ -76,9 +76,36 @@ export class TrinityActorSheet extends ActorSheet {
       this._prepareTrinityCharacterItems(data);
     }
 
-// Replace parts of HTML with parts of HTMLSaved, which should have the CSS changes for Collapsibles
+// Find & expand collapsible sections - this.options.collapsedSections
 
-if (this.htmlSaved !== null) {
+if (this.options.collapsedSections !== null) {
+  console.log("this.options.collapsedSections is not null");
+  for (let c of this.options.collapsedSections) {
+    // html.find(c).
+    var cElement = document.getElementById(c);
+    console.log("cElement:");
+    cElement.classList.toggle("collapsible-active");
+    // var content = cElement.nextElementSibling;
+    cElement.nextElementSibling.classList.toggle("collapsible-content-active");
+    cElement.nextElementSibling.style.maxHeight = content.scrollHeight + "px";
+  }
+}
+
+// ----------------- Reference
+/*
+collapsibleElement.classList.toggle("collapsible-active");
+var content = collapsibleElement.nextElementSibling;
+if (content.style.maxHeight){
+  content.classList.toggle("collapsible-content-active");
+  content.style.maxHeight = null;
+} else {
+  content.classList.toggle("collapsible-content-active");
+  content.style.maxHeight = content.scrollHeight + "px";
+}
+*/
+// ----------------
+
+  /*
   console.log("getData this:", this);
   var coll = document.getElementsByClassName("collapsible");
   console.log("getData coll:", coll);
@@ -87,7 +114,7 @@ if (this.htmlSaved !== null) {
 
   for (let i = 0; i < coll.length; i++) {
     coll[i] = collOld[i];
-      /*
+      //
       this.classList.toggle("collapsible-active");
       console.log("Collapsible Listener, uses This:", this);
       var content = this.nextElementSibling;
@@ -98,10 +125,12 @@ if (this.htmlSaved !== null) {
         content.classList.toggle("collapsible-content-active");
         content.style.maxHeight = content.scrollHeight + "px";
       }
-      */
+      //
       // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
       // htmlSaved = JSON.parse(JSON.stringify(html));
     }
+ */
+
 }
 
 
@@ -336,7 +365,7 @@ if (this.htmlSaved !== null) {
       }
 
       console.log("collapsedSections", this.options.collapsedSections);
-      
+
     });
 
 
