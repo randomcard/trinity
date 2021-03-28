@@ -77,7 +77,7 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
 // Find & expand collapsible sections - this.options.collapsedSections
-
+/*
 if (this.options.collapsedSections !== null) {
   console.log("this.options.collapsedSections is not null");
   console.log(document);
@@ -93,6 +93,7 @@ if (this.options.collapsedSections !== null) {
     cElement.nextElementSibling.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
   }
 }
+*/
 
 // ----------------- Reference
 /*
@@ -296,6 +297,22 @@ if (content.style.maxHeight){
 
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
+
+    if (this.options.collapsedSections !== null) {
+      console.log("this.options.collapsedSections is not null");
+      console.log(document);
+      console.log(this);
+      console.log(html);
+      for (let c of this.options.collapsedSections) {
+        var cElement = html.find(c);
+        // var cElement = document.getElementById(c);
+        console.log("cElement:");
+        cElement.classList.toggle("collapsible-active");
+        // var content = cElement.nextElementSibling;
+        cElement.nextElementSibling.classList.toggle("collapsible-content-active");
+        cElement.nextElementSibling.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
+      }
+    }
 
     // Attempt to block normal handling of duplicate input boxes (which would return unwanted arrays)
     /*
