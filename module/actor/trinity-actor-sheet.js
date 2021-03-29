@@ -304,9 +304,10 @@ if (content.style.maxHeight){
       console.log(this);
       console.log(html);
       for (let c of this.options.collapsedSections) {
+        console.log("c:", c);
         var cElement = html.find(c);
         // var cElement = document.getElementById(c);
-        console.log("cElement:");
+        console.log("cElement:", cElement);
         cElement.classList.toggle("collapsible-active");
         // var content = cElement.nextElementSibling;
         cElement.nextElementSibling.classList.toggle("collapsible-content-active");
