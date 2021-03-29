@@ -326,7 +326,8 @@ if (content.style.maxHeight){
         var cElement = html.find("#"+c);
         cElement.addClass("collapsible-content-active");
         cElement.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
-    }  
+      }
+    }
 
 
     // Attempt to block normal handling of duplicate input boxes (which would return unwanted arrays)
