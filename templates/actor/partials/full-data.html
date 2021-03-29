@@ -3,8 +3,8 @@
 {{!-- Get values from actor, input names from data? --}}
 
 {{!-- Biographical Info --}}
-<button type="button" id="fd-bio-button" class="collapsible">Biographical Info</button>
-<div class="collapsible-content">
+<button type="button" id="fd-bio-header" class="collapsible">Biographical Info</button>
+<div id="fd-bio-content" class="collapsible-content">
   <label for="fd-name" class="resource-label"> Name: </label>
     <input id="fd-name" name="name" type="text" value="{{actor.name}}"/>
 
@@ -17,8 +17,8 @@
 
 
 {{!-- Paths --}}
-<button type="button" id="fd-paths-button" class="collapsible">Paths</button>
-<div class="collapsible-content">
+<button type="button" id="fd-paths-header" class="collapsible">Paths</button>
+<div id="fd-paths-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -41,8 +41,8 @@
 </div>
 
 {{!-- Skills --}}
-<button type="button" id="fd-skills-button" class="collapsible">Skills</button>
-<div class="collapsible-content">
+<button type="button" id="fd-skills-header" class="collapsible">Skills</button>
+<div id="fd-skills-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -71,8 +71,8 @@
 
 
 {{!-- Attributes --}}
-<button type="button" id="fd-attr-button" class="collapsible">Attributes</button>
-<div class="collapsible-content">
+<button type="button" id="fd-attr-header" class="collapsible">Attributes</button>
+<div id="fd-attr-content" class="collapsible-content">
 {{#each data.attributes as |attribute key|}}
   <div class="attribute flexrow flex-group-center">
     <label for="fd-{{key}}" class="resource-label rollable"> {{attribute.name}} </label>
@@ -83,8 +83,8 @@
 
 
 {{!-- Health --}}
-<button type="button" id="fd-health-button" class="collapsible">Health Boxes</button>
-<div class="collapsible-content">
+<button type="button" id="fd-health-header" class="collapsible">Health Boxes</button>
+<div id="fd-health-content" class="collapsible-content">
   {{#each data.healthboxes as |healthbox key|}}
     <div class="healthbox flexrow flex-group-center">
       <label for="fd-healthbox-{{key}}" class="resource-label"> {{healthbox.name}} </label>
@@ -95,16 +95,16 @@
 
 
 {{!-- Flags --}}
-<button type="button" id="fd-flags-button" class="collapsible">Flags</button>
-<div class="collapsible-content">
+<button type="button" id="fd-flags-header" class="collapsible">Flags</button>
+<div id="fd-flags-content" class="collapsible-content">
 <label for="fd-isTalent" class="resource-label"> Talent: </label>
   <input type="checkbox" id="fd-isTalent" name="data.flags.isTalent" value="{{actor.data.flags.isTalent}}" data-dtype="Boolean" {{checked this.data.flags.isTalent}}/>
 </div>
 
 {{!-- Talent Powers / Stats --}}
 {{#if actor.data.flags.isTalent}}
-<button type="button" id="fd-talent-button" class="collapsible">Talent Powers</button>
-<div class="collapsible-content">
+<button type="button" id="fd-talent-header" class="collapsible">Talent Powers</button>
+<div id="fd-talent-content" class="collapsible-content">
 <label for="fd-moment" class="resource-label"> Moment of Inspiration: </label>
   <input id="fd-moment" name="data.moment" type="text" value="{{actor.data.moment}}"/>
 
@@ -130,8 +130,8 @@
 
 {{!-- Gifts --}}
 {{#if actor.data.flags.isTalent}}
-<button type="button" id="fd-gifts-button" class="collapsible">Gifts</button>
-<div class="collapsible-content">
+<button type="button" id="fd-gifts-header" class="collapsible">Gifts</button>
+<div id="fd-gifts-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -156,8 +156,8 @@
 
 
 {{!-- Edges --}}
-<button type="button" id="fd-edges-button" class="collapsible">Edges</button>
-<div class="collapsible-content">
+<button type="button" id="fd-edges-header" class="collapsible">Edges</button>
+<div id="fd-edges-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -180,8 +180,8 @@
 </div>
 
 {{!-- Specialties --}}
-<button type="button" id="fd-specs-button" class="collapsible">Specialties</button>
-<div class="collapsible-content">
+<button type="button" id="fd-specs-header" class="collapsible">Specialties</button>
+<div id="fd-specs-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -204,8 +204,8 @@
 </div>
 
 {{!-- Skill Tricks --}}
-<button type="button" id="fd-skilltricks-button" class="collapsible">Skill Tricks</button>
-<div class="collapsible-content">
+<button type="button" id="fd-skilltricks-header" class="collapsible">Skill Tricks</button>
+<div id="fd-skilltricks-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -228,8 +228,8 @@
 </div>
 
 {{!-- Contacts --}}
-<button type="button" id="fd-contacts-button" class="collapsible">Contacts</button>
-<div class="collapsible-content">
+<button type="button" id="fd-contacts-header" class="collapsible">Contacts</button>
+<div id="fd-contacts-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -252,8 +252,8 @@
 </div>
 
 {{!-- Bonds --}}
-<button type="button" id="fd-bonds-button" class="collapsible">Bonds</button>
-<div class="collapsible-content">
+<button type="button" id="fd-bonds-header" class="collapsible">Bonds</button>
+<div id="fd-bonds-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -277,8 +277,8 @@
 
 
 {{!-- Effects --}}
-<button type="button" id="fd-effects-button" class="collapsible">Effects</button>
-<div class="collapsible-content">
+<button type="button" id="fd-effects-header" class="collapsible">Effects</button>
+<div id="fd-effects-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -302,8 +302,8 @@
 
 
 {{!-- Gear --}}
-<button type="button" id="fd-gear-button" class="collapsible">Gear</button>
-<div class="collapsible-content">
+<button type="button" id="fd-gear-header" class="collapsible">Gear</button>
+<div id="fd-gear-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -326,8 +326,8 @@
 </div>
 
 {{!-- Armor --}}
-<button type="button" id="fd-armors-button" class="collapsible">Armor</button>
-<div class="collapsible-content">
+<button type="button" id="fd-armors-header" class="collapsible">Armor</button>
+<div id="fd-armors-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -351,8 +351,8 @@
 
 
 {{!-- Weapons --}}
-<button type="button" id="fd-weapons-button" class="collapsible">Weapons</button>
-<div class="collapsible-content">
+<button type="button" id="fd-weapons-header" class="collapsible">Weapons</button>
+<div id="fd-weapons-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
@@ -376,8 +376,8 @@
 
 
 {{!-- Vehicles --}}
-<button type="button" id="fd-vehicles-button" class="collapsible">Vehicles</button>
-<div class="collapsible-content">
+<button type="button" id="fd-vehicles-header" class="collapsible">Vehicles</button>
+<div id="fd-vehicles-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
