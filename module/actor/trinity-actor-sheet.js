@@ -325,9 +325,10 @@ if (content.style.maxHeight){
       for (let c of this.options.collapsedContent) {
         var cElement = html.find("#"+c);
         cElement.addClass("collapsible-content-active");
-        //cElement.style.maxHeight = cElement.scrollHeight + "px";
+        console.log("cElement.scrollHeight", cElement.scrollHeight + "px");
+        cElement.style.maxHeight = cElement.scrollHeight + "px";
         //cElement.addStyle(("#"+c),'maxHeight',(cElement.scrollHeight + "px"));
-        cElement.setAttribute("style", "maxHeight"+(cElement.scrollHeight + "px")+";");
+        //cElement.setAttribute("style", "maxHeight"+(cElement.scrollHeight + "px")+";");
       }
     }
 
