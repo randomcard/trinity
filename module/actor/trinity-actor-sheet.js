@@ -306,12 +306,15 @@ if (content.style.maxHeight){
       for (let c of this.options.collapsedSections) {
         console.log("c:", c);
         var cElement = html.find("#"+c);
-        // var cElement = document.getElementById(c);
         console.log("cElement:", cElement);
-        cElement.classList.toggle("collapsible-active");
-        // var content = cElement.nextElementSibling;
-        cElement.nextElementSibling.classList.toggle("collapsible-content-active");
+        cElement.addClass("collapsible-active");
+        cElement.nextElementSibling.addClass("collapsible-content-active");
         cElement.nextElementSibling.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
+                   // var cElement = document.getElementById(c);
+        //cElement.classList.toggle("collapsible-active");
+                   // var content = cElement.nextElementSibling;
+        // cElement.nextElementSibling.classList.toggle("collapsible-content-active");
+        // cElement.nextElementSibling.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
       }
     }
 
