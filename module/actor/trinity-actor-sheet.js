@@ -15,6 +15,9 @@ export class TrinityActorSheet extends ActorSheet {
   constructor(actor, options) {
     super(actor, options);
     this.options.collapsedSections = [];
+    this.options.collapsedHeaders = [];
+    this.options.collapsedContent = [];
+
 
     /* Example from the CPR system:
     // Moved this to the constructor since this only needs to be set on the Sheet Object
@@ -298,18 +301,18 @@ if (content.style.maxHeight){
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    if (this.options.collapsedSections !== null) {
-      console.log("this.options.collapsedSections is not null");
+    if (this.options.collapsedHeaders !== null) {
+      console.log("this.options.collapsedHeaders is not null");
       console.log(document);
       console.log(this);
       console.log(html);
-      for (let c of this.options.collapsedSections) {
+      for (let c of this.options.collapsedHeaders) {
         console.log("c:", c);
         var cElement = html.find("#"+c);
         console.log("cElement:", cElement);
         cElement.addClass("collapsible-active");
-        cElement.nextElementSibling.addClass("collapsible-content-active");
-        cElement.nextElementSibling.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
+        // cElement.nextElementSibling.addClass("collapsible-content-active");
+        // cElement.nextElementSibling.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
                    // var cElement = document.getElementById(c);
         //cElement.classList.toggle("collapsible-active");
                    // var content = cElement.nextElementSibling;
@@ -317,6 +320,14 @@ if (content.style.maxHeight){
         // cElement.nextElementSibling.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
       }
     }
+
+    if (this.options.collapsedContent !== null) {
+      for (let c of this.options.collapsedContent) {
+        var cElement = html.find("#"+c);
+        cElement.addClass("collapsible-content-active");
+        cElement.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
+    }  
+
 
     // Attempt to block normal handling of duplicate input boxes (which would return unwanted arrays)
     /*
@@ -376,15 +387,18 @@ if (content.style.maxHeight){
       // this.htmlSaved = JSON.parse(JSON.stringify(html));
       // this.htmlSaved = coll;
 
-      if (this.options.collapsedSections.includes(event.currentTarget.id)) {
-		  // if IF is true, remove section from options
-        this.options.collapsedSections = this.options.collapsedSections.filter((sectionName) => sectionName !== event.currentTarget.id);
+      if (this.options.collapsedHeaders.includes(event.currentTarget.id)) {
+		  // if IF is true, remove header & content from options
+        this.options.collapsedHeaders = this.options.collapsedHeaders.filter((sectionName) => sectionName !== event.currentTarget.id);
+        this.options.collapsedContent = this.options.collapsedContent.filter((sectionName) => sectionName !== event.currentTarget.id);
       } else {
 		  // otherwise, add it
-        this.options.collapsedSections.push(event.currentTarget.id);
+        this.options.collapsedHeaders.push(event.currentTarget.id);
+        this.options.collapsedContent.push(content.id);
       }
 
-      console.log("collapsedSections", this.options.collapsedSections);
+      console.log("collapsedHeaders", this.options.collapsedHeaders);
+      console.log("collapsedContent", this.options.collapsedContent);
 
     });
 
