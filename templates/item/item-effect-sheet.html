@@ -1,9 +1,9 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <div class="grid grid-2col flex-between">
-          <div class="header-fields left-vcenter"> {{! Left Side of Header}}
+          <div class="header-fields"> {{! Left Side of Header}}
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-            <div class="flex-group-left-i"> {{! Flagged Info }}
+            <div class="left-vcenter"> {{! Flagged Info }}
               {{! Flagged Info }}
               {{#if item.data.flags.isInjury}}<span class="boxed">Injury</span>{{/if}}
               {{#if item.data.flags.isComplication}}<span class="boxed">Complication</span>{{/if}}
@@ -11,7 +11,7 @@
             </div>
           </div>
           <div class="right"> {{! Right Side of Header }}
-            <span>Effect</span>
+            <span class="big trait">Effect</span>
           </div>
         </div>
     </header>
@@ -36,8 +36,10 @@
 
             {{! Injury Box }}
             <div class="boxed fit">
-              <input class="left-vcenter" type="checkbox" name="data.flags.isInjury" value="{{data.flags.isInjury}}" data-dtype="Boolean" {{checked data.flags.isInjury}}/>
-              <label class="resource-label left-vcenter" for="data.flags.isInjury">Injury</label>
+              <div class="left-vcenter">
+                <input class="left-vcenter" type="checkbox" name="data.flags.isInjury" value="{{data.flags.isInjury}}" data-dtype="Boolean" {{checked data.flags.isInjury}}/>
+                <label class="resource-label left-vcenter" for="data.flags.isInjury">Injury</label>
+              </div>
               {{#if data.flags.isInjury}}
               <hr>
               <div class="resource">
@@ -56,8 +58,10 @@
 
             {{! Complication Box }}
             <div class="boxed fit">
-              <input class="left-vcenter" type="checkbox" name="data.flags.isComplication" value="{{data.flags.isComplication}}" data-dtype="Boolean" {{checked data.flags.isComplication}}/>
-              <label class="resource-label left-vcenter" for="data.flags.isComplication">Complication</label>
+              <div class="left-vcenter">
+                <input class="left-vcenter" type="checkbox" name="data.flags.isComplication" value="{{data.flags.isComplication}}" data-dtype="Boolean" {{checked data.flags.isComplication}}/>
+                <label class="resource-label left-vcenter" for="data.flags.isComplication">Complication</label>
+              </div>
               {{#if data.flags.isComplication}}
               <hr>
               <div>
@@ -73,8 +77,10 @@
 
             {{! Enhancement Box }}
             <div class="boxed fit">
-              <input class="left-vcenter" type="checkbox" name="data.flags.isEnhancement" value="{{data.flags.isEnhancement}}" data-dtype="Boolean" {{checked data.flags.isEnhancement}}/>
-              <label class="resource-label left-vcenter" for="data.flags.isEnhancement">Enhancement</label>
+              <div class="left-vcenter">
+                <input class="left-vcenter" type="checkbox" name="data.flags.isEnhancement" value="{{data.flags.isEnhancement}}" data-dtype="Boolean" {{checked data.flags.isEnhancement}}/>
+                <label class="resource-label left-vcenter" for="data.flags.isEnhancement">Enhancement</label>
+              </div>
               {{#if data.flags.isEnhancement}}
               <hr>
               <div>
