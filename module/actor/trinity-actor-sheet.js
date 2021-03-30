@@ -437,8 +437,8 @@ if (content.style.maxHeight){
 
       // pop-out new effect, bypass normal process
       delete itemData.data["type"];
-      let itemID = this.actor.createOwnedItem(itemData);
-      itemID.sheet.render(true);
+      let item = this.actor.getOwnedItem(this.actor.createOwnedItem(itemData));
+      item.sheet.render(true);
       return;
     }
 
