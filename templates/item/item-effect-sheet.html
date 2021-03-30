@@ -1,13 +1,13 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <div class="flex-between">
+        <div class="grid grid-2col flex-between">
           <div class="header-fields left-vcenter"> {{! Left Side of Header}}
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-            <div class="flex-group-left boxed"> {{! Flagged Info }}
+            <div class="flex-group-left-i"> {{! Flagged Info }}
               {{! Flagged Info }}
-              {{#if item.data.flags.isInjury}}<span>Injury</span>{{/if}}
-              {{#if item.data.flags.isComplication}}<span>Complication</span>{{/if}}
-              {{#if item.data.flags.isEnhancement}}<span>Enhancement</span>{{/if}}
+              {{#if item.data.flags.isInjury}}<span class="boxed">Injury</span>{{/if}}
+              {{#if item.data.flags.isComplication}}<span class="boxed">Complication</span>{{/if}}
+              {{#if item.data.flags.isEnhancement}}<span class="boxed">Enhancement</span>{{/if}}
             </div>
           </div>
           <div class="right"> {{! Right Side of Header }}
@@ -62,11 +62,11 @@
               <hr>
               <div>
                 <label class="resource-label" for="complication-value">Complication Value</label>
-                <input class="resource" type="input" id="complication-value" name="data.complication.value" value="{{data.complication.value}}" data-dtype="Number"/>
+                <input class="resource" type="text" id="complication-value" name="data.complication.value" value="{{data.complication.value}}" data-dtype="Number"/>
               </div>
               <div>
                 <label class="resource-label" for="complication-condition">Complication Condition</label>
-                <input class="resource" type="input" id="complication-condition" name="data.complication.value" value="{{data.complication.value}}" data-dtype="Number"/>
+                <input class="resource" type="text" id="complication-condition" name="data.complication.relevance" value="{{data.complication.relevance}}" data-dtype="Number"/>
               </div>
               {{/if}}
             </div>
@@ -74,16 +74,16 @@
             {{! Enhancement Box }}
             <div class="boxed fit">
               <input class="left-vcenter" type="checkbox" name="data.flags.isEnhancement" value="{{data.flags.isEnhancement}}" data-dtype="Boolean" {{checked data.flags.isEnhancement}}/>
-              <label class="resource-label left-vcenter" for="data.flags.isEnhancement">Complication</label>
+              <label class="resource-label left-vcenter" for="data.flags.isEnhancement">Enhancement</label>
               {{#if data.flags.isEnhancement}}
               <hr>
               <div>
-                <label class="resource-label" for="enhancement-value">Complication Value</label>
-                <input class="resource" type="input" id="enhancement-value" name="data.enhancement.value" value="{{data.enhancement.value}}" data-dtype="Number"/>
+                <label class="resource-label" for="enhancement-value">Enhancement Value</label>
+                <input class="resource" type="text" id="enhancement-value" name="data.enhancement.value" value="{{data.enhancement.value}}" data-dtype="Number"/>
               </div>
               <div>
-                <label class="resource-label" for="enhancement-condition">Complication Condition</label>
-                <input class="resource" type="input" id="enhancement-condition" name="data.enhancement.value" value="{{data.enhancement.value}}" data-dtype="Number"/>
+                <label class="resource-label" for="enhancement-condition">Enhancement Condition</label>
+                <input class="resource" type="text" id="enhancement-condition" name="data.enhancement.relevance" value="{{data.enhancement.relevance}}" data-dtype="Number"/>
               </div>
               {{/if}}
             </div>
