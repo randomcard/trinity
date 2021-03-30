@@ -154,9 +154,10 @@ async function loadTrinityTemplates()
     "systems/trinity/templates/actor/partials/attributes.html",
     "systems/trinity/templates/actor/partials/healthboxes.html",
     "systems/trinity/templates/actor/partials/skills.html",
+    "systems/trinity/templates/actor/partials/conditions.html",
     "systems/trinity/templates/item/partials/complication-flag.html",
     "systems/trinity/templates/item/partials/enhancement-flag.html",
-    "systems/trinity/templates/item/partials/injury-flag.html"    
+    "systems/trinity/templates/item/partials/injury-flag.html"
   ];
   return loadTemplates( templatePaths );
 }

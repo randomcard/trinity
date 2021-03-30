@@ -1,2 +1,1 @@
-Rolling: pass through only key info, and have the roll function pull needed associated data from the actor & item.
-done-ish
+Healthboxes - poorly setup, must be a better way to organize - way too much code

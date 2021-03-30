@@ -140,7 +140,8 @@
           "isWeapon" : false,
           "isArmor" : false,
           "isVehicle" : false,
-          "isInjury" : false
+          "isInjury" : false,
+          "hasDots" : true
         },
         "defaultSkill" : "",
         "defaultAttribute" : ""
@@ -177,7 +178,10 @@
     },
     "specialty": {
       "templates": ["base"],
-      "skillOrigin": ""
+      "skillOrigin": "",
+      "flags" : {
+        "hasDots" : false
+      }
     },
     "path": {
       "templates": ["base"],
@@ -187,22 +191,34 @@
       "templates": ["base"],
       "injury" : {
         "value" : 0
+      },
+      "flags" : {
+        "hasDots" : false
       }
     },
     "stunt": {
       "templates": ["base"],
       "costDescription": "",
       "costType": "",
-      "value": 0
+      "value": 0,
+      "flags" : {
+        "hasDots" : false
+      }
     },
     "gift" : {
       "templates": ["base"],
       "keywords" : "",
-      "system" : ""
+      "system" : "",
+      "flags" : {
+        "hasDots" : false
+      }
     },
     "trick" : {
       "templates": ["base"],
-      "skillOrigin": ""
+      "skillOrigin": "",
+      "flags" : {
+        "hasDots" : false
+      }
     },
     "contact" : {
       "templates": ["base"],
