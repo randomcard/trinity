@@ -1,0 +1,18 @@
+{{! Enhancement Box }}
+<div class="boxed fit">
+  <div class="left-vcenter">
+    <input class="left-vcenter" type="checkbox" name="data.flags.isEnhancement" value="{{data.flags.isEnhancement}}" data-dtype="Boolean" {{checked data.flags.isEnhancement}}/>
+    <label class="resource-label left-vcenter" for="data.flags.isEnhancement">Enhancement</label>
+  </div>
+  {{#if data.flags.isEnhancement}}
+  <hr>
+  <div>
+    <label class="resource-label" for="enhancement-value">Enhancement Value</label>
+    <input class="resource" type="text" id="enhancement-value" name="data.enhancement.value" value="{{data.enhancement.value}}" data-dtype="Number"/>
+  </div>
+  <div>
+    <label class="resource-label" for="enhancement-condition">Enhancement Condition</label>
+    <input class="resource" type="text" id="enhancement-condition" name="data.enhancement.relevance" value="{{data.enhancement.relevance}}" data-dtype="String"/>
+  </div>
+  {{/if}}
+</div>

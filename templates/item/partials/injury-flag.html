@@ -1,0 +1,21 @@
+{{! Injury Flag & Info }}
+<div class="boxed fit">
+  <div class="left-vcenter">
+    <input class="left-vcenter" type="checkbox" name="data.flags.isInjury" value="{{data.flags.isInjury}}" data-dtype="Boolean" {{checked data.flags.isInjury}}/>
+    <label class="resource-label left-vcenter" for="data.flags.isInjury">Injury</label>
+  </div>
+  {{#if data.flags.isInjury}}
+  <hr>
+  <div class="resource">
+    <label class="resource-label" for="injury-level">Injury Level</label>
+    <select id="injury-level" name="data.injury.value" data-dtype="Number">
+      {{#select data.injury.value}}
+      <option value="1">Bruised (+1)</option>
+      <option value="2">Injured (+2)</option>
+      <option value="3">Maimed (+4)</option>
+      <option value="4">Taken Out</option>
+      {{/select}}
+    </select>
+  </div>
+  {{/if}}
+</div>

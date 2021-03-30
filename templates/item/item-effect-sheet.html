@@ -30,65 +30,9 @@
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             {{!-- As you add new fields, add them in here! --}}
 
-            {{! Injury Box }}
-            <div class="boxed fit">
-              <div class="left-vcenter">
-                <input class="left-vcenter" type="checkbox" name="data.flags.isInjury" value="{{data.flags.isInjury}}" data-dtype="Boolean" {{checked data.flags.isInjury}}/>
-                <label class="resource-label left-vcenter" for="data.flags.isInjury">Injury</label>
-              </div>
-              {{#if data.flags.isInjury}}
-              <hr>
-              <div class="resource">
-                <label class="resource-label" for="injury-level">Injury Level</label>
-                <select id="injury-level" name="data.injury.value" data-dtype="Number">
-                  {{#select data.injury.value}}
-                  <option value="1">Bruised (+1)</option>
-                  <option value="2">Injured (+2)</option>
-                  <option value="3">Maimed (+4)</option>
-                  <option value="4">Taken Out</option>
-                  {{/select}}
-                </select>
-              </div>
-              {{/if}}
-            </div>
-
-            {{! Complication Box }}
-            <div class="boxed fit">
-              <div class="left-vcenter">
-                <input class="left-vcenter" type="checkbox" name="data.flags.isComplication" value="{{data.flags.isComplication}}" data-dtype="Boolean" {{checked data.flags.isComplication}}/>
-                <label class="resource-label left-vcenter" for="data.flags.isComplication">Complication</label>
-              </div>
-              {{#if data.flags.isComplication}}
-              <hr>
-              <div>
-                <label class="resource-label" for="complication-value">Complication Value</label>
-                <input class="resource" type="text" id="complication-value" name="data.complication.value" value="{{data.complication.value}}" data-dtype="Number"/>
-              </div>
-              <div>
-                <label class="resource-label" for="complication-condition">Complication Condition</label>
-                <input class="resource" type="text" id="complication-condition" name="data.complication.relevance" value="{{data.complication.relevance}}" data-dtype="String"/>
-              </div>
-              {{/if}}
-            </div>
-
-            {{! Enhancement Box }}
-            <div class="boxed fit">
-              <div class="left-vcenter">
-                <input class="left-vcenter" type="checkbox" name="data.flags.isEnhancement" value="{{data.flags.isEnhancement}}" data-dtype="Boolean" {{checked data.flags.isEnhancement}}/>
-                <label class="resource-label left-vcenter" for="data.flags.isEnhancement">Enhancement</label>
-              </div>
-              {{#if data.flags.isEnhancement}}
-              <hr>
-              <div>
-                <label class="resource-label" for="enhancement-value">Enhancement Value</label>
-                <input class="resource" type="text" id="enhancement-value" name="data.enhancement.value" value="{{data.enhancement.value}}" data-dtype="Number"/>
-              </div>
-              <div>
-                <label class="resource-label" for="enhancement-condition">Enhancement Condition</label>
-                <input class="resource" type="text" id="enhancement-condition" name="data.enhancement.relevance" value="{{data.enhancement.relevance}}" data-dtype="String"/>
-              </div>
-              {{/if}}
-            </div>
+            {{> "systems/trinity/templates/item/partials/injury-flag.html"}}
+            {{> "systems/trinity/templates/item/partials/complication-flag.html"}}
+            {{> "systems/trinity/templates/item/partials/enhancement-flag.html"}}
 
         </div>
     </section>
