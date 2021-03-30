@@ -319,53 +319,12 @@ if (content.style.maxHeight){
       }
     }
 
-
-    // Attempt to block normal handling of duplicate input boxes (which would return unwanted arrays)
-    /*
-    html.find('.duplicate').change(event => {
-      event.preventDefault();
-      console.log("Block default behavior for duplicate? This:");
-      console.log(this);
-    });
-    */
-
-    /* Failed attempt to make a sticky header
-    html.onscroll = function() {stickyHeader()};
-    var header = document.getElementById("actor-header");
-    var sticky = header.offsetTop;
-    function stickyHeader() {
-      if (window.pageYOffset > sticky) {
-        header.classList.add("sticky");
-      } else {
-        header.classList.remove("sticky");
-      }
-    }
-    */
-
-    /*
-    html.find('.collapsible').click(ev => {
-      var coll = document.getElementsByClassName("collapsible");
-      for (let i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-          this.classList.toggle("collapsible-active");
-          var content = this.nextElementSibling;
-          if (content.style.maxHeight){
-            content.style.maxHeight = null;
-          } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-          }
-        });
-      }
-    });
-    */
     html.find('.collapsible').click(event => {
       const collapsibleElement = event.currentTarget;
       console.log("Collapsible Listener, HTML.find style. event:", event);
       console.log("Collapsible Listener, HTML.find style. this:", this);
       console.log("Collapsible Listener, HTML.find style. collapsibleElement:", collapsibleElement);
-      // this.classList.toggle("collapsible-active");
       collapsibleElement.classList.toggle("collapsible-active");
-      // $(collapsibleElement).find(".collapsible").toggleClass("collapsible-active");
       var content = collapsibleElement.nextElementSibling;
       if (content.style.maxHeight){
         content.classList.toggle("collapsible-content-active");
@@ -374,9 +333,6 @@ if (content.style.maxHeight){
         content.classList.toggle("collapsible-content-active");
         content.style.maxHeight = content.scrollHeight + "px";
       }
-      // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
-      // this.htmlSaved = JSON.parse(JSON.stringify(html));
-      // this.htmlSaved = coll;
 
       if (this.options.collapsedHeaders.includes(event.currentTarget.id)) {
 		  // if IF is true, remove header & content from options
@@ -392,33 +348,6 @@ if (content.style.maxHeight){
       console.log("collapsedContent", this.options.collapsedContent);
 
     });
-
-
-    /*
-    var coll = document.getElementsByClassName("collapsible");
-    var self = this;
-
-    for (let i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("collapsible-active");
-        console.log("Collapsible Listener, uses This:", this);
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-          content.classList.toggle("collapsible-content-active");
-          content.style.maxHeight = null;
-        } else {
-          content.classList.toggle("collapsible-content-active");
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-        // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
-        // this.htmlSaved = JSON.parse(JSON.stringify(html));
-        this.htmlSaved = coll;
-        console.log("htmlSaved", this.htmlSaved);
-        console.log("Listener this:", this);
-        // it couldn't see htmlSaved - not in scope?
-      });
-    }
-    */
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
@@ -482,6 +411,29 @@ if (content.style.maxHeight){
       console.log("Create Item Flag Handling");
       itemData.data.flags = {};
       itemData.data.flags[header.dataset.flag] = true;
+    }
+
+    // Injury Handling
+    if (typeof header.dataset.hbname !== 'undefined' && header.dataset.hbname !== null) {
+      console.log("Create Item - Injury");
+      let value = 0;
+      switch(header.dataset.hbname) {
+        case "Bruised":
+          value = 1; break;
+        case "Injured":
+          value = 2; break;
+        case "Maimed":
+          value = 3; break;
+        case "Taken Out":
+          value = 4; break;
+      }
+      itemData.data.injury = {};
+      itemData.data.injury.value = value;
+      itemData.data.flags = {};
+      itemData.data.flags.isInjury = true;
+      itemData.data.flags.isComplication = true;
+      itemData.data.complication = {};
+      itemData.data.complication.value = value;
     }
 
     console.log(itemData);

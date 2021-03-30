@@ -3,7 +3,7 @@
 <h2>Healthboxes</h2>
 <div class="healthboxes boxed flexcol fit">
   {{#each this.actor.healthBoxes as |healthBox key|}}
-  <div class="grid grid-2col clickable lowmargin" data-hbname="{{healthBox.name}}" id="{{key}}">
+  <div class="grid grid-2col clickable lowmargin item-create" data-hbname="{{healthBox.name}}" id="{{key}}" data-type="effect">
     <div class="resource-label right-vcenter">{{healthBox.name}}</div>
     <div class="big icons left-vcenter">{{{toHealthBoxes healthBox}}}</div>
   </div>
