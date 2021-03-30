@@ -385,7 +385,7 @@ if (content.style.maxHeight){
    * @param {Event} event   The originating click event
    * @private
    */
-  _onItemCreate(event) {
+  async _onItemCreate(event) {
     event.preventDefault();
 
     console.log("_onItemCreate(event)");
@@ -437,9 +437,9 @@ if (content.style.maxHeight){
 
       // pop-out new effect, bypass normal process
       delete itemData.data["type"];
-      let item = this.actor.createOwnedItem(itemData);
-      console.log(item);
-      item.sheet.render(true);
+      let newItem = await this.actor.createOwnedItem(itemData);
+      let createdItem = sheet.actor.getOwnedItem(newItem._id);
+      createdItem.sheet.render(true);
       return;
     }
 
