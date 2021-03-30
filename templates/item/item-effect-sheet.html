@@ -3,7 +3,7 @@
         <div class="flex-between">
           <div class="header-fields left-vcenter"> {{! Left Side of Header}}
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-            <div class="flex-group-left"> {{! Flagged Info }}
+            <div class="flex-group-left boxed"> {{! Flagged Info }}
               {{! Flagged Info }}
               {{#if item.data.flags.isInjury}}<span>Injury</span>{{/if}}
               {{#if item.data.flags.isComplication}}<span>Complication</span>{{/if}}
@@ -33,9 +33,11 @@
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             {{!-- As you add new fields, add them in here! --}}
-            <div class="boxed"> {{! Injury Box }}
-              <input type="checkbox" name="data.flags.isInjury" value="{{data.flags.isInjury}}" data-dtype="Boolean" {{checked data.flags.isInjury}}/>
-              <label for="data.flags.isInjury" class="resource-label">Injury</label>
+
+            {{! Injury Box }}
+            <div class="boxed fit">
+              <input class="left-vcenter" type="checkbox" name="data.flags.isInjury" value="{{data.flags.isInjury}}" data-dtype="Boolean" {{checked data.flags.isInjury}}/>
+              <label class="resource-label left-vcenter" for="data.flags.isInjury">Injury</label>
               {{#if data.flags.isInjury}}
               <hr>
               <div class="resource">
@@ -52,19 +54,40 @@
               {{/if}}
             </div>
 
-            <hr>
-
-            <input type="checkbox" name="data.enhancement.isEnhancement" value="{{data.enhancement.isEnhancement}}" data-dtype="Boolean" {{checked data.enhancement.isEnhancement}}/>
-            <div class="grid">
-              <div class="resource">
-                <label class="resource-label">Enhancement Value</label>
-                  <input type="input" name="data.enhancement.value" value="{{data.enhancement.value}}" data-dtype="Number"/>
+            {{! Complication Box }}
+            <div class="boxed fit">
+              <input class="left-vcenter" type="checkbox" name="data.flags.isComplication" value="{{data.flags.isComplication}}" data-dtype="Boolean" {{checked data.flags.isComplication}}/>
+              <label class="resource-label left-vcenter" for="data.flags.isComplication">Complication</label>
+              {{#if data.flags.isComplication}}
+              <hr>
+              <div>
+                <label class="resource-label" for="complication-value">Complication Value</label>
+                <input class="resource" type="input" id="complication-value" name="data.complication.value" value="{{data.complication.value}}" data-dtype="Number"/>
               </div>
-              <div class="resource">
-                <label class="resource-label">Enhancement Condition</label>
-                  <input type="input" name="data.enhancement.relevance" value="{{data.enhancement.relevance}}" data-dtype="Number"/>
+              <div>
+                <label class="resource-label" for="complication-condition">Complication Condition</label>
+                <input class="resource" type="input" id="complication-condition" name="data.complication.value" value="{{data.complication.value}}" data-dtype="Number"/>
               </div>
+              {{/if}}
             </div>
+
+            {{! Enhancement Box }}
+            <div class="boxed fit">
+              <input class="left-vcenter" type="checkbox" name="data.flags.isEnhancement" value="{{data.flags.isEnhancement}}" data-dtype="Boolean" {{checked data.flags.isEnhancement}}/>
+              <label class="resource-label left-vcenter" for="data.flags.isEnhancement">Complication</label>
+              {{#if data.flags.isEnhancement}}
+              <hr>
+              <div>
+                <label class="resource-label" for="enhancement-value">Complication Value</label>
+                <input class="resource" type="input" id="enhancement-value" name="data.enhancement.value" value="{{data.enhancement.value}}" data-dtype="Number"/>
+              </div>
+              <div>
+                <label class="resource-label" for="enhancement-condition">Complication Condition</label>
+                <input class="resource" type="input" id="enhancement-condition" name="data.enhancement.value" value="{{data.enhancement.value}}" data-dtype="Number"/>
+              </div>
+              {{/if}}
+            </div>
+
         </div>
     </section>
 </form>
