@@ -160,12 +160,14 @@ if (content.style.maxHeight){
     const skills = [];
     const specialties = [];
     const paths = [];
+    const complications = [];
     const effects = [];
     const stunts = [];
     const gifts = [];
     const tricks = [];
     const contacts = [];
     const bonds = [];
+    const enhancements = [];
 //    const healthBoxes = [];
     const healthBoxes = {
       bruised : {
@@ -264,6 +266,7 @@ if (content.style.maxHeight){
       if (i.type === 'specialty') { specialties.push(i); }
       if (i.type === 'path') { paths.push(i); }
       if (i.data.flags.isComplication === true) { complications.push(i); }
+      if (i.data.flags.isEnhancement === true) { enhancements.push(i); }
       if (i.type === 'stunt') { stunts.push(i); }
       if (i.type === 'gift') { gifts.push(i); }
       if (i.type === 'trick') { tricks.push(i); }
