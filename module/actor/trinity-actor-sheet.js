@@ -438,7 +438,7 @@ if (content.style.maxHeight){
       // pop-out new effect, bypass normal process
       delete itemData.data["type"];
       let newItem = await this.actor.createOwnedItem(itemData);
-      let createdItem = sheet.actor.getOwnedItem(newItem._id);
+      let createdItem = this.actor.getOwnedItem(newItem._id);
       createdItem.sheet.render(true);
       return;
     }
