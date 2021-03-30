@@ -381,7 +381,7 @@
   /* background-color: white; */
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.2s ease-out;
+  /* transition: max-height 0.2s ease-out; */
   margin: 0px
   /* border-radius: 0px 0px 10px 10px;
   border:1px solid gray; */
@@ -422,6 +422,11 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .left-vcenter {

@@ -1,18 +1,8 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <div class="flex-between">
-          <div class="header-fields left-vcenter"> {{! Left Side of Header}}
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-            <div class="flex-group-left"> {{! Flagged Info }}
-              {{! Flagged Info }}
-              {{#if item.data.flags.isInjury}}<span>Injury</span>{{/if}}
-              {{#if item.data.flags.isComplication}}<span>Complication</span>{{/if}}
-              {{#if item.data.flags.isEnhancement}}<span>Enhancement</span>{{/if}}
-            </div>
-          </div>
-          <div class="right"> {{! Right Side of Header }}
-            <span>Effect</span>
-          </div>
         </div>
     </header>
 
@@ -33,25 +23,14 @@
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             {{!-- As you add new fields, add them in here! --}}
-            <div class="boxed"> {{! Injury Box }}
-              <input type="checkbox" name="data.flags.isInjury" value="{{data.flags.isInjury}}" data-dtype="Boolean" {{checked data.flags.isInjury}}/>
-              <label for="data.flags.isInjury" class="resource-label">Injury</label>
-              {{#if data.flags.isInjury}}
-              <hr>
-              <div class="resource">
-                <label class="resource-label" for="injury-level">Injury Level</label>
-                <select id="injury-level" name="data.injury.value" data-dtype="Number">
-                  {{#select data.injury.value}}
-                  <option value="1">Bruised (+1)</option>
-                  <option value="2">Injured (+2)</option>
-                  <option value="3">Maimed (+4)</option>
-                  <option value="4">Taken Out</option>
-                  {{/select}}
-                </select>
-              </div>
-              {{/if}}
+            <label for="data.flags.isInjury" class="resource-label">Injury Flag</label>
+            <input type="checkbox" name="data.flags.isInjury" value="{{data.flags.isInjury}}" data-dtype="Boolean" {{checked data.flags.isInjury}}/>
+            {{#if data.flags.isInjury}}
+            <div class="resource">
+              <label class="resource-label">Injury Value</label>
+                <input type="input" name="data.injury.value" value="{{data.injury.value}}" data-dtype="Number"/>
             </div>
-
+            {{/if}}
             <hr>
 
             <input type="checkbox" name="data.enhancement.isEnhancement" value="{{data.enhancement.isEnhancement}}" data-dtype="Boolean" {{checked data.enhancement.isEnhancement}}/>

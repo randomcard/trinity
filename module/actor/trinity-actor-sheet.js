@@ -302,22 +302,9 @@ if (content.style.maxHeight){
     if (!this.options.editable) return;
 
     if (this.options.collapsedHeaders !== null) {
-      console.log("this.options.collapsedHeaders is not null");
-      console.log(document);
-      console.log(this);
-      console.log(html);
       for (let c of this.options.collapsedHeaders) {
-        console.log("c:", c);
         var cElement = html.find("#"+c);
-        console.log("cElement:", cElement);
         cElement.addClass("collapsible-active");
-        // cElement.nextElementSibling.addClass("collapsible-content-active");
-        // cElement.nextElementSibling.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
-                   // var cElement = document.getElementById(c);
-        //cElement.classList.toggle("collapsible-active");
-                   // var content = cElement.nextElementSibling;
-        // cElement.nextElementSibling.classList.toggle("collapsible-content-active");
-        // cElement.nextElementSibling.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
       }
     }
 
@@ -325,10 +312,7 @@ if (content.style.maxHeight){
       for (let c of this.options.collapsedContent) {
         var cElement = html.find("#"+c);
         cElement.addClass("collapsible-content-active");
-        console.log("cElement.scrollHeight", cElement[0].scrollHeight + "px");
         cElement[0].style.maxHeight = cElement[0].scrollHeight + "px";
-        //cElement.addStyle(("#"+c),'maxHeight',(cElement.scrollHeight + "px"));
-        //cElement.setAttribute("style", "maxHeight"+(cElement.scrollHeight + "px")+";");
       }
     }
 
