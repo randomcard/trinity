@@ -326,7 +326,7 @@ if (content.style.maxHeight){
         var cElement = html.find("#"+c);
         cElement.addClass("collapsible-content-active");
         console.log("cElement.scrollHeight", cElement[0].scrollHeight + "px");
-        cElement.style.maxHeight = cElement.scrollHeight + "px";
+        cElement.style.maxHeight = cElement[0].scrollHeight + "px";
         //cElement.addStyle(("#"+c),'maxHeight',(cElement.scrollHeight + "px"));
         //cElement.setAttribute("style", "maxHeight"+(cElement.scrollHeight + "px")+";");
       }
