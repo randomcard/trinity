@@ -1,19 +1,15 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <div class="grid grid-2col flex-between">
-          <div class="header-fields"> {{! Left Side of Header}}
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-            <div class="left-vcenter"> {{! Flagged Info }}
-              {{! Flagged Info }}
-              {{#if item.data.flags.isInjury}}<span class="boxed">Injury</span>{{/if}}
-              {{#if item.data.flags.isComplication}}<span class="boxed">Complication</span>{{/if}}
-              {{#if item.data.flags.isEnhancement}}<span class="boxed">Enhancement</span>{{/if}}
-            </div>
-          </div>
-          <div class="right"> {{! Right Side of Header }}
-            <span class="big trait">Effect</span>
-          </div>
+      <div class="header-fields"> {{! Left Side of Header}}
+        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        <div class="left-vcenter"> {{! Type & Flagged Info }}
+          <span class="trait">Effect</span>
+          {{! Flagged Info }}
+          {{#if item.data.flags.isInjury}}<span class="boxed">Injury</span>{{/if}}
+          {{#if item.data.flags.isComplication}}<span class="boxed">Complication</span>{{/if}}
+          {{#if item.data.flags.isEnhancement}}<span class="boxed">Enhancement</span>{{/if}}
         </div>
+      </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
