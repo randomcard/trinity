@@ -434,6 +434,12 @@ if (content.style.maxHeight){
       itemData.data.flags.isComplication = true;
       itemData.data.complication = {};
       itemData.data.complication.value = value;
+
+      // pop-out new effect, bypass normal process
+      delete itemData.data["type"];
+      let itemID = this.actor.createOwnedItem(itemData);
+      itemID.sheet.render(true);
+      return;
     }
 
     console.log(itemData);
