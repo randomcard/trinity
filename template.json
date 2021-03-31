@@ -141,6 +141,7 @@
           "isArmor" : false,
           "isVehicle" : false,
           "isInjury" : false,
+          "isEquipped" : true,
           "hasDots" : true
         },
         "defaultSkill" : "",
@@ -157,7 +158,9 @@
         "tags" : ""
       },
       "armor" : {
-        "tags" : ""
+        "tags" : "",
+        "hardArmor" : 0,
+        "softArmor" : 0
       },
       "vehicle" : {
         "name" : "",
