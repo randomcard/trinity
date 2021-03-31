@@ -271,7 +271,7 @@
   border-bottom: 1px solid #BBB;
 }
 
-.trinity .items-list .item .item-image {
+.trinity .items-list .item .item-image .item-dots{
   -webkit-box-flex: 0;
   -ms-flex: 0 0 24px;
   flex: 0 0 24px;
