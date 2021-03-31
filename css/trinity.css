@@ -484,10 +484,17 @@
 
 .flex-child {
   flex: auto;
+  margin: 2px;
+}
+
+.flex-child-full {
+  flex: none;
+  margin: 2px;
 }
 
 .flex-child-fit {
   flex: 0 1 auto;
+  margin: 2px;
 }
 
 .bio-image {
