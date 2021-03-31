@@ -473,6 +473,7 @@
 .flex-parent {
   display: flex;
   flex-flow: row wrap;
+  margin: 3px;
 }
 
 .flex-parent-evenly {
@@ -480,21 +481,22 @@
   -webkit-box-pack: space-evenly;
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
+  margin: 3px;
 }
 
 .flex-child {
   flex: auto;
-  margin: 2px;
+  margin: 3px;
 }
 
 .flex-child-full {
-  flex: none;
-  margin: 2px;
+  flex: 0 1 auto;
+  margin: 3px;
 }
 
 .flex-child-fit {
-  flex: 0 1 auto;
-  margin: 2px;
+  flex: 1 0px;
+  margin: 3px;
 }
 
 .bio-image {

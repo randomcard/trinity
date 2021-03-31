@@ -2,16 +2,16 @@
 <div class="boxed">
 
   <div class="flex-parent">
-    <label for="char-name">Name:</label>
-      <input id="char-name" name="name" type="text" value="{{actor.name}}"/>
+    <label class="flex-child-full" for="char-name">Name:</label>
+      <input class="flex-child-fit" id="char-name" name="name" type="text" value="{{actor.name}}"/>
   </div>
   <div class="flex-parent">
-    <label for="char-player">Player:</label>
-      <input id="char-player" name="data.player" type="text" value="{{actor.data.player}}"/>
+    <label class="flex-child-full" for="char-player">Player:</label>
+      <input class="flex-child-fit" id="char-player" name="data.player" type="text" value="{{actor.data.player}}"/>
   </div>
   <div class="flex-parent">
-    <label for="char-concept">Concept:</label>
-      <input id="char-concept" name="data.concept" type="text" value="{{actor.data.concept}}"/>
+    <label class="flex-child-full" for="char-concept">Concept:</label>
+      <input class="flex-child-fit" id="char-concept" name="data.concept" type="text" value="{{actor.data.concept}}"/>
   </div>
 
   {{#each data.aspirations as |aspiration key|}}
