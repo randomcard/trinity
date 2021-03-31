@@ -2,7 +2,7 @@
 
     {{!-- Sheet Header --}}
     <header class="sheet-header">
-        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="50" width="50"/>
         <div class="header-fields">
             <h1 class="charname"><span class="boxed"> {{actor.name}} </span> </h1>
         </div>
@@ -23,7 +23,8 @@
 
         {{!-- Biography Tab --}}
         <div class="tab biography" data-group="primary" data-tab="description">
-            {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+          {{> "systems/trinity/templates/actor/partials/bio.html"}}
+          <!--  {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}} -->
         </div>
 
         {{!-- "Main" Tab - testing ground for partials --}}

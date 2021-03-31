@@ -188,14 +188,14 @@
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .trinity .sheet-header .profile-img {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 100px;
-  flex: 0 0 100px;
-  height: 100px;
+  -ms-flex: 0 0 50px;
+  flex: 0 0 50px;
+  height: 50px;
   margin-right: 10px;
 }
 
@@ -488,4 +488,9 @@
 
 .flex-child-fit {
   flex: 0 1 auto;
+}
+
+.bio-image {
+  max-width: 150px;
+  height: auto;
 }

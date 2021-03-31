@@ -93,6 +93,15 @@
   {{/each}}
 </div>
 
+{{!-- Defense --}}
+<button type="button" id="fd-defense-header" class="collapsible">Defense</button>
+<div id="fd-defense-content" class="collapsible-content">
+  <div class="defense flexrow flex-group-center">
+    <label for="fd-defense" class="resource-label">Defense</label>
+    <input type="text" id="fd-defense" name="data.defense.value" value="{{defense.value}}" data-dtype="Number"/>
+  </div>
+</div>
+
 
 {{!-- Flags --}}
 <button type="button" id="fd-flags-header" class="collapsible">Flags</button>
