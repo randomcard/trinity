@@ -283,6 +283,7 @@
   -ms-flex: 0 0 24px;
   flex: 0 0 24px;
   margin-right: 5px;
+  justify-content: flex-end;
 }
 
 .trinity .items-list .item img {
@@ -334,6 +335,10 @@
 
 .big {
   font-size: large;
+}
+
+.small {
+  font-size: small;
 }
 
 .min-content {
