@@ -280,8 +280,8 @@
 
 .item-dots {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 24px;
-  flex: 0 0 24px;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
   margin-right: 5px;
   justify-content: flex-end;
 }
@@ -297,7 +297,8 @@
 .trinity .items-list .item-controls {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 86px;
-  flex: 0 0 86px;
+  /* flex: 0 0 86px; */
+  flex: none;
   text-align: right;
 }
 
