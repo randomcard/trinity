@@ -32,7 +32,10 @@
             {{> "systems/trinity/templates/actor/partials/skills.html"}}
             {{> "systems/trinity/templates/actor/partials/attributes.html"}}
             <div class="flex-parent-evenly">
-              <div class="flex-child-fit">{{> "systems/trinity/templates/actor/partials/healthboxes.html"}}</div>
+              <div class="flex-child-fit">
+                {{> "systems/trinity/templates/actor/partials/healthboxes.html"}}
+                {{> "systems/trinity/templates/actor/partials/defense.html"}}
+              </div>
               <div class="flex-child">{{> "systems/trinity/templates/actor/partials/conditions.html"}}</div>
             </div>
         </div>
