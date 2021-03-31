@@ -1,0 +1,24 @@
+{{!-- Aspirations Partial --}}
+<div class="boxed">
+
+  <div class="flex-parent">
+    <label for="char-name">Name:</label>
+      <input id="char-name" name="name" type="text" value="{{actor.name}}"/>
+  </div>
+  <div class="flex-parent">
+    <label for="char-player">Player:</label>
+      <input id="char-player" name="data.player" type="text" value="{{actor.data.player}}"/>
+  </div>
+  <div class="flex-parent">
+    <label for="char-concept">Concept:</label>
+      <input id="char-concept" name="data.concept" type="text" value="{{actor.data.concept}}"/>
+  </div>
+
+  {{#each data.aspirations as |aspiration key|}}
+  <div class="flex-parent">
+    <label for="{{aspiration}}">{{aspiration.name}}:</label>
+    <input type="text" id="{{aspiration}}" name="data.aspirations.{{key}}.value" value="{{aspiration.value}}" data-dtype="String"/>
+    <input class="flex-child-fit" type="checkbox" id="{{aspiration}}.complete" name="data.aspirations.{{key}}.complete" value="{{aspiration.complete}}" data-dtype="Boolean" {{checked aspiration.complete}}/>
+  </div>
+  {{/each}}
+</div>

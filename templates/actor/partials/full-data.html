@@ -3,6 +3,7 @@
 {{!-- Get values from actor, input names from data? --}}
 
 {{!-- Biographical Info --}}
+<!--
 <button type="button" id="fd-bio-header" class="collapsible">Biographical Info</button>
 <div id="fd-bio-content" class="collapsible-content">
   <label for="fd-name" class="resource-label"> Name: </label>
@@ -14,6 +15,7 @@
   <label for="fd-concept" class="resource-label"> Concept: </label>
     <input id="fd-concept" name="data.concept" type="text" value="{{actor.data.concept}}"/>
 </div>
+-->
 
 
 {{!-- Paths --}}
@@ -98,7 +100,7 @@
 <div id="fd-defense-content" class="collapsible-content">
   <div class="defense flexrow flex-group-center">
     <label for="fd-defense" class="resource-label">Defense</label>
-    <input type="text" id="fd-defense" name="data.defense.value" value="{{defense.value}}" data-dtype="Number"/>
+    <input type="text" id="fd-defense" name="data.defense.value" value="{{data.defense.value}}" data-dtype="Number"/>
   </div>
 </div>
 

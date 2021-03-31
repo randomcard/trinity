@@ -2,7 +2,7 @@
 
     {{!-- Sheet Header --}}
     <header class="sheet-header">
-        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="50" width="50"/>
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="50" />
         <div class="header-fields">
             <h1>{{actor.name}}</h1>
         </div>
@@ -24,6 +24,7 @@
         {{!-- Biography Tab --}}
         <div class="tab biography" data-group="primary" data-tab="description">
           {{> "systems/trinity/templates/actor/partials/bio.html"}}
+          {{> "systems/trinity/templates/actor/partials/character.html"}}
           <!--  {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}} -->
         </div>
 

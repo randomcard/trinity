@@ -41,6 +41,23 @@
         "earned": 0,
         "available": 0
       },
+      "aspirations" : {
+        "shortTerm1" : {
+          "name" : "Short Term Aspiration One",
+          "description" : "",
+          "complete" : false
+        },
+        "shortTerm2" : {
+          "name" : "Short Term Aspiration Two",
+          "description" : "",
+          "complete" : false
+        },
+        "longTerm" : {
+          "name" : "Long Term Aspiration",
+          "description" : "",
+          "complete" : false
+        }
+      },
       "favoredApproach" : "",
       "healthboxes" : {
         "bru" : {
