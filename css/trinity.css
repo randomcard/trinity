@@ -469,3 +469,23 @@
   border-radius: 5px;
   margin: 2px;
 }
+
+.flex-parent {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flex-parent-evenly {
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.flex-child {
+  flex: auto;
+}
+
+.flex-child-fit {
+  flex: 0 1 auto;
+}
