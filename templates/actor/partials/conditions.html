@@ -12,9 +12,7 @@
         <li class="item flexrow" data-item-id="{{item._id}}">
             <h4 class="item-name">
               {{item.name}}
-              {{#if item.data.flags.isInjury}}<span class="in-circle-red">I</span>{{/if}}
-              {{#if item.data.flags.isComplication}}<span class="in-circle-blue">C</span>{{/if}}
-              {{#if item.data.flags.isEnhancement}}<span class="in-circle-green">E</span>{{/if}}
+              {{#if item.data.flags.isInjury}}<span><i class="fas fa-user-injured"></i></span>{{/if}}
             </h4>
             <div class="item-dots small icons">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</div>
             <div class="item-controls">
