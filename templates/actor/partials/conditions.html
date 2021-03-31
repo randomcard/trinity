@@ -10,7 +10,7 @@
         </li>
     {{#each actor.effects as |item id|}}
         <li class="item flexrow" data-item-id="{{item._id}}">
-            <div class="item-dots">{{#if data.flags.hasDots}}{{{toDots effect.data.value}}}{{/if}}</div>
+            <div class="item-dots">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</div>
             <h4 class="item-name">{{item.name}}</h4>
             <div class="item-controls">
                 <a class="item-control item-edit" title="Edit Item"><i class="fas fa-info-circle"></i></a>
