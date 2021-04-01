@@ -153,6 +153,8 @@ async function loadTrinityTemplates()
     "systems/trinity/templates/actor/partials/full-data.html",
     "systems/trinity/templates/actor/partials/bio.html",
     "systems/trinity/templates/actor/partials/character.html",
+    "systems/trinity/templates/actor/partials/contacts.html",
+    "systems/trinity/templates/actor/partials/bonds.html",
     "systems/trinity/templates/actor/partials/attributes.html",
     "systems/trinity/templates/actor/partials/healthboxes.html",
     "systems/trinity/templates/actor/partials/skills.html",
