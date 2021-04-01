@@ -161,7 +161,7 @@ if (content.style.maxHeight){
     const specialties = [];
     const paths = [];
     const complications = [];
-    const effects = [];
+    const conditions = [];
     const stunts = [];
     const gifts = [];
     const tricks = [];
@@ -270,7 +270,7 @@ if (content.style.maxHeight){
       if (i.type === 'stunt') { stunts.push(i); }
       if (i.type === 'gift') { gifts.push(i); }
       if (i.type === 'trick') { tricks.push(i); }
-      if (i.type === 'effect') { effects.push(i); }
+      if (i.type === 'condition') { conditions.push(i); }
       if (i.type === 'contact') { contacts.push(i); }
       if (i.type === 'bond') { bonds.push(i); }
 
@@ -285,7 +285,7 @@ if (content.style.maxHeight){
     actorData.skills = skills;
     actorData.specialties = specialties;
     actorData.paths = paths;
-    actorData.effects = effects;
+    actorData.conditions = conditions;
     actorData.stunts = stunts;
     actorData.gifts = gifts;
     actorData.tricks = tricks;
@@ -449,7 +449,7 @@ if (content.style.maxHeight){
       itemData.data.complication = {};
       itemData.data.complication.value = value;
 
-      // pop-out new effect, bypass normal process
+      // pop-out new condition, bypass normal process
       delete itemData.data["type"];
       let newItem = await this.actor.createOwnedItem(itemData);
       let createdItem = this.actor.getOwnedItem(newItem._id);

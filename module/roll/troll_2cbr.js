@@ -17,7 +17,7 @@ export class TRoll {
     // the values of each face after a roll
     this.faces = [];
 
-    // the result of the roll before applying mods or critical effects
+    // the result of the roll before applying mods or critical conditions
     this.initialRoll = 0;
 
     // skip rolling a critical die, such as with death saves

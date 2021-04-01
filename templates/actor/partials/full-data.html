@@ -289,18 +289,18 @@
 </div>
 
 
-{{!-- Effects --}}
-<button type="button" id="fd-effects-header" class="collapsible">Effects</button>
-<div id="fd-effects-content" class="collapsible-content">
+{{!-- Conditions --}}
+<button type="button" id="fd-conditions-header" class="collapsible">Conditions</button>
+<div id="fd-conditions-content" class="collapsible-content">
 <ol class="items-list">
     <li class="item flexrow item-header">
       <div class="item-image"></div>
       <div class="item-name">Name</div>
       <div class="item-controls">
-        <a class="item-control item-create" title="Create item" data-type="effect"><i class="fas fa-plus"></i> Add item</a>
+        <a class="item-control item-create" title="Create item" data-type="condition"><i class="fas fa-plus"></i> Add item</a>
       </div>
     </li>
-{{#each actor.effects as |item id|}}
+{{#each actor.conditions as |item id|}}
     <li class="item flexrow" data-item-id="{{item._id}}">
         <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
         <h4 class="item-name">{{item.name}}</h4>

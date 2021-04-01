@@ -136,7 +136,7 @@
     }
   },
   "Item": {
-    "types": ["item", "edge", "skill", "specialty", "path", "effect", "stunt", "gift", "trick", "contact", "bond"],
+    "types": ["item", "edge", "skill", "specialty", "path", "condition", "stunt", "gift", "trick", "contact", "bond"],
     "templates": {
       "base": {
         "description": "",
@@ -207,7 +207,7 @@
       "templates": ["base"],
       "pathtype": ""
     },
-    "effect": {
+    "condition": {
       "templates": ["base"],
       "injury" : {
         "value" : 0
