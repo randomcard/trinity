@@ -506,3 +506,7 @@
   margin-right: 10px;
   border:0px solid black;
 }
+
+.bold {
+  font-weight: bold;
+}
