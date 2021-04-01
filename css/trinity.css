@@ -476,6 +476,12 @@
   margin: 3px;
 }
 
+.flex-parent-center-column {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 3px;
+}
+
 .flex-parent-evenly {
   display: flex;
   -webkit-box-pack: space-evenly;

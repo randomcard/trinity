@@ -72,6 +72,30 @@ Hooks.once('init', async function() {
     return dots;
 	});
 
+  Handlebars.registerHelper('to10Dots', function(n) {
+    let dots = '';
+    let filled = '<i class="fa fa-circle"></i>';
+    let empty = '<i class="far fa-circle"></i>';
+    for (let i = 0; i < Math.max(n, 10); i++) {
+      if (i === 5) { dots += ' '; }
+      if (i < n) { dots += filled; }
+        else {dots += empty;}
+		}
+    return dots;
+	});
+
+  Handlebars.registerHelper('to10Boxes', function(n) {
+    let dots = '';
+    let filled = '<i class="fas fa-square"></i>';
+    let empty = '<i class="far fa-square"></i>';
+    for (let i = 0; i < Math.max(n, 10); i++) {
+      if (i === 5) { dots += ' '; }
+      if (i < n) { dots += filled; }
+        else {dots += empty;}
+		}
+    return dots;
+	});
+
   Handlebars.registerHelper('toHealthBoxes', function(h) {
     let boxes = '';
     let extraBox = '<i class="fas fa-plus-square"></i>';
@@ -169,6 +193,9 @@ async function loadTrinityTemplates()
     "systems/trinity/templates/actor/partials/armors.html",
     "systems/trinity/templates/actor/partials/vehicles.html",
     "systems/trinity/templates/actor/partials/weapons.html",
+    "systems/trinity/templates/actor/partials/facets.html",
+    "systems/trinity/templates/actor/partials/inspiration.html",
+    "systems/trinity/templates/actor/partials/gifts.html",
     "systems/trinity/templates/item/partials/complication-flag.html",
     "systems/trinity/templates/item/partials/enhancement-flag.html",
     "systems/trinity/templates/item/partials/injury-flag.html",

@@ -1,0 +1,10 @@
+{{!-- Facets --}}
+
+<div class="facets boxed">
+  {{#each this.actor.data.facets as |facet key|}}
+  <div class="grid grid-2col lowmargin" id="{{key}}">
+    <div class="bold right-vcenter">{{facet.name}}</div>
+    <div class="big icons left-vcenter">{{{toDots facet.value}}}</div>
+  </div>
+  {{/each}}
+</div>

@@ -349,6 +349,18 @@ if (content.style.maxHeight){
 
     });
 
+    // Remove Inspiration
+    html.find('.remove-inspiration').click(ev => {
+      if (this.actor.data.inspiration.value > 0) {
+        --this.actor.data.inspiration.value;
+      }
+    });
+
+    // Add Inspiration
+    html.find('.add-inspiration').click(ev => {
+      ++this.actor.data.inspiration.value;
+    });
+
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
 
