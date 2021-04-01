@@ -496,6 +496,11 @@
   margin: 3px;
 }
 
+.flex-child-even {
+  flex: 1;
+  margin: 3px;
+}
+
 .flex-child-full {
   flex: 0 1 auto;
   margin: 3px;
