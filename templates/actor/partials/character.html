@@ -17,8 +17,8 @@
   {{#each data.aspirations as |aspiration key|}}
   <div class="flex-parent">
     <label class="flex-child-full" for="{{aspiration}}.name">{{aspiration.name}}:</label>
-    <input class="flex-child-fit" type="text" id="{{aspiration}}.name" name="data.aspirations.{{key}}.value" value="{{aspiration.value}}" data-dtype="String"/>
-    <input class="flex-child-fit" type="checkbox" id="{{aspiration}}.complete" name="data.aspirations.{{key}}.complete" value="{{aspiration.complete}}" data-dtype="Boolean" {{checked aspiration.complete}}/>
+    <input class="flex-child-fit" type="text" id="{{key}}.name" name="data.aspirations.{{key}}.value" value="{{aspiration.value}}" data-dtype="String"/>
+    <input class="flex-child-fit" type="checkbox" id="{{key}}.complete" name="data.aspirations.{{key}}.complete" value="{{aspiration.complete}}" data-dtype="Boolean" {{checked aspiration.complete}}/>
   </div>
   {{/each}}
 </div>
