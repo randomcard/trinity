@@ -3,11 +3,16 @@
 <div class="inspiration boxed">
 
   <div class="flex-parent-center-column">
-    <div class="flex-child">{{{to10Dots this.actor.data.inspiration.max}}}</div>
-    <div class="flex-child">
-      <i class="clickable remove-inspiration far fa-caret-square-left"></i>
-      {{{to10Boxes this.actor.data.inspiration.value}}}
-      <i class="clickable add-inspiration far fa-caret-square-right"></i>
+    <div class="flex-parent-center-column flex-child">
+      <div class="flex-child resource">Max Inspiration</div>
+      <div class="flex-child big icons">{{{to10Dots this.actor.data.inspiration.max}}}</div>
+    <div class="flex-parent-center-column flex-child">
+      <div class="flex-child big icons">
+        <i class="clickable remove-inspiration far fa-caret-square-left"></i>
+        {{{to10Boxes this.actor.data.inspiration.value}}}
+        <i class="clickable add-inspiration far fa-caret-square-right"></i>
+      </div>
+      <div class="flex-child resource">Current Inspiration</div>
     </div>
   </div>
 

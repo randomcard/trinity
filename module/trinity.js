@@ -77,7 +77,6 @@ Hooks.once('init', async function() {
     let filled = '<i class="fa fa-circle"></i>';
     let empty = '<i class="far fa-circle"></i>';
     for (let i = 0; i < Math.max(n, 10); i++) {
-      if (i === 5) { dots += ' '; }
       if (i < n) { dots += filled; }
         else {dots += empty;}
 		}
@@ -89,7 +88,6 @@ Hooks.once('init', async function() {
     let filled = '<i class="fas fa-square"></i>';
     let empty = '<i class="far fa-square"></i>';
     for (let i = 0; i < Math.max(n, 10); i++) {
-      if (i === 5) { dots += ' '; }
       if (i < n) { dots += filled; }
         else {dots += empty;}
 		}

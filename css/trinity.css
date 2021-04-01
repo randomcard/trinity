@@ -480,6 +480,7 @@
   display: flex;
   flex-flow: column nowrap;
   margin: 3px;
+  align-items: center;
 }
 
 .flex-parent-evenly {
