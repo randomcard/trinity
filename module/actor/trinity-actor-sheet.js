@@ -294,6 +294,7 @@ if (content.style.maxHeight){
     actorData.contacts = contacts;
     actorData.bonds = bonds;
     actorData.healthBoxes = healthBoxes;
+    actorData.allItems = allItems;
 
   }
 
