@@ -167,6 +167,7 @@
     },
     "item": {
       "templates": ["base"],
+      "typeName" : "Item",
       "quantity": 1,
       "gear": {
         "tags" : ""
@@ -190,14 +191,17 @@
     },
     "edge": {
       "templates": ["base"],
+      "typeName" : "Edge",
       "value": 0
     },
     "skill": {
       "templates": ["base"],
+      "typeName" : "Skill",
       "value": 0
     },
     "specialty": {
       "templates": ["base"],
+      "typeName" : "Specialty",
       "skillOrigin": "",
       "flags" : {
         "hasDots" : false
@@ -205,10 +209,12 @@
     },
     "path": {
       "templates": ["base"],
+      "typeName" : "Path",
       "pathtype": ""
     },
     "condition": {
       "templates": ["base"],
+      "typeName" : "Condition",
       "injury" : {
         "value" : 0
       },
@@ -218,6 +224,7 @@
     },
     "stunt": {
       "templates": ["base"],
+      "typeName" : "Stunt",
       "costDescription": "",
       "costType": "",
       "value": 0,
@@ -227,6 +234,7 @@
     },
     "gift" : {
       "templates": ["base"],
+      "typeName" : "Gift",
       "keywords" : "",
       "system" : "",
       "flags" : {
@@ -235,6 +243,7 @@
     },
     "trick" : {
       "templates": ["base"],
+      "typeName" : "Skill Trick",
       "skillOrigin": "",
       "flags" : {
         "hasDots" : false
@@ -242,11 +251,13 @@
     },
     "contact" : {
       "templates": ["base"],
+      "typeName" : "Contact",
       "value" : 0,
       "pathOrigin": ""
     },
     "bond" : {
       "templates": ["base"],
+      "typeName" : "Bond",
       "value" : 0,
       "skillOrigin": ""
     }

@@ -168,6 +168,7 @@ if (content.style.maxHeight){
     const contacts = [];
     const bonds = [];
     const enhancements = [];
+    const allItems = [];
 //    const healthBoxes = [];
     const healthBoxes = {
       bruised : {
@@ -273,6 +274,7 @@ if (content.style.maxHeight){
       if (i.type === 'condition') { conditions.push(i); }
       if (i.type === 'contact') { contacts.push(i); }
       if (i.type === 'bond') { bonds.push(i); }
+      allItems.push(i);
 
     }
 

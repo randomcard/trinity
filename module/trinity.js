@@ -194,6 +194,7 @@ async function loadTrinityTemplates()
     "systems/trinity/templates/actor/partials/facets.html",
     "systems/trinity/templates/actor/partials/inspiration.html",
     "systems/trinity/templates/actor/partials/gifts.html",
+    "systems/trinity/templates/actor/partials/all-items.html",
     "systems/trinity/templates/item/partials/complication-flag.html",
     "systems/trinity/templates/item/partials/enhancement-flag.html",
     "systems/trinity/templates/item/partials/injury-flag.html",
