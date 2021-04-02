@@ -36,6 +36,8 @@
     },
     "TrinityNPC" : {
       "templates": ["base"],
+      "npcType" : "",
+      "powerLevel" : "",
       "healthboxes" : {
         "health" : {
           "value" : 1,
@@ -62,7 +64,13 @@
       "enhancements" : {
         "value" : 1
       },
+      "edgeDots" : {
+        "value" : 1
+      },
       "source" : {
+        "value" : 1
+      },
+      "anomalyPowers" : {
         "value" : 1
       }
     },
