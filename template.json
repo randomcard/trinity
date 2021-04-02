@@ -8,7 +8,8 @@
           "value": 1
         },
         "flags" : {
-          "isTalent" : true
+          "isTalent" : false,
+          "isActivePlayer" : false
         }
       },
       "talent" : {
@@ -33,10 +34,46 @@
         }
       }
     },
+    "TrinityNPC" : {
+      "templates": ["base"],
+      "healthboxes" : {
+        "health" : {
+          "value" : 1,
+          "name" : "Health"
+        }
+      },
+      "attributes": {
+        "pri": {
+          "value": 1,
+          "name" : "Primary",
+          "area" : ""
+        },
+        "sec": {
+          "value": 1,
+          "name" : "Secondary",
+          "area" : ""
+        },
+        "des": {
+          "value": 1,
+          "name" : "Desperation",
+          "area" : ""
+        }
+      },
+      "enhancements" : {
+        "value" : 1
+      },
+      "source" : {
+        "value" : 1
+      }
+    },
     "TrinityCharacter": {
       "templates": ["base", "talent"],
       "player" : "",
       "concept" : "",
+      "flags" : {
+        "isTalent" : true,
+        "isActivePlayer" : true
+      },
       "experience": {
         "earned": 0,
         "available": 0
