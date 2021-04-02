@@ -8,76 +8,9 @@
         </div>
     </header>
 
-    {{!-- Sheet Tab Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a> {{!-- Bio, Aspirations, Details, Contacts, Bonds --}}
-        <a class="item" data-tab="main">Main</a>
-        {{#if actor.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
-        <a class="item" data-tab="background">Background</a> {{!-- Edges, Specialties, Tricks --}}
-        <a class="item" data-tab="gear">Gear</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
-        <a class="item" data-tab="data-entry">Configure</a>
-    </nav>
-
     {{!-- Sheet Body --}}
     <section class="sheet-body">
-
-        {{!-- Biography Tab --}}
-        <div class="tab biography" data-group="primary" data-tab="description">
-          {{> "systems/trinity/templates/actor/partials/bio.html"}}
-          {{> "systems/trinity/templates/actor/partials/character.html"}}
-          {{> "systems/trinity/templates/actor/partials/contacts.html"}}
-          {{> "systems/trinity/templates/actor/partials/bonds.html"}}
-          <!--  {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}} -->
-        </div>
-
-        {{!-- "Main" Tab - testing ground for partials --}}
-        <div class="tab main" data-group="primary" data-tab="main">
-            {{!-- Partials go here --}}
-            {{> "systems/trinity/templates/actor/partials/skills.html"}}
-            {{> "systems/trinity/templates/actor/partials/attributes.html"}}
-            <div class="flex-parent-evenly">
-              <div class="flex-child-even">
-                {{> "systems/trinity/templates/actor/partials/healthboxes.html"}}
-                {{> "systems/trinity/templates/actor/partials/defense.html"}}
-              </div>
-              <div class="flex-child-even">{{> "systems/trinity/templates/actor/partials/conditions.html"}}</div>
-            </div>
-        </div>
-
-        {{!-- Owned Gear Tab --}}
-        <div class="tab talent" data-group="primary" data-tab="talent">
-          <div class="flex-parent-evenly">
-            <div class="flex-child-even">
-              {{> "systems/trinity/templates/actor/partials/facets.html"}}
-            </div>
-            <div class="flex-child-even">
-              {{> "systems/trinity/templates/actor/partials/inspiration.html"}}
-            </div>
-          </div>
-          {{> "systems/trinity/templates/actor/partials/gifts.html"}}
-        </div>
-
-        {{!-- Background Tab --}}
-        <div class="tab background" data-group="primary" data-tab="background">
-          {{> "systems/trinity/templates/actor/partials/specialties.html"}}
-          {{> "systems/trinity/templates/actor/partials/edges.html"}}
-          {{> "systems/trinity/templates/actor/partials/tricks.html"}}
-          {{> "systems/trinity/templates/actor/partials/paths.html"}}
-          {{> "systems/trinity/templates/actor/partials/stunts.html"}}
-        </div>
-
-        {{!-- Owned Gear Tab --}}
-        <div class="tab gear" data-group="primary" data-tab="gear">
-          {{> "systems/trinity/templates/actor/partials/weapons.html"}}
-          {{> "systems/trinity/templates/actor/partials/armors.html"}}
-          {{> "systems/trinity/templates/actor/partials/gear.html"}}
-          {{> "systems/trinity/templates/actor/partials/vehicles.html"}}
-        </div>
-
-        {{!-- Data Entry Tab --}}
-        <div class="tab data-entry" data-group="primary" data-tab="data-entry">
-          {{> "systems/trinity/templates/actor/partials/full-data.html"}}
-        </div>
-
+      {{> "systems/trinity/templates/actor/partials-npc/npc-attributes.html"}}
+      {{> "systems/trinity/templates/actor/partials-npc/npc-stats.html"}}
     </section>
 </form>
