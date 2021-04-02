@@ -10,7 +10,7 @@
         <h4 class="item-name">
           {{item.name}}
           {{#if item.data.flags.isInjury}}<span><i class="fas fa-user-injured"></i></span>{{/if}}
-          <span class="trait">{{item.data.typeName}}</span>
+          <span class="small-trait">{{item.data.typeName}}</span>
         </h4>
         <div class="item-dots small icons">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</div>
         <div class="item-controls">
