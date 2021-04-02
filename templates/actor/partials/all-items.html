@@ -3,15 +3,14 @@
     <li class="item flexrow item-header">
       <div class="big item-name">allItems</div>
       <div class="item-dots"></div>
-      <div class="item-controls">
-      </div>
+      <div class="item-controls"></div>
     </li>
 {{#each actor.allItems as |item id|}}
     <li class="item flexrow" data-item-id="{{item._id}}">
         <h4 class="item-name">
           {{item.name}}
           {{#if item.data.flags.isInjury}}<span><i class="fas fa-user-injured"></i></span>{{/if}}
-          <span class="trait">{{item.typeName}}</span>
+          <span class="trait">{{item.data.typeName}}</span>
         </h4>
         <div class="item-dots small icons">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</div>
         <div class="item-controls">
