@@ -521,3 +521,15 @@
 .bold {
   font-weight: bold;
 }
+
+.small-trait {
+  font-size: x-small;
+  overflow: hidden;
+  padding: 1px 3px;
+  background-color: rgba(255, 200, 200, 0.5);
+  border: 1px solid darkRed;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 2px;
+  font-weight: bold;
+}
