@@ -41,7 +41,7 @@
 {{/each}}
 </ol>
 </div>
-
+-->
 {{!-- Skills --}}
 <button type="button" id="fd-skills-header" class="collapsible">Skills</button>
 <div id="fd-skills-content" class="collapsible-content">
@@ -70,7 +70,6 @@
 {{/each}}
 </ol>
 </div>
--->
 
 {{!-- Attributes --}}
 <button type="button" id="fd-attr-header" class="collapsible">Attributes</button>
@@ -134,13 +133,16 @@
   <label for="fd-inspiration-max" class="resource-label rollable"> Max: </label>
   <input type="text" id="fd-inspiration-max" name="data.inspiration.max" value="{{actor.data.inspiration.max}}" data-dtype="Number"/>
 </div>
+<!--
 <div class="inspiration flexrow flex-group-center">
   <label for="fd-inspiration-value" class="resource-label rollable"> Current: </label>
   <input type="text" id="fd-inspiration-value" name="data.inspiration.value" value="{{actor.data.inspiration.value}}" data-dtype="Number"/>
 </div>
+-->
 {{/if}}
 </div>
 
+<!--
 {{!-- Gifts --}}
 {{#if actor.data.flags.isTalent}}
 <button type="button" id="fd-gifts-header" class="collapsible">Gifts</button>
@@ -166,6 +168,7 @@
 </ol>
 </div>
 {{/if}}
+-->
 
 {{> "systems/trinity/templates/actor/partials/all-items.html"}}
 
