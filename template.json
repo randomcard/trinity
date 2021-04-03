@@ -41,7 +41,13 @@
       "healthboxes" : {
         "health" : {
           "value" : 1,
+          "conditionLevel" : 0;
           "name" : "Health"
+        }
+        "takenOut" : {
+          "value" : 1,
+          "conditionLevel" : 5;
+          "name" : "Taken Out"
         }
       },
       "attributes": {
@@ -105,20 +111,29 @@
       },
       "favoredApproach" : "",
       "healthboxes" : {
-        "bru" : {
-          "value" : 1,
+        "armor" : {
+          "value" : 0,
+          "conditionLevel" : 0;
           "name" : "Bruised"
         },
-        "inj" : {
+        "bruised" : {
           "value" : 1,
+          "conditionLevel" : 1;
+          "name" : "Bruised"
+        },
+        "injured" : {
+          "value" : 1,
+          "conditionLevel" : 2;
           "name" : "Injured"
         },
-        "mai" : {
+        "maimed" : {
           "value" : 1,
+          "conditionLevel" : 4;
           "name" : "Maimed"
         },
-        "tak" : {
+        "takenOut" : {
           "value" : 1,
+          "conditionLevel" : 5;
           "name" : "Taken Out"
         }
       },

@@ -169,7 +169,8 @@ if (content.style.maxHeight){
     const bonds = [];
     const enhancements = [];
     const allItems = [];
-//    const healthBoxes = [];
+    const healthBoxes = [];
+/* Removed to test new HB iteration
     const healthBoxes = {
       bruised : {
         name : this.actor.data.data.healthboxes.bru.name
@@ -184,6 +185,9 @@ if (content.style.maxHeight){
         name : this.actor.data.data.healthboxes.tak.name
       }
     };
+*/
+
+
 
 /*
     healthBoxes.bruised = [];
@@ -198,6 +202,35 @@ if (content.style.maxHeight){
 
     // Create healthboxes
     // Get # of injuries - Turn this into a loop to reduce code...
+
+    for (let hb of this.actor.data.data.healthboxes) {
+      let injuries = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === hb.conditionLevel))).length;
+      // add if - add the property if not already in healthboxes
+      if (typeof healthBoxes[hb] === 'undefined' || healthBoxes[hb] === null) {
+        healthBoxes.push(hb);
+      }
+      if ((hb.value > 0) || (injuries > 0)) {
+        if (injuries <= hb.value) {
+          healthBoxes[hb].filled = injuries;
+          healthBoxes[hb].empty = hb.value - healthBoxes[hb].filled;
+          healthBoxes[hb].extra = 0;
+        } else {
+          healthBoxes[hb].extra = injuries - hb.value;
+          healthBoxes[hb].filled = injuries - healthBoxes[hb].extra;
+          healthBoxes[hb].empty = 0;
+        }
+      } else {
+        // add if - the value already exists
+        if (typeof healthBoxes[hb] !== 'undefined' && healthBoxes[hb] !== null) {
+          healthBoxes.push(hb);
+        }
+      }
+    }
+
+
+
+
+    /* -------------------------Removed to test new HB iteration-----------------
     // Bruised (1)
     let bruisedNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === 1))).length;
     if (bruisedNum <= this.actor.data.data.healthboxes.bru.value) {
@@ -242,6 +275,7 @@ if (content.style.maxHeight){
       healthBoxes.takenOut.filled = takenOutNum - healthBoxes.takenOut.extra;
       healthBoxes.takenOut.empty = 0;
     }
+*/
 
     console.log("healthboxes:");
     console.log(healthBoxes);

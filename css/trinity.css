@@ -511,6 +511,12 @@
   margin: 3px;
 }
 
+.flex-child-center {
+  flex: auto;
+  margin: 3px;
+  text-align: center;
+}
+
 .bio-image {
   max-width: 150px;
   object-fit: contain;
