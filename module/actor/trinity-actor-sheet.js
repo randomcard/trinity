@@ -169,7 +169,7 @@ if (content.style.maxHeight){
     const bonds = [];
     const enhancements = [];
     const allItems = [];
-    const healthBoxes = {};
+    const healthBoxes = [];
 /* Removed to test new HB iteration
     const healthBoxes = {
       bruised : {
