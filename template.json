@@ -43,7 +43,7 @@
           "value" : 1,
           "conditionLevel" : 0,
           "name" : "Health"
-        }
+        },
         "takenOut" : {
           "value" : 1,
           "conditionLevel" : 5,
