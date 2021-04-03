@@ -169,7 +169,7 @@ if (content.style.maxHeight){
     const bonds = [];
     const enhancements = [];
     const allItems = [];
-    const healthBoxes = [];
+    const healthBoxes = {};
 /* Removed to test new HB iteration
     const healthBoxes = {
       bruised : {
@@ -211,7 +211,9 @@ if (content.style.maxHeight){
       if (typeof healthBoxes[hb] === 'undefined' || healthBoxes[hb] === null) {
         console.log("Heathbox Logging - check to add");
         healthBoxes.push(hb);
-        healthBoxes[hb].push(this.actor.data.data.healthboxes[hb].name);
+        console.log("Heathbox Logging - Added to healthBoxes:", healthBoxes);
+        healthBoxes[hb].name = this.actor.data.data.healthboxes[hb].name;
+        // healthBoxes[hb].push(this.actor.data.data.healthboxes[hb].name);
       }
       if ((this.actor.data.data.healthboxes[hb].value > 0) || (injuries > 0)) {
         console.log("Heathbox Logging - add injuries");
