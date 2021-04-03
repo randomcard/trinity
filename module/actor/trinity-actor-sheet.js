@@ -210,7 +210,7 @@ if (content.style.maxHeight){
       // add if - add the property if not already in healthboxes
       if (typeof healthBoxes[hb] === 'undefined' || healthBoxes[hb] === null) {
         console.log("Heathbox Logging - check to add");
-        healthBoxes.push(hb);
+        healthBoxes[hb] = {};
         console.log("Heathbox Logging - Added to healthBoxes:", healthBoxes);
         healthBoxes[hb].name = this.actor.data.data.healthboxes[hb].name;
         // healthBoxes[hb].push(this.actor.data.data.healthboxes[hb].name);
