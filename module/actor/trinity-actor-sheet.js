@@ -203,7 +203,7 @@ if (content.style.maxHeight){
     // Create healthboxes
     // Get # of injuries - Turn this into a loop to reduce code...
 
-    for (let hb of this.actor.data.data.healthboxes) {
+    for (let hb of Object.keys(this.actor.data.data.healthboxes)) {
       let injuries = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === hb.conditionLevel))).length;
       // add if - add the property if not already in healthboxes
       if (typeof healthBoxes[hb] === 'undefined' || healthBoxes[hb] === null) {
