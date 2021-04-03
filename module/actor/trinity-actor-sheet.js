@@ -169,7 +169,7 @@ if (content.style.maxHeight){
     const bonds = [];
     const enhancements = [];
     const allItems = [];
-    const healthBoxes = [];
+    const healthBoxes = {};
 /* Removed to test new HB iteration
     const healthBoxes = {
       bruised : {
@@ -205,21 +205,22 @@ if (content.style.maxHeight){
 
     for (let hb of Object.keys(this.actor.data.data.healthboxes)) {
       console.log("Heathbox Logging - hb:", hb);
-      let injuries = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === hb.conditionLevel))).length;
+      let injuries = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === this.actor.data.data.healthboxes[hb].conditionLevel))).length;
       console.log("Heathbox Logging - injuries:", injuries);
       // add if - add the property if not already in healthboxes
       if (typeof healthBoxes[hb] === 'undefined' || healthBoxes[hb] === null) {
         console.log("Heathbox Logging - check to add");
         healthBoxes.push(hb);
+        healthBoxes[hb].push(this.actor.data.data.healthboxes[hb].name);
       }
-      if ((hb.value > 0) || (injuries > 0)) {
+      if ((this.actor.data.data.healthboxes[hb].value > 0) || (injuries > 0)) {
         console.log("Heathbox Logging - add injuries");
-        if (injuries <= hb.value) {
+        if (injuries <= this.actor.data.data.healthboxes[hb].value) {
           healthBoxes[hb].filled = injuries;
-          healthBoxes[hb].empty = hb.value - healthBoxes[hb].filled;
+          healthBoxes[hb].empty = this.actor.data.data.healthboxes[hb].value - healthBoxes[hb].filled;
           healthBoxes[hb].extra = 0;
         } else {
-          healthBoxes[hb].extra = injuries - hb.value;
+          healthBoxes[hb].extra = injuries - this.actor.data.data.healthboxes[hb].value;
           healthBoxes[hb].filled = injuries - healthBoxes[hb].extra;
           healthBoxes[hb].empty = 0;
         }
