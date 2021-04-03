@@ -75,9 +75,9 @@ export class TrinityActorSheet extends ActorSheet {
 //    }
 
     // Prepare items.
-    if (this.actor.data.type == 'TrinityCharacter') {
+    // if (this.actor.data.type == 'TrinityCharacter') {
       this._prepareTrinityCharacterItems(data);
-    }
+    // }
 
 // Find & expand collapsible sections - this.options.collapsedSections
 /*

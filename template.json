@@ -9,7 +9,8 @@
         },
         "flags" : {
           "isTalent" : false,
-          "isActivePlayer" : false
+          "isActivePlayer" : false,
+          "isTakenOut" : false
         }
       },
       "talent" : {
@@ -43,11 +44,6 @@
           "value" : 1,
           "conditionLevel" : 0,
           "name" : "Health"
-        },
-        "takenOut" : {
-          "value" : 1,
-          "conditionLevel" : 5,
-          "name" : "Taken Out"
         }
       },
       "attributes": {
