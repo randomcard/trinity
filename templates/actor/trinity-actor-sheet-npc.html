@@ -4,7 +4,8 @@
     <header class="sheet-header">
         <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="50" />
         <div class="header-fields">
-            <h1>{{actor.name}}</h1>
+            <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+            <div>Placeholder for Antagonist Type</div>
         </div>
     </header>
 
@@ -12,5 +13,8 @@
     <section class="sheet-body">
       {{> "systems/trinity/templates/actor/partials-npc/npc-attributes.html"}}
       {{> "systems/trinity/templates/actor/partials-npc/npc-stats.html"}}
+      {{> "systems/trinity/templates/actor/partials/conditions.html"}}
+      {{> "systems/trinity/templates/actor/partials/edges.html"}}
+      {{> "systems/trinity/templates/actor/partials/gifts.html"}}
     </section>
 </form>

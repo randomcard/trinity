@@ -53,17 +53,17 @@
       "attributes": {
         "pri": {
           "value": 1,
-          "name" : "Primary",
+          "name" : "Primary Action Pool",
           "area" : ""
         },
         "sec": {
           "value": 1,
-          "name" : "Secondary",
+          "name" : "Secondary Action Pool",
           "area" : ""
         },
         "des": {
           "value": 1,
-          "name" : "Desperation",
+          "name" : "Desperation Action Pool",
           "area" : ""
         }
       },
@@ -114,7 +114,7 @@
         "armor" : {
           "value" : 0,
           "conditionLevel" : 0,
-          "name" : "Bruised"
+          "name" : "Armor"
         },
         "bruised" : {
           "value" : 1,
