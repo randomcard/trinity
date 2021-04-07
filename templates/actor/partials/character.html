@@ -13,6 +13,14 @@
     <label class="flex-child-full" for="char-concept">Concept:</label>
       <input class="flex-child-fit" id="char-concept" name="data.concept" type="text" value="{{actor.data.concept}}"/>
   </div>
+  <div class="flex-parent">
+    <label class="flex-child-full" for="char-xp-avail">Experience Available:</label>
+      <input class="flex-child-fit" id="char-xp-avail" name="data.experience.available" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" value="{{data.experience.available}}"/>
+  </div>
+  <div class="flex-parent">
+    <label class="flex-child-full" for="char-xp-earned">Experience Earned:</label>
+      <input class="flex-child-fit" id="char-xp-earned" name="data.experience.earned" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" value="{{data.experience.earned}}"/>
+  </div>
 
   {{#each data.aspirations as |aspiration key|}}
   <div class="flex-parent">

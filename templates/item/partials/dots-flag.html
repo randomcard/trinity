@@ -8,7 +8,7 @@
   <hr>
   <div>
     <label class="resource-label" for="dot-value">Dot Value</label>
-    <input class="resource" type="text" id="dot-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>
+    <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="dot-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>
   </div>
   {{/if}}
 </div>

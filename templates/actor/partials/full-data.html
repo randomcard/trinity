@@ -77,7 +77,7 @@
 {{#each data.attributes as |attribute key|}}
   <div class="attribute flexrow flex-group-center">
     <label for="fd-{{key}}" class="resource-label rollable"> {{attribute.name}} </label>
-    <input type="text" id="fd-{{key}}" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-{{key}}" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
   </div>
 {{/each}}
 </div>
@@ -89,7 +89,7 @@
   {{#each data.healthboxes as |healthbox key|}}
     <div class="healthbox flexrow flex-group-center">
       <label for="fd-healthbox-{{key}}" class="resource-label"> {{healthbox.name}} </label>
-      <input type="text" id="fd-healthbox-{{key}}" name="data.healthboxes.{{key}}.value" value="{{healthbox.value}}" data-dtype="Number"/>
+      <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-healthbox-{{key}}" name="data.healthboxes.{{key}}.value" value="{{healthbox.value}}" data-dtype="Number"/>
     </div>
   {{/each}}
 </div>
@@ -99,7 +99,7 @@
 <div id="fd-defense-content" class="collapsible-content">
   <div class="defense flexrow flex-group-center">
     <label for="fd-defense" class="resource-label">Defense</label>
-    <input type="text" id="fd-defense" name="data.defense.value" value="{{data.defense.value}}" data-dtype="Number"/>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-defense" name="data.defense.value" value="{{data.defense.value}}" data-dtype="Number"/>
   </div>
 </div>
 
@@ -124,14 +124,14 @@
 {{#each data.facets as |facet key|}}
   <div class="facet flexrow flex-group-center">
     <label for="fd-facet-{{key}}" class="resource-label"> {{facet.name}} </label>
-    <input type="text" id="fd-facet-{{key}}" name="data.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-facet-{{key}}" name="data.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
   </div>
 {{/each}}
 
 <h3>Inspiration:</h3>
 <div class="inspiration flexrow flex-group-center">
   <label for="fd-inspiration-max" class="resource-label rollable"> Max: </label>
-  <input type="text" id="fd-inspiration-max" name="data.inspiration.max" value="{{actor.data.inspiration.max}}" data-dtype="Number"/>
+  <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-inspiration-max" name="data.inspiration.max" value="{{actor.data.inspiration.max}}" data-dtype="Number"/>
 </div>
 <!--
 <div class="inspiration flexrow flex-group-center">
