@@ -5,9 +5,7 @@
     <div class="flex-parent-center-column rollable" data-attrname="{{attribute.name}}" id="{{key}}">
       <span class="flex-child-center resource-label"> {{attribute.name}} </span>
       <span class="flex-child-center icons"> {{{toDots attribute.value}}} </span>
-    </div>
-    <div class="flex-parent-center-column" data-attrname="{{attribute.name}}" id="{{key}}">
-      <input class="flex-child-center small-note" name="data.attributes.{{key}}.area" type="text" value="{{attribute.area}}" />
+      <span class="flex-child-center small-note"> {{attribute.area}} </span>
     </div>
   </div>
   {{/each}}
