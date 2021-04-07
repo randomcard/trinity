@@ -2,12 +2,12 @@
 <div class="attributes grid grid-3col">
   {{#each actor.data.attributes as |attribute key|}}
   <div class="boxed">
-    <div class="flexcol flex-parent-center-column rollable" data-attrname="{{attribute.name}}" id="{{key}}">
+    <div class="flex-parent-center-column rollable" data-attrname="{{attribute.name}}" id="{{key}}">
       <span class="flex-child-center resource-label"> {{attribute.name}} </span>
       <span class="flex-child-center icons"> {{{toDots attribute.value}}} </span>
     </div>
-    <div class="flexcol flex-parent-center-column" data-attrname="{{attribute.name}}" id="{{key}}">
-      <input class="flex-child-fit small-note" name="data.attributes.{{key}}.area" type="text" value="{{attribute.area}}" />
+    <div class="flex-parent-center-column" data-attrname="{{attribute.name}}" id="{{key}}">
+      <input class="flex-child-center small-note" name="data.attributes.{{key}}.area" type="text" value="{{attribute.area}}" />
     </div>
   </div>
   {{/each}}
