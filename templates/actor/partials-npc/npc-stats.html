@@ -9,8 +9,8 @@
     {{#each this.actor.healthBoxes as |healthBox key|}}
       <div class="flex-child-center resource-label">{{healthBox.name}}</div>
       <div class="flex-child-center big icons left-vcenter clickable item-create" data-hbname="{{healthBox.name}}" id="{{key}}" data-type="condition">{{{toHealthBoxes healthBox}}}</div>
-      <input class="flex-child-center big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-hb-{{key}}" name="data.healthboxes.{{key}}.value" value="{{healthbox.value}}" data-dtype="Number"/>
     {{/each}}
+      <input class="flex-child-center big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-health" name="data.healthboxes.health.value" value="{{actor.data.healthboxes.health.value}}" data-dtype="Number"/>
   </div>
   <div class="flex-child flex-parent-center-column">
     <div class="flex-child-center resource-label">Defense</div>
