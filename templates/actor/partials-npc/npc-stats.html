@@ -3,13 +3,13 @@
   <div class="flex-child flex-parent-center-column">
     <div class="flex-child-center resource-label">Enhancements</div>
     <!-- <div class="flex-child-center big bold">{{actor.data.enhancements.value}}</div> -->
-    <input class="flex-child-center flex-child-fit big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-enhancement" name="data.enhancements.value" value="{{actor.data.enhancements.value}}" data-dtype="Number"/>
+    <input class="flex-child-center big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-enhancement" name="data.enhancements.value" value="{{actor.data.enhancements.value}}" data-dtype="Number"/>
   </div>
   <div class="flex-child flex-parent-center-column">
     {{#each this.actor.healthBoxes as |healthBox key|}}
       <div class="flex-child-center resource-label">{{healthBox.name}}</div>
       <div class="flex-child-center big icons left-vcenter clickable item-create" data-hbname="{{healthBox.name}}" id="{{key}}" data-type="condition">{{{toHealthBoxes healthBox}}}</div>
-      <input class="flex-child-center flex-child-fit big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-healthboxes" name="data.healthBoxes.{{key}}.value" value="{{healthBox.value}}" data-dtype="Number"/>
+      <input class="flex-child-center big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-hb-{{key}}" name="data.healthboxes.{{key}}.value" value="{{healthbox.value}}" data-dtype="Number"/>
     {{/each}}
   </div>
   <div class="flex-child flex-parent-center-column">
