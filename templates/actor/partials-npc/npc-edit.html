@@ -1,4 +1,19 @@
 {{!-- NPC Edit Partial --}}
+<div class="attributes grid grid-3col">
+  {{#each actor.data.attributes as |attribute key|}}
+  <div class="boxed">
+    <div class="flex-parent-center-column" data-attrname="{{attribute.name}}" id="{{key}}">
+      <span class="flex-child-center resource-label"> {{attribute.name}} </span>
+      <input class="flex-child-center" name="data.attributes.{{key}}.value" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" value="{{attribute.value}}" />
+    </div>
+    <div class="flex-parent-center-column" data-attrname="{{attribute.name}}" id="{{key}}">
+      <span class="flex-child-center resource-label">Area</span>
+      <input class="flex-child-center small-note" name="data.attributes.{{key}}.area" type="text" value="{{attribute.area}}" />
+    </div>
+  </div>
+  {{/each}}
+</div>
+
 <div class="boxed flex-parent-evenly">
   <div class="flex-child flex-parent-center-column">
     <div class="flex-child-center resource-label">Enhancements</div>
