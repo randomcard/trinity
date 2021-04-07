@@ -517,6 +517,12 @@
   text-align: center;
 }
 
+input.flex-child-center {
+  flex: auto;
+  margin: 3px;
+  text-align: center;
+}
+
 .bio-image {
   max-width: 150px;
   object-fit: contain;
