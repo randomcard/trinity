@@ -344,6 +344,10 @@
   font-size: large;
 }
 
+.xx-large {
+  font-size: xx-large;
+}
+
 .small {
   font-size: small;
 }
@@ -544,4 +548,9 @@ input.flex-child-center {
   border-radius: 10px;
   margin: 2px;
   font-weight: bold;
+}
+
+.button-on {
+  color: #000;
+  text-shadow: 0 0 10px blue;
 }

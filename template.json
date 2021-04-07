@@ -70,6 +70,7 @@
         "value" : 1
       },
       "source" : {
+        "max" : 1,
         "value" : 1
       },
       "anomalyPowers" : {
