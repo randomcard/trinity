@@ -462,6 +462,11 @@
   flex-wrap: wrap;
 }
 
+.left {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .trait {
   font-weight: bold;
   text-transform: uppercase;
@@ -523,6 +528,12 @@
 
 input.flex-child-center {
   flex: auto;
+  margin: 3px;
+  text-align: center;
+}
+
+input.narrow-input {
+  width: 100px;
   margin: 3px;
   text-align: center;
 }
