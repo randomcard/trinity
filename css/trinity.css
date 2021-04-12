@@ -500,6 +500,15 @@
   margin: 3px;
 }
 
+.flex-valign {
+  display: flex;
+  align-items: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
 .flex-child {
   flex: auto;
   margin: 3px;
@@ -533,7 +542,7 @@ input.flex-child-center {
 }
 
 input.narrow-input {
-  width: 100px;
+  width: 50px;
   margin: 3px;
   text-align: center;
 }

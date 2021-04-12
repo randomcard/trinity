@@ -4,46 +4,46 @@
   <section class="sheet-body">
     {{log "roll-prompt.html, this:" this}}
     <div class="flex-parent-center-column">
-      <div class="flex-parent-evenly boxed"> {{!-- Skill --}}
+      <div class="flex-parent-evenly flex-valign boxed"> {{!-- Skill --}}
         <input class="narrow-input left" type="number" id="skil" value="{{this.elements.skil.value}}" data-dtype="Number"/>
-        <label class="flex-child-full resource-label clickable skil-label" for="skil" id="skil-label">
+        <label class="flex-child-full center-text resource-label clickable skil-label" for="skil" id="skil-label">
           {{this.elements.skil.name}}
         </label>
       </div>
-      <div class="flex-parent-evenly boxed"> {{!-- Attribute --}}
+      <div class="flex-parent-evenly flex-valign boxed"> {{!-- Attribute --}}
         <input class="narrow-input left" type="number" id="attr" value="{{this.elements.attr.value}}" data-dtype="Number"/>
-        <label class="flex-child-full resource-label clickable attr-label" for="attr" id="attr-label">
+        <label class="flex-child-full center-text resource-label clickable attr-label" for="attr" id="attr-label">
           {{this.elements.attr.name}}
         </label>
       </div>
-      <div class="flex-parent-evenly boxed"> {{!-- Enhancements --}}
+      <div class="flex-parent-evenly flex-valign boxed"> {{!-- Enhancements --}}
         <input class="narrow-input left" type="number" id="enha" value="{{this.elements.enha.value}}" data-dtype="Number"/>
-        <label class="flex-child-full resource-label clickable ench-label" for="enha" id="ench-label">
+        <label class="flex-child-full center-text resource-label clickable enha-label" for="enha" id="enha-label">
           {{this.elements.enha.name}}
         </label>
       </div>
       <div class="flex-parent-center-column boxed"> {{!-- Extras --}}
-        <div class="flex-parent-evenly">
+        <div class="flex-parent-evenly flex-valign">
           <input class="narrow-input left" type="number" id="nsca" value="{{this.elements.nsca.value}}" data-dtype="Number"/>
-          <label class="flex-child-full resource-label nsca-label" for="nsca" id="nsca-label">
+          <label class="flex-child-full center-text resource-label nsca-label" for="nsca" id="nsca-label">
             {{this.elements.nsca.name}}
           </label>
         </div>
-        <div class="flex-parent-evenly">
+        <div class="flex-parent-evenly flex-valign">
           <input class="narrow-input left" type="number" id="dsca" value="{{this.elements.dsca.value}}" data-dtype="Number"/>
-          <label class="flex-child-full resource-label dsca-label" for="dsca" id="dsca-label">
+          <label class="flex-child-full center-text resource-label dsca-label" for="dsca" id="dsca-label">
             {{this.elements.dsca.name}}
           </label>
         </div>
-        <div class="flex-parent-evenly">
+        <div class="flex-parent-evenly flex-valign">
           <input class="narrow-input left" type="number" id="expl" value="{{this.elements.expl.value}}" data-dtype="Number"/>
-          <label class="flex-child-full resource-label expl-label" for="expl" id="expl-label">
+          <label class="flex-child-full center-text resource-label expl-label" for="expl" id="expl-label">
             {{this.elements.expl.name}}
           </label>
         </div>
-        <div class="flex-parent-evenly">
+        <div class="flex-parent-evenly flex-valign">
           <input class="narrow-input left" type="number" id="succ" value="{{this.elements.succ.value}}" data-dtype="Number"/>
-          <label class="flex-child-full resource-label succ-label" for="succ" id="succ-label">
+          <label class="flex-child-full center-text resource-label succ-label" for="succ" id="succ-label">
             {{this.elements.succ.name}}
           </label>
         </div>
