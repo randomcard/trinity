@@ -1,19 +1,20 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-        <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-            <div class="grid grid-2col">
-              <div class="resource">
-                <label class="resource-label">Quantity</label>
-                  <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
-              </div>
-              <div class="resource">
-                <label class="resource-label">Weight</label>
-                  <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
-              </div>
-            </div>
+      <div class="header-fields"> {{! Left Side of Header}}
+        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        <div class="left-vcenter"> {{! Type & Flagged Info }}
+          <span class="trait">
+            <span class="small icons">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</span>
+            Condition
+          </span>
+          {{! Flagged Info }}
+          {{#if item.data.flags.isGear}}<span class="boxed">Gear</span>{{/if}}
+          {{#if item.data.flags.isWeapon}}<span class="boxed">Weapon</span>{{/if}}
+          {{#if item.data.flags.isArmor}}<span class="boxed">Armor</span>{{/if}}
+          {{#if item.data.flags.isVehicle}}<span class="boxed">Vehicle</span>{{/if}}
+          {{#if item.data.flags.isEnhancement}}<span class="boxed">Enhancement</span>{{/if}}
         </div>
+      </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
@@ -33,17 +34,13 @@
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             {{!-- As you add new fields, add them in here! --}}
-            <input type="checkbox" name="data.enhancement.isEnhancement" value="{{data.enhancement.isEnhancement}}" data-dtype="Boolean" {{checked data.enhancement.isEnhancement}}/>
-            <div class="grid">
-              <div class="resource">
-                <label class="resource-label">Enhancement Value</label>
-                  <input type="input" name="data.enhancement.value" value="{{data.enhancement.value}}" data-dtype="Number"/>
-              </div>
-              <div class="resource">
-                <label class="resource-label">Enhancement Condition</label>
-                  <input type="input" name="data.enhancement.relevance" value="{{data.enhancement.relevance}}" data-dtype="Number"/>
-              </div>
-            </div>
+
+            {{> "systems/trinity/templates/item/partials/dots-flag.html"}}
+            {{> "systems/trinity/templates/item/partials/item-flag.html"}}
+            {{> "systems/trinity/templates/item/partials/enhancement-flag.html"}}
+            {{> "systems/trinity/templates/item/partials/complication-flag.html"}}
+
+
         </div>
     </section>
 </form>

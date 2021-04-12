@@ -226,6 +226,9 @@
       "templates": ["base"],
       "typeName" : "Item",
       "quantity": 1,
+      "flags" : {
+        "isGear" : true
+      },
       "gear": {
         "tags" : ""
       },
