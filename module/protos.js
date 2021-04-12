@@ -13,19 +13,19 @@ export const pickedElementsProto = {
     value : 0
   },
   expl : {
-    name : "Standard",
+    name : "Explode Threshold",
     value : 10
   },
   succ : {
-    name : "Standard",
+    name : "Success Threshold",
     value : 8
   },
   nsca : {
-    name : "Standard",
+    name : "Narrative Scale",
     value : 1
   },
   dsca : {
-    name : "Standard",
+    name : "Dramatic Scale",
     value : 0
   }
 };
