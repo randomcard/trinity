@@ -430,7 +430,7 @@ if (content.style.maxHeight){
         user: game.user._id,
         speaker: ChatMessage.getSpeaker(),
         flavor: (item.data.data.typeName + " Description"),
-        content: item.data.data.description
+        content: ("<h3>"+item.data.name+"</h3><br>"+item.data.data.description)
       };
       console.log("chatData:", chatData);
       ChatMessage.create(chatData);
@@ -461,7 +461,7 @@ if (content.style.maxHeight){
         default: 'Yes'
       });
       deleteConfirm.render(true);
-      
+
       // this.actor.deleteOwnedItem(li.data("itemId"));
       // li.slideUp(200, () => this.render(false));
     });
