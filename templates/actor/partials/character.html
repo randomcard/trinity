@@ -2,29 +2,29 @@
 <div class="boxed">
 
   <div class="flex-parent">
-    <label class="flex-child-full" for="char-name">Name:</label>
+    <label class="flex-child-fit" for="char-name">Name:</label>
       <input class="flex-child-fit" id="char-name" name="name" type="text" value="{{actor.name}}"/>
   </div>
   <div class="flex-parent">
-    <label class="flex-child-full" for="char-player">Player:</label>
+    <label class="flex-child-fit" for="char-player">Player:</label>
       <input class="flex-child-fit" id="char-player" name="data.player" type="text" value="{{actor.data.player}}"/>
   </div>
   <div class="flex-parent">
-    <label class="flex-child-full" for="char-concept">Concept:</label>
+    <label class="flex-child-fit" for="char-concept">Concept:</label>
       <input class="flex-child-fit" id="char-concept" name="data.concept" type="text" value="{{actor.data.concept}}"/>
   </div>
   <div class="flex-parent">
-    <label class="flex-child-full" for="char-xp-avail">Experience Available:</label>
+    <label class="flex-child-fit" for="char-xp-avail">Experience Available:</label>
       <input class="flex-child-fit" id="char-xp-avail" name="data.experience.available" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" value="{{data.experience.available}}"/>
   </div>
   <div class="flex-parent">
-    <label class="flex-child-full" for="char-xp-earned">Experience Earned:</label>
+    <label class="flex-child-fit" for="char-xp-earned">Experience Earned:</label>
       <input class="flex-child-fit" id="char-xp-earned" name="data.experience.earned" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" value="{{data.experience.earned}}"/>
   </div>
 
   {{#each data.aspirations as |aspiration key|}}
   <div class="flex-parent">
-    <label class="flex-child-full" for="{{aspiration}}.name">{{aspiration.name}}:</label>
+    <label class="flex-child-fit" for="{{aspiration}}.name">{{aspiration.name}}:</label>
     <input class="flex-child-fit" type="text" id="{{key}}.name" name="data.aspirations.{{key}}.value" value="{{aspiration.value}}" data-dtype="String"/>
     <input class="flex-child-fit" type="checkbox" id="{{key}}.complete" name="data.aspirations.{{key}}.complete" value="{{aspiration.complete}}" data-dtype="Boolean" {{checked aspiration.complete}}/>
   </div>

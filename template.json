@@ -233,7 +233,8 @@
         "tags" : ""
       },
       "weapon" : {
-        "tags" : ""
+        "tags" : "",
+        "damageType" : ""
       },
       "armor" : {
         "tags" : "",
