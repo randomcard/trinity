@@ -421,6 +421,19 @@ if (content.style.maxHeight){
       item.sheet.render(true);
     });
 
+    // Output Item Description to Chat
+    html.find('.item-chat').click(ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.getOwnedItem(li.data("itemId"));
+      let chatData = {
+        user: game.user._id,
+        speaker: ChatMessage.getSpeaker(),
+        content: item.data.data.description
+      };
+      ChatMessage.create(chatData);
+      // item.sheet.render(true);
+    });
+
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
