@@ -429,7 +429,7 @@ if (content.style.maxHeight){
       let chatData = {
         user: game.user._id,
         speaker: ChatMessage.getSpeaker(),
-        flavor: (item.data.data.typeName + "Description"),
+        flavor: (item.data.data.typeName + " Description"),
         content: item.data.data.description
       };
       console.log("chatData:", chatData);
@@ -440,8 +440,30 @@ if (content.style.maxHeight){
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(li.data("itemId"));
-      li.slideUp(200, () => this.render(false));
+
+      let deleteConfirm = new Dialog({
+        title: "Delete Confirmation",
+        content: "Delete Item?",
+        buttons: {
+          Yes: {
+            icon: '<i class="fa fa-check"></i>',
+            label: "Yes",
+            callback: dlg => {
+              this.actor.deleteOwnedItem(li.data("itemId"));
+              li.slideUp(200, () => this.render(false));
+            }
+          },
+          cancel: {
+            icon: '<i class="fas fa-times"></i>',
+            label: "Cancel"
+          },
+        },
+        default: 'Yes'
+      });
+      deleteConfirm.render(true);
+      
+      // this.actor.deleteOwnedItem(li.data("itemId"));
+      // li.slideUp(200, () => this.render(false));
     });
 
     // Rollable abilities.
