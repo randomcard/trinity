@@ -397,14 +397,17 @@ if (content.style.maxHeight){
     // Remove Inspiration
     html.find('.remove-inspiration').click(ev => {
       if (this.actor.data.data.inspiration.value > 0) {
-        --this.actor.data.data.inspiration.value;
+        // --this.actor.data.data.inspiration.value;
+        this.actor.update({ 'data.inspiration.value': --this.actor.data.data.inspiration.value });
+
         this.render(true);
       }
     });
 
     // Add Inspiration
     html.find('.add-inspiration').click(ev => {
-      ++this.actor.data.data.inspiration.value;
+      // ++this.actor.data.data.inspiration.value;
+      this.actor.update({ 'data.inspiration.value': ++this.actor.data.data.inspiration.value });
       this.render(true);
     });
 
