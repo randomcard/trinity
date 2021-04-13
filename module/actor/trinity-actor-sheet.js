@@ -429,7 +429,8 @@ if (content.style.maxHeight){
       let chatData = {
         user: game.user._id,
         speaker: ChatMessage.getSpeaker(),
-        content: item.data.description
+        flavor: (item.data.data.typeName + "Description"),
+        content: item.data.data.description
       };
       console.log("chatData:", chatData);
       ChatMessage.create(chatData);
