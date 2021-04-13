@@ -531,7 +531,7 @@
 }
 
 .flex-child-full {
-  flex: 0 1 auto;
+  flex: 1 1 auto;
   margin: 3px;
 }
 

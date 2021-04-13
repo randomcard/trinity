@@ -182,7 +182,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
 
     let rollFormula = `((${p.skil.value}+${p.attr.value})d10x>=${p.expl.value}cs>=${p.succ.value})*${p.nsca.value}`;
-    let enhaValue = parseInt(p.enha.value) + parseInt(p.dsca.value);
+    let enhaValue = parseInt(p.enha.value) + (parseInt(p.dsca.value) * 2);
 
     console.log(rollFormula);
 

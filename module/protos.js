@@ -21,11 +21,11 @@ export const pickedElementsProto = {
     value : 8
   },
   nsca : {
-    name : "Narrative Scale",
+    name : "Narrative Scale (Absolute)",
     value : 1
   },
   dsca : {
-    name : "Dramatic Scale",
+    name : "Dramatic Scale (Difference)",
     value : 0
   }
 };
