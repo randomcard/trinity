@@ -133,6 +133,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           return;
         }
       },
+      /*
       cancel: {
         icon: "<i class='fas fa-times'></i>",
         label: "Cancel",
@@ -142,14 +143,18 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           return;
         }
       },
+      */
       reset: {
         icon: "<i class='fas fa-times'></i>",
         label: "Reset",
         callback: () => {
           console.log("Refresh Roller");
           // render(true);
+          console.log("Reset pickedElements, before:", pickedElements);
           pickedElements = {};
+          console.log("Reset pickedElements, during:", pickedElements);
           Object.assign(pickedElements, pickedElementsProto);
+          console.log("Reset pickedElements, after:", pickedElements);
           event = {};
           return trinityRoll(targetActor, pickedElements, event);
         }
@@ -172,7 +177,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 //    let rollFormula = `(((${p.attr.value}+${p.skil.value})d10x${p.expl.value}cs>=${p.succ.value})+(${p.enha.value}+${p.dsca.value}))*${p.nsca.value}`;
 
 
-    let rollFormula = `((${p.attr.value}+${p.skil.value})d10x${p.expl.value}cs>=${p.succ.value})*${p.nsca.value}`;
+    let rollFormula = `((${p.skil.value}+${p.attr.value})d10x>=${p.expl.value}cs>=${p.succ.value})*${p.nsca.value}`;
     let enhaValue = parseInt(p.enha.value) + parseInt(p.dsca.value);
 
     console.log(rollFormula);
@@ -185,6 +190,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
       speaker: ChatMessage.getSpeaker({ actor: targetActor }),
       flavor: label
     });
+
   }
 
 
