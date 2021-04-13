@@ -425,11 +425,13 @@ if (content.style.maxHeight){
     html.find('.item-chat').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.getOwnedItem(li.data("itemId"));
+      console.log("chat item:", item);
       let chatData = {
         user: game.user._id,
         speaker: ChatMessage.getSpeaker(),
-        content: item.data.data.description
+        content: item.data.description
       };
+      console.log("chatData:", chatData);
       ChatMessage.create(chatData);
       // item.sheet.render(true);
     });
