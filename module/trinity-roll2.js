@@ -17,7 +17,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
   if (typeof pickedElements === 'undefined' || pickedElements === null) {
     console.log("Creating default pickedElements");
     pickedElements = {};
-    Object.assign(pickedElements, pickedElementsProto);
+    // Object.assign(pickedElements, pickedElementsProto);
+    pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
     console.log(pickedElements);
   }
   // pickedElements = pickedElements || Object.create(pickedElementsProto);
@@ -129,7 +130,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           }
           _roll(targetActor, pickedElements);
           pickedElements = {};
-          Object.assign(pickedElements, pickedElementsProto);
+          // Object.assign(pickedElements, pickedElementsProto);
+          pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
           return;
         }
       },
@@ -164,7 +166,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     default:"roll",
     callback: html => {
       pickedElements = {};
-      Object.assign(pickedElements, pickedElementsProto);
+      // Object.assign(pickedElements, pickedElementsProto);
+      pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
       return;
     }
   }, {targetActor, pickedElements});

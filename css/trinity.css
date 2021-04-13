@@ -502,7 +502,7 @@
   width: 100%;
 }
 
-.flex-parent-evenly {
+.flex-parent-between {
   display: flex;
   -webkit-box-pack: space-between;
   -ms-flex-pack: space-between;
