@@ -490,6 +490,7 @@
   flex-flow: column nowrap;
   margin: 3px;
   align-items: center;
+  width: 100%;
 }
 
 .flex-parent-evenly {
@@ -497,6 +498,15 @@
   -webkit-box-pack: space-evenly;
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
+  margin: 3px;
+  width: 100%;
+}
+
+.flex-parent-evenly {
+  display: flex;
+  -webkit-box-pack: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
   margin: 3px;
   width: 100%;
 }

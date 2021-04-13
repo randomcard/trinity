@@ -153,7 +153,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           console.log("Reset pickedElements, before:", pickedElements);
           pickedElements = {};
           console.log("Reset pickedElements, during:", pickedElements);
-          Object.assign(pickedElements, pickedElementsProto);
+          // Object.assign(pickedElements, pickedElementsProto);
+          pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
           console.log("Reset pickedElements, after:", pickedElements);
           event = {};
           return trinityRoll(targetActor, pickedElements, event);
