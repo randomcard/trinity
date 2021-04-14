@@ -191,7 +191,7 @@
   margin-bottom: 5px;
 }
 
-.trinity .sheet-header .profile-img {
+.trinity .sheet-header .profile-img .token-img {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
