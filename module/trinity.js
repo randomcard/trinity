@@ -7,7 +7,7 @@ import { TrinityItem } from "./item/item.js";
 import { TrinityItemSheet } from "./item/item-sheet.js";
 import { TrinityRoll } from "./trinity-roll.js";
 import { TRoll } from "./roll/troll.js";
-import { PartyOverviewApp } from "./overview/overview.js"; // Overview App
+import { OverviewApp } from "./overview/overview.js"; // Overview App
 
 // Overview
 let overview;
@@ -22,7 +22,7 @@ Hooks.once('init', async function() {
   };
 
   // Overview
-  overview = new PartyOverviewApp();
+  overview = new OverviewApp();
   /**
    * Register settings
    */
