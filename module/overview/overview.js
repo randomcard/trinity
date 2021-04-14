@@ -19,6 +19,7 @@ export class OverviewApp extends Application {
     this.state.momentum.max = game.settings.get("trinity", "momentum-max");
     this.state.momentum.current = game.settings.get("trinity", "momentum-current");
     this.state.momentum.spent = game.settings.get("trinity", "momentum-spent");
+    console.log("Overview, This:", this);
 
   }
 
@@ -49,6 +50,7 @@ export class OverviewApp extends Application {
     momentum.spent = game.settings.get("trinity", "momentum-spent");
     */
 
+    console.log("Overview update, This:", this);
     game.settings.set("trinity", "momentum-max", this.state.momentum.max);
     game.settings.set("trinity", "momentum-current", this.state.momentum.current);
     game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
