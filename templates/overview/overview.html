@@ -41,7 +41,7 @@
         </div>
         <div class="text">{{ actor.name }}</div>
     </div>
-    {{#each data.aspirations as |aspiration key|}}
+    {{#each actor.data.aspirations as |aspiration key|}}
     <div class="flex-parent">
       <label class="flex-child-fit" for="{{aspiration}}.name">{{aspiration.name}}:</label>
       <input class="flex-child-fit" type="text" id="{{key}}.name" name="data.aspirations.{{key}}.value" value="{{aspiration.value}}" data-dtype="String"/>
