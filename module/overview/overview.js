@@ -32,7 +32,7 @@ export class OverviewApp extends Application {
     }
     */
 
-    if (typeof momentum !== 'undefined' && momentum !== null) {
+    if (typeof momentum !== 'undefined') {
       game.settings.set("trinity", "momentum-max", momentum.max);
       game.settings.set("trinity", "momentum-current", momentum.current);
       game.settings.set("trinity", "momentum-spent", momentum.spent);
