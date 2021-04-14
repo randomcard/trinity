@@ -255,7 +255,7 @@ Hooks.once("ready", async function() {
 // Overview
 Hooks.on("ready", () => {
   if (overview) overview.update();
-  else overview = new PartyOverviewApp();
+  else overview = new OverviewApp();
 });
 
 Hooks.on("renderActorDirectory", (app, html, data) => {
