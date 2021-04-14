@@ -15,11 +15,6 @@ export class OverviewApp extends Application {
     this.displayMode = DISPLAY_MODE.SHOW_VISIBLE;
     this.activeTab = "general";
 
-    this.state.momentum = {};
-    this.state.momentum.max = null;
-    this.state.momentum.current = null;
-    this.state.momentum.spent = null;
-
   }
 
 
@@ -55,7 +50,7 @@ export class OverviewApp extends Application {
     game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
 */
     console.log("Overview update (before), This:", this);
-    if (typeof momentum === 'undefined') {
+    if (typeof this.state.momentum === 'undefined') {
       this.state.momentum = {};
       this.state.momentum.max = game.settings.get("trinity", "momentum-max");
       this.state.momentum.current = game.settings.get("trinity", "momentum-current");
@@ -139,7 +134,7 @@ export class OverviewApp extends Application {
       mode: this.displayMode,
       name: "Sebastian", // Why?
       actors: actors,
-//      momentum: this.momentum,
+      momentum: this.state.momentum,
       languages: languages,
       totalCurrency: totalCurrency,
 	    totalPartyGP: totalPartyGP,
