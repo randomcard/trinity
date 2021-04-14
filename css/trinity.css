@@ -558,6 +558,15 @@ input.narrow-input {
   text-align: center;
 }
 
+input[type=radio].hidden-input {
+  opacity: 0;
+  position: absolute;
+}
+
+input[type=radio].hidden-input:focus + label {
+  outline: rgba(77, 97, 171, 0.5) auto 3px;
+}
+
 .bio-image {
   max-width: 150px;
   object-fit: contain;

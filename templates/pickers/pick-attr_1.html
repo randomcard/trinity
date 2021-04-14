@@ -1,0 +1,15 @@
+{{log "MyPickerItem" this}}
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <section class="sheet-body">
+    <div class="attributes grid grid-3col">
+      {{#each this.actor.data.data.attributes as |attribute key|}}
+        <div class="attribute flexrow flex-group-center" id="{{key}}">
+          <label for="data.attributes.{{key}}" class="resource-label" data-attrname="{{attribute.name}}">
+            {{attribute.name}}
+          </label>
+          <input type="radio" id="{{attribute.name}}" class="input" name="attr" value="{{attribute.name}}">
+        </div>
+      {{/each}}
+    </div>
+  </section>
+</form>
