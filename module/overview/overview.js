@@ -84,14 +84,7 @@ export class OverviewApp extends Application {
       resizable: true,
       title: "Party Overview",
       template: `systems/trinity/templates/overview/overview.html`,
-      classes: ["overview", game.system.id],
-      tabs: [
-        {
-          navSelector: ".tabs",
-          contentSelector: ".content",
-          initial: "general",
-        },
-      ],
+      classes: ["overview", game.system.id]
     });
   }
 
