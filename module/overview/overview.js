@@ -15,10 +15,10 @@ export class OverviewApp extends Application {
     this.displayMode = DISPLAY_MODE.SHOW_VISIBLE;
     this.activeTab = "general";
 
-    this.momentum = {};
-    this.momentum.max = game.settings.get("trinity", "momentum-max");
-    this.momentum.current = game.settings.get("trinity", "momentum-current");
-    this.momentum.spent = game.settings.get("trinity", "momentum-spent");
+    this.state.momentum = {};
+    this.state.momentum.max = game.settings.get("trinity", "momentum-max");
+    this.state.momentum.current = game.settings.get("trinity", "momentum-current");
+    this.state.momentum.spent = game.settings.get("trinity", "momentum-spent");
 
   }
 
@@ -49,9 +49,9 @@ export class OverviewApp extends Application {
     momentum.spent = game.settings.get("trinity", "momentum-spent");
     */
 
-    game.settings.set("trinity", "momentum-max", this.momentum.max);
-    game.settings.set("trinity", "momentum-current", this.momentum.current);
-    game.settings.set("trinity", "momentum-spent", this.momentum.spent);
+    game.settings.set("trinity", "momentum-max", this.state.momentum.max);
+    game.settings.set("trinity", "momentum-current", this.state.momentum.current);
+    game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
 
     let actors = game.actors.entities
       .filter(a => a.hasPlayerOwner)
@@ -117,7 +117,7 @@ export class OverviewApp extends Application {
     this.state = {
       activeTab: this.activeTab,
       mode: this.displayMode,
-      name: "Sebastian",
+      name: "Sebastian", // Why?
       actors: actors,
       momentum: this.momentum,
       languages: languages,
