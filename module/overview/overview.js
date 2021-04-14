@@ -197,7 +197,8 @@ export class OverviewApp extends Application {
       return {
         id: actor.id,
         isHidden: this.hiddenActors.includes(actor.id),
-        name: actor.name
+        name: actor.name,
+        aspirations: actor.data.data.aspirations
         /*
         ,
         current_wounds: actor.data.data.wounds.value,

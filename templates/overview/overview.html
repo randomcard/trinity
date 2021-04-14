@@ -41,11 +41,9 @@
         </div>
         <div class="text">{{ actor.name }}</div>
     </div>
-    {{#each actor.data.aspirations as |aspiration key|}}
     <div class="flex-parent">
-      <label class="flex-child-fit" for="{{aspiration}}.name">{{aspiration.name}}:</label>
-      <input class="flex-child-fit" type="text" id="{{key}}.name" name="data.aspirations.{{key}}.value" value="{{aspiration.value}}" data-dtype="String"/>
-      <input class="flex-child-fit" type="checkbox" id="{{key}}.complete" name="data.aspirations.{{key}}.complete" value="{{aspiration.complete}}" data-dtype="Boolean" {{checked aspiration.complete}}/>
+      <label class="flex-child-fit" for="{{actor.id}}-sta1">{{actor.aspirations.shortTerm1.name}}:</label>
+      <input class="flex-child-fit" type="text" id="{{actor.id}}-sta1" name="actor.aspirations.shortTerm1.value" value="{{actor.aspirations.shortTerm1.value}}" data-dtype="String"/>
+      <input class="flex-child-fit" type="checkbox" id="{{actor.id}}-sta1-complete" name="actor.aspirations.shortTerm1.complete" value="{{actor.aspirations.shortTerm1.complete}}" data-dtype="Boolean" {{checked actor.aspirations.shortTerm1.complete}}/>
     </div>
-    {{/each}}
 {{/each}}
