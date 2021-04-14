@@ -19,7 +19,7 @@ export class OverviewApp extends Application {
 
   update() {
     // Momentum Settings
-    if (typeof momentum === 'undefined' || pickedElements === null) {
+    if (typeof momentum === 'undefined' || momentum === null) {
       let momentum = {};
       momentum.max = game.settings.get("trinity", "momentum-max");
       momentum.current = game.settings.get("trinity", "momentum-current");
