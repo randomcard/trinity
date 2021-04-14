@@ -19,6 +19,7 @@ export class OverviewApp extends Application {
 
   update() {
     // Momentum Settings
+    /*
     if (typeof momentum === 'undefined' || momentum === null) {
       let momentum = {};
       momentum.max = game.settings.get("trinity", "momentum-max");
@@ -29,6 +30,19 @@ export class OverviewApp extends Application {
       game.settings.set("trinity", "momentum-max", momentum.current);
       game.settings.set("trinity", "momentum-max", momentum.spent);
     }
+    */
+
+    if (typeof momentum !== 'undefined' && momentum !== null) {
+      game.settings.set("trinity", "momentum-max", momentum.max);
+      game.settings.set("trinity", "momentum-current", momentum.current);
+      game.settings.set("trinity", "momentum-spent", momentum.spent);
+    }
+    let momentum = {};
+    momentum.max = game.settings.get("trinity", "momentum-max");
+    momentum.current = game.settings.get("trinity", "momentum-current");
+    momentum.spent = game.settings.get("trinity", "momentum-spent");
+
+
 
     let actors = game.actors.entities
       .filter(a => a.hasPlayerOwner)
