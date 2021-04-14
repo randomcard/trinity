@@ -15,10 +15,11 @@ export class OverviewApp extends Application {
     this.displayMode = DISPLAY_MODE.SHOW_VISIBLE;
     this.activeTab = "general";
 
-    this.momentum = {
-      max : game.settings.get("trinity", "momentum-max"),
-      current : game.settings.get("trinity", "momentum-current"),
-      spent : game.settings.get("trinity", "momentum-spent"),
+    this.momentum = {};
+    this.momentum.max = game.settings.get("trinity", "momentum-max");
+    this.momentum.current = game.settings.get("trinity", "momentum-current");
+    this.momentum.spent = game.settings.get("trinity", "momentum-spent");
+    
     };
 
   }
