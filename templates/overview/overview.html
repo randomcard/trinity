@@ -1,4 +1,5 @@
 {{log "Overview, This:" this}}
+<!--
 <h2>Momentum</h2>
 <div class="grid grid-3col">
   <div class="">
@@ -14,10 +15,11 @@
     <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="max-momentum" name="momentum.max" value="{{momentum.max}}" data-dtype="Number"/>
   </div>
 </div>
+-->
 
 <h2>Characters</h2>
 
-<div class="table-row header">
+<div class="flex-parent flex-valign">
     <div class="button">
         <button class="btn-filter">
             <i class="fas fa-filter {{#ifEquals mode 'SHOW_ALL'}}inactive{{/ifEquals}}"></i>
@@ -25,16 +27,12 @@
             {{#ifEquals mode 'SHOW_HIDDEN' }}<i class="fas fa-eye-slash"></i>{{/ifEquals}}
         </button>
     </div>
-    <div class="text">Name</div>
-    <div class="num" title="Bennies"><i class="fas fa-bullseye"></i></div>
-    <div class="num" title="Wounds"><i class="fas fa-skull"></i></div>
-    <div class="num" title="Fatigue"><i class="fas fa-dizzy"></i></div>
-    <div class="num" title="Parry"><i class="fas fa-shield-alt"></i></div>
-    <div class="text" title="Toughness"><i class="fas fa-heart"></i></div>
+    <div class="bold">Name</div>
 </div>
 
 {{#each actors as | actor | }}
-    <div class="table-row">
+  <div class="boxed">
+    <div class="flex-parent flex-valign">
         <div class="button">
             <button class="btn-toggle-visibility" data-actor="{{actor.id }}">
                 {{#if actor.isHidden }}<i class="value fas fa-eye-slash"></i>{{else}}<i
@@ -42,13 +40,12 @@
             </button>
         </div>
         <div class="text">{{ actor.name }}</div>
-        <div class="num">{{ actor.bennies }}</div>
-        <div class="num">{{ actor.current_wounds }}/{{ actor.max_wounds }}</div>
-        <div class="num">{{ actor.current_fatigue }}/{{ actor.max_fatigue }}</div>
-        <div class="num">{{ actor.parry }}</div>
-        <div class="text">
-            {{ actor.toughness }}
-            {{#if actor.armor}}({{actor.armor}}){{/if}}
-        </div>
     </div>
+    {{#each data.aspirations as |aspiration key|}}
+    <div class="flex-parent">
+      <label class="flex-child-fit" for="{{aspiration}}.name">{{aspiration.name}}:</label>
+      <input class="flex-child-fit" type="text" id="{{key}}.name" name="data.aspirations.{{key}}.value" value="{{aspiration.value}}" data-dtype="String"/>
+      <input class="flex-child-fit" type="checkbox" id="{{key}}.complete" name="data.aspirations.{{key}}.complete" value="{{aspiration.complete}}" data-dtype="Boolean" {{checked aspiration.complete}}/>
+    </div>
+    {{/each}}
 {{/each}}
