@@ -18,11 +18,17 @@ export class OverviewApp extends Application {
 
 
   update() {
-    // Mmomentum Settings
-    let momentum = {};
-    momentum.max = game.settings.get("trinity", "momentum-max");
-    momentum.current = game.settings.get("trinity", "momentum-current");
-    momentum.spent = game.settings.get("trinity", "momentum-spent");
+    // Momentum Settings
+    if (typeof momentum === 'undefined' || pickedElements === null) {
+      let momentum = {};
+      momentum.max = game.settings.get("trinity", "momentum-max");
+      momentum.current = game.settings.get("trinity", "momentum-current");
+      momentum.spent = game.settings.get("trinity", "momentum-spent");
+    } else {
+      game.settings.set("trinity", "momentum-max", momentum.max);
+      game.settings.set("trinity", "momentum-max", momentum.current);
+      game.settings.set("trinity", "momentum-max", momentum.spent);
+    }
 
     let actors = game.actors.entities
       .filter(a => a.hasPlayerOwner)
