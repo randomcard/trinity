@@ -13,7 +13,8 @@
           {{item.name}}
           {{#if item.data.flags.isInjury}}<span><i class="fas fa-user-injured"></i></span>{{/if}}
         </h4>
-        <div class="item-dots small icons">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</div>
+        <div class="item-dots small">{{item.data.stuntType}} / {{item.data.costDescription}}</div>
+        <!-- <div class="item-dots small icons">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</div> -->
         <div class="item-controls">
             <a class="item-control item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
             <a class="item-control item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
