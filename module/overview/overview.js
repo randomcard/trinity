@@ -59,7 +59,7 @@ export class OverviewApp extends Application {
     } else {
       console.log("this.state.momentum !== 'undefined'");
       if (this.state.momentum.max !== game.settings.get("trinity", "momentum-max")) {
-        console.log("this.state.momentum.max !== game.settings.get("trinity", "momentum-max")");
+        console.log("this.state.momentum.max !== game.settings");
         game.settings.set("trinity", "momentum-max", this.state.momentum.max);
       }
       if (this.state.momentum.current !== game.settings.get("trinity", "momentum-current")) {
