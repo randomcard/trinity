@@ -19,8 +19,6 @@ export class OverviewApp extends Application {
     this.momentum.max = game.settings.get("trinity", "momentum-max");
     this.momentum.current = game.settings.get("trinity", "momentum-current");
     this.momentum.spent = game.settings.get("trinity", "momentum-spent");
-    
-    };
 
   }
 
