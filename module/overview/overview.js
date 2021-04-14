@@ -55,14 +55,21 @@ export class OverviewApp extends Application {
     game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
 */
     console.log("Overview update (before), This:", this);
-    if (this.state.momentum.max !== null && this.state.momentum.max !== game.settings.get("trinity", "momentum-max")) {
-      game.settings.set("trinity", "momentum-max", this.state.momentum.max);
-    }
-    if (this.state.momentum.current !== null && this.state.momentum.current !== game.settings.get("trinity", "momentum-current")) {
-      game.settings.set("trinity", "momentum-current", this.state.momentum.current);
-    }
-    if (this.state.momentum.spent !== null && this.state.momentum.spent !== game.settings.get("trinity", "momentum-spent")) {
-      game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
+    if (typeof momentum === 'undefined') {
+      this.state.momentum = {};
+      this.state.momentum.max = game.settings.get("trinity", "momentum-max");
+      this.state.momentum.current = game.settings.get("trinity", "momentum-current");
+      this.state.momentum.spent = game.settings.get("trinity", "momentum-spent");
+    } else {
+      if (this.state.momentum.max !== null && this.state.momentum.max !== game.settings.get("trinity", "momentum-max")) {
+        game.settings.set("trinity", "momentum-max", this.state.momentum.max);
+      }
+      if (this.state.momentum.current !== null && this.state.momentum.current !== game.settings.get("trinity", "momentum-current")) {
+        game.settings.set("trinity", "momentum-current", this.state.momentum.current);
+      }
+      if (this.state.momentum.spent !== null && this.state.momentum.spent !== game.settings.get("trinity", "momentum-spent")) {
+        game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
+      }
     }
     console.log("Overview update (after), This:", this);
 
