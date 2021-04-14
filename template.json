@@ -287,6 +287,7 @@
       "templates": ["base"],
       "typeName" : "Stunt",
       "costDescription": "",
+      "stuntType": "",
       "costType": "",
       "value": 0,
       "flags" : {
