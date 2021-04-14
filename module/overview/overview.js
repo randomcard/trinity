@@ -14,6 +14,13 @@ export class OverviewApp extends Application {
     this.state = {};
     this.displayMode = DISPLAY_MODE.SHOW_VISIBLE;
     this.activeTab = "general";
+
+    this.momentum = {
+      max : game.settings.get("trinity", "momentum-max"),
+      current : game.settings.get("trinity", "momentum-current"),
+      spent : game.settings.get("trinity", "momentum-spent"),
+    };
+
   }
 
 
@@ -31,7 +38,7 @@ export class OverviewApp extends Application {
       game.settings.set("trinity", "momentum-max", momentum.spent);
     }
     */
-
+    /*
     if (typeof momentum !== 'undefined') {
       game.settings.set("trinity", "momentum-max", momentum.max);
       game.settings.set("trinity", "momentum-current", momentum.current);
@@ -41,8 +48,11 @@ export class OverviewApp extends Application {
     momentum.max = game.settings.get("trinity", "momentum-max");
     momentum.current = game.settings.get("trinity", "momentum-current");
     momentum.spent = game.settings.get("trinity", "momentum-spent");
+    */
 
-
+    game.settings.set("trinity", "momentum-max", this.momentum.max);
+    game.settings.set("trinity", "momentum-current", this.momentum.current);
+    game.settings.set("trinity", "momentum-spent", this.momentum.spent);
 
     let actors = game.actors.entities
       .filter(a => a.hasPlayerOwner)
@@ -110,10 +120,10 @@ export class OverviewApp extends Application {
       mode: this.displayMode,
       name: "Sebastian",
       actors: actors,
-      momentum: momentum,
+      momentum: this.momentum,
       languages: languages,
       totalCurrency: totalCurrency,
-	  totalPartyGP: totalPartyGP,
+	    totalPartyGP: totalPartyGP,
     };
   }
 
