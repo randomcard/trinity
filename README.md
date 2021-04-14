@@ -1,4 +1,4 @@
-This is an adaptation of the Boilerplate system.
+This is an adaptation of the Boilerplate system, w/ elements from party-overview (https://github.com/League-of-Foundry-Developers/party-overview)
 
 
 # Trinity System

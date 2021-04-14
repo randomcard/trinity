@@ -7,10 +7,6 @@ import { TrinityItem } from "./item/item.js";
 import { TrinityItemSheet } from "./item/item-sheet.js";
 import { TrinityRoll } from "./trinity-roll.js";
 import { TRoll } from "./roll/troll.js";
-import { PartyOverviewApp } from "./overview/overview.js"; // Overview App
-
-// Overview
-let overview;
 
 Hooks.once('init', async function() {
 
@@ -20,34 +16,6 @@ Hooks.once('init', async function() {
     rollItemMacro,
     TRoll
   };
-
-  // Overview
-  overview = new PartyOverviewApp();
-  /**
-   * Register settings
-   */
-   [
-    {
-      name: "EnablePlayerAccess",
-      scope: "world",
-      default: true,
-      type: Boolean,
-    },
-  ].forEach((setting) => {
-    let options = {
-      name: "Name", // game.i18n.localize(`party-overview.${setting.name}.Name`),
-      hint: "Hint", // game.i18n.localize(`party-overview.${setting.name}.Hint`),
-      scope: setting.scope,
-      config: true,
-      default: setting.default,
-      type: setting.type,
-    };
-    if (setting.choices) options.choices = setting.choices;
-    game.settings.register("overview", setting.name, options);
-  });
-  // Overview End
-
-
 
   /**
    * Set an initiative formula for the system
@@ -91,11 +59,6 @@ Hooks.once('init', async function() {
     return Object.keys({v})[0];
   });
 */
-
-  // From Party-Overview
-  Handlebars.registerHelper("ifEquals", function (arg1, arg2, options) {
-    return arg1 == arg2 ? options.fn(this) : options.inverse(this);
-  });
 
   Handlebars.registerHelper('toDots', function(n) {
     let dots = '';
@@ -211,69 +174,8 @@ Hooks.once("ready", async function() {
     }
   }); */
 
+
 });
-
-
-// Overview
-Hooks.on("ready", () => {
-  if (overview) overview.update();
-  else overview = new PartyOverviewApp();
-});
-
-Hooks.on("renderActorDirectory", (app, html, data) => {
-  if (!game.user.isGM && !game.settings.get("overview", "EnablePlayerAccess"))
-    return;
-
-  let button = $(
-    `<button id="overview-button" class="${game.system.id}">Party Overview</button>`
-  );
-  button.on("click", (e) => {
-    overview.render(true);
-  });
-
-  $(html).find("header.directory-header").prepend(button);
-});
-
-Hooks.on("deleteActor", (actor, ...rest) => {
-  if (actor.hasPlayerOwner) {
-    overview.update();
-    overview.render(false);
-  }
-});
-
-Hooks.on("updateActor", (actor, ...rest) => {
-  if (actor.hasPlayerOwner) {
-    overview.update();
-    overview.render(false);
-  }
-});
-
-Hooks.on("createToken", (scene, sceneId, token, ...rest) => {
-  let actor = game.actors.entities.find((actor) => actor.id === token.actorId);
-  if (actor && actor.hasPlayerOwner) {
-    overview.update();
-    overview.render(false);
-  }
-});
-
-Hooks.on("deleteToken", (...rest) => {
-  overview.update();
-  overview.render(false);
-});
-
-Hooks.on("updateScene", (scene, changes, ...rest) => {
-  if (changes.active) {
-    // what a hack! the hook is fired when the scene switch is not yet activated, so we need
-    // to wait a tiny bit. The combat tracker is rendered last, so the scene should be available
-    Hooks.once("renderCombatTracker", (...rest) => {
-      overview.update();
-      overview.render(false);
-    });
-  }
-});
-// Overview End
-
-
 
 Hooks.once( "init", function() {
   loadTrinityTemplates();
