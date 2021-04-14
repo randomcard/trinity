@@ -6,7 +6,7 @@ const DISPLAY_MODE = {
 
 const SIMPLE_SYTEMS = ['swade'];
 
-class OverviewApp extends Application {
+export class OverviewApp extends Application {
   constructor(options) {
     super(options);
 
@@ -337,4 +337,4 @@ class OverviewApp extends Application {
 
 }
 
-export default OverviewApp;
+// export default OverviewApp;
