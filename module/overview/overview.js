@@ -337,4 +337,4 @@ class OverviewApp extends Application {
 
 }
 
-export default PartyOverviewApp;
+export default OverviewApp;
