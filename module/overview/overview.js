@@ -16,10 +16,9 @@ export class OverviewApp extends Application {
     this.activeTab = "general";
 
     this.state.momentum = {};
-    this.state.momentum.max = game.settings.get("trinity", "momentum-max");
-    this.state.momentum.current = game.settings.get("trinity", "momentum-current");
-    this.state.momentum.spent = game.settings.get("trinity", "momentum-spent");
-    console.log("Overview, This:", this);
+    this.state.momentum.max = null;
+    this.state.momentum.current = null;
+    this.state.momentum.spent = null;
 
   }
 
@@ -49,11 +48,23 @@ export class OverviewApp extends Application {
     momentum.current = game.settings.get("trinity", "momentum-current");
     momentum.spent = game.settings.get("trinity", "momentum-spent");
     */
-
+/*
     console.log("Overview update, This:", this);
     game.settings.set("trinity", "momentum-max", this.state.momentum.max);
     game.settings.set("trinity", "momentum-current", this.state.momentum.current);
     game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
+*/
+    console.log("Overview update (before), This:", this);
+    if (this.state.momentum.max !== null && this.state.momentum.max !== game.settings.get("trinity", "momentum-max")) {
+      game.settings.set("trinity", "momentum-max", this.state.momentum.max);
+    }
+    if (this.state.momentum.current !== null && this.state.momentum.current !== game.settings.get("trinity", "momentum-current")) {
+      game.settings.set("trinity", "momentum-current", this.state.momentum.current);
+    }
+    if (this.state.momentum.spent !== null && this.state.momentum.spent !== game.settings.get("trinity", "momentum-spent")) {
+      game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
+    }
+    console.log("Overview update (after), This:", this);
 
     let actors = game.actors.entities
       .filter(a => a.hasPlayerOwner)
@@ -121,7 +132,7 @@ export class OverviewApp extends Application {
       mode: this.displayMode,
       name: "Sebastian", // Why?
       actors: actors,
-      momentum: this.momentum,
+//      momentum: this.momentum,
       languages: languages,
       totalCurrency: totalCurrency,
 	    totalPartyGP: totalPartyGP,
