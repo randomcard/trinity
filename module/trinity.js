@@ -35,7 +35,7 @@ Hooks.once('init', async function() {
     },
   ].forEach((setting) => {
     let options = {
-      name: "Name", // game.i18n.localize(`party-overview.${setting.name}.Name`),
+      name: "Overview Button - Player Access?", // game.i18n.localize(`party-overview.${setting.name}.Name`),
       hint: "Hint", // game.i18n.localize(`party-overview.${setting.name}.Hint`),
       scope: setting.scope,
       config: true,
@@ -47,6 +47,44 @@ Hooks.once('init', async function() {
   });
   // Overview End
 
+  // World settings
+  // Register a world setting
+  game.settings.register("trinity", "momentum-max", {
+    name: "Maximum Momentum",
+    hint: "Maximum momentum, 3x number of players",
+    scope: "world",      // This specifies a world-level setting
+    config: false,        // This specifies that the setting appears in the configuration view
+    type: Number,
+    default: 3,         // The default value for the setting
+    onChange: value => { // A callback function which triggers when the setting is changed
+      console.log("Settings - Max Momentum Changed:", value)
+    }
+  });
+
+  game.settings.register("trinity", "momentum-current", {
+    name: "Current Momentum",
+    hint: "Current momentum, 3x number of players",
+    scope: "world",      // This specifies a world-level setting
+    config: false,        // This specifies that the setting appears in the configuration view
+    type: Number,
+    default: 0,         // The default value for the setting
+    onChange: value => { // A callback function which triggers when the setting is changed
+      console.log("Settings - Current Momentum Changed:", value)
+    }
+  });
+
+  game.settings.register("trinity", "momentum-spent", {
+    name: "Spent Momentum",
+    hint: "Spent momentum, 3x number of players",
+    scope: "world",      // This specifies a world-level setting
+    config: false,        // This specifies that the setting appears in the configuration view
+    type: Number,
+    default: 0,         // The default value for the setting
+    onChange: value => { // A callback function which triggers when the setting is changed
+      console.log("Settings - Spent Momentum Changed:", value)
+    }
+  });
+  // End World Settings
 
 
   /**

@@ -18,6 +18,12 @@ export class OverviewApp extends Application {
 
 
   update() {
+    // Mmomentum Settings
+    let momentum = {};
+    momentum.max = game.settings.get("trinity", "momentum-max");
+    momentum.current = game.settings.get("trinity", "momentum-current");
+    momentum.spent = game.settings.get("trinity", "momentum-spent");
+
     let actors = game.actors.entities
       .filter(a => a.hasPlayerOwner)
       .map(playerActor => playerActor.getActiveTokens())
@@ -84,6 +90,7 @@ export class OverviewApp extends Application {
       mode: this.displayMode,
       name: "Sebastian",
       actors: actors,
+      momentum: momentum,
       languages: languages,
       totalCurrency: totalCurrency,
 	  totalPartyGP: totalPartyGP,
