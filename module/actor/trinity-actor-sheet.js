@@ -426,11 +426,11 @@ if (content.style.maxHeight){
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       console.log("chat item:", item);
-      let chatData = {
+      let chatData = {, 
         user: game.user._id,
         speaker: ChatMessage.getSpeaker(),
         flavor: (item.data.data.typeName + " Description"),
-        content: ("<h3>"+item.data.name+"</h3><br>"+item.data.data.description)
+        content: ("<h2>"+item.data.name+"</h2>"+item.data.data.description)
       };
       console.log("chatData:", chatData);
       ChatMessage.create(chatData);
