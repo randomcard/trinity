@@ -374,7 +374,7 @@ export class OverviewApp extends Application {
       this.render(false);
     });
 
-
+/*
     $('span[name="hpCurrent"], span[name="hpMax"]', html).hover(
       function () {
         const data = $(this).data();
@@ -385,7 +385,7 @@ export class OverviewApp extends Application {
         $(this).text(`${data.total}`);
       }
     );
-
+*/
     super.activateListeners(html);
   }
 
