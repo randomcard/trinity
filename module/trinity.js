@@ -21,31 +21,7 @@ Hooks.once('init', async function() {
     TRoll
   };
 
-  // Overview
-  overview = new OverviewApp();
-  /**
-   * Register settings
-   */
-   [
-    {
-      name: "EnablePlayerAccess",
-      scope: "world",
-      default: true,
-      type: Boolean,
-    },
-  ].forEach((setting) => {
-    let options = {
-      name: "Overview Button - Player Access?", // game.i18n.localize(`party-overview.${setting.name}.Name`),
-      hint: "Hint", // game.i18n.localize(`party-overview.${setting.name}.Hint`),
-      scope: setting.scope,
-      config: true,
-      default: setting.default,
-      type: setting.type,
-    };
-    if (setting.choices) options.choices = setting.choices;
-    game.settings.register("overview", setting.name, options);
-  });
-  // Overview End
+
 
   // World settings
   // Register a world setting
@@ -86,6 +62,31 @@ Hooks.once('init', async function() {
   });
   // End World Settings
 
+  // Overview
+  overview = new OverviewApp();
+  /**
+   * Register settings
+   */
+   [
+    {
+      name: "EnablePlayerAccess",
+      scope: "world",
+      default: true,
+      type: Boolean,
+    },
+  ].forEach((setting) => {
+    let options = {
+      name: "Overview Button - Player Access?", // game.i18n.localize(`party-overview.${setting.name}.Name`),
+      hint: "Hint", // game.i18n.localize(`party-overview.${setting.name}.Hint`),
+      scope: setting.scope,
+      config: true,
+      default: setting.default,
+      type: setting.type,
+    };
+    if (setting.choices) options.choices = setting.choices;
+    game.settings.register("overview", setting.name, options);
+  });
+  // Overview End
 
   /**
    * Set an initiative formula for the system
