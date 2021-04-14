@@ -74,9 +74,6 @@ export class OverviewApp extends Application {
       name: "Sebastian", // Why?
       actors: actors,
       momentum: this.state.momentum,
-      languages: languages,
-      totalCurrency: totalCurrency,
-	    totalPartyGP: totalPartyGP,
     };
   }
 
