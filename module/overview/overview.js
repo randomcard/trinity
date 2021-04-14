@@ -357,6 +357,7 @@ export class OverviewApp extends Application {
   }
 
   activateListeners(html) {
+    /*
     $(".btn-toggle-visibility").on("click", event => {
       const actorId = event.currentTarget.dataset.actor;
       this.hiddenActors = this.hiddenActors.includes(actorId)
@@ -374,7 +375,7 @@ export class OverviewApp extends Application {
           : DISPLAY_MODE.SHOW_ALL;
       this.render(false);
     });
-
+*/
 /*
     $('span[name="hpCurrent"], span[name="hpMax"]', html).hover(
       function () {
