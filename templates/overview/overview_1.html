@@ -19,9 +19,26 @@
 
 <h2>Characters</h2>
 
+<div class="flex-parent flex-valign">
+    <div class="button">
+        <button class="btn-filter">
+            <i class="fas fa-filter {{#ifEquals mode 'SHOW_ALL'}}inactive{{/ifEquals}}"></i>
+            {{#ifEquals mode 'SHOW_VISIBLE' }}<i class="fas fa-eye"></i>{{/ifEquals}}
+            {{#ifEquals mode 'SHOW_HIDDEN' }}<i class="fas fa-eye-slash"></i>{{/ifEquals}}
+        </button>
+    </div>
+    <div class="bold">Name</div>
+</div>
+
 {{#each actors as | actor | }}
   <div class="boxed">
     <div class="flex-parent flex-valign">
+        <div class="button">
+            <button class="btn-toggle-visibility" data-actor="{{actor.id }}">
+                {{#if actor.isHidden }}<i class="value fas fa-eye-slash"></i>{{else}}<i
+                    class="value fas fa-eye"></i>{{/if}}
+            </button>
+        </div>
         <div class="text">{{ actor.name }}</div>
     </div>
     <div class="flex-parent">
