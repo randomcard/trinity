@@ -21,7 +21,7 @@
     <div class="attributes grid grid-3row">
       {{#each this.actor.data.data.attributes as |attribute key|}}
         <div class="flexcol flex-group-center boxed" data-attrname="{{attribute.name}}" id="{{key}}">
-          <input type="radio" id="{{attribute.name}}" class="input hidden-input" name="attr" value="{{attribute.name}}">
+          <input type="radio" id="{{attribute.name}}" class="input" name="attr" value="{{attribute.name}}">
           <label for="{{attribute.name}}" class="resource-label" data-attrname="{{attribute.name}}">
             {{attribute.name}}
           </label>
