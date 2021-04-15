@@ -1,0 +1,26 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <section class="sheet-body">
+    <div class="items grid grid-1col">
+      {{#each this.items as |item key|}}
+        <div class="item flexrow flex-group-center" id="{{key}}">
+          <div class="flex-group-left-i min-content">
+            <input type="checkbox" id="{{item.data._id}}" class="input" name="enha" value="{{item.data.name}}">
+          </div>
+          <div class="flex-group-left-i big min-content">
+            <b>{{item.data.data.enhancement.value}}</b>
+          </div>
+          <div class="flex-group-right-i">
+            <label for="{{item.data._id}}" class="resource-label" data-skilname="{{item.data.name}}">
+              <div class="box-details">
+                <h3>{{item.name}}</h3>
+                <p>{{item.data.data.enhancement.relevance}}</p>
+              </div>
+            </label>
+          </div>
+        </div>
+      {{else}}
+        No Eligible Items Found.
+      {{/each}}
+    </div>
+  </section>
+</form>
