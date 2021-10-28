@@ -554,9 +554,9 @@ if (content.style.maxHeight){
 
   _onRoll(event) {
     event.preventDefault();
-    trinityRoll(this.actor, null, event);
     console.log("Launch trinityRoll event");
     console.log(this.actor);
+    trinityRoll(this.actor, null, event);
   }
 
 
