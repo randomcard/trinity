@@ -360,6 +360,8 @@ if (content.style.maxHeight){
       for (let c of this.options.collapsedContent) {
         var cElement = html.find("#"+c);
         cElement.addClass("collapsible-content-active");
+        console.log("cElement");
+        console.log(cElement);
         cElement[0].style.maxHeight = cElement[0].scrollHeight + "px";
       }
     }
