@@ -1,0 +1,424 @@
+{{!-- Full Data --}}
+{{log "full-data logging, this:" this}}
+{{!-- Get values from actor, input names from data? --}}
+
+{{!-- Biographical Info --}}
+<!--
+<button type="button" id="fd-bio-header" class="collapsible">Biographical Info</button>
+<div id="fd-bio-content" class="collapsible-content">
+  <label for="fd-name" class="resource-label"> Name: </label>
+    <input id="fd-name" name="name" type="text" value="{{actor.name}}"/>
+
+  <label for="fd-player" class="resource-label"> Player: </label>
+    <input id="fd-player" name="data.player" type="text" value="{{actor.data.player}}"/>
+
+  <label for="fd-concept" class="resource-label"> Concept: </label>
+    <input id="fd-concept" name="data.concept" type="text" value="{{actor.data.concept}}"/>
+</div>
+
+
+
+{{!-- Paths --}}
+<button type="button" id="fd-paths-header" class="collapsible">Paths</button>
+<div id="fd-paths-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="path"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.paths as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+-->
+{{!-- Skills --}}
+<button type="button" id="fd-skills-header" class="collapsible">Skills</button>
+<div id="fd-skills-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Rank</div>
+      <div class="item-name">Skill Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="skill"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.skills as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="resource-label">{{item.data.value}}</h4>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Skill"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Skill"><i class="fas fa-trash"></i></a>
+            <a class="item-control rollable" title="Roll Skill" data-skillid="{{item._id}}">
+              <i class="fas fa-dice-d20"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+
+{{!-- Attributes --}}
+<button type="button" id="fd-attr-header" class="collapsible">Attributes</button>
+<div id="fd-attr-content" class="collapsible-content">
+{{#each data.attributes as |attribute key|}}
+  <div class="attribute flexrow flex-group-center">
+    <label for="fd-{{key}}" class="resource-label rollable"> {{attribute.name}} </label>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-{{key}}" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
+  </div>
+{{/each}}
+</div>
+
+
+{{!-- Health --}}
+<button type="button" id="fd-health-header" class="collapsible">Health Boxes</button>
+<div id="fd-health-content" class="collapsible-content">
+  {{#each data.healthboxes as |healthbox key|}}
+    <div class="healthbox flexrow flex-group-center">
+      <label for="fd-healthbox-{{key}}" class="resource-label"> {{healthbox.name}} </label>
+      <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-healthbox-{{key}}" name="data.healthboxes.{{key}}.value" value="{{healthbox.value}}" data-dtype="Number"/>
+    </div>
+  {{/each}}
+</div>
+
+{{!-- Defense --}}
+<button type="button" id="fd-defense-header" class="collapsible">Defense</button>
+<div id="fd-defense-content" class="collapsible-content">
+  <div class="defense flexrow flex-group-center">
+    <label for="fd-defense" class="resource-label">Defense</label>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-defense" name="data.defense.value" value="{{data.defense.value}}" data-dtype="Number"/>
+  </div>
+</div>
+
+
+{{!-- Flags --}}
+<button type="button" id="fd-flags-header" class="collapsible">Flags</button>
+<div id="fd-flags-content" class="collapsible-content">
+<label for="fd-isTalent" class="resource-label"> Talent: </label>
+  <input type="checkbox" id="fd-isTalent" name="data.flags.isTalent" value="{{actor.data.flags.isTalent}}" data-dtype="Boolean" {{checked this.data.flags.isTalent}}/>
+</div>
+
+{{!-- Talent Powers / Stats --}}
+{{#if actor.data.flags.isTalent}}
+<button type="button" id="fd-talent-header" class="collapsible">Talent Powers</button>
+<div id="fd-talent-content" class="collapsible-content">
+<!--
+<label for="fd-moment" class="resource-label"> Moment of Inspiration: </label>
+  <input id="fd-moment" name="data.moment" type="text" value="{{actor.data.moment}}"/>
+-->
+
+<h3>Facets:</h3>
+{{#each data.facets as |facet key|}}
+  <div class="facet flexrow flex-group-center">
+    <label for="fd-facet-{{key}}" class="resource-label"> {{facet.name}} </label>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-facet-{{key}}" name="data.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
+  </div>
+{{/each}}
+
+<h3>Inspiration:</h3>
+<div class="inspiration flexrow flex-group-center">
+  <label for="fd-inspiration-max" class="resource-label rollable"> Max: </label>
+  <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-inspiration-max" name="data.inspiration.max" value="{{actor.data.inspiration.max}}" data-dtype="Number"/>
+</div>
+<!--
+<div class="inspiration flexrow flex-group-center">
+  <label for="fd-inspiration-value" class="resource-label rollable"> Current: </label>
+  <input type="text" id="fd-inspiration-value" name="data.inspiration.value" value="{{actor.data.inspiration.value}}" data-dtype="Number"/>
+</div>
+-->
+{{/if}}
+</div>
+
+<!--
+{{!-- Gifts --}}
+{{#if actor.data.flags.isTalent}}
+<button type="button" id="fd-gifts-header" class="collapsible">Gifts</button>
+<div id="fd-gifts-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="gift"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.gifts as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+{{/if}}
+-->
+
+<!--
+<div>
+{{> "systems/trinity/templates/actor/partials/all-items.html"}}
+</div>
+-->
+
+
+<!--
+{{!-- Edges --}}
+<button type="button" id="fd-edges-header" class="collapsible">Edges</button>
+<div id="fd-edges-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="edge"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.edges as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+
+{{!-- Specialties --}}
+<button type="button" id="fd-specs-header" class="collapsible">Specialties</button>
+<div id="fd-specs-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="specialty"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.specialties as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+
+{{!-- Skill Tricks --}}
+<button type="button" id="fd-skilltricks-header" class="collapsible">Skill Tricks</button>
+<div id="fd-skilltricks-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="trick"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.tricks as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+
+{{!-- Contacts --}}
+<button type="button" id="fd-contacts-header" class="collapsible">Contacts</button>
+<div id="fd-contacts-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="contact"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.contacts as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+
+{{!-- Bonds --}}
+<button type="button" id="fd-bonds-header" class="collapsible">Bonds</button>
+<div id="fd-bonds-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="bond"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.bonds as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+
+
+{{!-- Conditions --}}
+<button type="button" id="fd-conditions-header" class="collapsible">Conditions</button>
+<div id="fd-conditions-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="condition"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.conditions as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+
+
+{{!-- Gear --}}
+<button type="button" id="fd-gear-header" class="collapsible">Gear</button>
+<div id="fd-gear-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="item" data-flag="isGear"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.gear as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+
+{{!-- Armor --}}
+<button type="button" id="fd-armors-header" class="collapsible">Armor</button>
+<div id="fd-armors-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="item" data-flag="isArmor"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.armors as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+
+
+{{!-- Weapons --}}
+<button type="button" id="fd-weapons-header" class="collapsible">Weapons</button>
+<div id="fd-weapons-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="item" data-flag="isWeapon"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.weapons as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+
+
+{{!-- Vehicles --}}
+<button type="button" id="fd-vehicles-header" class="collapsible">Vehicles</button>
+<div id="fd-vehicles-content" class="collapsible-content">
+<ol class="items-list">
+    <li class="item flexrow item-header">
+      <div class="item-image"></div>
+      <div class="item-name">Name</div>
+      <div class="item-controls">
+        <a class="item-control item-create" title="Create item" data-type="item" data-flag="isVehicle"><i class="fas fa-plus"></i> Add item</a>
+      </div>
+    </li>
+{{#each actor.vehicles as |item id|}}
+    <li class="item flexrow" data-item-id="{{item._id}}">
+        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/></div>
+        <h4 class="item-name">{{item.name}}</h4>
+        <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+    </li>
+{{/each}}
+</ol>
+</div>
+-->
