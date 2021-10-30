@@ -42,7 +42,8 @@ export class OverviewApp extends Application {
     }
     console.log("Overview update (after), This:", this);
 
-    let actors = game.actors.entities
+    // let actors = game.actors.entities
+    let actors = game.actors.contents
       .filter(a => a.hasPlayerOwner)
       .map(playerActor => playerActor.getActiveTokens())
       .flat(1)

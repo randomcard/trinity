@@ -98,8 +98,10 @@ Hooks.once('init', async function() {
   };
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = TrinityActor;
-  CONFIG.Item.entityClass = TrinityItem;
+  // CONFIG.Actor.entityClass = TrinityActor;
+  // CONFIG.Item.entityClass = TrinityItem;
+  CONFIG.Actor.documentClass = TrinityActor;
+  CONFIG.Item.documentClass = TrinityItem;
 
   // Define custom Roll class
   CONFIG.Dice.rolls.unshift(TRoll);
