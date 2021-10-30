@@ -35,7 +35,7 @@
 {{!-- Attributes --}}
 <button type="button" id="fd-attr-header" class="collapsible">Attributes</button>
 <div id="fd-attr-content" class="collapsible-content">
-{{#each data.attributes as |attribute key|}}
+{{#each actor.data.data.attributes as |attribute key|}}
   <div class="attribute flexrow flex-group-center">
     <label for="fd-{{key}}" class="resource-label rollable"> {{attribute.name}} </label>
     <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-{{key}}" name="data.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
