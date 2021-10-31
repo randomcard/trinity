@@ -47,7 +47,7 @@
 {{!-- Health --}}
 <button type="button" id="fd-health-header" class="collapsible">Health Boxes</button>
 <div id="fd-health-content" class="collapsible-content">
-  {{#each data.healthboxes as |healthbox key|}}
+  {{#each actor.data.data.healthboxes as |healthbox key|}}
     <div class="healthbox flexrow flex-group-center">
       <label for="fd-healthbox-{{key}}" class="resource-label"> {{healthbox.name}} </label>
       <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-healthbox-{{key}}" name="data.healthboxes.{{key}}.value" value="{{healthbox.value}}" data-dtype="Number"/>
@@ -60,7 +60,7 @@
 <div id="fd-defense-content" class="collapsible-content">
   <div class="defense flexrow flex-group-center">
     <label for="fd-defense" class="resource-label">Defense</label>
-    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-defense" name="data.defense.value" value="{{data.defense.value}}" data-dtype="Number"/>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-defense" name="data.defense.value" value="{{actor.data.data.defense.value}}" data-dtype="Number"/>
   </div>
 </div>
 
@@ -82,17 +82,17 @@
 -->
 
 <h3>Facets:</h3>
-{{#each data.facets as |facet key|}}
+{{#each actor.data.data.facets as |facet key|}}
   <div class="facet flexrow flex-group-center">
     <label for="fd-facet-{{key}}" class="resource-label"> {{facet.name}} </label>
-    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-facet-{{key}}" name="data.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-facet-{{key}}" name="actor.data.data.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
   </div>
 {{/each}}
 
 <h3>Inspiration:</h3>
 <div class="inspiration flexrow flex-group-center">
   <label for="fd-inspiration-max" class="resource-label rollable"> Max: </label>
-  <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-inspiration-max" name="data.inspiration.max" value="{{actor.data.inspiration.max}}" data-dtype="Number"/>
+  <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-inspiration-max" name="actor.data.data.inspiration.max" value="{{actor.data.data.inspiration.max}}" data-dtype="Number"/>
 </div>
 
 </div>

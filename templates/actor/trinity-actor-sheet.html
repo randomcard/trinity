@@ -12,7 +12,7 @@
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a> {{!-- Bio, Aspirations, Details, Contacts, Bonds --}}
         <a class="item" data-tab="main">Main</a>
-        {{#if actor.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
+        {{#if actor.data.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
         <a class="item" data-tab="background">Background</a> {{!-- Edges, Specialties, Tricks --}}
         <a class="item" data-tab="gear">Gear</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
         <a class="item" data-tab="data-entry">Configure</a>
@@ -30,7 +30,7 @@
           <!--  {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}} -->
         </div>
 
-        {{!-- "Main" Tab - testing ground for partials --}}
+        {{!-- "Main" Tab --}}
         <div class="tab main" data-group="primary" data-tab="main">
             {{!-- Partials go here --}}
             {{> "systems/trinity/templates/actor/partials/skills.html"}}
@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        {{!-- Owned Gear Tab --}}
+        {{!-- Talent Tab --}}
         <div class="tab talent" data-group="primary" data-tab="talent">
           <div class="flex-parent-evenly">
             <div class="flex-child-even">
