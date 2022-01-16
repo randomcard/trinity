@@ -2,7 +2,7 @@
 
 <div class="facets boxed">
   <div class="flex-parent-center-column resource-label">Facets</div>
-  {{#each this.actor.data.facets as |facet key|}}
+  {{#each this.actor.data.data.facets as |facet key|}}
   <div class="grid grid-2col lowmargin" id="{{key}}">
     <div class="bold right-vcenter">{{facet.name}}</div>
     <div class="icons left-vcenter">{{{toDots facet.value}}}</div>
