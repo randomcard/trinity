@@ -60,7 +60,7 @@ export class TRoll extends Roll {
 // Foundry version 9 compatible code
   _evaluateTotal() {
       const expression = this.terms.map(t => t.total).join(" ");
-      const total = Roll.safeEval(expression);
+      var total = Roll.safeEval(expression);
       if ( !Number.isNumeric(total) ) {
         throw new Error(game.i18n.format("DICE.ErrorNonNumeric", {formula: this.formula}));
       }
