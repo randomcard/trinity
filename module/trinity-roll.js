@@ -1,189 +1,208 @@
-// import { TrinityRollPrompt } from "/systems/trinity/module/trinity-roll-prompt.js";
-//* Import Version 3 *//
-// import { RDialog } from "/systems/trinity/module/trinity-roll-prompt3.js";
-// import { TrinityRollPrompt } from "/systems/trinity/module/trinity-roll-prompt3.js";
+//* Import Functions *//
+import { Picker } from "/systems/trinity/module/picker.js";
+import { pickedElementsProto } from "/systems/trinity/module/protos.js";
 
-//* Import Version 4 *//
-import {RDialog, rollDialog} from "/systems/trinity/module/trinity-roll-prompt4.js";
+// export async function trinityRoll(event, targetActor, pickedElements) {
+export async function trinityRoll(targetActor, pickedElements, event) {
 
+  // Declare variables
+  event = event || {};
+  const element = event.currentTarget || {};
+  const dataset = element.dataset || {};
+  var targetAttr = [];
+  var targetSkill = [];
 
-export class TrinityRoll {
-
-  // Problem??
-  // template = template || 'systems/trinity/templates/roll-prompt.html';
-
-
-// Main Roll function
-// Takes event from click (which will have the attribute / skill / specialty name or ID),
-// and references that with a target Actor
-  static async tRoll(event, targetActor) {
-
-// Declare variables
-    const element = event.currentTarget;
-    const dataset = element.dataset;
-    var targetAttr = [];
-    var targetSkill = [];
-
-    // Elements table, or picked elements, will include the details of the selected roll components. Will be an originator of rollparts
-    var pickedElements = {};
-
-// STEP 1: Check for available info from actor and process it.
-// Actor info
-/*    if (typeof targetActor !== 'undefined' ) {
-      targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
-      // targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
-      console.log("Found Attribute Info:");
-      console.log(targetAttr);
-      // If the dataset has dataset.attrname, use it get full actor attrib data
-    }
-*/
-
-// Attribute info
-    if (typeof dataset.attrname !== 'undefined' && dataset.attrname !== null) {
-      targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
-      // targetAttr.id = targetAttr.name;
-      pickedElements.attr = targetAttr;
-      console.log("Picked Elements:");
-      console.log(pickedElements);
-      /*
-      let pickedElement = {
-        id: targetAttr.name,
-        name: targetAttr.name,
-        value: targetAttr.value,
-        arena: app
-      };
-      */
-      // targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
-      console.log("Found Attribute Info:");
-      console.log(targetAttr);
-      // If the dataset has dataset.attrname, use it get full actor attrib data
-    }
-
-// Skill info
-    if (typeof dataset.skillid !== 'undefined' && dataset.skillid !== null) {
-      targetSkill = Object.values(targetActor.data.items).find(skill => skill._id === dataset.skillid);
-      console.log("Found Skill Info:");
-      console.log(targetSkill);
-      // If the dataset has dataset.skillid, use it get full item skill data
-    }
-
-// STEP 2: Set defaults, and overwriting with data found in step 1.
-    let attrPart = targetAttr.value || 0;
-    let skilPart = targetSkill.value || 0;
-    let dicePart = skilPart+attrPart;
-    let explPart = dataset.explode || 10;
-    let succPart = dataset.successvalue || 8;
-    let enhaPart = dataset.enhancements || 0;
-    // narrative scale must be minimum 1
-    let nscaPart = dataset.narrascale || 1;
-    // measure dramatic scale in difference (i.e. a scale 1 person vs. a scale 1 obstacle is 0)
-    let dscaPart = dataset.dramascale || 0;
-
-    var rollParts = {
-      attr : attrPart,
-      skil : skilPart,
-      dice : skilPart+attrPart,
-      expl : explPart,
-      succ : succPart,
-      enha : enhaPart,
-      nsca : nscaPart,
-      dsca : dscaPart
-    };
-
-    console.log("rollParts Object:");
-    console.log(rollParts);
+  // Elements table, or picked elements, will include the details of the selected roll components. (Replacing rollParts)
+  // Build defaults if empty
+  if (typeof pickedElements === 'undefined' || pickedElements === null) {
+    console.log("Creating default pickedElements");
+    pickedElements = {};
+    // Object.assign(pickedElements, pickedElementsProto);
+    pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
+    console.log(pickedElements);
+  }
+  // pickedElements = pickedElements || Object.create(pickedElementsProto);
+  // Build if Empty
 
 
-// STEP 3: Open Prompt with new defaults.
-//original, before attempting to change it to a promise:    rollParts = TrinityRollPrompt.tRollPrompt(rollParts);
-/* Version 3, which mostly worked except for rendering calls
-    rollParts = await new Promise(resolve => {resolve(TrinityRollPrompt.tRollPrompt(rollParts, targetActor, pickedElements))});
-*/
-    rollParts = await new Promise(resolve => {resolve(rollDialog(rollParts, targetActor, pickedElements))});
-//    rollParts = await rollDialog(rollParts, targetActor, pickedElements);
-    console.log("rollParts after prompt resolves:");
-    console.log(rollParts);
-
-/**
-
-    console.log("Debug in the tRoll function");
-//    console.log(event);
-//    console.log(element);
-    console.log(dataset);
-
-    // Test Section: Pull needed info from just attr/skill name and target actor
-    console.log("Target Actor");
-    console.log(targetActor);
-    console.log("dataset.attr");
-    console.log(dataset.attr);
-    console.log(Object.values(targetActor.data.data.attributes));
-//    console.log(Object.values(users).filter(user => user.user_id === 1));
-    let targetAttr = Object.values(targetActor.data.data.attributes).filter(attribute => attribute.name === dataset.attrname);
-//    let targetAttr = targetActor.data.data.attributes.filter(attribute => attributes.name === dataset.attr);
-//    const targetAttr = targetActor.data.data.attributes.find(a => a.name === dataset.attr);
-    console.log(targetAttr[0]);
-
-//    const targetSkill = targetActor.data.items.find(i => i._id === dataset.skillid);
-//    console.log(targetSkill || 'No targetSkill');
-
-    // Roll Formula
-    // Get info, if available, defaults if not
-    let skilPart = dataset.skillvalue || 0;
-    console.log(dataset.attrvalue);
-//    let attrPart = dataset.attrvalue || 0;
-    let attrPart = targetAttr[0].value || 0;
-    console.log(attrPart);
-    let dicePart = skilPart+attrPart;
-    let explPart = dataset.explode || 10;
-    let succPart = dataset.successvalue || 7;
-    let enhaPart = dataset.enhancements || 0;
-    // narrative scale must be minimum 1
-    let nscaPart = dataset.narrascale || 1;
-    // measure dramatic scale in difference (i.e. a scale 1 person vs. a scale 1 obstacle is 0)
-    let dscaPart = dataset.dramascale || 0;
-
-*/
-
-//    let rollFormula = `(((${rollParts.attr}+${rollParts.skil})d10x${rollParts.expl}cs>=${rollParts.succ})+(${rollParts.enha}+${rollParts.dsca}))*${rollParts.nsca}`;
-    let rollFormula = `(((${rollParts.attr}+${rollParts.skil})d10x${rollParts.expl}cs>=${rollParts.succ})+(${rollParts.enha}+${rollParts.dsca}))*${rollParts.nsca}`;
-    console.log(rollFormula);
-//  let rollFormula = "(@attributes.{{key}}.value)d10x10cs>=8"
-
-    // Roll Attribute by itself if no skill supplied
-    if (dataset.attrname && !dataset.skillid) {
-      console.log("Attrib only roll function triggered");
-      let roll = new Roll(rollFormula);
-      let label = dataset.attrname ? `Rolling ${dataset.attrname}` : '';
-      roll.roll().toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label
-      });
-    }
+  // Attribute info
+  if (typeof dataset.attrname !== 'undefined' && dataset.attrname !== null) {
+    targetAttr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === dataset.attrname);
+    pickedElements.attr = targetAttr;
+    console.log("Picked Elements:");
+    console.log(pickedElements);
+    console.log("Found Attribute Info:");
+    console.log(targetAttr);
   }
 
-}
+  // Skill info
+  if (typeof dataset.skillid !== 'undefined' && dataset.skillid !== null) {
+    console.log(dataset.skillid);
+    console.log(targetActor.data.items);
+    // targetSkill = Object.values(targetActor.data.items).find(skill => skill._id === dataset.skillid);
+    targetSkill = targetActor.data.items.get(dataset.skillid);
+    console.log(targetSkill);
+    pickedElements.skil.name = targetSkill.name;
+    pickedElements.skil.value = targetSkill.data.value;
+    console.log("Found Skill Info:");
+    console.log(targetSkill);
+  }
 
 /*
-rollData possible parameters:
-For the roll formula:
-Values pulled from HTML data-* come through as lowercase
-.skillvalue = Skill Value
-.attrvalue = Attribute value
-.explode = Explode Value (eg: 9-again)
-.successvalue = Success Value (7 or 8)
-.enhancements = Enhancement(s)
-.narrascale = Narrative Scale Difference
-.dramascale = Dramatic Scale Difference
+  // Set defaults, and overwriting with data found earlier.   << Move this section to front -- nvrmnd
+  let attrPart = targetAttr.value || 0;
+  let skilPart = targetSkill.value || 0;
+  let dicePart = skilPart+attrPart;
+  let explPart = dataset.explode || 10;
+  let succPart = dataset.successvalue || 8;
+  let enhaPart = dataset.enhancements || 0;
+  // narrative scale must be minimum 1
+  let nscaPart = dataset.narrascale || 1;
+  // measure dramatic scale in difference (i.e. a scale 1 person vs. a scale 1 obstacle is 0)
+  let dscaPart = dataset.dramascale || 0;
 
-For the roll description
-.skillname = Skill Name
-.attrname = Attribute Name
-.attrarena = Attribute Arena
-.attrapproach = Attribute Approach
-Idea: import the top level skill / attrib date that will include all of these
+  var rollParts = {
+    attr : attrPart,
+    skil : skilPart,
+    dice : skilPart+attrPart,
+    expl : explPart,
+    succ : succPart,
+    enha : enhaPart,
+    nsca : nscaPart,
+    dsca : dscaPart
+  };
+  */
 
-For much later, for spending successes:
-.complications
-.stunts
+// DIALOG Section
+  class RDialog extends Dialog {
 
-*/
+    constructor(data, params, options) {
+      super(data, options);
+      targetActor = params.targetActor;
+      pickedElements = params.pickedElements;
+    }
+
+    activateListeners(html) {
+      super.activateListeners(html);
+
+      // ATTR Click
+      html.find('.attr-label').click((event) => {
+        // Call Option picker
+        pickedElements = Picker.pDialog("attr", targetActor, pickedElements);
+        rollDialog.close();
+      });
+
+      // SKIL Click
+      html.find('.skil-label').click((event) => {
+        // Call Option picker
+        pickedElements = Picker.pDialog("skil", targetActor, pickedElements);
+        rollDialog.close();
+      });
+
+      // ENHA click
+      html.find('.enha-label').click((event) => {
+        // Call Option picker
+        pickedElements = Picker.pDialog("enha", targetActor, pickedElements);
+        rollDialog.close();
+      });
+
+    }
+
+  }
+
+
+  // let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
+  let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: targetActor, elements: pickedElements});
+
+  let rollDialog = new RDialog({
+    title: "Roll Options",
+    id: "rdialog",
+    content: html,
+    buttons: {
+      roll: {
+        icon: "<i class='fas fa-redo'></i>",
+        label: "Roll",
+        callback: () => {
+          for (let part of Object.keys(pickedElements)) {
+            if (document.getElementById(part)){
+              pickedElements[part].value = parseInt(document.getElementById(part).value) || pickedElements[part].value;
+              console.log("Found Part:");
+              console.log(part);
+            }
+            // console.log("rollParts."+part+":");
+            // console.log(rollParts[part]);
+          }
+          _roll(targetActor, pickedElements);
+          pickedElements = {};
+          // Object.assign(pickedElements, pickedElementsProto);
+          pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
+          return;
+        }
+      },
+      /*
+      cancel: {
+        icon: "<i class='fas fa-times'></i>",
+        label: "Cancel",
+        callback: () => {
+          pickedElements = {};
+          Object.assign(pickedElements, pickedElementsProto);
+          return;
+        }
+      },
+      */
+      reset: {
+        icon: "<i class='fas fa-times'></i>",
+        label: "Reset",
+        callback: () => {
+          console.log("Refresh Roller");
+          // render(true);
+          console.log("Reset pickedElements, before:", pickedElements);
+          pickedElements = {};
+          console.log("Reset pickedElements, during:", pickedElements);
+          // Object.assign(pickedElements, pickedElementsProto);
+          pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
+          console.log("Reset pickedElements, after:", pickedElements);
+          event = {};
+          return trinityRoll(targetActor, pickedElements, event);
+        }
+      },
+    },
+    default:"roll",
+    callback: html => {
+      pickedElements = {};
+      // Object.assign(pickedElements, pickedElementsProto);
+      pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
+      return;
+    }
+  }, {targetActor, pickedElements});
+
+  rollDialog.render(true);
+
+// END DIALOG Section
+
+  function _roll(targetActor, p) {
+    // Old Formula, w/ wrong NScale
+//    let rollFormula = `(((${p.attr.value}+${p.skil.value})d10x${p.expl.value}cs>=${p.succ.value})+(${p.enha.value}+${p.dsca.value}))*${p.nsca.value}`;
+
+
+    let rollFormula = `((${p.skil.value}+${p.attr.value})d10x>=${p.expl.value}cs>=${p.succ.value})*${p.nsca.value}`;
+    let enhaValue = parseInt(p.enha.value) + (parseInt(p.dsca.value) * 2);
+
+    console.log(rollFormula);
+
+    // let roll = new Roll(rollFormula);
+    let roll = new game.trinity.TRoll(rollFormula, {}, enhaValue);
+    // let label = p.attr.name ? `Rolling ${p.attr.name}` : '';
+    let label = [p.skil.name, p.attr.name, p.enha.name].join(' • ')
+    roll.roll().toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: targetActor }),
+      flavor: label
+    });
+
+  }
+
+
+
+return;
+
+}
