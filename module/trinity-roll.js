@@ -43,7 +43,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     targetSkill = targetActor.data.items.get(dataset.skillid);
     console.log(targetSkill);
     pickedElements.skil.name = targetSkill.name;
-    pickedElements.skil.value = targetSkill.data.value;
+    pickedElements.skil.value = targetSkill.data.data.value; // Added .data - Why? Something with v7 to v9 ?
     console.log("Found Skill Info:");
     console.log(targetSkill);
   }
