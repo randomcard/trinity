@@ -9,7 +9,7 @@ export class TRoll extends Roll {
 
     console.log("CUSTOM tROLL CLASS - tRoll.evaluate");
 
-    if ( this._rolled ) throw new Error("This Roll object has already been rolled.");
+    if ( this._evaluated ) throw new Error("This Roll object has already been rolled.");
 
     // Step 1 - evaluate any inner Rolls and recompile the formula
     let hasInner = false;
@@ -50,7 +50,7 @@ export class TRoll extends Roll {
 
     // Store final outputs
     this._total = total;
-    this._rolled = true;
+    this._evaluated = true;
     return this;
   }
 }
