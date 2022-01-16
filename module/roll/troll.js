@@ -37,7 +37,7 @@ export class TRoll extends Roll {
     });
 
     // Step 4 - safely evaluate the final total
-    var total = this._safeEval(this.results.join(" "));
+    var total = this.safeEval(this.results.join(" "));
     if ( !Number.isNumeric(total) ) {
       throw new Error(game.i18n.format("DICE.ErrorNonNumeric", {formula: this.formula}));
     }
