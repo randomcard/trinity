@@ -5,6 +5,8 @@ export class TRoll extends Roll {
     this.enh = enh;
   }
 
+
+/** Code for Foundry v7
   evaluate({minimize=false, maximize=false}={}) {
 
     console.log("CUSTOM tROLL CLASS - tRoll.evaluate");
@@ -53,4 +55,21 @@ export class TRoll extends Roll {
     this._evaluated = true;
     return this;
   }
+**/
+
+// Foundry version 9 compatible code
+  _evaluateTotal() {
+      const expression = this.terms.map(t => t.total).join(" ");
+      const total = Roll.safeEval(expression);
+      if ( !Number.isNumeric(total) ) {
+        throw new Error(game.i18n.format("DICE.ErrorNonNumeric", {formula: this.formula}));
+      }
+      // MY TOTALLY HACKY HACK - NOT AT ALL THE RIGHT WAY TO DO THIS
+      if (total >= 1) {
+        total = total + this.enh;
+      }
+      return total;
+    }
+
+
 }
