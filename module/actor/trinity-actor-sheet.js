@@ -419,14 +419,14 @@ if (content.style.maxHeight){
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
+      const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
     });
 
     // Output Item Description to Chat
     html.find('.item-chat').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
+      const item = this.actor.items.get(li.data("itemId"));
       console.log("chat item:", item);
       let chatData = {
         user: game.user._id,
@@ -541,7 +541,7 @@ if (content.style.maxHeight){
       // pop-out new condition, bypass normal process
       delete itemData.data["type"];
       let newItem = await this.actor.createOwnedItem(itemData);
-      let createdItem = this.actor.getOwnedItem(newItem._id);
+      let createdItem = this.actor.items.get(newItem._id);
       createdItem.sheet.render(true);
       return;
     }
