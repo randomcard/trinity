@@ -5,7 +5,7 @@ import { TrinityActor } from "./actor/trinity-actor.js";
 import { TrinityActorSheet } from "./actor/trinity-actor-sheet.js";
 import { TrinityItem } from "./item/item.js";
 import { TrinityItemSheet } from "./item/item-sheet.js";
-import { TrinityRoll } from "./trinity-roll.js";
+import { trinityRoll } from "./trinity-roll.js";
 import { TRoll } from "./roll/troll.js";
 import { OverviewApp } from "./overview/overview.js"; // Overview App
 
