@@ -1,5 +1,5 @@
 // trinity roll 2
-import { trinityRoll } from "/systems/trinity/module/trinity-roll2.js";
+import { trinityRoll } from "/systems/trinity/module/trinity-roll.js";
 import { pickedElementsProto } from "/systems/trinity/module/protos.js";
 
 export class Picker {

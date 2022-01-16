@@ -7,7 +7,7 @@
 // import { TrinityRoll } from "/systems/trinity/module/trinity-roll.js";
 
 // trinity roll 2
-import { trinityRoll } from "/systems/trinity/module/trinity-roll2.js";
+import { trinityRoll } from "/systems/trinity/module/trinity-roll.js";
 
 
 export class TrinityActorSheet extends ActorSheet {
