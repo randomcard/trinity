@@ -429,7 +429,7 @@ if (content.style.maxHeight){
       const item = this.actor.items.get(li.data("itemId"));
       console.log("chat item:", item);
       let chatData = {
-        user: game.user._id,
+        user: game.user.id,
         speaker: ChatMessage.getSpeaker(),
         flavor: (item.data.data.typeName + " Description"),
         content: ("<h2>"+item.data.name+"</h2>"+item.data.data.description)
