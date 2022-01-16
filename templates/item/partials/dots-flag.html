@@ -1,14 +1,14 @@
 {{! Value/Dots Flag & Info }}
 <div class="boxed fit">
   <div class="left-vcenter">
-    <input class="left-vcenter" type="checkbox" name="data.flags.hasDots" value="{{data.flags.hasDots}}" data-dtype="Boolean" {{checked data.flags.hasDots}}/>
-    <label class="resource-label left-vcenter" for="data.flags.hasDots">Dots</label>
+    <input class="left-vcenter" type="checkbox" name="data.data.flags.hasDots" value="{{data.data.flags.hasDots}}" data-dtype="Boolean" {{checked data.data.flags.hasDots}}/>
+    <label class="resource-label left-vcenter" for="data.data.flags.hasDots">Dots</label>
   </div>
   {{#if data.flags.hasDots}}
   <hr>
   <div>
     <label class="resource-label" for="dot-value">Dot Value</label>
-    <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="dot-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>
+    <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="dot-value" name="data.data.value" value="{{data.data.value}}" data-dtype="Number"/>
   </div>
   {{/if}}
 </div>
