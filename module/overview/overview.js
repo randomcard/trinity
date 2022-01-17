@@ -137,7 +137,8 @@ console.log("Overview update (after), This:", this);
       game.settings.set("trinity", "momentum-max", this.state.momentum.max);
       game.settings.set("trinity", "momentum-current", this.state.momentum.current);
       game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
-      this.render(true);
+      console.log(this);
+      // this.render(true);
     });
   }
 
