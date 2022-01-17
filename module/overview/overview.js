@@ -47,6 +47,7 @@ export class OverviewApp extends Application {
 
 // NEW
 console.log("Overview update (before), This:", this);
+/**
 if (typeof this.state.momentum === 'undefined') {
   console.log("this.state.momentum === 'undefined'");
   this.state.momentum = {};
@@ -59,6 +60,11 @@ console.log(this.state.momentum.max, this.state.momentum.current, this.state.mom
 game.settings.set("trinity", "momentum-max", this.state.momentum.max);
 game.settings.set("trinity", "momentum-current", this.state.momentum.current);
 game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
+*/
+this.state.momentum = {};
+this.state.momentum.max = game.settings.get("trinity", "momentum-max");
+this.state.momentum.current = game.settings.get("trinity", "momentum-current");
+this.state.momentum.spent = game.settings.get("trinity", "momentum-spent");
 console.log("Overview update (after), This:", this);
 
 
@@ -145,6 +151,10 @@ console.log("Overview update (after), This:", this);
       // game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
       // console.log(this);
       console.log(ev);
+      console.log(this.state[ev.currentTarget.name]); // variable
+      console.log(ev.currentTarget.value); // variable
+      console.log(ev.currentTarget.id); // game setting variable
+      game.settings.set("trinity", ev.currentTarget.id, ev.currentTarget.value);
       this.render(true);
     });
   }
