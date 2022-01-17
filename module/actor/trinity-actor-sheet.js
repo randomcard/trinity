@@ -551,7 +551,7 @@ if (content.style.maxHeight){
       // let createdItem = this.actor.items.get(newItem._id);
       // createdItem.sheet.render(true);
 
-      newItem.sheet.render(true);
+      await newItem.sheet.render(true);
 
       return;
     }
