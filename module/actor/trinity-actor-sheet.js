@@ -205,7 +205,7 @@ if (content.style.maxHeight){
 
     for (let hb of Object.keys(this.actor.data.data.healthboxes)) {
       console.log("Heathbox Logging - hb:", hb);
-      let injuries = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === this.actor.data.data.healthboxes[hb].conditionLevel))).length;
+      let injuries = Object.keys(this.actor.data.items.filter(h => h.data.data.flags.isInjury && (h.data.data.injury.value === this.actor.data.data.healthboxes[hb].conditionLevel))).length;
       console.log("Heathbox Logging - injuries:", injuries);
       // add if - add the property if not already in healthboxes
       if (typeof healthBoxes[hb] === 'undefined' || healthBoxes[hb] === null) {
