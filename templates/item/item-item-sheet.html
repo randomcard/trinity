@@ -4,15 +4,15 @@
         <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
         <div class="left-vcenter"> {{! Type & Flagged Info }}
           <span class="trait">
-            <span class="small icons">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</span>
-            {{item.data.typeName}}
+            <span class="small icons">{{#if item.data.data.flags.hasDots}}{{{toDots item.data.data.value}}}{{/if}}</span>
+            {{item.data.data.typeName}}
           </span>
           {{! Flagged Info }}
-          {{#if item.data.flags.isGear}}<span class="boxed">Gear</span>{{/if}}
-          {{#if item.data.flags.isWeapon}}<span class="boxed">Weapon</span>{{/if}}
-          {{#if item.data.flags.isArmor}}<span class="boxed">Armor</span>{{/if}}
-          {{#if item.data.flags.isVehicle}}<span class="boxed">Vehicle</span>{{/if}}
-          {{#if item.data.flags.isEnhancement}}<span class="boxed">Enhancement</span>{{/if}}
+          {{#if item.data.data.flags.isGear}}<span class="boxed">Gear</span>{{/if}}
+          {{#if item.data.data.flags.isWeapon}}<span class="boxed">Weapon</span>{{/if}}
+          {{#if item.data.data.flags.isArmor}}<span class="boxed">Armor</span>{{/if}}
+          {{#if item.data.data.flags.isVehicle}}<span class="boxed">Vehicle</span>{{/if}}
+          {{#if item.data.data.flags.isEnhancement}}<span class="boxed">Enhancement</span>{{/if}}
         </div>
       </div>
     </header>
