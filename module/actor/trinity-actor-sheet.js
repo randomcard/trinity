@@ -204,19 +204,19 @@ if (content.style.maxHeight){
     // Get # of injuries - Turn this into a loop to reduce code...
 
     for (let hb of Object.keys(this.actor.data.data.healthboxes)) {
-      console.log("Heathbox Logging - hb:", hb);
+      // console.log("Heathbox Logging - hb:", hb);
       let injuries = Object.keys(this.actor.data.items.filter(h => h.data.data.flags.isInjury && (h.data.data.injury.value === this.actor.data.data.healthboxes[hb].conditionLevel))).length;
-      console.log("Heathbox Logging - injuries:", injuries);
+      //console.log("Heathbox Logging - injuries:", injuries);
       // add if - add the property if not already in healthboxes
       if (typeof healthBoxes[hb] === 'undefined' || healthBoxes[hb] === null) {
-        console.log("Heathbox Logging - check to add");
+        // console.log("Heathbox Logging - check to add");
         healthBoxes[hb] = {};
-        console.log("Heathbox Logging - Added to healthBoxes:", healthBoxes);
+        // console.log("Heathbox Logging - Added to healthBoxes:", healthBoxes);
         healthBoxes[hb].name = this.actor.data.data.healthboxes[hb].name;
         // healthBoxes[hb].push(this.actor.data.data.healthboxes[hb].name);
       }
       if ((this.actor.data.data.healthboxes[hb].value > 0) || (injuries > 0)) {
-        console.log("Heathbox Logging - add injuries");
+        // console.log("Heathbox Logging - add injuries");
         if (injuries <= this.actor.data.data.healthboxes[hb].value) {
           healthBoxes[hb].filled = injuries;
           healthBoxes[hb].empty = this.actor.data.data.healthboxes[hb].value - healthBoxes[hb].filled;
@@ -229,7 +229,7 @@ if (content.style.maxHeight){
       } else {
         // add if - remove value if there are no injuries or healthboxes
         if (typeof healthBoxes[hb] !== 'undefined' && healthBoxes[hb] !== null) {
-          console.log("Heathbox Logging - remove category if no injuries or healthboxes");
+          // console.log("Heathbox Logging - remove category if no injuries or healthboxes");
           delete healthBoxes[hb];
         }
       }
