@@ -133,7 +133,7 @@ console.log("Overview update (after), This:", this);
     html.find('.momentum').change(ev => {
       // this.actor.update({ 'data.inspiration.value': ++this.actor.data.data.inspiration.value });
       console.log("Momentum Change");
-      console.log(this);
+      console.log(this.state.momentum.max, this.state.momentum.current, this.state.momentum.spent);
       game.settings.set("trinity", "momentum-max", this.state.momentum.max);
       game.settings.set("trinity", "momentum-current", this.state.momentum.current);
       game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
