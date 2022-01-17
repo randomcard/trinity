@@ -521,6 +521,7 @@ if (content.style.maxHeight){
     if (typeof header.dataset.hbname !== 'undefined' && header.dataset.hbname !== null) {
       console.log("Create Item - Injury");
       let value = 0;
+      console.log(header.dataset.hbname);
       switch(header.dataset.hbname) {
         case "Bruised":
           value = 1; break;
@@ -529,7 +530,13 @@ if (content.style.maxHeight){
         case "Maimed":
           value = 4; break;
         case "Taken Out":
-          value = 5; break;
+          value = 5;
+          console.log("Case Switch - Taken Out");
+          break;
+        case "takenOut":
+          value = 5;
+          console.log("Case Switch - takenOut");
+          break;
       }
       itemData.data.injury = {};
       itemData.data.injury.value = value;
