@@ -92,13 +92,14 @@ this.state.momentum.spent = game.settings.get("trinity", "momentum-spent");
       console.log("Iterating:", actor);
       for (let asp of Object.keys(actor.aspirations)) {
         console.log("Iterating:", asp);
+        console.log("Iterating:", asp.name);
         switch(asp.name) {
           case "Short Term Aspiration One":
-            actor.aspirations[asp].icon = "<span class=\"fa-layers fa-fw\"><i class=\"fas fa-stopwatch\"></i><span class=\"fa-layers-counter\" style=\"background:Green\">1</span></span>"; break;
+            asp.icon = "<span class=\"fa-layers fa-fw\"><i class=\"fas fa-stopwatch\"></i><span class=\"fa-layers-counter\" style=\"background:Green\">1</span></span>"; break;
           case "Short Term Aspiration Two":
-            actor.aspirations[asp].icon = "<span class=\"fa-layers fa-fw\"><i class=\"fas fa-stopwatch\"></i><span class=\"fa-layers-counter\" style=\"background:Green\">2</span></span>"; break;
+            asp.icon = "<span class=\"fa-layers fa-fw\"><i class=\"fas fa-stopwatch\"></i><span class=\"fa-layers-counter\" style=\"background:Green\">2</span></span>"; break;
           case "Long Term Aspiration":
-            actor.aspirations[asp].icon = "<i class=\"fas fa-calendar-alt\"></i>"; break;
+            asp.icon = "<i class=\"fas fa-calendar-alt\"></i>"; break;
         }
       }
     }
