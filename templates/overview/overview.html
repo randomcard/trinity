@@ -23,16 +23,16 @@
 <h2>Momentum</h2>
 <div class="grid grid-3col">
   <div class="">
-    <label for="current-momentum" class="resource-label"> Current Momentum </label>
+    <label for="current-momentum" class="resource-label"> Current </label>
     <input class="momentum" type="number" min="0" id="current-momentum" name="momentum.current" value="{{momentum.current}}" data-dtype="Number"/>
   </div>
   <div class="">
-    <label for="spent-momentum" class="resource-label"> Spent Momentum </label>
-    <input class="momentum" type="number" min="0" step="1" id="spent-momentum" name="momentum.spent" value="{{state.momentum.spent}}" data-dtype="Number"/>
+    <label for="spent-momentum" class="resource-label"> Spent </label>
+    <input class="momentum" type="number" min="0" step="1" id="spent-momentum" name="state.momentum.spent" value="{{momentum.spent}}" data-dtype="Number"/>
   </div>
   <div class="">
-    <label for="max-momentum" class="resource-label"> Max Momentum </label>
-    <input class="momentum" type="number" min="0" step="1" id="max-momentum" name="momentum.max" value="{{this.state.momentum.max}}" data-dtype="Number"/>
+    <label for="max-momentum" class="resource-label"> Max </label>
+    <input class="momentum" type="number" min="0" step="1" id="max-momentum" name="this.state.momentum.max" value="{{momentum.max}}" data-dtype="Number"/>
   </div>
 </div>
 
