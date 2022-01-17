@@ -46,26 +46,10 @@ export class OverviewApp extends Application {
 **/
 
 // NEW
-console.log("Overview update (before), This:", this);
-/**
-if (typeof this.state.momentum === 'undefined') {
-  console.log("this.state.momentum === 'undefined'");
-  this.state.momentum = {};
-  this.state.momentum.max = game.settings.get("trinity", "momentum-max");
-  this.state.momentum.current = game.settings.get("trinity", "momentum-current");
-  this.state.momentum.spent = game.settings.get("trinity", "momentum-spent");
-}
-console.log("Momentum Change");
-console.log(this.state.momentum.max, this.state.momentum.current, this.state.momentum.spent);
-game.settings.set("trinity", "momentum-max", this.state.momentum.max);
-game.settings.set("trinity", "momentum-current", this.state.momentum.current);
-game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
-*/
 this.state.momentum = {};
 this.state.momentum.max = game.settings.get("trinity", "momentum-max");
 this.state.momentum.current = game.settings.get("trinity", "momentum-current");
 this.state.momentum.spent = game.settings.get("trinity", "momentum-spent");
-console.log("Overview update (after), This:", this);
 
 
 
@@ -102,6 +86,22 @@ console.log("Overview update (after), This:", this);
       actors: actors,
       momentum: this.state.momentum,
     };
+
+// Add Icons for Aspirations
+    for (let actor of this.state.actors) {
+      for (let asp of actor.aspirations) {
+        switch(asp.name) {
+          case "Short Term Aspiration One":
+            asp.icon = "<span class=\"fa-layers fa-fw\"><i class=\"fas fa-stopwatch\"></i><span class=\"fa-layers-counter\" style=\"background:Green\">1</span></span>"; break;
+          case "Short Term Aspiration Two":
+            asp.icon = "<span class=\"fa-layers fa-fw\"><i class=\"fas fa-stopwatch\"></i><span class=\"fa-layers-counter\" style=\"background:Green\">2</span></span>"; break;
+          case "Long Term Aspiration":
+            asp.icon = "<i class=\"fas fa-calendar-alt\"></i>"; break;
+        }
+      }
+    }
+
+
   }
 
   static get defaultOptions() {

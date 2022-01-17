@@ -45,6 +45,7 @@
     </div>
     {{#each actor.aspirations as |aspiration key|}}
     <div class="flex-parent">
+      {{aspiration.icon}}
       <label class="flex-child-fit" for="{{aspiration}}.name">{{aspiration.name}}:</label>
       <input class="flex-child-fit" type="text" id="{{key}}.name" name="actor.aspirations.{{key}}.value" value="{{aspiration.value}}" data-dtype="String" disabled/>
       <input class="flex-child-fit" type="checkbox" id="{{key}}.complete" name="actor.aspirations.{{key}}.complete" value="{{aspiration.complete}}" data-dtype="Boolean" {{checked aspiration.complete}} disabled/>
