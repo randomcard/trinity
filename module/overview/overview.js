@@ -89,7 +89,7 @@ this.state.momentum.spent = game.settings.get("trinity", "momentum-spent");
 
 // Add Icons for Aspirations
     for (let actor of this.state.actors) {
-      for (let asp of actor.aspirations) {
+      for (let asp of Object.keys(actor.aspirations)) {
         switch(asp.name) {
           case "Short Term Aspiration One":
             asp.icon = "<span class=\"fa-layers fa-fw\"><i class=\"fas fa-stopwatch\"></i><span class=\"fa-layers-counter\" style=\"background:Green\">1</span></span>"; break;
