@@ -20,6 +20,8 @@ export class OverviewApp extends Application {
 
   update() {
 
+
+/** Original
     console.log("Overview update (before), This:", this);
     if (typeof this.state.momentum === 'undefined') {
       console.log("this.state.momentum === 'undefined'");
@@ -41,6 +43,32 @@ export class OverviewApp extends Application {
       }
     }
     console.log("Overview update (after), This:", this);
+**/
+
+// NEW
+console.log("Overview update (before), This:", this);
+if (typeof this.state.momentum === 'undefined') {
+  console.log("this.state.momentum === 'undefined'");
+  this.state.momentum = {};
+  this.state.momentum.max = game.settings.get("trinity", "momentum-max");
+  this.state.momentum.current = game.settings.get("trinity", "momentum-current");
+  this.state.momentum.spent = game.settings.get("trinity", "momentum-spent");
+} else {
+  console.log("this.state.momentum !== 'undefined'");
+  if (this.state.momentum.max !== game.settings.get("trinity", "momentum-max")) {
+    console.log("this.state.momentum.max !== game.settings");
+    game.settings.set("trinity", "momentum-max", this.state.momentum.max);
+  }
+  if (this.state.momentum.current !== game.settings.get("trinity", "momentum-current")) {
+    game.settings.set("trinity", "momentum-current", this.state.momentum.current);
+  }
+  if (this.state.momentum.spent !== game.settings.get("trinity", "momentum-spent")) {
+    game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
+  }
+}
+console.log("Overview update (after), This:", this);
+
+
 
     // let actors = game.actors.entities
     let actors = game.actors.contents
@@ -72,7 +100,6 @@ export class OverviewApp extends Application {
     this.state = {
       activeTab: this.activeTab,
       mode: this.displayMode,
-      name: "Sebastian", // Why?
       actors: actors,
       momentum: this.state.momentum,
     };
@@ -113,6 +140,13 @@ export class OverviewApp extends Application {
 
   activateListeners(html) {
     super.activateListeners(html);
+
+    // Change Momentum
+    html.find('.current-momentum').change(ev => {
+      // this.actor.update({ 'data.inspiration.value': ++this.actor.data.data.inspiration.value });
+      game.settings.set("trinity", "momentum-max", this.state.momentum.max);
+      this.render(true);
+    });
   }
 
 }
