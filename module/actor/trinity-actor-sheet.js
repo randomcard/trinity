@@ -530,13 +530,7 @@ if (content.style.maxHeight){
         case "Maimed":
           value = 4; break;
         case "Taken Out":
-          value = 5;
-          console.log("Case Switch - Taken Out");
-          break;
-        case "takenOut":
-          value = 5;
-          console.log("Case Switch - takenOut");
-          break;
+          value = 5; break;
       }
       itemData.data.injury = {};
       itemData.data.injury.value = value;
