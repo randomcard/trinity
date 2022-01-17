@@ -155,7 +155,6 @@ console.log("Overview update (after), This:", this);
       console.log(ev.currentTarget.value); // variable
       console.log(ev.currentTarget.id); // game setting variable
       game.settings.set("trinity", ev.currentTarget.id, ev.currentTarget.value);
-      this.render(false);
     });
   }
 
