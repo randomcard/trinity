@@ -452,7 +452,7 @@ if (content.style.maxHeight){
             label: "Yes",
             callback: dlg => {
               // this.actor.deleteOwnedItem(li.data("itemId"));
-              this.actor.deleteEmbeddedDocuments('Item',li.data("itemId"));
+              this.actor.deleteEmbeddedDocuments('Item',[li.data("itemId")]);
               li.slideUp(200, () => this.render(false));
             }
           },
