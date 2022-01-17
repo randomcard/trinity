@@ -451,7 +451,8 @@ if (content.style.maxHeight){
             icon: '<i class="fa fa-check"></i>',
             label: "Yes",
             callback: dlg => {
-              this.actor.deleteOwnedItem(li.data("itemId"));
+              // this.actor.deleteOwnedItem(li.data("itemId"));
+              this.actor.deleteEmbeddedDocuments('Item',li.data("itemId"));
               li.slideUp(200, () => this.render(false));
             }
           },
@@ -541,12 +542,12 @@ if (content.style.maxHeight){
       // pop-out new condition, bypass normal process
       delete itemData.data["type"];
       // let newItem = await this.actor.createOwnedItem(itemData);
-      console.log(this.actor);
-      console.log(itemData);
+      // console.log(this.actor);
+      // console.log(itemData);
       // let newItem = await this.actor.createEmbeddedDocuments('Item', [itemData.toObject()]);
       // let newItem = await this.actor.createEmbeddedDocuments('Item', [itemData]);
-      console.log("-------> Injury Creation <--------------");
-      console.log(this.actor);
+      // console.log("-------> Injury Creation <--------------");
+      // console.log(this.actor);
       // console.log(newItem);
       // let createdItem = this.actor.items.get(newItem._id);
       // createdItem.sheet.render(true);
