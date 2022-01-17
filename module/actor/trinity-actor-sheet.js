@@ -566,7 +566,7 @@ if (content.style.maxHeight){
     delete itemData.data["type"];
 
     // Finally, create the item!
-    return this.actor.createOwnedItem(itemData);
+    return this.actor.createEmbeddedDocuments('Item',[itemData]);
   }
 
   _onRoll(event) {
