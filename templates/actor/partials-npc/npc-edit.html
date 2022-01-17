@@ -1,6 +1,6 @@
 {{!-- NPC Edit Partial --}}
 <div class="attributes grid grid-3col">
-  {{#each actor.data.attributes as |attribute key|}}
+  {{#each actor.data.data.attributes as |attribute key|}}
   <div class="boxed">
     <div class="flex-parent-center-column" data-attrname="{{attribute.name}}" id="{{key}}">
       <span class="flex-child-center resource-label"> {{attribute.name}} </span>
@@ -17,18 +17,18 @@
 <div class="boxed flex-parent-evenly">
   <div class="flex-child flex-parent-center-column">
     <div class="flex-child-center resource-label">Enhancements</div>
-    <input class="flex-child-center big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-enhancement-edit" name="data.enhancements.value" value="{{actor.data.enhancements.value}}" data-dtype="Number"/>
+    <input class="flex-child-center big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-enhancement-edit" name="data.enhancements.value" value="{{actor.data.data.enhancements.value}}" data-dtype="Number"/>
   </div>
   <div class="flex-child flex-parent-center-column">
-      <div class="flex-child-center resource-label">{{actor.data.healthboxes.health.name}}</div>
-      <input class="flex-child-center big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-health-edit" name="data.healthboxes.health.value" value="{{actor.data.healthboxes.health.value}}" data-dtype="Number"/>
+      <div class="flex-child-center resource-label">{{actor.data.data.healthboxes.health.name}}</div>
+      <input class="flex-child-center big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-health-edit" name="data.healthboxes.health.value" value="{{actor.data.data.healthboxes.health.value}}" data-dtype="Number"/>
   </div>
   <div class="flex-child flex-parent-center-column">
     <div class="flex-child-center resource-label">Defense</div>
-    <input class="flex-child-center big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-defense-edit" name="data.defense.value" value="{{actor.data.defense.value}}" data-dtype="Number"/>
+    <input class="flex-child-center big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-defense-edit" name="data.defense.value" value="{{actor.data.data.defense.value}}" data-dtype="Number"/>
   </div>
   <div class="flex-child flex-parent-center-column">
     <div class="flex-child-center resource-label">Maximum Source</div>
-    <input class="flex-child-center big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-source-max-edit" name="data.source.max" value="{{actor.data.source.max}}" data-dtype="Number"/>
+    <input class="flex-child-center big bold" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="npc-source-max-edit" name="data.source.max" value="{{actor.data.data.source.max}}" data-dtype="Number"/>
   </div>
 </div>

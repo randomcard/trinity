@@ -2,17 +2,17 @@
 <div class="boxed flex-parent-evenly">
   <div class="flex-child flex-parent-center-column">
     <div class="flex-child-center resource-label">Enhancements</div>
-    <div class="flex-child-center big bold">{{actor.data.enhancements.value}}</div>
+    <div class="flex-child-center big bold">{{actor.data.data.enhancements.value}}</div>
   </div>
   <div class="flex-child flex-parent-center-column">
-    {{#each this.actor.healthBoxes as |healthBox key|}}
+    {{#each this.actor.data.healthBoxes as |healthBox key|}}
       <div class="flex-child-center resource-label">{{healthBox.name}}</div>
       <div class="flex-child-center big icons left-vcenter clickable item-create" data-hbname="{{healthBox.name}}" id="{{key}}" data-type="condition">{{{toHealthBoxes healthBox}}}</div>
     {{/each}}
   </div>
   <div class="flex-child flex-parent-center-column">
     <div class="flex-child-center resource-label">Defense</div>
-    <div class="flex-child-center big bold">{{actor.data.defense.value}}</div>
+    <div class="flex-child-center big bold">{{actor.data.data.defense.value}}</div>
   </div>
   <!-- Stats for NPC Creation. Remove - build as actor templates, to make it easier to remove game elements
   <div class="flex-child flex-parent-center-column">

@@ -1,6 +1,6 @@
 {{!-- Attribute Partial - Read-Only --}}
 <div class="attributes grid grid-3col">
-  {{#each actor.data.attributes as |attribute key|}}
+  {{#each actor.data.data.attributes as |attribute key|}}
   <div class="boxed">
     <div class="flex-parent-center-column rollable" data-attrname="{{attribute.name}}" id="{{key}}">
       <span class="flex-child-center resource-label"> {{attribute.name}} </span>
