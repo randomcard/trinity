@@ -546,8 +546,11 @@ if (content.style.maxHeight){
       // let newItem = await this.actor.createEmbeddedDocuments('Item', [itemData.toObject()]);
       let newItem = await this.actor.createEmbeddedDocuments('Item', [itemData]);
 
-      let createdItem = this.actor.items.get(newItem._id);
-      createdItem.sheet.render(true);
+      // let createdItem = this.actor.items.get(newItem._id);
+      // createdItem.sheet.render(true);
+
+      newItem.sheet.render(true);
+
       return;
     }
 
