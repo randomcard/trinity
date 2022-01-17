@@ -547,7 +547,7 @@ if (content.style.maxHeight){
       let newItem = await this.actor.createEmbeddedDocuments('Item', [itemData]);
       console.log("-------> Injury Creation <--------------");
       console.log(this.actor);
-      console.log(itemData);
+      console.log(newItem);
       // let createdItem = this.actor.items.get(newItem._id);
       // createdItem.sheet.render(true);
 
