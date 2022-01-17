@@ -142,9 +142,11 @@ console.log("Overview update (after), This:", this);
     super.activateListeners(html);
 
     // Change Momentum
-    html.find('.current-momentum').change(ev => {
+    html.find('.momentum').change(ev => {
       // this.actor.update({ 'data.inspiration.value': ++this.actor.data.data.inspiration.value });
       game.settings.set("trinity", "momentum-max", this.state.momentum.max);
+      game.settings.set("trinity", "momentum-current", this.state.momentum.current);
+      game.settings.set("trinity", "momentum-spent", this.state.momentum.spent);
       this.render(true);
     });
   }
