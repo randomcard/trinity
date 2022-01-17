@@ -544,14 +544,16 @@ if (content.style.maxHeight){
       console.log(this.actor);
       console.log(itemData);
       // let newItem = await this.actor.createEmbeddedDocuments('Item', [itemData.toObject()]);
-      let newItem = await this.actor.createEmbeddedDocuments('Item', [itemData]);
+      // let newItem = await this.actor.createEmbeddedDocuments('Item', [itemData]);
       console.log("-------> Injury Creation <--------------");
       console.log(this.actor);
-      console.log(newItem);
+      // console.log(newItem);
       // let createdItem = this.actor.items.get(newItem._id);
       // createdItem.sheet.render(true);
 
-      await newItem.sheet.render(true);
+      // await newItem.sheet.render(true);
+
+      this.actor.createEmbeddedDocuments('Item', [itemData], { renderSheet: true });
 
       return;
     }
