@@ -527,9 +527,9 @@ if (content.style.maxHeight){
         case "Injured":
           value = 2; break;
         case "Maimed":
-          value = 3; break;
-        case "Taken Out":
           value = 4; break;
+        case "Taken Out":
+          value = 5; break;
       }
       itemData.data.injury = {};
       itemData.data.injury.value = value;
