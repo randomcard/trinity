@@ -39,7 +39,7 @@ Hooks.once('init', async function() {
 
   game.settings.register("trinity", "momentum-current", {
     name: "Current Momentum",
-    hint: "Current momentum, 3x number of players",
+    hint: "Current momentum, starts session at # of players",
     scope: "world",      // This specifies a world-level setting
     config: false,        // This specifies that the setting appears in the configuration view
     type: Number,
@@ -51,7 +51,7 @@ Hooks.once('init', async function() {
 
   game.settings.register("trinity", "momentum-spent", {
     name: "Spent Momentum",
-    hint: "Spent momentum, 3x number of players",
+    hint: "Spent momentum",
     scope: "world",      // This specifies a world-level setting
     config: false,        // This specifies that the setting appears in the configuration view
     type: Number,
