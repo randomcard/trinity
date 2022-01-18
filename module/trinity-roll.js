@@ -190,7 +190,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     console.log(targetActor);
     for (let comp of targetActor.complications) {
       if (compList.length > 0) {
-        complist += "<br/>";
+        compList += "<br/>";
       }
       compList += comp.data.complication.value + " - " + comp.name;
     }
@@ -208,7 +208,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     roll.roll().toMessage({
       speaker: ChatMessage.getSpeaker({ actor: targetActor }),
       flavor: label,
-      content: '${await roll.render()}<hr />' + complist
+      content: '${await roll.render()}<hr />' + compList
     });
 
   }
