@@ -26,4 +26,6 @@ Information on each of these elements can be found in the Trinity Continuum Core
 
 ## Other Notes
 
+Most character elements that can't be dropped as an item on the character (such as facets or inspiration) can be edited in the "Configure" section on the character sheet.
+
 The Actors directory has a "Party Overview" button that launches a window to keep track of party Momentum, and the party's aspirations.
