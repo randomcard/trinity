@@ -308,8 +308,8 @@ if (content.style.maxHeight){
       skills.sort((a, b) => a.name.localeCompare(b.name));
       if (i.type === 'specialty') { specialties.push(i); }
       if (i.type === 'path') { paths.push(i); }
-      if (i.data.data.flags.isComplication === true) { complications.push(i); }
-      if (i.data.data.flags.isEnhancement === true) { enhancements.push(i); }
+      if (i.data.flags.isComplication === true) { complications.push(i); }
+      if (i.data.flags.isEnhancement === true) { enhancements.push(i); }
       if (i.type === 'stunt') { stunts.push(i); }
       if (i.type === 'gift') { gifts.push(i); }
       if (i.type === 'trick') { tricks.push(i); }
