@@ -189,10 +189,16 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     let compList = "";
     console.log(targetActor);
     for (let comp of targetActor.complications) {
+      if (compList.length === 0) {
+        compList += `<hr /><div class="small">Character's Complications</div><br/><span class="small-note">`;
+      }
       if (compList.length > 0) {
         compList += "<br/>";
       }
       compList += comp.data.complication.value + " - " + comp.name;
+    }
+    if (compList.length > 0) {
+      compList += "</span>";
     }
 
 
@@ -203,24 +209,25 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
     // let roll = new Roll(rollFormula);
     let roll = new game.trinity.TRoll(rollFormula, {}, enhaValue);
-    let roll2 = new game.trinity.TRoll(rollFormula, {}, enhaValue);
     // let label = p.attr.name ? `Rolling ${p.attr.name}` : '';
     let label = [p.skil.name, p.attr.name, p.enha.name].join(' • ')
 
+/** Old Method
     roll.roll().toMessage({
       speaker: ChatMessage.getSpeaker({ actor: targetActor }),
       flavor: label
     });
+**/
 
-    async function customRoll() {
+    async function completeRoll() {
       ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor: targetActor }),
         flavor: label,
-        content: `${await roll2.render()}<hr /><span class="small-note">` + compList + '</span>'
+        content: `${await roll.render()}` + compList
       });
     }
 
-    customRoll();
+    completeRoll();
 
   }
 
