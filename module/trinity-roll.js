@@ -203,6 +203,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
     // let roll = new Roll(rollFormula);
     let roll = new game.trinity.TRoll(rollFormula, {}, enhaValue);
+    let roll2 = new game.trinity.TRoll(rollFormula, {}, enhaValue);
     // let label = p.attr.name ? `Rolling ${p.attr.name}` : '';
     let label = [p.skil.name, p.attr.name, p.enha.name].join(' • ')
 
@@ -212,10 +213,10 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     });
 
     async function customRoll() {
-        roll.roll().toMessage({
+      ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor: targetActor }),
         flavor: label,
-        content: '${await roll.render()}<hr />' + compList
+        content: '${await roll2.render()}<hr /><span class="flavor-text">' + compList + '</span>'
       });
     }
 
