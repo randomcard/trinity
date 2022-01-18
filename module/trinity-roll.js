@@ -206,13 +206,10 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     // let label = p.attr.name ? `Rolling ${p.attr.name}` : '';
     let label = [p.skil.name, p.attr.name, p.enha.name].join(' • ')
 
-/*
-    async roll.roll().toMessage({
+    roll.roll().toMessage({
       speaker: ChatMessage.getSpeaker({ actor: targetActor }),
-      flavor: label,
-      content: '${await roll.render()}<hr />' + compList
+      flavor: label
     });
-*/
 
     async function customRoll() {
         roll.roll().toMessage({
