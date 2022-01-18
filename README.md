@@ -8,7 +8,7 @@ This system was built on the Boilerplate system, w/ elements from party-overview
 
 ## How to Use
 
-Due to IP concerns, this system is not playable on installation. It requires the creation of system elements in Compendiums that can be added to new characters. The following elements must be created:
+Due to IP concerns, this system is not playable on installation. It requires the creation of system elements (as Items) that can be added to new characters. The following elements must be created:
 * Skills
 * Paths
 * Contacts
