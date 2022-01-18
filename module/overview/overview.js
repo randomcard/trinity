@@ -90,9 +90,9 @@ this.state.momentum.spent = game.settings.get("trinity", "momentum-spent");
 // Add Icons for Aspirations
     for (let actor of this.state.actors) {
       console.log("Iterating:", actor);
-      actor.aspirations.shortTerm1.icon = "<span class=\"fa-layers fa-fw\"><i class=\"fas fa-stopwatch\"></i><span class=\"fa-layers-counter\" style=\"background:Green\">1</span></span>";
-      actor.aspirations.shortTerm2.icon = "<span class=\"fa-layers fa-fw\"><i class=\"fas fa-stopwatch\"></i><span class=\"fa-layers-counter\" style=\"background:Green\">2</span></span>";
-      actor.aspirations.longTerm.icon = "<i class=\"fas fa-calendar-alt\"></i>";
+      actor.aspirations.shortTerm1.icon = "<i class=\"fas fa-stopwatch big\"></i>";
+      actor.aspirations.shortTerm2.icon = "<i class=\"fas fa-stopwatch big\"></i>";
+      actor.aspirations.longTerm.icon = "<i class=\"fas fa-calendar-alt big\"></i>";
     }
     console.log("This, post iteration:", this);
 
