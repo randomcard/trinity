@@ -216,7 +216,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
       ChatMessage.create({
         speaker: ChatMessage.getSpeaker({ actor: targetActor }),
         flavor: label,
-        content: '${await roll2.render()}<hr /><span class="flavor-text">' + compList + '</span>'
+        content: `${await roll2.render()}<hr /><span class="small-note">` + compList + '</span>'
       });
     }
 
