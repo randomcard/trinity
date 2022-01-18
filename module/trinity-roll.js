@@ -190,7 +190,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     console.log(targetActor);
     for (let comp of targetActor.complications) {
       if (compList.length === 0) {
-        compList += `<hr /><div class="small">Character's Complications</div><br/><span class="small-note">`;
+        compList += `<hr /><div class="small">Character's Complications:</div><div class="small-note">`;
       }
       if (compList.length > 0) {
         compList += "<br/>";
@@ -198,7 +198,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
       compList += comp.data.complication.value + " - " + comp.name;
     }
     if (compList.length > 0) {
-      compList += "</span>";
+      compList += "</div>";
     }
 
 
