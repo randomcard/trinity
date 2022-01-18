@@ -329,6 +329,8 @@ if (content.style.maxHeight){
     actorData.skills = skills;
     actorData.specialties = specialties;
     actorData.paths = paths;
+    actorData.complications = complications;
+    actorData.enhancements = enhancements;
     actorData.conditions = conditions;
     actorData.stunts = stunts;
     actorData.gifts = gifts;

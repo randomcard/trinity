@@ -11,6 +11,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
   const dataset = element.dataset || {};
   var targetAttr = [];
   var targetSkill = [];
+//   var allComplications = actor.complications;
 
   // Elements table, or picked elements, will include the details of the selected roll components. (Replacing rollParts)
   // Build defaults if empty
@@ -184,6 +185,15 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     // Old Formula, w/ wrong NScale
 //    let rollFormula = `(((${p.attr.value}+${p.skil.value})d10x${p.expl.value}cs>=${p.succ.value})+(${p.enha.value}+${p.dsca.value}))*${p.nsca.value}`;
 
+// Complication List
+    let compList = "";
+    for (let comp of actor.complications) {
+      if (compList.length > 0) {
+        complist += "<br/>";
+      }
+      compList += comp.data.complication.value + " - " + comp.name;
+    }
+
 
     let rollFormula = `((${p.skil.value}+${p.attr.value})d10x>=${p.expl.value}cs>=${p.succ.value})*${p.nsca.value}`;
     let enhaValue = parseInt(p.enha.value) + (parseInt(p.dsca.value) * 2);
@@ -196,7 +206,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     let label = [p.skil.name, p.attr.name, p.enha.name].join(' • ')
     roll.roll().toMessage({
       speaker: ChatMessage.getSpeaker({ actor: targetActor }),
-      flavor: label
+      flavor: label,
+      content: '${await roll.render()}<hr />' + complist
     });
 
   }
