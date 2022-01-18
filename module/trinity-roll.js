@@ -187,7 +187,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
 // Complication List
     let compList = "";
-    for (let comp of actor.complications) {
+    console.log(this);
+    for (let comp of this.actor.complications) {
       if (compList.length > 0) {
         complist += "<br/>";
       }
