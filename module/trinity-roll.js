@@ -127,8 +127,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           for (let part of Object.keys(pickedElements)) {
             if (document.getElementById(part)){
               pickedElements[part].value = parseInt(document.getElementById(part).value) || pickedElements[part].value;
-              console.log("Found Part:");
-              console.log(part);
+              // console.log("Found Part:");
+              // console.log(part);
             }
             // console.log("rollParts."+part+":");
             // console.log(rollParts[part]);
@@ -140,17 +140,33 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           return;
         }
       },
-      /*
-      cancel: {
-        icon: "<i class='fas fa-times'></i>",
-        label: "Cancel",
+      save: {
+        icon: "<i class='fas fa-save'></i>",
+        label: "Save",
         callback: () => {
+          for (let part of Object.keys(pickedElements)) {
+            if (document.getElementById(part)){
+              pickedElements[part].value = parseInt(document.getElementById(part).value) || pickedElements[part].value;
+              // console.log("Found Part:");
+              // console.log(part);
+            }
+            // console.log("rollParts."+part+":");
+            // console.log(rollParts[part]);
+          }
+          // _roll(targetActor, pickedElements);
           pickedElements = {};
-          Object.assign(pickedElements, pickedElementsProto);
+          // Object.assign(pickedElements, pickedElementsProto);
+          pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
+          let rollName = await Dialog.prompt({
+            title: "Enter Saved Roll Name"
+            });
+          targetActor.data.data.savedRolls.push({
+            name: rollName,
+            elements: pickedElements
+            });
           return;
         }
       },
-      */
       reset: {
         icon: "<i class='fas fa-times'></i>",
         label: "Reset",

@@ -349,6 +349,7 @@ async function loadTrinityTemplates()
     "systems/trinity/templates/actor/partials/inspiration.html",
     "systems/trinity/templates/actor/partials/gifts.html",
     "systems/trinity/templates/actor/partials/all-items.html",
+    "systems/trinity/templates/actor/partials/saved-rolls.html",
     "systems/trinity/templates/actor/partials-npc/npc-attributes.html",
     "systems/trinity/templates/actor/partials-npc/npc-stats.html",
     "systems/trinity/templates/actor/partials-npc/npc-edit.html",

@@ -11,7 +11,8 @@
           "isTalent" : false,
           "isActivePlayer" : false,
           "isTakenOut" : false
-        }
+        },
+        "savedRolls": {}
       },
       "talent" : {
         "moment" : "",
