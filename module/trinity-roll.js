@@ -157,11 +157,11 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           pickedElements = {};
           // Object.assign(pickedElements, pickedElementsProto);
           pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
-          let rollName = await Dialog.prompt({
+          let savedRollName = await Dialog.prompt({
             title: "Enter Saved Roll Name"
             });
           targetActor.data.data.savedRolls.push({
-            name: rollName,
+            name: savedRollName,
             elements: pickedElements
             });
           return;
