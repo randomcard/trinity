@@ -163,7 +163,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
             content: "Saved Roll Name"
             });
           */
-          new Dialog({
+          let savePrompt = new Dialog({
             content: `<form><label>Enter Saved Roll Name:</label><input name="rollNameInput" /></form>`,
             buttons: {
               submit: { label: "Submit", callback: (html) => {
@@ -182,10 +182,10 @@ export async function trinityRoll(targetActor, pickedElements, event) {
                 */
                 // console.log(results);
                 // console.log("Saved Roll:", targetActor.data.data.savedRolls);
-                return;
               }}
             }
-          }).render(true);
+          });
+          savePrompt.render(true);
           return;
         }
       },
