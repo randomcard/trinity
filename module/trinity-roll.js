@@ -164,7 +164,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
             });
           */
           new Dialog({
-            content: `<form><label>Enter Saved Roll Name:</label><input name="nameInput" /></form>`,
+            content: `<form><label>Enter Saved Roll Name:</label><input name="rollNameInput" /></form>`,
             buttons: {
               submit: { label: "Submit", callback: (html) => {
                 const results = (new FormDataExtended(html.find("form")[0])).toObject();
