@@ -182,6 +182,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
                 */
                 // console.log(results);
                 // console.log("Saved Roll:", targetActor.data.data.savedRolls);
+                return;
               }}
             }
           }).render(true);
