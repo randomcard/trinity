@@ -169,14 +169,17 @@ export async function trinityRoll(targetActor, pickedElements, event) {
               submit: { label: "Submit", callback: (html) => {
                 const results = (new FormDataExtended(html.find("form")[0])).toObject();
                 uniqueRollNumber = randomID(16);
+                /*
                 targetActor.data.data.savedRolls[uniqueRollNumber] = {
                   name: results,
                   elements: pickedElements,
                 };
+                */
                 /*
                 targetActor.data.data.savedRolls.name = results;
                 targetActor.data.data.savedRolls.elements = pickedElements;
                 */
+                console.log(uniqueRollNumber);
                 console.log("Saved Roll:", targetActor.data.data.savedRolls);
               }}
             }
