@@ -157,15 +157,23 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           pickedElements = {};
           // Object.assign(pickedElements, pickedElementsProto);
           pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
+          /*
           let rollName = Dialog.prompt({
             title: "Enter Saved Roll Name",
             content: "Saved Roll Name"
             });
-          targetActor.data.data.savedRolls.push({
-            name: rollName,
-            elements: pickedElements
-            });
-          console.log("Saved Roll:", targetActor.data.data.savedRolls);
+          */
+          new Dialog({
+            content: `<form><label>Enter Saved Roll Name:</label><input name="nameInput" /></form>`,
+            buttons: {
+              submit: { label: "Submit", callback: (html) => {
+                const results = (new FormDataExtended(html.find("form")[0])).toObject();
+                targetActor.data.data.savedRolls.name = results;
+                targetActor.data.data.savedRolls.elements = pickedElements;
+                console.log("Saved Roll:", targetActor.data.data.savedRolls);
+              }}
+            }
+          }).render(true);
           return;
         }
       },
