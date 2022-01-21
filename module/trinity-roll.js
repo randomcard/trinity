@@ -123,7 +123,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     buttons: {
       submit: {
         label: "Submit",
-        callback: (savehtml) => {
+        callback: savehtml => {
+        // callback: (savehtml) => {
         // const results = (new FormDataExtended(html.find("form")[0])).toObject();
         let results = document.getElementById('saveName').value;
         console.log("Save Roll As: ",results);
