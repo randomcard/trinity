@@ -114,6 +114,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
   // let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {roll: rollParts, actor: targetActor, elements: pickedElements});
   let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: targetActor, elements: pickedElements});
+  let savehtml = await renderTemplate("systems/trinity/templates/save-prompt.html", {actor: targetActor, elements: pickedElements});
 
   let rollDialog = new RDialog({
     title: "Roll Options",
@@ -163,7 +164,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
             content: "Saved Roll Name"
             });
           */
-          let savehtml = renderTemplate("systems/trinity/templates/save-prompt.html", {actor: targetActor, elements: pickedElements});
+
           // let savePromptContent = `<form><label class="resource-label" for="rollNameInput">Enter Saved Roll Name:</label><input class="input" id="rollNameInput" /></form>`;
           let savePrompt = new Dialog({
             content: savehtml,
