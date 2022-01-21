@@ -1,9 +1,9 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
   <section class="sheet-body">
     <div>
-      <label class="resource-label" for="SaveRollAsInput">Enter Saved Roll Name:</label>
-      <input class="input" type="text" name="SaveRollInputBox" id="SaveRollAsInput" value="Saved Roll" data-dtype="String"/>
-      <!-- <input type="radio" id="{{item.data._id}}" class="input" name="skil" value="{{item.data.name}}"> -->
+      <label class="resource-label" for="saveName">Enter Saved Roll Name:</label>
+      <input class="input" type="text" id="saveName" value="Saved Roll" data-dtype="String"/>
+      <!-- Apparently, without a value=, submitting the dialog w/ an input will crash Foundry. -->
     </div>
   </section>
 </form>
