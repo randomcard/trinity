@@ -120,7 +120,6 @@ export async function trinityRoll(targetActor, pickedElements, event) {
     title: "Save As",
     id: "savedialog",
     content: savehtml,
-    // content: `<form><label>Enter Saved Roll Name:</label><input name="rollNameInput" /></form>`,
     buttons: {
       submit: {
         label: "Submit",

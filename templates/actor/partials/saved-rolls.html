@@ -2,8 +2,8 @@
 
 <h2>Saved Rolls</h2>
 <div class="saved-rolls grid grid-4row">
-  {{#each actor.data.data.savedRolls as |roll key|}}
-  <div class="flexcol flex-group-center rollable boxed" data-attrname="{{roll.name}}" id="{{key}}">
+  {{#each data.data.savedRolls as |roll key|}}
+  <div class="flexcol flex-group-center rollable boxed" id="{{key}}">
     <span class="resource-label"> {{roll.name}} </span>
     <!-- <span class="icons"> {{{toDots roll.value}}} </span>
     <span class="small-note"> {{roll.approach}} - {{savedroll.arena}} </span> -->
