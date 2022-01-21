@@ -163,9 +163,10 @@ export async function trinityRoll(targetActor, pickedElements, event) {
             content: "Saved Roll Name"
             });
           */
-          let savePromptContent = `<form><label class="resource-label" for="rollNameInput">Enter Saved Roll Name:</label><input class="input" id="rollNameInput" /></form>`;
+          let savehtml = await renderTemplate("systems/trinity/templates/save-prompt.html", {actor: targetActor, elements: pickedElements});
+          // let savePromptContent = `<form><label class="resource-label" for="rollNameInput">Enter Saved Roll Name:</label><input class="input" id="rollNameInput" /></form>`;
           let savePrompt = new Dialog({
-            content: savePromptContent,
+            content: savehtml,
             // content: `<form><label>Enter Saved Roll Name:</label><input name="rollNameInput" /></form>`,
             buttons: {
               submit: { label: "Submit", callback: (html) => {
