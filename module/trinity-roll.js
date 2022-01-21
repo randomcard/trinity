@@ -173,7 +173,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
             },
           }
         }
-      })
+      });
+    });
 
 
 
