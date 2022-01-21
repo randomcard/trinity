@@ -147,8 +147,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
   ------------------------------------------------------- */
 
-  let savePrompt = await new Promise((resolve, reject) => {
-        new Dialog({
+  // let savePrompt = await new Promise((resolve, reject) => {
+  let savePrompt = new Dialog({
         title: "Save As",
         content: savehtml,
         default: 'save',
@@ -174,8 +174,6 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           }
         }
       });
-    });
-
 
 
   let rollDialog = new RDialog({
