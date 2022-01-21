@@ -116,6 +116,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
   let html = await renderTemplate("systems/trinity/templates/roll-prompt.html", {actor: targetActor, elements: pickedElements});
   let savehtml = await renderTemplate("systems/trinity/templates/save-prompt.html", {actor: targetActor, elements: pickedElements});
 
+
+/* -----------------------------------------------------------------------------
   let savePrompt = new Dialog({
     title: "Save As",
     id: "savedialog",
@@ -125,8 +127,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         label: "Submit",
         callback: (savehtml) => {
         // const results = (new FormDataExtended(html.find("form")[0])).toObject();
-        // let results = document.getElementById('saveName').value;
-        let results = (new FormDataExtended(html.find("form")[0])).toObject();
+        let results = document.getElementById('saveName').value;
         console.log("Save Roll As: ",results);
 
         let uniqueRollNumber = randomID(16);
@@ -136,11 +137,6 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           elements: pickedElements,
         };
 
-
-        /*
-        targetActor.data.data.savedRolls.name = results;
-        targetActor.data.data.savedRolls.elements = pickedElements;
-        */
         // console.log(results);
         console.log("Saved Roll:", targetActor.data.data.savedRolls);
         return;
@@ -148,6 +144,38 @@ export async function trinityRoll(targetActor, pickedElements, event) {
       }
     }
   });
+
+  ------------------------------------------------------- */
+
+  let savePrompt = await new Promise((resolve, reject) => {
+        new Dialog({
+        title: "Save As",
+        content: savehtml,
+        default: 'save',
+        buttons: {
+          save: {
+            icon: '<i class="fas fa-check"></i>',
+            label: 'Save',
+            default: true,
+            callback: html => {
+              let results = document.getElementById('saveName').value;
+              console.log("Save Roll As: ",results);
+
+              let uniqueRollNumber = randomID(16);
+
+              targetActor.data.data.savedRolls[uniqueRollNumber] = {
+                name: results,
+                elements: pickedElements,
+              };
+
+              console.log("Saved Roll:", targetActor.data.data.savedRolls);
+              return;
+            },
+          }
+        }
+      })
+
+
 
   let rollDialog = new RDialog({
     title: "Roll Options",
