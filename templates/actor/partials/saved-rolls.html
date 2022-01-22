@@ -1,7 +1,7 @@
 {{!-- Saved Rolls Partial - Read-Only --}}
 
 <h2>Saved Rolls</h2>
-<div class="saved-rolls grid grid-4row">
+<div class="saved-rolls grid grid-4col">
   {{#each data.data.savedRolls as |roll key|}}
   <div class="flexcol flex-group-center rollable boxed" id="{{key}}">
     <span class="resource-label"> {{roll.name}} </span>

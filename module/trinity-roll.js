@@ -162,6 +162,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
               console.log("Save Roll As: ",results);
 
               let uniqueRollNumber = randomID(16);
+              let diceNumber = pickedElements.attr + pickedElements.skil;
+              let enhNumber = pickedElements.enha;
 
               // let saveOnActor = game.actors.get(targetActor.id);
 
@@ -169,7 +171,9 @@ export async function trinityRoll(targetActor, pickedElements, event) {
                 "data.savedRolls": {
                   [uniqueRollNumber]: {
                     name: results,
-                    elements: pickedElements
+                    elements: pickedElements,
+                    dice: diceNumber,
+                    enh: enhNumber
                   }
                 }
               };
@@ -177,19 +181,6 @@ export async function trinityRoll(targetActor, pickedElements, event) {
               console.log("Updates", updates);
 
               game.actors.get(targetActor.id).update(updates);
-
-/*
-              saveOnActor.data.data.savedRolls[uniqueRollNumber].update({
-                name: results,
-                elements: pickedElements,
-              });
-*/
-              /*
-              targetActor.data.data.savedRolls[uniqueRollNumber] = {
-                name: results,
-                elements: pickedElements,
-              };
-              */
 
               console.log("Saved Roll on Actor:", game.actors.get(targetActor.id));
               return;

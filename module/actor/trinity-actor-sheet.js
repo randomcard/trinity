@@ -284,10 +284,10 @@ if (content.style.maxHeight){
       healthBoxes.takenOut.empty = 0;
     }
 */
-
+/*
     console.log("healthboxes:");
     console.log(healthBoxes);
-
+*/
 
 
 
