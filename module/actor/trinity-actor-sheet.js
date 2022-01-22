@@ -483,7 +483,8 @@ if (content.style.maxHeight){
         passElements = this.actor.data.data.savedRolls[event.currentTarget.id].elements;
         console.log("Elements found: ", passElements);
       }
-      return this._onRoll.bind(this, passElements);
+      let rollFunction = this._onRoll.bind(this);
+      rollFunction(passElements);
       // this._onRoll.bind(this, {ev, passElements});
       console.log("Roll Listener Complete");
     });
