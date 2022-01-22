@@ -186,7 +186,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
               };
               */
 
-              console.log("Saved Roll:", saveOnActor.data.data.savedRolls);
+              console.log("Saved Roll on Actor:", game.actors.get(targetActor.id));
               return;
             },
           }
