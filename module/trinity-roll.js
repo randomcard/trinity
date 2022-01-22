@@ -171,6 +171,9 @@ export async function trinityRoll(targetActor, pickedElements, event) {
                   elements: pickedElements
                 }
               };
+
+              console.log("Updates", updates);
+
               game.actors.get(targetActor.id).update(updates);
 
 /*
