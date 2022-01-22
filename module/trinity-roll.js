@@ -15,7 +15,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
   // Elements table, or picked elements, will include the details of the selected roll components. (Replacing rollParts)
   // Build defaults if empty
-  if (typeof pickedElements === 'undefined' || pickedElements === null) {
+  if (typeof pickedElements === 'undefined' || pickedElements === null || pickedElements = {} ) {
     console.log("Creating default pickedElements");
     pickedElements = {};
     // Object.assign(pickedElements, pickedElementsProto);
