@@ -148,7 +148,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
   ------------------------------------------------------- */
 
   // Last mostly working Code
-  /*
+
   let savePrompt = new Dialog({
         title: "Save As",
         content: savehtml,
@@ -189,8 +189,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           }
         }
       });
-*/
 
+/* Failed async approach
   async function SavePrompt(){
     return await new Promise(async (resolve) => {
       let savePromptDialog = new Dialog({
@@ -212,6 +212,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         });
         savePromptDialog.render(true);
     });
+*/
 
 
   let rollDialog = new RDialog({
@@ -243,7 +244,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         icon: "<i class='fas fa-save'></i>",
         label: "Save",
         callback: () => {
-          /* Last mostly working code
+          /* Last mostly working code */
           for (let part of Object.keys(pickedElements)) {
             if (document.getElementById(part)){
               pickedElements[part].value = parseInt(document.getElementById(part).value) || pickedElements[part].value;
@@ -253,7 +254,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
           savePrompt.render(true);
           return;
-          */
+
+          /* Failed Async / Await approach
           for (let part of Object.keys(pickedElements)) {
             if (document.getElementById(part)){
               pickedElements[part].value = parseInt(document.getElementById(part).value) || pickedElements[part].value;
@@ -285,7 +287,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
           console.log("Saved Roll on Actor:", game.actors.get(targetActor.id));
           return;
-
+*/
         }
       },
       reset: {
