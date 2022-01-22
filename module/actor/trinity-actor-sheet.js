@@ -484,7 +484,7 @@ if (content.style.maxHeight){
         console.log("Elements found: ", passElements);
       }
       // this._onRoll.bind(this, passElements);
-      this._onRoll(ev, passElements).bind(this);
+      this._onRoll.bind(this, {ev, passElements});
       console.log("Roll Listener Complete");
     });
 
