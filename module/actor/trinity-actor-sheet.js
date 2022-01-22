@@ -592,7 +592,7 @@ if (content.style.maxHeight){
     console.log("_onRoll: Launch trinityRoll event");
     event.preventDefault();
     let passElements = {};
-    if (ev.currentTarget.classList.contains("saved-roll")) {
+    if (event.currentTarget.classList.contains("saved-roll")) {
       passElements = this.actor.data.data.savedRolls[event.currentTarget.id].elements;
       console.log("Elements found: ", passElements);
     }
