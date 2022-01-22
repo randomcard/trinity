@@ -472,7 +472,18 @@ if (content.style.maxHeight){
     });
 
     // Rollable abilities.
+    /* Original roll code, before checking for saved roll info
     html.find('.rollable').click(this._onRoll.bind(this));
+    */
+
+    html.find('.rollable').click(ev => {
+      console.log("ev");
+      let passElements = {};
+      if (ev.currentTarget.classList.contains("saved-roll")) {
+        passElements = this.actor.data.data.savedRolls[event.currentTarget.id].elements;
+      }
+      this._onRoll.bind(this, passElements));
+    });
 
     // Drag events for macros.
     // if (this.actor.owner) {
@@ -571,13 +582,21 @@ if (content.style.maxHeight){
     return this.actor.createEmbeddedDocuments('Item',[itemData]);
   }
 
-  _onRoll(event) {
+  _onRoll(event, el) {
     event.preventDefault();
     console.log("Launch trinityRoll event");
     console.log(this.actor);
-    trinityRoll(this.actor, null, event);
+    trinityRoll(this.actor, el, event);
   }
 
+/* Original Roll code, before adding in saved roll passthrough
+_onRoll(event) {
+  event.preventDefault();
+  console.log("Launch trinityRoll event");
+  console.log(this.actor);
+  trinityRoll(this.actor, null, event);
+}
+*/
 
 
 }
