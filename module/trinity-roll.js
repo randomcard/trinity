@@ -171,7 +171,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
                   elements: pickedElements
                 }
               };
-              await game.actors.get(targetActor.id).update(updates);
+              game.actors.get(targetActor.id).update(updates);
 
 /*
               saveOnActor.data.data.savedRolls[uniqueRollNumber].update({
