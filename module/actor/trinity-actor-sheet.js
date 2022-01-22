@@ -477,12 +477,13 @@ if (content.style.maxHeight){
     */
 
     html.find('.rollable').click(ev => {
-      console.log("ev");
+      console.log(ev);
       let passElements = {};
       if (ev.currentTarget.classList.contains("saved-roll")) {
         passElements = this.actor.data.data.savedRolls[event.currentTarget.id].elements;
       }
       this._onRoll.bind(this, passElements);
+      console.log("Roll Listener Complete");
     });
 
     // Drag events for macros.
