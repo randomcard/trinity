@@ -482,7 +482,7 @@ if (content.style.maxHeight){
       if (ev.currentTarget.classList.contains("saved-roll")) {
         passElements = this.actor.data.data.savedRolls[event.currentTarget.id].elements;
       }
-      this._onRoll.bind(this, passElements));
+      this._onRoll.bind(this, passElements);
     });
 
     // Drag events for macros.
