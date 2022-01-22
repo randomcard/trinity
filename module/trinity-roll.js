@@ -147,7 +147,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
   ------------------------------------------------------- */
 
-  // let savePrompt = await new Promise((resolve, reject) => {
+  // Last mostly working Code
+  /*
   let savePrompt = new Dialog({
         title: "Save As",
         content: savehtml,
@@ -162,8 +163,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
               console.log("Save Roll As: ",results);
 
               let uniqueRollNumber = randomID(16);
-              let diceNumber = pickedElements.attr + pickedElements.skil;
-              let enhNumber = pickedElements.enha;
+              let diceNumber = pickedElements.attr.value + pickedElements.skil.value;
+              let enhNumber = pickedElements.enha.value;
 
               // let saveOnActor = game.actors.get(targetActor.id);
 
@@ -188,6 +189,29 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           }
         }
       });
+*/
+
+  async function SavePrompt(){
+    return await new Promise(async (resolve) => {
+      let savePromptDialog = new Dialog({
+          title: "Save As",
+          content: savehtml,
+          default: 'save',
+          buttons: {
+            save: {
+              icon: '<i class="fas fa-check"></i>',
+              label: 'Save',
+              default: true,
+              callback: async(html) => {
+                let results = document.getElementById('saveName').value;
+                console.log("Save Roll As: ",results);
+                resolve(results);
+              },
+            }
+          }
+        });
+        savePromptDialog.render(true);
+    });
 
 
   let rollDialog = new RDialog({
@@ -219,30 +243,49 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         icon: "<i class='fas fa-save'></i>",
         label: "Save",
         callback: () => {
+          /* Last mostly working code
           for (let part of Object.keys(pickedElements)) {
             if (document.getElementById(part)){
               pickedElements[part].value = parseInt(document.getElementById(part).value) || pickedElements[part].value;
-              // console.log("Found Part:");
-              // console.log(part);
             }
-            // console.log("rollParts."+part+":");
-            // console.log(rollParts[part]);
           }
-          // _roll(targetActor, pickedElements);
           pickedElements = {};
-          // Object.assign(pickedElements, pickedElementsProto);
           pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
-          /*
-          let rollName = Dialog.prompt({
-            title: "Enter Saved Roll Name",
-            content: "Saved Roll Name"
-            });
-          */
-
-          // let savePromptContent = `<form><label class="resource-label" for="rollNameInput">Enter Saved Roll Name:</label><input class="input" id="rollNameInput" /></form>`;
-
           savePrompt.render(true);
           return;
+          */
+          for (let part of Object.keys(pickedElements)) {
+            if (document.getElementById(part)){
+              pickedElements[part].value = parseInt(document.getElementById(part).value) || pickedElements[part].value;
+            }
+          }
+          pickedElements = {};
+          pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
+
+          saveNameAs = await SavePrompt();
+          // Picker.pDialog("skil", targetActor, pickedElements);
+
+          let uniqueRollNumber = randomID(16);
+          let diceNumber = pickedElements.attr.value + pickedElements.skil.value;
+          let enhNumber = pickedElements.enha.value;
+          let updates = {
+            "data.savedRolls": {
+              [uniqueRollNumber]: {
+                name: saveNameAs,
+                elements: pickedElements,
+                dice: diceNumber,
+                enh: enhNumber
+              }
+            }
+          };
+
+          console.log("Updates", updates);
+
+          game.actors.get(targetActor.id).update(updates);
+
+          console.log("Saved Roll on Actor:", game.actors.get(targetActor.id));
+          return;
+
         }
       },
       reset: {
