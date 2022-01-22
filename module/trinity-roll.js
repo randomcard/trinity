@@ -165,11 +165,17 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
               let saveOnActor = game.actors.get(targetActor.id);
 
+              saveOnActor.data.data.savedRolls[uniqueRollNumber] = {
+                name: results,
+                elements: pickedElements,
+              };
+
+/*
               saveOnActor.data.data.savedRolls[uniqueRollNumber].update({
                 name: results,
                 elements: pickedElements,
               });
-
+*/
               /*
               targetActor.data.data.savedRolls[uniqueRollNumber] = {
                 name: results,
