@@ -485,7 +485,7 @@ if (content.style.maxHeight){
             icon: '<i class="fa fa-check"></i>',
             label: "Yes",
             callback: dlg => {
-              this.actor.update({"this.actor.data.data.savedRolls.-=[roll]": null})
+              this.actor.update({"this.actor.data.savedRolls.-=[roll]": null})
             }
           },
           cancel: {
