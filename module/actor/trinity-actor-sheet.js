@@ -479,6 +479,7 @@ if (content.style.maxHeight){
       console.log("Delete: ",roll);
       const rollDeleteString = "this.actor.data.data.savedRolls.-=" + roll;
       console.log(rollDeleteString);
+      console.log(this.actor.data.data.savedRolls);
 
       let deleteConfirm = new Dialog({
         title: "Delete Confirmation",
