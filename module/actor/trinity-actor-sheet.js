@@ -477,6 +477,8 @@ if (content.style.maxHeight){
       // const roll = $(ev.currentTarget).parents(".item");
       const roll = event.currentTarget.parentElement.id;
       console.log("Delete: ",roll);
+      const rollDeleteString = "this.actor.data.savedRolls.-=" + roll;
+      console.log(rollDeleteString);
 
       let deleteConfirm = new Dialog({
         title: "Delete Confirmation",
@@ -486,7 +488,8 @@ if (content.style.maxHeight){
             icon: '<i class="fa fa-check"></i>',
             label: "Yes",
             callback: dlg => {
-              this.actor.update({"this.actor.data.savedRolls.-=[roll]": null})
+              // this.actor.update({"this.actor.data.savedRolls.-=[roll]": null})
+              this.actor.update({[rollDeleteString]: null})
             }
           },
           cancel: {
