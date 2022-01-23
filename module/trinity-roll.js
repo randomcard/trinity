@@ -250,10 +250,11 @@ export async function trinityRoll(targetActor, pickedElements, event) {
               pickedElements[part].value = parseInt(document.getElementById(part).value) || pickedElements[part].value;
             }
           }
-          pickedElements = {};
-          pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
+          // pickedElements = {};
+          // pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
           savePrompt.render(true);
-          return;
+          // return;
+          return trinityRoll(targetActor, pickedElements, event);
 
           /* Failed Async / Await approach
           for (let part of Object.keys(pickedElements)) {
