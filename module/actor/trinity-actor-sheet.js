@@ -473,7 +473,7 @@ if (content.style.maxHeight){
 
     // Delete Saved Roll
     html.find('.roll-delete').click(ev => {
-      const roll = event.currentTarget.parentElement.id;
+      const roll = event.currentTarget.dataset.rollid;
       const rollDeleteString = "data.savedRolls.-=" + roll;
 
       let deleteConfirm = new Dialog({
@@ -620,7 +620,7 @@ if (content.style.maxHeight){
     console.log(event);
     event.preventDefault();
     if (event.currentTarget.classList.contains("saved-roll")) {
-      let passElements = this.actor.data.data.savedRolls[event.currentTarget.parentElement.id].elements;
+      let passElements = this.actor.data.data.savedRolls[event.currentTarget.dataset.rollid].elements;
       console.log("Elements found: ", passElements);
       trinityRoll(this.actor, passElements, event);
     } else {
