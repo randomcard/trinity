@@ -485,7 +485,7 @@ if (content.style.maxHeight){
             icon: '<i class="fa fa-check"></i>',
             label: "Yes",
             callback: dlg => {
-              // update({"this.actor.data.data.savedRolls.-=[roll]": null}) 
+              // update({"this.actor.data.data.savedRolls.-=[roll]": null})
             }
           },
           cancel: {
@@ -496,6 +496,7 @@ if (content.style.maxHeight){
         default: 'Yes'
       });
       deleteConfirm.render(true);
+    });
 
     // Rollable abilities.
     /* Original roll code, before checking for saved roll info */
