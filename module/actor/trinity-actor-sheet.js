@@ -477,7 +477,7 @@ if (content.style.maxHeight){
       // const roll = $(ev.currentTarget).parents(".item");
       const roll = event.currentTarget.parentElement.id;
       console.log("Delete: ",roll);
-      const rollDeleteString = "this.actor.data.savedRolls.-=" + roll;
+      const rollDeleteString = "this.actor.data.data.savedRolls.-=" + roll;
       console.log(rollDeleteString);
 
       let deleteConfirm = new Dialog({
