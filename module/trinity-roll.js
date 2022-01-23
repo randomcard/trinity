@@ -184,6 +184,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
               game.actors.get(targetActor.id).update(updates);
 
               console.log("Saved Roll on Actor:", game.actors.get(targetActor.id));
+              trinityRoll(targetActor, pickedElements);
               return;
             },
           }
@@ -253,8 +254,8 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           // pickedElements = {};
           // pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
           savePrompt.render(true);
-          // return;
-          return trinityRoll(targetActor, pickedElements, event);
+          return;
+          // return trinityRoll(targetActor, pickedElements, event);
 
           /* Failed Async / Await approach
           for (let part of Object.keys(pickedElements)) {
