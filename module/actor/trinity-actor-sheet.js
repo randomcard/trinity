@@ -476,6 +476,7 @@ if (content.style.maxHeight){
       console.log(ev);
       // const roll = $(ev.currentTarget).parents(".item");
       const roll = event.currentTarget.parentElement.id;
+      console.log("Delete: ",roll);
 
       let deleteConfirm = new Dialog({
         title: "Delete Confirmation",
