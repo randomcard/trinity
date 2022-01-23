@@ -489,7 +489,7 @@ if (content.style.maxHeight){
             label: "Yes",
             callback: dlg => {
               // this.actor.update({"this.actor.data.savedRolls.-=[roll]": null})
-              this.actor.update({[rollDeleteString]: null})
+              this.actor.update({[rollDeleteString]: null});
             }
           },
           cancel: {
