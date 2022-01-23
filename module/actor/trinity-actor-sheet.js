@@ -473,13 +473,8 @@ if (content.style.maxHeight){
 
     // Delete Saved Roll
     html.find('.roll-delete').click(ev => {
-      console.log(ev);
-      // const roll = $(ev.currentTarget).parents(".item");
       const roll = event.currentTarget.parentElement.id;
-      console.log("Delete: ",roll);
       const rollDeleteString = "data.savedRolls.-=" + roll;
-      console.log(rollDeleteString);
-      console.log(this.actor.data.data.savedRolls);
 
       let deleteConfirm = new Dialog({
         title: "Delete Confirmation",
@@ -489,7 +484,6 @@ if (content.style.maxHeight){
             icon: '<i class="fa fa-check"></i>',
             label: "Yes",
             callback: dlg => {
-              // this.actor.update({"data.savedRolls.-=[roll]": null})
               this.actor.update({[rollDeleteString]: null});
 
             }
