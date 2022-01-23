@@ -471,6 +471,32 @@ if (content.style.maxHeight){
       // li.slideUp(200, () => this.render(false));
     });
 
+    // Delete Saved Roll
+    html.find('.roll-delete').click(ev => {
+      console.log(ev);
+      // const roll = $(ev.currentTarget).parents(".item");
+      const roll = event.currentTarget.parent.id;
+
+      let deleteConfirm = new Dialog({
+        title: "Delete Confirmation",
+        content: "Delete Item?",
+        buttons: {
+          Yes: {
+            icon: '<i class="fa fa-check"></i>',
+            label: "Yes",
+            callback: dlg => {
+              // update({"this.actor.data.data.savedRolls.-=[roll]": null}) 
+            }
+          },
+          cancel: {
+            icon: '<i class="fas fa-times"></i>',
+            label: "Cancel"
+          },
+        },
+        default: 'Yes'
+      });
+      deleteConfirm.render(true);
+
     // Rollable abilities.
     /* Original roll code, before checking for saved roll info */
     html.find('.rollable').click(this._onRoll.bind(this));

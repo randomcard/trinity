@@ -3,10 +3,13 @@
 <h2>Saved Rolls</h2>
 <div class="saved-rolls grid grid-4col">
   {{#each data.data.savedRolls as |roll key|}}
-  <div class="flexcol flex-group-center rollable saved-roll boxed" id="{{key}}">
-    <span class="resource-label"> {{roll.name}} </span>
-    <!-- <span class="icons"> {{{toDots roll.value}}} </span>
-    <span class="small-note"> {{roll.approach}} - {{savedroll.arena}} </span> -->
+  <div class="boxed" id="{{key}}">
+    <div class="flexcol flex-group-center rollable saved-roll">
+      <span class="resource-label"> {{roll.name}} </span>
+      <!-- <span class="icons"> {{{toDots roll.value}}} </span>
+      <span class="small-note"> {{roll.approach}} - {{savedroll.arena}} </span> -->
+    </div>
+    <i class="far fa-minus-square roll-delete"></i>
   </div>
   {{/each}}
 </div>
