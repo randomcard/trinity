@@ -9,7 +9,12 @@
       <!-- <span class="icons"> {{{toDots roll.value}}} </span>
       <span class="small-note"> {{roll.approach}} - {{savedroll.arena}} </span> -->
     </div>
-    <i class="far fa-minus-square roll-delete clickable"></i>
+    <div class="flex-group-center">
+      <span class="flex-left small-note">
+        {{roll.dice}}d+{{roll.enh}}e
+      </span>
+      <i class="flex-right far fa-minus-square roll-delete clickable"></i>
+    </div>
   </div>
   {{/each}}
 </div>
