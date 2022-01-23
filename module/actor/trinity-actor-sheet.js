@@ -477,7 +477,7 @@ if (content.style.maxHeight){
       // const roll = $(ev.currentTarget).parents(".item");
       const roll = event.currentTarget.parentElement.id;
       console.log("Delete: ",roll);
-      const rollDeleteString = "this.actor.data.data.savedRolls.-=" + roll;
+      const rollDeleteString = "data.savedRolls.-=" + roll;
       console.log(rollDeleteString);
       console.log(this.actor.data.data.savedRolls);
 
@@ -489,8 +489,8 @@ if (content.style.maxHeight){
             icon: '<i class="fa fa-check"></i>',
             label: "Yes",
             callback: dlg => {
-              this.actor.update({"data.savedRolls.-=[roll]": null})
-              // this.actor.update({[rollDeleteString]: null});
+              // this.actor.update({"data.savedRolls.-=[roll]": null})
+              this.actor.update({[rollDeleteString]: null});
 
             }
           },
