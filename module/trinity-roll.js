@@ -253,6 +253,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
           }
           // pickedElements = {};
           // pickedElements = JSON.parse(JSON.stringify(pickedElementsProto));
+          console.log("Pre Save Dialog pickedElements", pickedElements);
           savePrompt.render(true);
           return;
           // return trinityRoll(targetActor, pickedElements, event);
