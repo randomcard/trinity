@@ -27,5 +27,8 @@ export const pickedElementsProto = {
   dsca : {
     name : "Dramatic Scale (Difference)",
     value : 0
+  },
+  init : {
+    flag : false
   }
 };
