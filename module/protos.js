@@ -30,6 +30,6 @@ export const pickedElementsProto = {
   },
   init : {
     name : "Initiative Roll",
-    flag : false
+    value : false
   }
 };
