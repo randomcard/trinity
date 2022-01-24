@@ -29,6 +29,7 @@ export const pickedElementsProto = {
     value : 0
   },
   init : {
+    name : "Initiative Roll",
     flag : false
   }
 };
