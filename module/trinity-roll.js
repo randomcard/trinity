@@ -112,7 +112,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         // Call Option picker
         console.log("Init Click: ", event);
         console.log("pickedElements pre Update: ", pickedElements);
-        pickedElements.init.value = event.currentTarget.value;
+        pickedElements.init.value = event.currentTarget.checked;
         console.log("pickedElements post Update: ", pickedElements);
       });
 
