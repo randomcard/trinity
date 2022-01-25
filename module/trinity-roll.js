@@ -108,7 +108,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
       });
 
       // Init update
-      html.find('.init').click((event) => {
+      html.find('.init-checkbox').click((event) => {
         // Call Option picker
         console.log("Init Click: ", event);
         console.log("pickedElements pre Update: ", event);
