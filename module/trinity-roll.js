@@ -107,6 +107,15 @@ export async function trinityRoll(targetActor, pickedElements, event) {
         rollDialog.close();
       });
 
+      // Init update
+      html.find('.enha-label').click((event) => {
+        // Call Option picker
+        console.log("Init Click: ", event);
+        console.log("pickedElements pre Update: ", event);
+        pickedElements.init = event.currentTarget.value;
+        console.log("pickedElements post Update: ", event);
+      });
+
     }
 
   }
