@@ -108,7 +108,7 @@ export async function trinityRoll(targetActor, pickedElements, event) {
       });
 
       // Init update
-      html.find('.enha-label').click((event) => {
+      html.find('.init').click((event) => {
         // Call Option picker
         console.log("Init Click: ", event);
         console.log("pickedElements pre Update: ", event);
