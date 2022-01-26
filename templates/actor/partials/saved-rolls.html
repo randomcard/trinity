@@ -1,6 +1,15 @@
 {{!-- Saved Rolls Partial - Read-Only --}}
 
 <h2>Saved Rolls</h2>
+<label class="resource-label" for="selectDIRoll">Default Initiative Roll: </label>
+<select id="selectDIRoll" name="data.initiativeRollID" data-dtype="String">
+  {{#select data.data.initiativeRollID}}
+  <option value="">None Selected</option>
+  {{#each initRolls as |iRoll key|}}
+    <option value="{{key}}">{{iRoll.name}}</option>
+  {{/select}}
+</select>
+<hr>
 <div class="saved-rolls grid grid-4col">
   {{#each data.data.savedRolls as |roll key|}}
   <div class="boxed" id="{{key}}">

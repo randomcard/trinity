@@ -170,6 +170,7 @@ if (content.style.maxHeight){
     const enhancements = [];
     const allItems = [];
     const healthBoxes = {};
+    const initRolls = {};
 /* Removed to test new HB iteration
     const healthBoxes = {
       bruised : {
@@ -232,6 +233,13 @@ if (content.style.maxHeight){
           // console.log("Heathbox Logging - remove category if no injuries or healthboxes");
           delete healthBoxes[hb];
         }
+      }
+    }
+
+    // Idenify Saved Rolls w/ Initiative Flagged
+    for (let sRoll of this.actor.data.data.savedRolls) {
+      if (sRoll.elements.init.value) {
+        initRolls.push(sRoll);
       }
     }
 
