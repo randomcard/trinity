@@ -245,9 +245,7 @@ if (content.style.maxHeight){
       // Temporary Section to account for old versions of saved rolls
       if (typeof this.actor.data.data.savedRolls[sRoll].elements.init.value === 'undefined' || this.actor.data.data.savedRolls[sRoll].elements.init.value === null) {
         this.actor.data.data.savedRolls[sRoll].elements = {
-          init : {
-            value : false
-          }
+          init : { value : false }
         };
       }
       // End Temporary Section
