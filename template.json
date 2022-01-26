@@ -12,7 +12,8 @@
           "isActivePlayer" : false,
           "isTakenOut" : false
         },
-        "savedRolls": {}
+        "savedRolls": {},
+        "initiativeRollID" : ""
       },
       "talent" : {
         "moment" : "",
