@@ -241,8 +241,10 @@ if (content.style.maxHeight){
       console.log(sRoll);
       console.log(this.actor.data.data.savedRolls[sRoll]);
       console.log(this.actor);
-      if (this.actor.data.data.savedRolls[sRoll].elements.init.value) {
-        initRolls.push(this.actor.data.data.savedRolls[sRoll]);
+      if (this.actor.data.data.savedRolls[sRoll].elements.init.value !== 'undefined' && this.actor.data.data.savedRolls[sRoll].elements.init.value !== null) {
+        if (this.actor.data.data.savedRolls[sRoll].elements.init.value) {
+          initRolls.push(this.actor.data.data.savedRolls[sRoll]);
+        }
       }
     }
 
