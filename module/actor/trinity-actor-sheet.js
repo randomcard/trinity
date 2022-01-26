@@ -242,16 +242,10 @@ if (content.style.maxHeight){
       console.log(this.actor.data.data.savedRolls[sRoll]);
       console.log(this.actor);
 
-      // Temporary Section to account for old versions of saved rolls
-      if (typeof this.actor.data.data.savedRolls[sRoll].elements.init.value === 'undefined' || this.actor.data.data.savedRolls[sRoll].elements.init.value === null) {
-        this.actor.data.data.savedRolls[sRoll].elements = {
-          init : { value : false }
-        };
-      }
-      // End Temporary Section
-
-      if (this.actor.data.data.savedRolls[sRoll].elements.init.value) {
-        initRolls.push(this.actor.data.data.savedRolls[sRoll]);
+      if (typeof this.actor.data.data.savedRolls[sRoll].elements.init !== 'undefined' && this.actor.data.data.savedRolls[sRoll].elements.init !== null) {
+        if (this.actor.data.data.savedRolls[sRoll].elements.init.value) {
+          initRolls.push(this.actor.data.data.savedRolls[sRoll]);
+        }
       }
     }
 
