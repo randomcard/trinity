@@ -170,7 +170,7 @@ if (content.style.maxHeight){
     const enhancements = [];
     const allItems = [];
     const healthBoxes = {};
-    const initRolls = {};
+    const initRolls = [];
 /* Removed to test new HB iteration
     const healthBoxes = {
       bruised : {
