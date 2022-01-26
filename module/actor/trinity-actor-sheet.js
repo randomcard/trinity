@@ -238,6 +238,9 @@ if (content.style.maxHeight){
 
     // Idenify Saved Rolls w/ Initiative Flagged
     for (let sRoll of Object.keys(this.actor.data.data.savedRolls)) {
+      console.log(sRoll);
+      console.log(this.actor.data.data.savedRolls[sRoll]);
+      console.log(this.actor);
       if (this.actor.data.data.savedRolls[sRoll].elements.init.value) {
         initRolls.push(this.actor.data.data.savedRolls[sRoll]);
       }
