@@ -237,9 +237,9 @@ if (content.style.maxHeight){
     }
 
     // Idenify Saved Rolls w/ Initiative Flagged
-    for (let sRoll of this.actor.data.data.savedRolls) {
-      if (sRoll.elements.init.value) {
-        initRolls.push(sRoll);
+    for (let sRoll of Object.keys(this.actor.data.data.savedRolls)) {
+      if (this.actor.data.data.savedRolls[sRoll].elements.init.value) {
+        initRolls.push(this.actor.data.data.savedRolls[sRoll]);
       }
     }
 
