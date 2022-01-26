@@ -244,7 +244,8 @@ if (content.style.maxHeight){
 
       if (typeof this.actor.data.data.savedRolls[sRoll].elements.init !== 'undefined' && this.actor.data.data.savedRolls[sRoll].elements.init !== null) {
         if (this.actor.data.data.savedRolls[sRoll].elements.init.value) {
-          initRolls.push(this.actor.data.data.savedRolls[sRoll]);
+          // initRolls.push(this.actor.data.data.savedRolls[sRoll]);
+          initRolls.push(sRoll);
         }
       }
     }
