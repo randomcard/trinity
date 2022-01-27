@@ -16,7 +16,7 @@ export class TrinityCombat extends Combat
       let breaker = c.actor.data.data.savedRolls[c.actor.data.data.initiativeRollID].dice;
       // let iniTraitValue = c.actor.data.data.attributes.combat;
 
-      let rr = trinityRoll(targetActor, pickedElements, event, force);
+      let rr = await trinityRoll(targetActor, pickedElements, event, force);
       console.log("RR: ", rr);
       let ini = rr + (breaker * 0.01);
 
