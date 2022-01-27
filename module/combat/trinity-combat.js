@@ -19,6 +19,7 @@ export class TrinityCombat extends Combat
       let rr = await trinityRoll(targetActor, pickedElements, event, force);
       console.log("RR: ", rr);
       let ini = rr + (breaker * 0.01);
+      console.log("INI: ", ini);
 
       /*
       let ini = (2-rr.fumbleLvl) + (rr.successes + iniTraitValue) * 0.01;

@@ -389,7 +389,7 @@ if (force && typeof pickedElements !== 'undefined' && typeof targetActor !== 'un
         content: `${await roll.render()}` + compList
       });
       console.log(roll);
-      rr = roll.total;
+      rr = roll._total;
     }
 
     completeRoll();
