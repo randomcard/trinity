@@ -227,7 +227,7 @@ Hooks.once('init', async function() {
 
   Handlebars.registerHelper('lookupSavedRoll', function(rollID, context) {
     console.log("lookup THIS: ", this);
-    console.log("lookup CONTEXTR: ", context);
+    console.log("lookup CONTEXT: ", context);
     let name = context.actor.data.data.savedRolls[rollID].name;
     return name;
 	});
