@@ -17,6 +17,7 @@ export class TrinityCombat extends Combat
       // let iniTraitValue = c.actor.data.data.attributes.combat;
 
       let rr = trinityRoll(targetActor, pickedElements, event, force);
+      console.log("RR: ", rr);
       let ini = rr + (breaker * 0.01);
 
       /*
