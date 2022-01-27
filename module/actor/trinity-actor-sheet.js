@@ -251,7 +251,7 @@ if (content.style.maxHeight){
     }
 
     // Check that Default Initiative Roll is still valid
-        if(typeof this.actor.data.data.savedRolls[this.actor.data.data.initiativeRollID] === 'undefined' || this.actor.data.data.savedRolls[this.actor.data.data.initiativeRollID].init.value === false) {
+        if(typeof this.actor.data.data.savedRolls[this.actor.data.data.initiativeRollID] === 'undefined' || this.actor.data.data.savedRolls[this.actor.data.data.initiativeRollID].elements.init.value === false) {
       this.actor.data.data.initiativeRollID = "";
     }
 
