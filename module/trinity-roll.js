@@ -6,7 +6,7 @@ import { pickedElementsProto } from "/systems/trinity/module/protos.js";
 export async function trinityRoll(targetActor, pickedElements, event, force) {
 
   // Declare variables
-  var rr = 0;
+  // var rr = 0;
   event = event || {};
   const element = event.currentTarget || {};
   const dataset = element.dataset || {};
@@ -17,8 +17,9 @@ export async function trinityRoll(targetActor, pickedElements, event, force) {
 // If a saved roll is passed to this function, along with force = true, then roll it without the dialog.
 // All variables should already be present.
 if (force && typeof pickedElements !== 'undefined' && typeof targetActor !== 'undefined') {
-  _roll(targetActor, pickedElements);
-  return rr;
+  let rollresult = _roll(targetActor, pickedElements);
+  console.log("rollresult", rollresult);
+  return rollresult;
 } else if (force) {
   console.log("Forced roll requested, but not all roll data is present.");
   return 0;
@@ -389,10 +390,11 @@ if (force && typeof pickedElements !== 'undefined' && typeof targetActor !== 'un
         content: `${await roll.render()}` + compList
       });
       console.log(roll);
-      rr = roll._total;
+      // rr = roll._total;
     }
 
     completeRoll();
+    return roll;
 
   }
 
