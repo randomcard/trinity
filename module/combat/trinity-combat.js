@@ -12,31 +12,27 @@ export class TrinityCombat extends Combat
       let targetActor = c.actor;
       let event = {};
       let force = true;
-      let pickedElements = c.actor.data.data.savedRolls[c.actor.data.data.initiativeRollID].elements;
-      let breaker = c.actor.data.data.savedRolls[c.actor.data.data.initiativeRollID].dice;
-      // let iniTraitValue = c.actor.data.data.attributes.combat;
+      var ini = "";
 
-      let combatRoll = await trinityRoll(targetActor, pickedElements, event, force);
-      console.log("combatRoll: ", combatRoll);
-      let ini = combatRoll._total + (breaker * 0.01);
-      console.log("INI: ", ini);
+      // Actors w/o an initiative roll
+      if (c.actor.data.data.initiativeRollID === "") {
+        ini = 0;
+      } else {
 
-      /*
-      let ini = (2-rr.fumbleLvl) + (rr.successes + iniTraitValue) * 0.01;
-      if(rr.fumbleLvl > 0)
-      {
-        let chatData = {
-          content: `${c.actor.data.name} hat bei der Initiative gepatzt.`
-        };
+      // Actors w/ an initiative roll selected
+        let pickedElements = c.actor.data.data.savedRolls[c.actor.data.data.initiativeRollID].elements;
+        let breaker = c.actor.data.data.savedRolls[c.actor.data.data.initiativeRollID].dice;
 
-        ChatMessage.create(chatData)
+        let combatRoll = await trinityRoll(targetActor, pickedElements, event, force);
+        console.log("combatRoll: ", combatRoll);
+        ini = combatRoll._total + (breaker * 0.01);
+        console.log("INI: ", ini);
+
+        changes.push({
+          _id: c.id,
+          initiative: ini
+        });
       }
-      */
-
-      changes.push({
-        _id: c.id,
-        initiative: ini
-      });
     }
 
     this.updateEmbeddedDocuments('Combatant', changes);
