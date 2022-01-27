@@ -6,6 +6,7 @@ import { pickedElementsProto } from "/systems/trinity/module/protos.js";
 export async function trinityRoll(targetActor, pickedElements, event, force) {
 
   // Declare variables
+  var rr = 0;
   event = event || {};
   const element = event.currentTarget || {};
   const dataset = element.dataset || {};
@@ -385,6 +386,7 @@ if (force && typeof pickedElements !== 'undefined' && typeof targetActor !== 'un
         flavor: label,
         content: `${await roll.render()}` + compList
       });
+      rr = roll.total;
     }
 
     completeRoll();
@@ -393,6 +395,6 @@ if (force && typeof pickedElements !== 'undefined' && typeof targetActor !== 'un
 
 
 
-return roll.result;
+return rr;
 
 }
