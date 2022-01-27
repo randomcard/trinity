@@ -103,6 +103,7 @@ Hooks.once('init', async function() {
   // CONFIG.Item.entityClass = TrinityItem;
   CONFIG.Actor.documentClass = TrinityActor;
   CONFIG.Item.documentClass = TrinityItem;
+  CONFIG.Combat.documentClass = TrinityCombat;
 
   // Define custom Roll class
   CONFIG.Dice.rolls.unshift(TRoll);

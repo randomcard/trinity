@@ -3,7 +3,7 @@ import { Picker } from "/systems/trinity/module/picker.js";
 import { pickedElementsProto } from "/systems/trinity/module/protos.js";
 
 // export async function trinityRoll(event, targetActor, pickedElements) {
-export async function trinityRoll(targetActor, pickedElements, event) {
+export async function trinityRoll(targetActor, pickedElements, event, force) {
 
   // Declare variables
   event = event || {};
@@ -12,6 +12,14 @@ export async function trinityRoll(targetActor, pickedElements, event) {
   var targetAttr = [];
   var targetSkill = [];
 //   var allComplications = actor.complications;
+
+// If a saved roll is passed to this function, along with force = true, then roll it without the dialog.
+// All variables should already be present.
+if (force && typeof pickedElements !== 'undefined' && typeof targetActor !== 'undefined') {
+  _roll(targetActor, pickedElements);
+} else {
+  console.log("Forced roll requested, but not all roll data is present.");
+}
 
   // Elements table, or picked elements, will include the details of the selected roll components. (Replacing rollParts)
   // Build defaults if empty
@@ -385,6 +393,6 @@ export async function trinityRoll(targetActor, pickedElements, event) {
 
 
 
-return;
+return roll.result;
 
 }
