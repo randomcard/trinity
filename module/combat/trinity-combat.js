@@ -24,15 +24,13 @@ export class TrinityCombat extends Combat
         let breaker = c.actor.data.data.savedRolls[c.actor.data.data.initiativeRollID].dice;
 
         let combatRoll = await trinityRoll(targetActor, pickedElements, event, force);
-        console.log("combatRoll: ", combatRoll);
         ini = combatRoll._total + (breaker * 0.01);
-        console.log("INI: ", ini);
-
-        changes.push({
-          _id: c.id,
-          initiative: ini
-        });
       }
+
+      changes.push({
+        _id: c.id,
+        initiative: ini
+      });
     }
 
     this.updateEmbeddedDocuments('Combatant', changes);
