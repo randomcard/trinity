@@ -225,9 +225,10 @@ Hooks.once('init', async function() {
     return boxes;
 	});
 
-  Handlebars.registerHelper('lookupSavedRoll', function(rollID) {
+  Handlebars.registerHelper('lookupSavedRoll', function(rollID, context) {
     console.log("lookup THIS: ", this);
-    let name = Object.keys(this.actor.data.data.savedRolls[rollID]);
+    console.log("lookup CONTEXTR: ", context);
+    let name = context.actor.data.data.savedRolls[rollID].name;
     return name;
 	});
 
