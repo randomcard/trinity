@@ -8,6 +8,7 @@ import { TrinityItemSheet } from "./item/item-sheet.js";
 import { trinityRoll } from "./trinity-roll.js";
 import { TRoll } from "./roll/troll.js";
 import { OverviewApp } from "./overview/overview.js"; // Overview App
+import { TrinityCombat } from "./combat/trinity-combat.js"; // Custom Combat Class
 
 // Overview
 let overview;
@@ -84,7 +85,7 @@ Hooks.once('init', async function() {
       type: setting.type,
     };
     if (setting.choices) options.choices = setting.choices;
-    game.settings.register("overview", setting.name, options);
+    game.settings.register("trinity", setting.name, options);
   });
   // Overview End
 
