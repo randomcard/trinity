@@ -18,8 +18,10 @@ export async function trinityRoll(targetActor, pickedElements, event, force) {
 // All variables should already be present.
 if (force && typeof pickedElements !== 'undefined' && typeof targetActor !== 'undefined') {
   _roll(targetActor, pickedElements);
+  return rr;
 } else {
   console.log("Forced roll requested, but not all roll data is present.");
+  return 0;
 }
 
   // Elements table, or picked elements, will include the details of the selected roll components. (Replacing rollParts)
@@ -386,6 +388,7 @@ if (force && typeof pickedElements !== 'undefined' && typeof targetActor !== 'un
         flavor: label,
         content: `${await roll.render()}` + compList
       });
+      console.log(roll);
       rr = roll.total;
     }
 
@@ -395,6 +398,6 @@ if (force && typeof pickedElements !== 'undefined' && typeof targetActor !== 'un
 
 
 
-return rr;
+return;
 
 }
