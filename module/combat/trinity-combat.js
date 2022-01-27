@@ -17,6 +17,10 @@ export class TrinityCombat extends Combat
       // Actors w/o an initiative roll
       if (c.actor.data.data.initiativeRollID === "") {
         ini = 0;
+        let chatData = {
+          content: `${c.actor.data.name} has no initiative roll selected.`
+        };
+        ChatMessage.create(chatData)
       } else {
 
       // Actors w/ an initiative roll selected
