@@ -1,3 +1,5 @@
+import { trinityRoll } from "/systems/trinity/module/trinity-roll.js";
+
 export class TrinityCombat extends Combat
 {
 
