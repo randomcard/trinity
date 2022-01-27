@@ -264,7 +264,7 @@ if (force && typeof pickedElements !== 'undefined' && typeof targetActor !== 'un
       },
       save: {
         icon: "<i class='fas fa-save'></i>",
-        label: "Save",
+        label: "Save As",
         callback: () => {
           /* Last mostly working code */
           for (let part of Object.keys(pickedElements)) {
