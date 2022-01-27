@@ -6,7 +6,7 @@
   {{#select data.data.initiativeRollID}}
   <option value="">None Selected</option>
   {{#each this.actor.initRolls as |iRoll key|}}
-    <option value="{{iRoll}}">{{{lookupSavedRoll iRoll this}}}</option>
+    <option value="{{iRoll}}">{{{lookupSavedRoll iRoll ../this}}}</option>
   {{/each}}
   {{/select}}
 </select>
