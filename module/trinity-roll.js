@@ -19,7 +19,7 @@ export async function trinityRoll(targetActor, pickedElements, event, force) {
 if (force && typeof pickedElements !== 'undefined' && typeof targetActor !== 'undefined') {
   _roll(targetActor, pickedElements);
   return rr;
-} else {
+} else if (force) {
   console.log("Forced roll requested, but not all roll data is present.");
   return 0;
 }
