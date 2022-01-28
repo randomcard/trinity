@@ -14,7 +14,7 @@ export class TrinityCombat extends Combat
     // for(const id of ids)
     for ( let [i, id] of ids.entries() )
     {
-      const c = this.combatants.get(i);
+      const c = this.combatants.get(id);
       let targetActor = c.actor;
       let event = {};
       let force = true;
