@@ -34,7 +34,8 @@ export class TrinityCombat extends Combat
         let breaker = c.actor.data.data.savedRolls[c.actor.data.data.initiativeRollID].dice;
 
         let combatRoll = await trinityRoll(targetActor, pickedElements, event, force);
-        ini = combatRoll._total + (breaker * 0.01);
+        ini = combatRoll.total + (breaker * 0.01);
+        console.log("combatRoll: ", combatRoll);
       }
 
       changes.push({
@@ -42,7 +43,7 @@ export class TrinityCombat extends Combat
         initiative: ini
       });
     }
-    if ( !updates.length ) return this;
+    if ( !changes.length ) return this;
 
     await this.updateEmbeddedDocuments("Combatant", changes);
     // Ensure the turn order remains with the same combatant
