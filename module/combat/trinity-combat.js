@@ -3,12 +3,18 @@ import { trinityRoll } from "/systems/trinity/module/trinity-roll.js";
 export class TrinityCombat extends Combat
 {
 
-  async rollInitiative(ids, options)
+  async rollInitiative(ids, {formula=null, updateTurn=true, messageOptions={}}={})
   {
+    // Structure input data
+    ids = typeof ids === "string" ? [ids] : ids;
+    const currentId = this.combatant?.id;
+    const rollMode = messageOptions.rollMode || game.settings.get("core", "rollMode");
+
     let changes = [];
-    for(const id of ids)
+    // for(const id of ids)
+    for ( let [i, id] of ids.entries() )
     {
-      const c = this.combatants.get(id);
+      const c = this.combatants.get(i);
       let targetActor = c.actor;
       let event = {};
       let force = true;
@@ -36,8 +42,9 @@ export class TrinityCombat extends Combat
         initiative: ini
       });
     }
+    if ( !updates.length ) return this;
 
-    await this.updateEmbeddedDocuments('Combatant', changes);
+    await this.updateEmbeddedDocuments("Combatant", changes);
     // Ensure the turn order remains with the same combatant
     if ( updateTurn && currentId ) {
       await this.update({turn: this.turns.findIndex(t => t.id === currentId)});
