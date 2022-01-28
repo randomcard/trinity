@@ -34,7 +34,13 @@ export class TrinityCombat extends Combat
 
         let combatRoll = await trinityRoll(combatant.actor, pickedElements, {}, true);
         console.log("COMBAT combatRoll: ", combatRoll);
-        ini = combatRoll._total + (breaker * 0.01);
+
+        /*
+        const roll = combatant.getInitiativeRoll(formula);
+        await roll.evaluate({async: true});
+        */
+
+        ini = await combatRoll._total + (breaker * 0.01);
         console.log("COMBAT ini: ", ini);
       }
 
