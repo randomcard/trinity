@@ -10,14 +10,13 @@ export class TrinityCombat extends Combat
     const currentId = this.combatant?.id;
     const rollMode = messageOptions.rollMode || game.settings.get("core", "rollMode");
 
-    let changes = [];
+    let updates = [];
     // for(const id of ids)
     for ( let [i, id] of ids.entries() )
     {
       const c = this.combatants.get(id);
-      let targetActor = c.actor;
-      let event = {};
-      let force = true;
+      if ( !combatant?.isOwner ) return results;
+
       var ini = "";
 
       // Actors w/o an initiative roll
@@ -33,18 +32,20 @@ export class TrinityCombat extends Combat
         let pickedElements = c.actor.data.data.savedRolls[c.actor.data.data.initiativeRollID].elements;
         let breaker = c.actor.data.data.savedRolls[c.actor.data.data.initiativeRollID].dice;
 
-        let combatRoll = await trinityRoll(targetActor, pickedElements, event, force);
+        let combatRoll = await trinityRoll(c.actor, pickedElements, {}, true);
         ini = combatRoll.total + (breaker * 0.01);
-        console.log("combatRoll: ", combatRoll);
+        console.log("COMBAT ini: ", ini);
       }
 
-      changes.push({
+      updates.push({
         _id: c.id,
         initiative: ini
       });
+      console.log("COMBAT updates:", updates);
     }
     if ( !changes.length ) return this;
 
+    console.log("COMBAT THIS:", this);
     await this.updateEmbeddedDocuments("Combatant", changes);
     // Ensure the turn order remains with the same combatant
     if ( updateTurn && currentId ) {
