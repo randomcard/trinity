@@ -14,23 +14,23 @@ export class TrinityCombat extends Combat
     // for(const id of ids)
     for ( let [i, id] of ids.entries() )
     {
-      const c = this.combatants.get(id);
+      const combatant = this.combatants.get(id);
       if ( !combatant?.isOwner ) return results;
 
       var ini = "";
 
       // Actors w/o an initiative roll
-      if (c.actor.data.data.initiativeRollID === "") {
+      if (combatant.actor.data.data.initiativeRollID === "") {
         ini = 0;
         let chatData = {
-          content: `${c.actor.data.name} has no initiative roll selected.`
+          content: `${combatant.actor.data.name} has no initiative roll selected.`
         };
         ChatMessage.create(chatData)
       } else {
 
       // Actors w/ an initiative roll selected
-        let pickedElements = c.actor.data.data.savedRolls[c.actor.data.data.initiativeRollID].elements;
-        let breaker = c.actor.data.data.savedRolls[c.actor.data.data.initiativeRollID].dice;
+        let pickedElements = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].elements;
+        let breaker = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].dice;
 
         let combatRoll = await trinityRoll(c.actor, pickedElements, {}, true);
         ini = combatRoll.total + (breaker * 0.01);
@@ -38,7 +38,7 @@ export class TrinityCombat extends Combat
       }
 
       updates.push({
-        _id: c.id,
+        _id: id,
         initiative: ini
       });
       console.log("COMBAT updates:", updates);
