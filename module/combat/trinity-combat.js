@@ -34,7 +34,7 @@ export class TrinityCombat extends Combat
 
 
         // let combatRoll = await trinityRoll(combatant.actor, pickedElements, {}, true);
-        var combatRoll = Task.Run(async() => await trinityRoll(combatant.actor, pickedElements, {}, true).Result;
+        var combatRoll = Task.Run(async() => await trinityRoll(combatant.actor, pickedElements, {}, true).Result);
         /*
         console.log("COMBAT combatRoll: ", combatRoll);
         console.log("COMBAT combatRoll._total: ", await combatRoll._total);
