@@ -33,7 +33,8 @@ export class TrinityCombat extends Combat
         let breaker = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].dice;
 
 
-        let combatRoll = await trinityRoll(combatant.actor, pickedElements, {}, true);
+        // let combatRoll = await trinityRoll(combatant.actor, pickedElements, {}, true);
+        var combatRoll = Task.Run(async() => await trinityRoll(combatant.actor, pickedElements, {}, true).Result;
         /*
         console.log("COMBAT combatRoll: ", combatRoll);
         console.log("COMBAT combatRoll._total: ", await combatRoll._total);
@@ -48,9 +49,9 @@ export class TrinityCombat extends Combat
         console.log("COMBAT A2: ", combatRoll._total);
         console.log("COMBAT A3: ", combatRoll._evaluated);
 
-        console.log("COMBAT A1: ", await combatRoll.total);
-        console.log("COMBAT A2: ", await combatRoll._total);
-        console.log("COMBAT A3: ", await combatRoll._evaluated);
+        console.log("COMBAT B1: ", await combatRoll.total);
+        console.log("COMBAT B2: ", await combatRoll._total);
+        console.log("COMBAT B3: ", await combatRoll._evaluated);
 
 
         ini = combatRoll._total + (breaker * 0.01);
