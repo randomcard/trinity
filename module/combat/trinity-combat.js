@@ -43,10 +43,10 @@ export class TrinityCombat extends Combat
       });
       console.log("COMBAT updates:", updates);
     }
-    if ( !changes.length ) return this;
+    if ( !updates.length ) return this;
 
     console.log("COMBAT THIS:", this);
-    await this.updateEmbeddedDocuments("Combatant", changes);
+    await this.updateEmbeddedDocuments("Combatant", updates);
     // Ensure the turn order remains with the same combatant
     if ( updateTurn && currentId ) {
       await this.update({turn: this.turns.findIndex(t => t.id === currentId)});
