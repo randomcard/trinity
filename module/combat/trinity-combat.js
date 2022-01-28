@@ -33,6 +33,7 @@ export class TrinityCombat extends Combat
         let breaker = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].dice;
 
         let combatRoll = await trinityRoll(combatant.actor, pickedElements, {}, true);
+        console.log("COMBAT combatRoll: ", combatRoll);
         console.log("COMBAT combatRoll._total: ", combatRoll._total);
 
         /*
