@@ -33,8 +33,7 @@ export class TrinityCombat extends Combat
         let breaker = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].dice;
 
 
-        // let combatRoll = await trinityRoll(combatant.actor, pickedElements, {}, true);
-        var combatRoll = Task.Run(async() => await trinityRoll(combatant.actor, pickedElements, {}, true).Result);
+        let combatRoll = await trinityRoll(combatant.actor, pickedElements, {}, true);
         /*
         console.log("COMBAT combatRoll: ", combatRoll);
         console.log("COMBAT combatRoll._total: ", await combatRoll._total);
@@ -45,6 +44,12 @@ export class TrinityCombat extends Combat
         const roll = combatant.getInitiativeRoll(formula);
         await roll.evaluate({async: true});
         */
+        combatRoll.then( (rr) => {
+          console.log("COMBAT C1: ", combatRoll.total);
+          console.log("COMBAT C2: ", combatRoll._total);
+          console.log("COMBAT C3: ", combatRoll._evaluated);
+        });
+
         console.log("COMBAT A1: ", combatRoll.total);
         console.log("COMBAT A2: ", combatRoll._total);
         console.log("COMBAT A3: ", combatRoll._evaluated);
