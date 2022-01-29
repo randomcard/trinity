@@ -33,7 +33,7 @@ export class TrinityCombat extends Combat
         let breaker = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].dice;
         let rollFormula = `((${p.skil.value}+${p.attr.value})d10x>=${p.expl.value}cs>=${p.succ.value})*${p.nsca.value}`;
 
-        const roll = TRoll.create(rollFormula, {}, p.enha.value).create;
+        const roll = game.trinity.TRoll.create(rollFormula, {}, p.enha.value).create;
         await roll.evaluate({async: true});
         // updates.push({_id: id, initiative: roll.total});
         console.log("COMBAT roll: ", roll);
