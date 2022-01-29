@@ -374,7 +374,7 @@ if (force && typeof pickedElements !== 'undefined' && typeof targetActor !== 'un
     console.log(rollFormula);
 
     // let roll = new Roll(rollFormula);
-    let roll = new game.trinity.TRoll(rollFormula, {}, enhaValue);
+    let roll = new game.trinity.TRoll(rollFormula, {}, {}, enhaValue);
     // let label = p.attr.name ? `Rolling ${p.attr.name}` : '';
     let label = [p.skil.name, p.attr.name, p.enha.name].join(' • ')
 

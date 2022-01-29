@@ -1,7 +1,7 @@
 export class TRoll extends Roll {
 
-  constructor(formula, data={}, enh) {
-    super(formula, data={});
+  constructor(formula, data={}, options={}, enh) {
+    super(formula, data={}, options={});
     if (typeof enh !== 'number' || enh < 0) {
       enh = 0;
     }
