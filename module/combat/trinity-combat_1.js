@@ -29,18 +29,39 @@ export class TrinityCombat extends Combat
       } else {
 
       // Actors w/ an initiative roll selected
-        let p = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].elements;
+        let pickedElements = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].elements;
         let breaker = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].dice;
-        let rollFormula = `((${p.skil.value}+${p.attr.value})d10x>=${p.expl.value}cs>=${p.succ.value})*${p.nsca.value}`;
 
-        const roll = TRoll.create(rollFormula, {}, p.enha.value).create;
+
+        let combatRoll = await trinityRoll(combatant.actor, pickedElements, {}, true);
+        /*
+        console.log("COMBAT combatRoll: ", combatRoll);
+        console.log("COMBAT combatRoll._total: ", await combatRoll._total);
+        ini = await combatRoll._total + (breaker * 0.01);
+        */
+
+        /*
+        const roll = combatant.getInitiativeRoll(formula);
         await roll.evaluate({async: true});
-        // updates.push({_id: id, initiative: roll.total});
-        console.log("COMBAT roll: ", roll);
+        */
+        combatRoll.then( (rr) => {
+          console.log("COMBAT C1: ", combatRoll.total);
+          console.log("COMBAT C2: ", combatRoll._total);
+          console.log("COMBAT C3: ", combatRoll._evaluated);
+        });
 
-        ini = roll.total + (breaker * 0.01);
+        console.log("COMBAT A1: ", combatRoll.total);
+        console.log("COMBAT A2: ", combatRoll._total);
+        console.log("COMBAT A3: ", combatRoll._evaluated);
+
+        console.log("COMBAT B1: ", await combatRoll.total);
+        console.log("COMBAT B2: ", await combatRoll._total);
+        console.log("COMBAT B3: ", await combatRoll._evaluated);
+
+
+        ini = combatRoll._total + (breaker * 0.01);
+
         console.log("COMBAT ini: ", ini);
-
       }
 
       updates.push({
