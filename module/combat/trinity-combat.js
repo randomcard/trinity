@@ -3,6 +3,12 @@ import { trinityRoll } from "/systems/trinity/module/trinity-roll.js";
 export class TrinityCombat extends Combat
 {
 
+  getInitiativeRoll(formula) {
+    formula = formula || this._getInitiativeFormula();
+    const rollData = this.actor?.getRollData() || {};
+    return Roll.create(formula, rollData);
+  }
+
   async rollInitiative(ids, {formula=null, updateTurn=true, messageOptions={}}={})
   {
     // Structure input data
@@ -31,21 +37,28 @@ export class TrinityCombat extends Combat
       // Actors w/ an initiative roll selected
         let p = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].elements;
         let breaker = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].dice;
-        let rollFormula = `((${p.skil.value}+${p.attr.value})d10x>=${p.expl.value}cs>=${p.succ.value})*${p.nsca.value}`;
+        let rollFormula = `(((${p.skil.value}+${p.attr.value})d10x>=${p.expl.value}cs>=${p.succ.value})*${p.nsca.value})+((${p.skil.value}+${p.attr.value})*0.01)`;
 
         const roll = game.trinity.TRoll.create(rollFormula, {}, {}, p.enha.value).create;
         await roll.evaluate({async: true});
         // updates.push({_id: id, initiative: roll.total});
         console.log("COMBAT roll: ", roll);
 
+        // Produce an initiative roll for the Combatant
+        /*
+      const roll = combatant.getInitiativeRoll(formula);
+      await roll.evaluate({async: true});
+      updates.push({_id: id, initiative: roll.total});
+
+
         ini = roll.total + (breaker * 0.01);
         console.log("COMBAT ini: ", ini);
-
+*/
       }
 
       updates.push({
         _id: id,
-        initiative: ini
+        initiative: roll.total
       });
       console.log("COMBAT updates:", updates);
     }
