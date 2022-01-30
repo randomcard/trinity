@@ -474,8 +474,10 @@ if (content.style.maxHeight){
       console.log("Collapsible Listener, HTML.find style. this:", this);
       console.log("Collapsible Listener, HTML.find style. collapsibleElement:", collapsibleElement);
       collapsibleElement.classList.toggle("collapsible-active");
-      collapsibleElement.nextElementSibling.classList.toggle("collapsible-content-active"); // Replaces the commented block below
-      /* This part slides the content. Removing in case it's caused the disappearing issue.
+      collapsibleElement.nextElementSibling.classList.toggle("collapsible-content-active");
+
+
+/* Remove
       var content = collapsibleElement.nextElementSibling;
       if (content.style.maxHeight){
         content.classList.toggle("collapsible-content-active");
@@ -484,7 +486,7 @@ if (content.style.maxHeight){
         content.classList.toggle("collapsible-content-active");
         content.style.maxHeight = content.scrollHeight + "px";
       }
-      */
+*/
 
 /* Remove, handled by _render
       if (this.options.collapsedHeaders.includes(event.currentTarget.id)) {
