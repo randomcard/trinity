@@ -253,8 +253,32 @@
       }
     },
     "equipment": {
-      "templates": ["item"],
-      "typeName" : "Equipment"
+      "templates": ["base"],
+      "typeName" : "Equipment",
+      "quantity": 1,
+      "flags" : {
+        "isGear" : true
+      },
+      "gear": {
+        "tags" : ""
+      },
+      "weapon" : {
+        "tags" : "",
+        "damageType" : ""
+      },
+      "armor" : {
+        "tags" : "",
+        "hardArmor" : 0,
+        "softArmor" : 0
+      },
+      "vehicle" : {
+        "name" : "",
+        "tags" : "",
+        "size" : 1,
+        "handling" : 1,
+        "speed" : 1,
+        "cost" : 1
+      }
     },
     "edge": {
       "templates": ["base"],
