@@ -43,6 +43,12 @@ export class TrinityActorSheet extends ActorSheet {
     this._setToggleStates();
   }
 
+  async close(options) {
+    this._saveToggleStates();
+    this.options.token = null;
+    return super.close(options);
+  }
+
   _saveToggleStates() {
     if (this.form === null)
       return;
@@ -474,10 +480,8 @@ if (content.style.maxHeight){
       console.log("Collapsible Listener, HTML.find style. this:", this);
       console.log("Collapsible Listener, HTML.find style. collapsibleElement:", collapsibleElement);
       collapsibleElement.classList.toggle("collapsible-active");
-      collapsibleElement.nextElementSibling.classList.toggle("collapsible-content-active");
+//      collapsibleElement.nextElementSibling.classList.toggle("collapsible-content-active");
 
-
-/* Remove
       var content = collapsibleElement.nextElementSibling;
       if (content.style.maxHeight){
         content.classList.toggle("collapsible-content-active");
@@ -486,7 +490,6 @@ if (content.style.maxHeight){
         content.classList.toggle("collapsible-content-active");
         content.style.maxHeight = content.scrollHeight + "px";
       }
-*/
 
 /* Remove, handled by _render
       if (this.options.collapsedHeaders.includes(event.currentTarget.id)) {
