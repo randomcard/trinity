@@ -17,15 +17,19 @@ export class TrinityCombat extends Combat
       const combatant = this.combatants.get(id);
       if ( !combatant?.isOwner ) return results;
 
-      var ini = "";
-
       // Actors w/o an initiative roll
       if (combatant.actor.data.data.initiativeRollID === "") {
-        ini = 0;
         let chatData = {
           content: `${combatant.actor.data.name} has no initiative roll selected.`
         };
         ChatMessage.create(chatData)
+
+        updates.push({
+          _id: id,
+          initiative: 0
+        });
+        console.log("COMBAT updates:", updates);
+
       } else {
 
       // Actors w/ an initiative roll selected
@@ -39,6 +43,12 @@ export class TrinityCombat extends Combat
         // updates.push({_id: id, initiative: roll.total});
         console.log("COMBAT roll: ", roll);
 
+        updates.push({
+          _id: id,
+          initiative: roll.total
+        });
+        console.log("COMBAT updates:", updates);
+
         // Produce an initiative roll for the Combatant
         /*
       const roll = combatant.getInitiativeRoll(formula);
@@ -50,12 +60,6 @@ export class TrinityCombat extends Combat
         console.log("COMBAT ini: ", ini);
 */
       }
-
-      updates.push({
-        _id: id,
-        initiative: roll.total
-      });
-      console.log("COMBAT updates:", updates);
     }
     if ( !updates.length ) return this;
 
