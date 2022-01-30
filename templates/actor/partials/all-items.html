@@ -3,7 +3,15 @@
     <li class="item flexrow item-header">
       <div class="big item-name">All Items</div>
       <div class="item-dots"></div>
-      <div class="item-controls"></div>
+      <div class="item-controls">
+        <label class="resource-label" for="allItemFilter">Filter: </label>
+        <select id="allItemFilter" name="this.filterType" data-dtype="String">
+          <option value="">None</option>
+          {{#each (uniqueTypes actor.allItems) as |typeName id|}}
+          <option value="{{typeName}}">{{typeName}}</option>
+          {{/each}}
+        </select>
+      </div>
     </li>
 {{#each actor.allItems as |item id|}}
     <li class="item flexrow" data-item-id="{{item._id}}">
