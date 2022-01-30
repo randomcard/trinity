@@ -8,6 +8,8 @@ This is a beginning work by the system author: Expect errors, bugs, and poor cod
 
 ## How to Use
 
+Install system in Foundry with: https://raw.githubusercontent.com/randomcard/trinity/master/system.json
+
 Due to IP concerns, this system is not playable on installation. It requires the creation of system elements (as Items) that can be added to new characters. The following elements must be created:
 * Skills
 * Paths
