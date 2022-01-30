@@ -38,16 +38,10 @@ export class TrinityActorSheet extends ActorSheet {
 // ------- New Method of Collapse/Expand Content
 
   async _render(force = false, options = {}) {
+    console.log("_render Called");
     this._saveToggleStates();
-    console.log("ToggleStates:",this.toggleStates);
     await super._render(force, options);
     this._setToggleStates();
-  }
-
-  async close(options) {
-    this._saveToggleStates();
-    this.options.token = null;
-    return super.close(options);
   }
 
   _saveToggleStates() {
@@ -72,6 +66,8 @@ export class TrinityActorSheet extends ActorSheet {
     for (let item of contentItems) {
       this.toggleStates.content.push($(item).hasClass("collapsible-content-active"));
     }
+
+    console.log("_saveToggleStates:",this.toggleStates);
 
   }
 
@@ -99,6 +95,8 @@ export class TrinityActorSheet extends ActorSheet {
         }
       }
     }
+
+    console.log("_setToggleStates:",this.toggleStates);
   }
 
 // ------ Method section End
@@ -307,9 +305,11 @@ if (content.style.maxHeight){
 
     // Idenify Saved Rolls w/ Initiative Flagged
     for (let sRoll of Object.keys(this.actor.data.data.savedRolls)) {
+      /*
       console.log(sRoll);
       console.log(this.actor.data.data.savedRolls[sRoll]);
       console.log(this.actor);
+      */
 
       if (typeof this.actor.data.data.savedRolls[sRoll].elements.init !== 'undefined' && this.actor.data.data.savedRolls[sRoll].elements.init !== null) {
         if (this.actor.data.data.savedRolls[sRoll].elements.init.value) {
@@ -477,9 +477,11 @@ if (content.style.maxHeight){
 
     html.find('.collapsible').click(event => {
       const collapsibleElement = event.currentTarget;
+      /*
       console.log("Collapsible Listener, HTML.find style. event:", event);
       console.log("Collapsible Listener, HTML.find style. this:", this);
       console.log("Collapsible Listener, HTML.find style. collapsibleElement:", collapsibleElement);
+      */
       collapsibleElement.classList.toggle("collapsible-active");
       collapsibleElement.nextElementSibling.classList.toggle("collapsible-content-active");
 
