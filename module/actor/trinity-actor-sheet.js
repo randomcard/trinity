@@ -79,6 +79,27 @@ export class TrinityActorSheet extends ActorSheet {
       let headerItems = $(html.find(".collapsible"));
       for (let i = 0; i < headerItems.length; i++) {
         if (this.toggleStates.headers[i]) {
+          $(headerItems[i]).addClass("collapsible-active");
+        } else {
+          $(headerItems[i]).removeClass("collapsible-active");
+        }
+      }
+
+      // Content
+      let contentItems = $(html.find(".collapsible-content"));
+      for (let i = 0; i < contentItems.length; i++) {
+        if (this.toggleStates.content[i]) {
+          $(contentItems[i]).addClass("collapsible-content-active");
+        } else {
+          $(contentItems[i]).removeClass("collapsible-content-active");
+        }
+      }
+
+      /*
+      // Headers
+      let headerItems = $(html.find(".collapsible"));
+      for (let i = 0; i < headerItems.length; i++) {
+        if (this.toggleStates.headers[i]) {
           $(headerItems[i]).show().addClass("collapsible-active");
         } else {
           $(headerItems[i]).hide().removeClass("collapsible-active");
@@ -94,6 +115,8 @@ export class TrinityActorSheet extends ActorSheet {
           $(contentItems[i]).hide().removeClass("collapsible-content-active");
         }
       }
+      */
+
     }
 
     console.log("_setToggleStates:",this.toggleStates);
