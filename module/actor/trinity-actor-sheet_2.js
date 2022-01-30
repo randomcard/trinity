@@ -172,7 +172,6 @@ if (content.style.maxHeight){
     const healthBoxes = {};
     const initRolls = [];
     const unflaggedEquipment = [];
-
 /* Removed to test new HB iteration
     const healthBoxes = {
       bruised : {
@@ -370,11 +369,6 @@ if (content.style.maxHeight){
     actorData.allItems = allItems;
     actorData.initRolls = initRolls;
     actorData.unflaggedEquipment = unflaggedEquipment;
-
-    if (typeof actorData.allItemsFilter === 'undefined') {
-      actorData.allItemsFilter = "";
-    }
-
 
   }
 

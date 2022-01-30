@@ -5,11 +5,13 @@
       <div class="item-dots"></div>
       <div class="item-controls">
         <label class="resource-label" for="allItemFilter">Filter: </label>
-        <select id="allItemFilter" name="this.filterType" data-dtype="String">
+        <select id="allItemFilter" name="actor.allItemsFilter" data-dtype="String">
+          {{#select actor.allItemsFilter}}
           <option value="">None</option>
           {{#each (uniqueTypes actor.allItems) as |typeName id|}}
           <option value="{{typeName}}">{{typeName}}</option>
           {{/each}}
+          {{/select}}
         </select>
       </div>
     </li>
