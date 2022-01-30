@@ -39,7 +39,7 @@ export class TrinityActorSheet extends ActorSheet {
 
   async _render(force = false, options = {}) {
     this._saveToggleStates();
-    console.log("ToggleStates:",toggleStates);
+    console.log("ToggleStates:",this.toggleStates);
     await super._render(force, options);
     this._setToggleStates();
   }
