@@ -61,9 +61,9 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
     // Content
-    let headerItems = $(html.find(".collapsible"));
-    for (let item of headerItems) {
-      this.toggleStates.headers.push($(item).hasClass("collapsible-active"));
+    let contentItems = $(html.find(".collapsible-content"));
+    for (let item of contentItems) {
+      this.toggleStates.content.push($(item).hasClass("collapsible-content-active"));
     }
 
   }
