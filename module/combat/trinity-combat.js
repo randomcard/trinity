@@ -3,12 +3,6 @@ import { trinityRoll } from "/systems/trinity/module/trinity-roll.js";
 export class TrinityCombat extends Combat
 {
 
-  getInitiativeRoll(formula) {
-    formula = formula || this._getInitiativeFormula();
-    const rollData = this.actor?.getRollData() || {};
-    return Roll.create(formula, rollData);
-  }
-
   async rollInitiative(ids, {formula=null, updateTurn=true, messageOptions={}}={})
   {
     // Structure input data
@@ -40,6 +34,7 @@ export class TrinityCombat extends Combat
         let rollFormula = `(((${p.skil.value}+${p.attr.value})d10x>=${p.expl.value}cs>=${p.succ.value})*${p.nsca.value})+((${p.skil.value}+${p.attr.value})*0.01)`;
 
         const roll = game.trinity.TRoll.create(rollFormula, {}, {}, p.enha.value).create;
+        console.log("COMBAT roll: ", roll);
         await roll.evaluate({async: true});
         // updates.push({_id: id, initiative: roll.total});
         console.log("COMBAT roll: ", roll);
