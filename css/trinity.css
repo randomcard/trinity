@@ -390,7 +390,7 @@
   border-radius: 10px 10px 10px 10px;
   margin: 5px 0px;
   /* Adding to try to fix display none issue */
-  display: block;
+  /* display: block; */
 }
 
 .collapsible-active {
