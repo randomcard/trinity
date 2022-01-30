@@ -14,7 +14,7 @@
         <a class="item" data-tab="main">Main</a>
         {{#if actor.data.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
         <a class="item" data-tab="background">Background</a> {{!-- Edges, Specialties, Tricks --}}
-        <a class="item" data-tab="gear">Gear</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
+        <a class="item" data-tab="equip">Equipment</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
         <a class="item" data-tab="data-entry">Configure</a>
     </nav>
 
@@ -68,7 +68,7 @@
         </div>
 
         {{!-- Owned Gear Tab --}}
-        <div class="tab gear" data-group="primary" data-tab="gear">
+        <div class="tab equip" data-group="primary" data-tab="equip">
           {{> "systems/trinity/templates/actor/partials/weapons.html"}}
           {{> "systems/trinity/templates/actor/partials/armors.html"}}
           {{> "systems/trinity/templates/actor/partials/gear.html"}}
