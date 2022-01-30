@@ -5,7 +5,7 @@
       <div class="item-dots"></div>
       <div class="item-controls">
         <label class="resource-label" for="typeFilter">Filter: </label>
-        <select id="typeFilter" name="allItemsFilter" data-dtype="String">
+        <select id="typeFilter" name="this.actor.allItemsFilter" data-dtype="String">
           {{#select allItemsFilter}}
           <option value="">None</option>
           {{#each (uniqueTypes actor.allItems) as |typeName id|}}
