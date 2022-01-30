@@ -35,6 +35,22 @@
           "max" : 0,
           "value" : 0
         }
+      },
+      "psion" : {
+        "psiOrder" : "",
+        "psi" : {
+          "aptitude": "",
+          "rating" : 0,
+          "points" : {
+            "max" : 0,
+            "value" : 0
+          },
+          "tolerance" : {
+            "max" : 0,
+            "value" : 0,
+            "linkedItemIDs" : []
+          }
+        }
       }
     },
     "TrinityNPC" : {
@@ -80,7 +96,7 @@
       }
     },
     "TrinityCharacter": {
-      "templates": ["base", "talent"],
+      "templates": ["base", "talent", "psion"],
       "player" : "",
       "concept" : "",
       "flags" : {
@@ -195,10 +211,11 @@
     }
   },
   "Item": {
-    "types": ["item", "edge", "skill", "specialty", "path", "condition", "stunt", "gift", "trick", "contact", "bond"],
+    "types": ["item", "equipment", "edge", "skill", "specialty", "path", "condition", "stunt", "gift", "trick", "contact", "bond", "mode", "action"],
     "templates": {
       "base": {
         "description": "",
+        "source": "",
         "enhancement" : {
           "isEnhancement" : false,
           "value" : 0,
@@ -221,7 +238,8 @@
           "hasDots" : true
         },
         "defaultSkill" : "",
-        "defaultAttribute" : ""
+        "defaultAttribute" : "",
+        "linkedRollID": ""
       }
     },
     "item": {
@@ -253,6 +271,7 @@
       "templates": ["base"],
       "typeName" : "Equipment",
       "quantity": 1,
+      "tolerance" : 0,
       "gear": {
         "tags" : ""
       },
@@ -346,7 +365,23 @@
       "typeName" : "Bond",
       "value" : 0,
       "skillOrigin": ""
+    },
+    "mode" : {
+      "templates": ["base"],
+      "typeName" : "Mode",
+      "aptitude" : "",
+      "psiCost" : "",
+      "system" : "",
+      "flags" : {
+        "hasDots" : true,
+        "isBasicMode" : false,
+        "isAuxillary" : false
+      }
+    },
+    "action" : {
+      "templates": ["base"],
+      "typeName" : "Action",
+      "linkedItemIDs" : []
     }
-
   }
 }
