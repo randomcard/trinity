@@ -373,6 +373,7 @@ if (content.style.maxHeight){
 
     if (typeof actorData.allItemsFilter === 'undefined') {
       actorData.allItemsFilter = "";
+      console.log("Set/Reset allItemsFilter to empty.")
     }
 
 
