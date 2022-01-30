@@ -235,7 +235,7 @@ Hooks.once('init', async function() {
   Handlebars.registerHelper('uniqueTypes', function(items) {
     let types = [];
     for (let i of items) {
-      if (types.indexOf(i) === -1) {
+      if (types.indexOf(i.data.typeName) === -1) {
         types.push(i.data.typeName);
       }
     }
