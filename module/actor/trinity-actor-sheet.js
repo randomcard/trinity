@@ -171,6 +171,7 @@ if (content.style.maxHeight){
     const allItems = [];
     const healthBoxes = {};
     const initRolls = [];
+    const unflaggedEquipment = [];
 /* Removed to test new HB iteration
     const healthBoxes = {
       bruised : {
@@ -318,10 +319,16 @@ if (content.style.maxHeight){
       i.img = i.img || DEFAULT_TOKEN;
 
       // "item" sub-types - Gear / Weapon / Armor / Vehicle
-      if (i.type === 'item' && i.data.flags.isGear === true) { gear.push(i); }
-      if (i.type === 'item' && i.data.flags.isWeapon === true) { weapons.push(i); }
-      if (i.type === 'item' && i.data.flags.isArmor === true) { armors.push(i); }
-      if (i.type === 'item' && i.data.flags.isVehicle === true) { vehicles.push(i); }
+      if ((i.type === 'item' || i.type === 'equipment') && i.data.flags.isGear === true) { gear.push(i); }
+      if ((i.type === 'item' || i.type === 'equipment') && i.data.flags.isWeapon === true) { weapons.push(i); }
+      if ((i.type === 'item' || i.type === 'equipment') && i.data.flags.isArmor === true) { armors.push(i); }
+      if ((i.type === 'item' || i.type === 'equipment') && i.data.flags.isVehicle === true) { vehicles.push(i); }
+      unflaggedEquipment
+      if ((i.type === 'item' || i.type === 'equipment')
+        && i.data.flags.isGear !== true
+        && i.data.flags.isWeapon !== true
+        && i.data.flags.isArmor !== true
+        && i.data.flags.isVehicle !== true) { unflaggedEquipment.push(i); }
 
       // Other item types
       if (i.type === 'edge') { edges.push(i); }
@@ -361,6 +368,7 @@ if (content.style.maxHeight){
     actorData.healthBoxes = healthBoxes;
     actorData.allItems = allItems;
     actorData.initRolls = initRolls;
+    actorData.unflaggedEquipment = unflaggedEquipment;
 
   }
 

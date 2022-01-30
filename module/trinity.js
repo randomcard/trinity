@@ -365,7 +365,8 @@ async function loadTrinityTemplates()
     "systems/trinity/templates/item/partials/injury-flag.html",
     "systems/trinity/templates/item/partials/dots-flag.html",
     "systems/trinity/templates/item/partials/item-flag.html",
-    "systems/trinity/templates/item/partials/stunt-data.html"
+    "systems/trinity/templates/item/partials/stunt-data.html",
+    "systems/trinity/templates/item/partials/unflaggedEquipment.html"
   ];
   return loadTemplates( templatePaths );
 }
