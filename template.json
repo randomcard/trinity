@@ -252,6 +252,10 @@
         "cost" : 1
       }
     },
+    "equipment": {
+      "templates": ["item"],
+      "typeName" : "Equipment",
+    },
     "edge": {
       "templates": ["base"],
       "typeName" : "Edge",
