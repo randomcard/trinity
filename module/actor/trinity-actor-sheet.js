@@ -49,26 +49,46 @@ export class TrinityActorSheet extends ActorSheet {
 
     const html = $(this.form).parent();
 
-    this.toggleStates = [];
+    this.toggleStates = {
+      headers : [],
+      content : []
+    };
 
-    let items = $(html.find(".collapsible-content"));
-
-    for (let item of items) {
-      this.toggleStates.push($(item).hasClass("collapsible-content-active"));
+    // Headers
+    let headerItems = $(html.find(".collapsible"));
+    for (let item of headerItems) {
+      this.toggleStates.headers.push($(item).hasClass("collapsible-active"));
     }
+
+    // Content
+    let headerItems = $(html.find(".collapsible"));
+    for (let item of headerItems) {
+      this.toggleStates.headers.push($(item).hasClass("collapsible-active"));
+    }
+
   }
 
   _setToggleStates() {
     if (this.toggleStates) {
       const html = $(this.form).parent();
 
-      let items = $(html.find(".collapsible-content"));
-
-      for (let i = 0; i < items.length; i++) {
-        if (this.toggleStates[i]) {
-          $(items[i]).show().addClass("collapsible-content-active");
+      // Headers
+      let headerItems = $(html.find(".collapsible"));
+      for (let i = 0; i < headerItems.length; i++) {
+        if (this.toggleStates.headers[i]) {
+          $(headerItems[i]).show().addClass("collapsible-active");
         } else {
-          $(items[i]).hide().removeClass("collapsible-content-active");
+          $(headerItems[i]).hide().removeClass("collapsible-active");
+        }
+      }
+
+      // Content
+      let contentItems = $(html.find(".collapsible-content"));
+      for (let i = 0; i < contentItems.length; i++) {
+        if (this.toggleStates.content[i]) {
+          $(contentItems[i]).show().addClass("collapsible-content-active");
+        } else {
+          $(contentItems[i]).hide().removeClass("collapsible-content-active");
         }
       }
     }
@@ -435,6 +455,7 @@ if (content.style.maxHeight){
       }
     }
 
+/* Remove - now handled by _render
     if (this.options.collapsedContent !== null) {
       for (let c of this.options.collapsedContent) {
         var cElement = html.find("#"+c);
@@ -444,6 +465,7 @@ if (content.style.maxHeight){
         cElement[0].style.maxHeight = cElement[0].scrollHeight + "px";
       }
     }
+*/
 
     html.find('.collapsible').click(event => {
       const collapsibleElement = event.currentTarget;
@@ -460,6 +482,7 @@ if (content.style.maxHeight){
         content.style.maxHeight = content.scrollHeight + "px";
       }
 
+/* Remove, handled by _render
       if (this.options.collapsedHeaders.includes(event.currentTarget.id)) {
 		  // if IF is true, remove header & content from options
         this.options.collapsedHeaders = this.options.collapsedHeaders.filter((sectionName) => sectionName !== event.currentTarget.id);
@@ -469,6 +492,7 @@ if (content.style.maxHeight){
         this.options.collapsedHeaders.push(event.currentTarget.id);
         this.options.collapsedContent.push(content.id);
       }
+*/
 
       console.log("collapsedHeaders", this.options.collapsedHeaders);
       console.log("collapsedContent", this.options.collapsedContent);
