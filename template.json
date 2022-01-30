@@ -228,9 +228,6 @@
       "templates": ["base"],
       "typeName" : "Item",
       "quantity": 1,
-      "flags" : {
-        "isGear" : true
-      },
       "gear": {
         "tags" : ""
       },
@@ -256,9 +253,6 @@
       "templates": ["base"],
       "typeName" : "Equipment",
       "quantity": 1,
-      "flags" : {
-        "isGear" : true
-      },
       "gear": {
         "tags" : ""
       },
