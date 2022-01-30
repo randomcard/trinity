@@ -254,7 +254,7 @@
     },
     "equipment": {
       "templates": ["item"],
-      "typeName" : "Equipment",
+      "typeName" : "Equipment"
     },
     "edge": {
       "templates": ["base"],
