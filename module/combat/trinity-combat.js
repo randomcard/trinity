@@ -64,7 +64,7 @@ export class TrinityCombat extends Combat
 
         // Construct chat message data
         ChatMessage.create({
-          speaker: ChatMessage.getSpeaker({ actor: targetActor }),
+          speaker: ChatMessage.getSpeaker({ actor: combatant.actor }),
           flavor: [p.skil.name, p.attr.name, p.enha.name].join(' • '),
           content: `${await roll.render()}` + compList
         });
