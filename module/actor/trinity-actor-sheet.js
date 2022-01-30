@@ -35,6 +35,46 @@ export class TrinityActorSheet extends ActorSheet {
 
   }
 
+// ------- New Method of Collapse/Expand Content
+
+  async _render(force = false, options = {}) {
+    this._saveToggleStates();
+    await super._render(force, options);
+    this._setToggleStates();
+  }
+
+  _saveToggleStates() {
+    if (this.form === null)
+      return;
+
+    const html = $(this.form).parent();
+
+    this.toggleStates = [];
+
+    let items = $(html.find(".collapsible-content"));
+
+    for (let item of items) {
+      this.toggleStates.push($(item).hasClass("collapsible-content-active"));
+    }
+  }
+
+  _setToggleStates() {
+    if (this.toggleStates) {
+      const html = $(this.form).parent();
+
+      let items = $(html.find(".collapsible-content"));
+
+      for (let i = 0; i < items.length; i++) {
+        if (this.toggleStates[i]) {
+          $(items[i]).show().addClass("collapsible-content-active");
+        } else {
+          $(items[i]).hide().removeClass("collapsible-content-active");
+        }
+      }
+    }
+  }
+
+// ------ Method section End
 
   /** @override */
   static get defaultOptions() {
