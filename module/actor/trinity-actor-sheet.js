@@ -448,6 +448,8 @@ if (content.style.maxHeight){
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
+
+/* Remove - now handled by _render
     if (this.options.collapsedHeaders !== null) {
       for (let c of this.options.collapsedHeaders) {
         var cElement = html.find("#"+c);
@@ -455,7 +457,6 @@ if (content.style.maxHeight){
       }
     }
 
-/* Remove - now handled by _render
     if (this.options.collapsedContent !== null) {
       for (let c of this.options.collapsedContent) {
         var cElement = html.find("#"+c);
