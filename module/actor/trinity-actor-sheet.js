@@ -39,6 +39,7 @@ export class TrinityActorSheet extends ActorSheet {
 
   async _render(force = false, options = {}) {
     this._saveToggleStates();
+    console.log("ToggleStates:",toggleStates);
     await super._render(force, options);
     this._setToggleStates();
   }
@@ -480,8 +481,9 @@ if (content.style.maxHeight){
       console.log("Collapsible Listener, HTML.find style. this:", this);
       console.log("Collapsible Listener, HTML.find style. collapsibleElement:", collapsibleElement);
       collapsibleElement.classList.toggle("collapsible-active");
-//      collapsibleElement.nextElementSibling.classList.toggle("collapsible-content-active");
+      collapsibleElement.nextElementSibling.classList.toggle("collapsible-content-active");
 
+/*
       var content = collapsibleElement.nextElementSibling;
       if (content.style.maxHeight){
         content.classList.toggle("collapsible-content-active");
@@ -490,7 +492,7 @@ if (content.style.maxHeight){
         content.classList.toggle("collapsible-content-active");
         content.style.maxHeight = content.scrollHeight + "px";
       }
-
+*/
       this._saveToggleStates();
 
 /* Remove, handled by _render
@@ -503,10 +505,10 @@ if (content.style.maxHeight){
         this.options.collapsedHeaders.push(event.currentTarget.id);
         this.options.collapsedContent.push(content.id);
       }
-*/
 
       console.log("collapsedHeaders", this.options.collapsedHeaders);
       console.log("collapsedContent", this.options.collapsedContent);
+*/
 
     });
 
