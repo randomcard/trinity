@@ -491,6 +491,8 @@ if (content.style.maxHeight){
         content.style.maxHeight = content.scrollHeight + "px";
       }
 
+      this._saveToggleStates();
+
 /* Remove, handled by _render
       if (this.options.collapsedHeaders.includes(event.currentTarget.id)) {
 		  // if IF is true, remove header & content from options
