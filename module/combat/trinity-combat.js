@@ -44,24 +44,30 @@ export class TrinityCombat extends Combat
           initiative: roll.total
         });
 
-        // Construct chat message data
-        let messageData = foundry.utils.mergeObject({
-          speaker: ChatMessage.getSpeaker({
-            actor: combatant.actor,
-            token: combatant.token,
-            alias: combatant.name
-          }),
-          flavor: game.i18n.format("COMBAT.RollsInitiative", {name: combatant.name}),
-          flags: {"core.initiativeRoll": true}
-        }, messageOptions);
-        const chatData = await roll.toMessage(messageData, {
-          create: false,
-          rollMode: combatant.hidden && (["roll", "publicroll"].includes(rollMode)) ? "gmroll" : rollMode
-        });
+        // Complication List
+            let compList = "";
+            if( typeof combatant.actor.complications !== 'undefined' && combatant.actor.complications !== null) {
+              for (let comp of combatant.actor.complications) {
+                if (compList.length > 0) {
+                  compList += "<br/>";
+                  compList += comp.data.complication.value + " - " + comp.name;
+                }
+                if (compList.length === 0) {
+                  compList += `<hr /><div class="small">Character's Complications:</div><div class="small-note">`;
+                  compList += comp.data.complication.value + " - " + comp.name;
+                }
+              }
+              if (compList.length > 0) {
+                compList += "</div>";
+              }
+            }
 
-        // Play 1 sound for the whole rolled set
-        if ( i > 0 ) chatData.sound = null;
-        messages.push(chatData);
+        // Construct chat message data
+        ChatMessage.create({
+          speaker: ChatMessage.getSpeaker({ actor: targetActor }),
+          flavor: [p.skil.name, p.attr.name, p.enha.name].join(' • '),
+          content: `${await roll.render()}` + compList
+        });
 
       }
     }
