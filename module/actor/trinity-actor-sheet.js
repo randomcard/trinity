@@ -540,14 +540,11 @@ if (content.style.maxHeight){
 
     });
 
-    function setDescendantProp(obj, desc, value) {
-      var arr = desc.split('.');
-      while (arr.length > 1) {
-        obj = obj[arr.shift()];
-      }
-      return obj[arr[0]] = value;
-    }
-
+    // Return a value by putting together two pieces of a variable name.
+    // ex:
+    // obj = this.actor.data
+    // desc = data.tolerance.value
+    // returns = this.actor.data.data.tolerance.value
     function getDescendantProp(obj, desc) {
       var arr = desc.split('.');
       while (arr.length) {
@@ -560,15 +557,11 @@ if (content.style.maxHeight){
     html.find('.sub-value').click(ev => {
       let target = event.currentTarget.dataset.target;
       let current = getDescendantProp(this.actor.data, target);
-      // let currentVar = Object.keys(current)[0];
-      // Error checking
       if (current === null) {
         this.actor.update({ [target]: 2 });
-        // setDescendantProp(this.actor.data, target, 2);
       }
       if (current > 0) {
         this.actor.update({ [target]: --current });
-        // setDescendantProp(this.actor.data, target, (current - 1));
         this.render(true);
       }
     });
@@ -577,36 +570,13 @@ if (content.style.maxHeight){
     html.find('.add-value').click(ev => {
       let target = event.currentTarget.dataset.target;
       let current = getDescendantProp(this.actor.data, target);
-      // let currentVar = Object.keys(current)[0];
       console.log("Add Value:", ev);
-      // console.log(this.actor.data[target]);
       if (current === null || current < 0) {
         this.actor.update({ [target]: 0 });
-        // setDescendantProp(this.actor.data, target, 1);
       }
       this.actor.update({ [target]: ++current });
-      // setDescendantProp(this.actor.data, target, (current + 1));
       this.render(true);
     });
-
-/* A more universal set of methods to do this have been implemented above ^
-    // Remove Inspiration
-    html.find('.remove-inspiration').click(ev => {
-      if (this.actor.data.data.inspiration.value > 0) {
-        // --this.actor.data.data.inspiration.value;
-        this.actor.update({ 'data.inspiration.value': --this.actor.data.data.inspiration.value });
-
-        this.render(true);
-      }
-    });
-
-    // Add Inspiration
-    html.find('.add-inspiration').click(ev => {
-      // ++this.actor.data.data.inspiration.value;
-      this.actor.update({ 'data.inspiration.value': ++this.actor.data.data.inspiration.value });
-      this.render(true);
-    });
-*/
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
