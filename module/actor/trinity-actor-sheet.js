@@ -560,7 +560,7 @@ if (content.style.maxHeight){
     html.find('.sub-value').click(ev => {
       let target = event.currentTarget.dataset.target;
       let current = getDescendantProp(this.actor.data, target);
-      let currentVar = Object.keys(current)[0];
+      // let currentVar = Object.keys(current)[0];
       // Error checking
       if (current === null) {
         this.actor.update({ [target]: 2 });
@@ -577,9 +577,9 @@ if (content.style.maxHeight){
     html.find('.add-value').click(ev => {
       let target = event.currentTarget.dataset.target;
       let current = getDescendantProp(this.actor.data, target);
-      let currentVar = Object.keys(current)[0];
+      // let currentVar = Object.keys(current)[0];
       console.log("Add Value:", ev);
-      console.log(this.actor.data[target]);
+      // console.log(this.actor.data[target]);
       if (current === null) {
         this.actor.update({ [target]: 1 });
         // setDescendantProp(this.actor.data, target, 1);
