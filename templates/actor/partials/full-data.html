@@ -85,7 +85,7 @@
 {{#each actor.data.data.facets as |facet key|}}
   <div class="facet flexrow flex-group-center">
     <label for="fd-facet-{{key}}" class="resource-label"> {{facet.name}} </label>
-    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-facet-{{key}}" name="actor.data.data.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-facet-{{key}}" name="data.facets.{{key}}.value" value="{{facet.value}}" data-dtype="Number"/>
   </div>
 {{/each}}
 
