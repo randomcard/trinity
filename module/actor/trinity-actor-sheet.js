@@ -561,7 +561,7 @@ if (content.style.maxHeight){
       let target = event.currentTarget.dataset.target;
       console.log("Subtract Value:", ev);
       // console.log(this.actor.data[target]);
-      console.log(getDescendantProp(target, this.actor.data));
+      console.log(getDescendantProp(this.actor.data, target));
 
       if (this.actor.data[target] > 0) {
         this.actor.update({ [target]: --this.actor.data[target] });
