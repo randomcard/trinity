@@ -24,6 +24,6 @@
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/randomcard/trinity/",
   "manifest": "https://raw.githubusercontent.com/randomcard/trinity/aeon/system.json",
-  "download": "https://github.com/randomcard/trinity/archive/master.zip",
+  "download": "https://github.com/randomcard/trinity/archive/aeon.zip",
   "license": "LICENSE.txt"
 }
