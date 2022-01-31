@@ -9,6 +9,7 @@
         },
         "flags" : {
           "isTalent" : false,
+          "isPsion" : false,
           "isActivePlayer" : false,
           "isTakenOut" : false
         },
