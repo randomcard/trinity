@@ -542,9 +542,9 @@ if (content.style.maxHeight){
 
     // Remove value
     html.find('.sub-value').click(ev => {
+      let target = event.currentTarget.dataset.target;
       console.log("Subtract Value:", ev);
       console.log(this.actor.data[target]);
-      let target = event.currentTarget.dataset.target;
       if (this.actor.data[target] > 0) {
         this.actor.update({ [target]: --this.actor.data[target] });
         this.render(true);
@@ -553,9 +553,9 @@ if (content.style.maxHeight){
 
   // Add Value
     html.find('.add-value').click(ev => {
+      let target = event.currentTarget.dataset.target;
       console.log("Add Value:", ev);
       console.log(this.actor.data[target]);
-      let target = event.currentTarget.dataset.target;
       this.actor.update({ [target]: ++this.actor.data[target] });
       this.render(true);
     });
