@@ -540,11 +540,29 @@ if (content.style.maxHeight){
 
     });
 
+    function setDescendantProp(obj, desc, value) {
+      var arr = desc.split('.');
+      while (arr.length > 1) {
+        obj = obj[arr.shift()];
+      }
+      return obj[arr[0]] = value;
+    }
+
+    function getDescendantProp(obj, desc) {
+      var arr = desc.split('.');
+      while (arr.length) {
+        obj = obj[arr.shift()];
+      }
+      return obj;
+    }
+
     // Remove value
     html.find('.sub-value').click(ev => {
       let target = event.currentTarget.dataset.target;
       console.log("Subtract Value:", ev);
-      console.log(this.actor.data[target]);
+      // console.log(this.actor.data[target]);
+      console.log(getDescendantProp(target, this.actor.data));
+
       if (this.actor.data[target] > 0) {
         this.actor.update({ [target]: --this.actor.data[target] });
         this.render(true);
