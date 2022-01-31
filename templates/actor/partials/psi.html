@@ -4,16 +4,20 @@
 
   <div class="flex-parent-center-column">
     <div class="flex-parent-center-column flex-child">
-      <div class="flex-child resource-label">Max Inspiration</div>
-      <div class="flex-child big icons">{{{to10Dots this.actor.data.data.inspiration.max}}}</div>
+      <div class="flex-child resource-label">Psi Rating {{this.actor.data.data.psi.rating}}</div>
+      <div class="flex-child big icons">
+        <i class="clickable sub-value far fa-caret-square-left" data-target="this.actor.data.data.psi.points.value"></i>
+        {{{to10Dots this.actor.data.data.psi.points.value}}}
+        <i class="clickable add-value far fa-caret-square-right" data-target="this.actor.data.data.psi.points.value"></i>
+      </div>
     </div>
     <div class="flex-parent-center-column flex-child">
       <div class="flex-child big icons">
-        <i class="clickable remove-inspiration far fa-caret-square-left"></i>
-        {{{to10Boxes this.actor.data.data.inspiration.value}}}
-        <i class="clickable add-inspiration far fa-caret-square-right"></i>
+        <i class="clickable remove-inspiration far fa-caret-square-left" data-target="this.actor.data.data.psi.tolerance.value"></i>
+        {{{to10Boxes this.actor.data.data.psi.tolerance.value}}}
+        <i class="clickable add-inspiration far fa-caret-square-right" data-target="this.actor.data.data.psi.tolerance.value"></i>
       </div>
-      <div class="flex-child resource-label">Current Inspiration</div>
+      <div class="flex-child resource-label">Tolerance</div>
     </div>
   </div>
 

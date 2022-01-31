@@ -66,11 +66,17 @@
 
 
 {{!-- Flags --}}
-<!-- <button type="button" id="fd-flags-header" class="collapsible">Flags</button>
-<div id="fd-flags-content" class="collapsible-content"> -->
-<label for="fd-isTalent" class="resource-label"> Talent: </label>
-  <input type="checkbox" id="fd-isTalent" name="data.flags.isTalent" value="{{actor.data.flags.isTalent}}" data-dtype="Boolean" {{checked this.data.data.flags.isTalent}}/>
-<!-- </div> -->
+<button type="button" id="fd-flags-header" class="collapsible">Character Options</button>
+<div id="fd-flags-content" class="collapsible-content">
+  <div>
+    <label for="fd-isTalent" class="resource-label"> Talent: </label>
+    <input type="checkbox" id="fd-isTalent" name="data.flags.isTalent" value="{{actor.data.flags.isTalent}}" data-dtype="Boolean" {{checked this.data.data.flags.isTalent}}/>
+  </div>
+  <div>
+    <label for="fd-isPsion" class="resource-label"> Psion: </label>
+    <input type="checkbox" id="fd-isPsion" name="data.flags.isPsion" value="{{actor.data.flags.isPsion}}" data-dtype="Boolean" {{checked this.data.data.flags.isPsion}}/>
+  </div>
+</div>
 
 {{!-- Talent Powers / Stats --}}
 {{#if actor.data.data.flags.isTalent}}
@@ -95,5 +101,16 @@
   <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-inspiration-max" name="data.inspiration.max" value="{{data.data.inspiration.max}}" data-dtype="Number"/>
 </div>
 
+</div>
+{{/if}}
+
+{{!-- Psion Powers / Stats --}}
+{{#if actor.data.data.flags.isTalent}}
+<button type="button" id="fd-psion-header" class="collapsible">Psion Powers</button>
+<div id="fd-psion-content" class="collapsible-content">
+  <div class="defense flexrow flex-group-center">
+    <label for="fd-psiRating" class="resource-label">Psi Rating</label>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-psiRating" name="data.psi.rating" value="{{data.data.psi.rating}}" data-dtype="Number"/>
+  </div>
 </div>
 {{/if}}
