@@ -562,13 +562,19 @@ if (content.style.maxHeight){
     // Remove value
     html.find('.sub-value').click(ev => {
       let target = event.currentTarget.dataset.target;
+      let current = getDescendantProp(this.actor.data, target);
       console.log("Subtract Value:", ev);
       console.log(target);
       // console.log(this.actor.data[target]);
       console.log(getDescendantProp(this.actor.data, target));
 
-      if (this.actor.data[target] > 0) {
-        this.actor.update({ [target]: --this.actor.data[target] });
+      // Error checking
+      if (current === null) {
+        setDescendantProp(this.actor.data, target, 2);
+      }
+      if (current > 0) {
+        setDescendantProp(this.actor.data, target, (current - 1));
+        // this.actor.update({ [target]: --this.actor.data[target] });
         this.render(true);
       }
     });
@@ -576,9 +582,14 @@ if (content.style.maxHeight){
   // Add Value
     html.find('.add-value').click(ev => {
       let target = event.currentTarget.dataset.target;
+      let current = getDescendantProp(this.actor.data, target);
       console.log("Add Value:", ev);
       console.log(this.actor.data[target]);
-      this.actor.update({ [target]: ++this.actor.data[target] });
+      if (current === null) {
+        setDescendantProp(this.actor.data, target, 1);
+      }
+      setDescendantProp(this.actor.data, target, (current + 1));
+      // this.actor.update({ [target]: ++this.actor.data[target] });
       this.render(true);
     });
 
