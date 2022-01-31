@@ -552,8 +552,10 @@ if (content.style.maxHeight){
       var arr = desc.split('.');
       console.log("arr =:", arr);
       while (arr.length) {
+        console.log("Object at start of each loop:", obj);
         obj = obj[arr.shift()];
       }
+      console.log("Object at end:", obj);
       return obj;
     }
 
