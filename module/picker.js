@@ -62,7 +62,7 @@ export class Picker {
                       pickedElements.skil.value = pickedElements.skil.data.value;
                       break;
                     case "enha":
-                      pickedElements.enha[i.id] = targetActor.items.find(item => item._id === i.id).data || pickedElements.enha;
+                      pickedElements.enha[i.id] = targetActor.items.find(item => item.id === i.id).data || pickedElements.enha;
                       pickedElements.enha.value = parseInt(pickedElements.enha.value) + parseInt(pickedElements.enha[i.id].data.enhancement.value);
                       // pickedElements.enha.name = pickedElements.enha.name + '•' + pickedElements.enha[i.id].name;
 
