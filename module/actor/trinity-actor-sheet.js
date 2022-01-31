@@ -560,12 +560,15 @@ if (content.style.maxHeight){
     html.find('.sub-value').click(ev => {
       let target = event.currentTarget.dataset.target;
       let current = getDescendantProp(this.actor.data, target);
+      let currentVar = Object.keys(current)[0];
       // Error checking
       if (current === null) {
-        setDescendantProp(this.actor.data, target, 2);
+        this.actor.update({ [target]: 2 });
+        // setDescendantProp(this.actor.data, target, 2);
       }
       if (current > 0) {
-        setDescendantProp(this.actor.data, target, (current - 1));
+        this.actor.update({ [target]: --current });
+        // setDescendantProp(this.actor.data, target, (current - 1));
         this.render(true);
       }
     });
@@ -574,12 +577,15 @@ if (content.style.maxHeight){
     html.find('.add-value').click(ev => {
       let target = event.currentTarget.dataset.target;
       let current = getDescendantProp(this.actor.data, target);
+      let currentVar = Object.keys(current)[0];
       console.log("Add Value:", ev);
       console.log(this.actor.data[target]);
       if (current === null) {
-        setDescendantProp(this.actor.data, target, 1);
+        this.actor.update({ [target]: 1 });
+        // setDescendantProp(this.actor.data, target, 1);
       }
-      setDescendantProp(this.actor.data, target, (current + 1));
+      this.actor.update({ [target]: --current });
+      // setDescendantProp(this.actor.data, target, (current + 1));
       this.render(true);
     });
 
