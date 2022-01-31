@@ -13,6 +13,7 @@
         <a class="item" data-tab="description">Description</a> {{!-- Bio, Aspirations, Details, Contacts, Bonds --}}
         <a class="item" data-tab="main">Main</a>
         {{#if actor.data.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
+        {{#if actor.data.data.flags.isPsion}}<a class="item" data-tab="psion">Psion</a>{{/if}}
         <a class="item" data-tab="background">Background</a> {{!-- Edges, Specialties, Tricks --}}
         <a class="item" data-tab="equip">Equipment</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
         <a class="item" data-tab="data-entry">Configure</a>
@@ -47,6 +48,19 @@
 
         {{!-- Talent Tab --}}
         <div class="tab talent" data-group="primary" data-tab="talent">
+          <div class="flex-parent-evenly">
+            <div class="flex-child-even">
+              {{> "systems/trinity/templates/actor/partials/facets.html"}}
+            </div>
+            <div class="flex-child-even">
+              {{> "systems/trinity/templates/actor/partials/inspiration.html"}}
+            </div>
+          </div>
+          {{> "systems/trinity/templates/actor/partials/gifts.html"}}
+        </div>
+
+        {{!-- Psion Tab --}}
+        <div class="tab psion" data-group="primary" data-tab="psion">
           <div class="flex-parent-evenly">
             <div class="flex-child-even">
               {{> "systems/trinity/templates/actor/partials/facets.html"}}
