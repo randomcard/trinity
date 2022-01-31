@@ -550,12 +550,9 @@ if (content.style.maxHeight){
 
     function getDescendantProp(obj, desc) {
       var arr = desc.split('.');
-      console.log("arr =:", arr);
       while (arr.length) {
-        console.log("Object at start of each loop:", obj);
         obj = obj[arr.shift()];
       }
-      console.log("Object at end:", obj);
       return obj;
     }
 
@@ -563,18 +560,12 @@ if (content.style.maxHeight){
     html.find('.sub-value').click(ev => {
       let target = event.currentTarget.dataset.target;
       let current = getDescendantProp(this.actor.data, target);
-      console.log("Subtract Value:", ev);
-      console.log(target);
-      // console.log(this.actor.data[target]);
-      console.log(getDescendantProp(this.actor.data, target));
-
       // Error checking
       if (current === null) {
         setDescendantProp(this.actor.data, target, 2);
       }
       if (current > 0) {
         setDescendantProp(this.actor.data, target, (current - 1));
-        // this.actor.update({ [target]: --this.actor.data[target] });
         this.render(true);
       }
     });
@@ -589,11 +580,10 @@ if (content.style.maxHeight){
         setDescendantProp(this.actor.data, target, 1);
       }
       setDescendantProp(this.actor.data, target, (current + 1));
-      // this.actor.update({ [target]: ++this.actor.data[target] });
       this.render(true);
     });
 
-
+/* A more universal set of methods to do this have been implemented above ^
     // Remove Inspiration
     html.find('.remove-inspiration').click(ev => {
       if (this.actor.data.data.inspiration.value > 0) {
@@ -610,6 +600,7 @@ if (content.style.maxHeight){
       this.actor.update({ 'data.inspiration.value': ++this.actor.data.data.inspiration.value });
       this.render(true);
     });
+*/
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
