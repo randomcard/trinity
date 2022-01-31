@@ -580,11 +580,11 @@ if (content.style.maxHeight){
       // let currentVar = Object.keys(current)[0];
       console.log("Add Value:", ev);
       // console.log(this.actor.data[target]);
-      if (current === null) {
-        this.actor.update({ [target]: 1 });
+      if (current === null || current < 0) {
+        this.actor.update({ [target]: 0 });
         // setDescendantProp(this.actor.data, target, 1);
       }
-      this.actor.update({ [target]: --current });
+      this.actor.update({ [target]: ++current });
       // setDescendantProp(this.actor.data, target, (current + 1));
       this.render(true);
     });
