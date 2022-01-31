@@ -550,6 +550,7 @@ if (content.style.maxHeight){
 
     function getDescendantProp(obj, desc) {
       var arr = desc.split('.');
+      console.log("arr =:", arr);
       while (arr.length) {
         obj = obj[arr.shift()];
       }
@@ -560,6 +561,7 @@ if (content.style.maxHeight){
     html.find('.sub-value').click(ev => {
       let target = event.currentTarget.dataset.target;
       console.log("Subtract Value:", ev);
+      console.log(target);
       // console.log(this.actor.data[target]);
       console.log(getDescendantProp(this.actor.data, target));
 
