@@ -242,7 +242,7 @@
     }
   },
   "Item": {
-    "types": ["item", "equipment", "attribute", "edge", "skill", "specialty", "path", "condition", "stunt", "gift", "trick", "contact", "bond", "mode", "action"],
+    "types": ["item", "equipment", "attribute", "edge", "skill", "specialty", "path", "condition", "stunt", "gift", "trick", "contact", "bond", "mode", "action", "quantumPower"],
     "templates": {
       "base": {
         "description": "",
@@ -423,6 +423,19 @@
       "templates": ["base"],
       "typeName" : "Action",
       "linkedItemIDs" : []
+    },
+    "quantumPower" : {
+      "templates": ["base"],
+      "typeName" : "Quantum Power",
+      "quantumMin" : "",
+      "actionType" : "",
+      "cost" : "",
+      "dicePool" : "",
+      "range" : "",
+      "duration" : "",
+      "flags" : {
+        "isPowerSuite" : false
+      }
     }
   }
 }
