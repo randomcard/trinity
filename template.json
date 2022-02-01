@@ -14,7 +14,26 @@
           "isTakenOut" : false
         },
         "savedRolls": {},
-        "initiativeRollID" : ""
+        "initiativeRollID" : "",
+        "tier" : 2,
+        "rollSettings" : {
+          "expl" : {
+            "name" : "Explode Threshold",
+            "value" : 10
+          },
+          "succ" : {
+            "name" : "Success Threshold",
+            "value" : 8
+          },
+          "nsca" : {
+            "name" : "Narrative Scale (Absolute)",
+            "value" : 1
+          },
+          "dsca" : {
+            "name" : "Dramatic Scale (Difference)",
+            "value" : 0
+          }
+        }
       },
       "talent" : {
         "moment" : "",
@@ -52,6 +71,17 @@
             "linkedItemIDs" : []
           }
         }
+      },
+      "nova" : {
+        "quantum" : {
+          "rating" : 1,
+          "points" : {
+            "max" : 0,
+            "value" : 0
+          }
+        },
+        "flux" : 0,
+        "transcendence" : 0
       }
     },
     "TrinityNPC" : {
@@ -212,7 +242,7 @@
     }
   },
   "Item": {
-    "types": ["item", "equipment", "edge", "skill", "specialty", "path", "condition", "stunt", "gift", "trick", "contact", "bond", "mode", "action"],
+    "types": ["item", "equipment", "attribute", "edge", "skill", "specialty", "path", "condition", "stunt", "gift", "trick", "contact", "bond", "mode", "action"],
     "templates": {
       "base": {
         "description": "",
@@ -294,10 +324,20 @@
         "cost" : 1
       }
     },
+    "attribute": {
+      "name": "",
+      "value" : 0,
+      "megaValue" : 0,
+      "arena": "",
+      "approach": ""
+    },
     "edge": {
       "templates": ["base"],
       "typeName" : "Edge",
-      "value": 0
+      "value": 0,
+      "flags" : {
+        "isMega" : false
+      }
     },
     "skill": {
       "templates": ["base"],
