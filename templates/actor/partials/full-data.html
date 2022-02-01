@@ -76,11 +76,15 @@
     <label for="fd-isPsion" class="resource-label"> Psion: </label>
     <input type="checkbox" id="fd-isPsion" name="data.flags.isPsion" value="{{actor.data.flags.isPsion}}" data-dtype="Boolean" {{checked this.data.data.flags.isPsion}}/>
   </div>
+  <div>
+    <label for="fd-isNova" class="resource-label"> Nova: </label>
+    <input type="checkbox" id="fd-isNova" name="data.flags.isNova" value="{{actor.data.flags.isNova}}" data-dtype="Boolean" {{checked this.data.data.flags.isNova}}/>
+  </div>
 </div>
 
 {{!-- Talent Powers / Stats --}}
 {{#if actor.data.data.flags.isTalent}}
-<button type="button" id="fd-talent-header" class="collapsible">Talent Powers</button>
+<button type="button" id="fd-talent-header" class="collapsible">Talent Characteristics</button>
 <div id="fd-talent-content" class="collapsible-content">
 <!--
 <label for="fd-moment" class="resource-label"> Moment of Inspiration: </label>
@@ -106,11 +110,26 @@
 
 {{!-- Psion Powers / Stats --}}
 {{#if actor.data.data.flags.isPsion}}
-<button type="button" id="fd-psion-header" class="collapsible">Psion Powers</button>
+<button type="button" id="fd-psion-header" class="collapsible">Psion Characteristics</button>
 <div id="fd-psion-content" class="collapsible-content">
   <div class="defense flexrow flex-group-center">
     <label for="fd-psiRating" class="resource-label">Psi Rating</label>
     <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-psiRating" name="data.psi.rating" value="{{data.data.psi.rating}}" data-dtype="Number"/>
+  </div>
+</div>
+{{/if}}
+
+{{!-- Nova Powers / Stats --}}
+{{#if actor.data.data.flags.isNova}}
+<button type="button" id="fd-nova-header" class="collapsible">Nova Characteristics</button>
+<div id="fd-nova-content" class="collapsible-content">
+  <div class="defense flexrow flex-group-center">
+    <label for="fd-quantumRating" class="resource-label">Quantum Rating</label>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-quantumRating" name="data.quantum.rating" value="{{data.data.quantum.rating}}" data-dtype="Number"/>
+  </div>
+  <div class="defense flexrow flex-group-center">
+    <label for="fd-quantumPointMax" class="resource-label">Quantum Points Max</label>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-quantumPointMax" name="data.quantum.points.max" value="{{data.data.quantum.points.max}}" data-dtype="Number"/>
   </div>
 </div>
 {{/if}}
