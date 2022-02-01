@@ -10,6 +10,7 @@
         "flags" : {
           "isTalent" : false,
           "isPsion" : false,
+          "isNova" : false,
           "isActivePlayer" : false,
           "isTakenOut" : false
         },
