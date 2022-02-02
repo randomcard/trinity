@@ -261,6 +261,7 @@ if (content.style.maxHeight){
     const initRolls = [];
     const unflaggedEquipment = [];
     const modes = [];
+    const quantumPowers = [];
 
 /* Removed to test new HB iteration
     const healthBoxes = {
@@ -463,6 +464,7 @@ if (content.style.maxHeight){
     actorData.initRolls = initRolls;
     actorData.unflaggedEquipment = unflaggedEquipment;
     actorData.modes = modes;
+    actorData.quantumPowers = quantumPowers;
 
     if (typeof actorData.allItemsFilter === 'undefined') {
       actorData.allItemsFilter = "";

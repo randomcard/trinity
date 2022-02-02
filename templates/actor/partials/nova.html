@@ -34,13 +34,13 @@
 {{!-- Quantum Powers item Box --}}
 <ol class="items-list boxed">
     <li class="item flexrow item-header">
-      <div class="big item-name">Modes</div>
+      <div class="big item-name">Quantum Powers</div>
       <div class="item-dots"></div>
       <div class="item-controls">
         <a class="item-control item-create" title="Create item" data-type="quantumPower"><i class="far fa-plus-square"></i></a>
       </div>
     </li>
-{{#each actor.modes as |item id|}}
+{{#each actor.quantumPowers as |item id|}}
     <li class="item flexrow" data-item-id="{{item._id}}">
         <h4 class="item-name item-edit clickable">
           {{item.name}}
