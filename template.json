@@ -331,7 +331,8 @@
       "value" : 0,
       "megaValue" : 0,
       "arena": "",
-      "approach": ""
+      "approach": "",
+      "sortNum", 0
     },
     "edge": {
       "templates": ["base"],
