@@ -376,7 +376,8 @@ async function loadTrinityTemplates()
     "systems/trinity/templates/item/partials/item-flag.html",
     "systems/trinity/templates/item/partials/stunt-data.html",
     "systems/trinity/templates/actor/partials/unflagged.html",
-    "systems/trinity/templates/actor/partials/psi.html"
+    "systems/trinity/templates/actor/partials/psi.html",
+    "systems/trinity/templates/actor/partials/nova.html"
   ];
   return loadTemplates( templatePaths );
 }

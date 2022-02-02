@@ -14,6 +14,7 @@
         <a class="item" data-tab="main">Main</a>
         {{#if actor.data.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
         {{#if actor.data.data.flags.isPsion}}<a class="item" data-tab="psion">Psion</a>{{/if}}
+        {{#if actor.data.data.flags.isNova}}<a class="item" data-tab="nova">Nova</a>{{/if}}
         <a class="item" data-tab="background">Background</a> {{!-- Edges, Specialties, Tricks --}}
         <a class="item" data-tab="equip">Equipment</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
         <a class="item" data-tab="data-entry">Configure</a>
@@ -62,6 +63,11 @@
         {{!-- Psion Tab --}}
         <div class="tab psion" data-group="primary" data-tab="psion">
           {{> "systems/trinity/templates/actor/partials/psi.html"}}
+        </div>
+
+        {{!-- Nova Tab --}}
+        <div class="tab nova" data-group="primary" data-tab="nova">
+          {{> "systems/trinity/templates/actor/partials/nova.html"}}
         </div>
 
         {{!-- Background Tab --}}
