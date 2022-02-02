@@ -438,6 +438,7 @@ if (content.style.maxHeight){
       if (i.type === 'contact') { contacts.push(i); }
       if (i.type === 'bond') { bonds.push(i); }
       if (i.type === 'mode') { modes.push(i); }
+      if (i.type === 'quantumPower') { quantumPower.push(i); }
       allItems.push(i);
 
     }
