@@ -327,6 +327,7 @@
     },
     "attribute": {
       "name": "",
+      "typeName" : "Attribute",
       "value" : 0,
       "megaValue" : 0,
       "arena": "",
