@@ -34,7 +34,8 @@ export const pickedElementsProto = {
   }
 };
 
-export const trinityRollData = {
+/*
+export const trinityRollDataTemplate = {
   name : "Trinity Roll",
   // id : "",
   get flavor() {
@@ -50,24 +51,24 @@ export const trinityRollData = {
   desc : "",
   formula : "", // use Getter to compute this automatically
   dice : {
-    /*
+
     diceSourceID :{
       value
       name
       SourceType
       SourceItemID
     }
-    */
+
   },
   enha : {
-    /*
+
     enhaSourceID :{
       value
       name
       SourceType
       SourceItemID
     }
-    */
+
   },
   get diceTotal() {
     let total = 0;
@@ -91,3 +92,4 @@ export const trinityRollData = {
     init : false // For Compatibility
   }
 };
+*/
