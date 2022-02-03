@@ -270,6 +270,25 @@ Hooks.once("ready", async function() {
 
 });
 
+// Enhancement roll modifier ae "add enhancement"
+Hooks.on("init", () => {
+    Die.MODIFIERS["ae"] = function addEnhancement(modifier) {
+        const enhaValue = parseInt(modifier.match(/\d+/));
+        if (!min || !Number.isNumeric(min)) return;
+        console.log("DIE Modifer ae, this:", this);
+        /*
+        this.results = this.results.flatMap(result => {
+            if (result.result < min) {
+                result.active = false;
+                result.discarded = true;
+                return [result, { result: min, active: true }];
+            } else {
+                return [ result ];
+            }
+        });
+        */
+    }
+})
 
 // Overview
 Hooks.on("ready", () => {
