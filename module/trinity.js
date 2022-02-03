@@ -274,7 +274,7 @@ Hooks.once("ready", async function() {
 Hooks.on("init", () => {
     Die.MODIFIERS["ae"] = function addEnhancement(modifier) {
         const enhaValue = parseInt(modifier.match(/\d+/));
-        if (!min || !Number.isNumeric(min)) return;
+        if (!enhaValue || !Number.isNumeric(min)) return;
         console.log("DIE Modifer ae, this:", this);
         /*
         this.results = this.results.flatMap(result => {
