@@ -274,25 +274,18 @@ Hooks.once("ready", async function() {
 Hooks.on("init", () => {
     Die.MODIFIERS["ae"] = function addEnhancement(modifier) {
         const enhaValue = parseInt(modifier.match(/\d+/));
+        var successCount = 0;
         if (!enhaValue || !Number.isNumeric(enhaValue)) return;
         console.log("DIE Modifer ae, this:", this);
-
-        if (this.total > 0) {
-          this.total += enhaValue;
+        
+        for (var d = 0; d < this.results.length; d++) {
+          if (this.results[d].success) { successCount += 1; }
         }
-        /*
-        this.results = this.results.flatMap(result => {
-            if (result.result < min) {
-                result.active = false;
-                result.discarded = true;
-                return [result, { result: min, active: true }];
-            } else {
-                return [ result ];
-            }
-        });
-        */
+        if (successCount > 0) {
+          this.results[0].count += enhaValue;
+        }
     }
-})
+});
 
 // Overview
 Hooks.on("ready", () => {
