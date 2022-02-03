@@ -276,6 +276,10 @@ Hooks.on("init", () => {
         const enhaValue = parseInt(modifier.match(/\d+/));
         if (!enhaValue || !Number.isNumeric(enhaValue)) return;
         console.log("DIE Modifer ae, this:", this);
+
+        if (this.total > 0) {
+          this.total += enhaValue;
+        }
         /*
         this.results = this.results.flatMap(result => {
             if (result.result < min) {
