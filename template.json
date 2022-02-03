@@ -332,7 +332,7 @@
       "megaValue" : 0,
       "arena": "",
       "approach": "",
-      "sortNum", 0
+      "sortNum": 0
     },
     "edge": {
       "templates": ["base"],
