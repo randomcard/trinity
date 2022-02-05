@@ -30,8 +30,9 @@ export async function rollDialog(targetActor, rollData, event, force) {
         // rollDialog.close();
       });
     }
+  }
 
-  new Dialog({
+  new TRDialog({
     title: 'Test Window',
     buttons: {},
     content: html
