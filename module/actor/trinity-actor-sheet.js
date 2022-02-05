@@ -673,7 +673,7 @@ if (content.style.maxHeight){
     // Test Button, for testing & debugging
     // html.find('.testButton').click(this._testButton.bind(this));
     html.find('.testButton').click(ev => {
-      rollDialog(this.actor, null, ev));
+      rollDialog(this.actor, null, ev);
     });
 
 
