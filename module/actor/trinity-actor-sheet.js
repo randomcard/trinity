@@ -798,10 +798,17 @@ if (content.style.maxHeight){
   }
 
   async _testButton(event) {
-    // let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html");
-    let html = 'test';
+    let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html");
     new Dialog({
       title: 'Test Window',
+      buttons: {
+        yes: {
+            label: 'Yes',
+        },
+        no: {
+            label: 'No',
+        }
+      },
       content: html
     }).render(true);
   }
