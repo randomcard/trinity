@@ -267,7 +267,8 @@
           "isVehicle" : false,
           "isInjury" : false,
           "isEquipped" : true,
-          "hasDots" : true
+          "hasDots" : true,
+          "isDice" : false
         },
         "defaultSkill" : "",
         "defaultAttribute" : "",
@@ -332,7 +333,11 @@
       "megaValue" : 0,
       "arena": "",
       "approach": "",
-      "sortNum": 0
+      "sortNum": 0,
+      "flags" : {
+        "isDice" : true,
+        "isMain" : true
+      }
     },
     "edge": {
       "templates": ["base"],
@@ -345,7 +350,10 @@
     "skill": {
       "templates": ["base"],
       "typeName" : "Skill",
-      "value": 0
+      "value": 0,
+      "flags" : {
+        "isDice" : true
+      }
     },
     "specialty": {
       "templates": ["base"],
@@ -430,6 +438,7 @@
     "quantumPower" : {
       "templates": ["base"],
       "typeName" : "Quantum Power",
+      "value" : 0,
       "quantumMin" : "",
       "actionType" : "",
       "cost" : "",
@@ -437,7 +446,8 @@
       "range" : "",
       "duration" : "",
       "flags" : {
-        "isPowerSuite" : false
+        "isPowerSuite" : false,
+        "isDice" : true
       }
     }
   }
