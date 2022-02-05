@@ -40,11 +40,11 @@ export const rollDataTemplate = {
   // id : "",
   get flavor() {
     let text = "";
-    for (let d of this.dice) {
-      text += d.value + "●" + d.name + " "; // Expand this for better Flavortext
+    for (let d of Object.keys(this.dice)) {
+      text += this.dice[d].value + "●" + this.dice[d].name + " "; // Expand this for better Flavortext
     }
-    for (let e of this.enha) {
-      text += "+" + e.value + "e " + e.name + " "; // Expand this for better Flavortext
+    for (let e of Object.keys(this.enha)) {
+      text += "+" + this.enha[e].value + "e " + this.enha[e].name + " "; // Expand this for better Flavortext
     }
     return text;
   },
@@ -72,15 +72,15 @@ export const rollDataTemplate = {
   },
   get diceTotal() {
     let total = 0;
-    for (let d of this.dice) {
-      total = total + d.value;
+    for (let d of Object.keys(this.dice)) {
+      total = total + this.dice[d].value;
     }
     return total;
   },
   get enhaTotal() {
     let total = 0;
-    for (let e of this.enha) {
-      total = total + e.value;
+    for (let e of Object.keys(this.enha)) {
+      total = total + this.enha[e].value;
     }
     return total;
   },
