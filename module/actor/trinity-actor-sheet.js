@@ -801,16 +801,9 @@ if (content.style.maxHeight){
     let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html");
     new Dialog({
       title: 'Test Window',
-      buttons: {
-        yes: {
-            label: 'Yes',
-        },
-        no: {
-            label: 'No',
-        }
-      },
+      buttons: {},
       content: html
-    }).render(true);
+    }, {width: 350, height: "auto"}).render(true);
   }
 
 

@@ -1,6 +1,6 @@
 <form class="{{cssClass}}">
   <section class="sheet-body">
-    <div class="flex-parent-center-column">
+    <div class="">
       <div class="top section">
         Add dice
         <div class="grid grid-2col">
@@ -9,22 +9,32 @@
           <button type="button" id="quantum" class="">Quantum</button>
           <button type="button" id="Power" class="">Power</button>
         </div>
-        <div>
+        <div class="min-height">
           Selected Die Pool Area
         </div>
       </div>
       <div class="bottom section">
-        <div>
+        <div class="min-height">
           Selected Enhancement Area
         </div>
-        <div>
-          <button type="button" id="enhancements" class="">Enhancement</button>
-        </div>
         <div class="grid grid-2col">
+          <button type="button" id="enhancements" class="grid-span2col">Enhancement</button>
           <button type="button" id="options" class="">Options</button>
           <button type="button" id="save" class="">Save</button>
         </div>
-        <div class="grid grid-4col">
+        <div class="grid grid-4col center-text">
+          <div class="">
+            <label class="small-note" for="succ" id="succ-label">
+              Success
+            </label><br>
+            <input class="narrow-input" type="number" id="succ" value="{{this.elements.succ.value}}" data-dtype="Number"/>
+          </div>
+          <div class="">
+            <label class="small-note" for="expl" id="expl-label">
+              Explode
+            </label><br>
+            <input class="narrow-input" type="number" id="expl" value="{{this.elements.expl.value}}" data-dtype="Number"/>
+          </div>
           <div class="">
             <label class="center-text small-note" for="nsca" id="nsca-label">
               N. Scale
@@ -36,18 +46,6 @@
               D. Scale
             </label><br>
             <input class="narrow-input" type="number" id="dsca" value="{{this.elements.dsca.value}}" data-dtype="Number"/>
-          </div>
-          <div class="">
-            <label class="center-text small-note" for="expl" id="expl-label">
-              Explode
-            </label><br>
-            <input class="narrow-input" type="number" id="expl" value="{{this.elements.expl.value}}" data-dtype="Number"/>
-          </div>
-          <div class="">
-            <label class="center-text small-note" for="succ" id="succ-label">
-              Success
-            </label><br>
-            <input class="narrow-input" type="number" id="succ" value="{{this.elements.succ.value}}" data-dtype="Number"/>
           </div>
         </div>
       </div>

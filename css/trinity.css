@@ -28,6 +28,10 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.grid-span2col {
+  grid-column-start: span 2;
+}
+
 .grid-2col-colflow {
   grid-row: span 2 / span 2;
   grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -624,4 +628,8 @@ input[type=radio].hidden-input:focus + label {
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.min-height {
+  min-height: 150;
 }
