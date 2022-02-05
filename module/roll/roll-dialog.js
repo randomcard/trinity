@@ -35,7 +35,7 @@ export async function rollDialog(targetActor, rollData, event, force) {
       });
 
       html.find('.showOptions').click((event) => {
-        if (document.getElementById("options").style.display === "block") {
+        if (typeof document.getElementById("options").style.display !== 'undefined' || document.getElementById("options").style.display !== "block") {
           document.getElementById("options").style.display = "none";
         } else {
           document.getElementById("options").style.display = "block";
