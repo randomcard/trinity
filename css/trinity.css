@@ -640,21 +640,7 @@ input[type=radio].hidden-input:focus + label {
   height: 150px;
 }
 
-.bouncy{
- animation:bouncy 5s infinite linear;
- position:relative;
-}
-@keyframes bouncy {
- 0%{top:0em}
- 40%{top:0em}
- 43%{top:-0.9em}
- 46%{top:0em}
- 48%{top:-0.4em}
- 50%{top:0em}
- 100%{top:0em;}
-}
-
-.roll-button{
+.roll-button {
  display:inline-block;
  padding:0.3em 1.2em;
  margin:0 0.3em 0.3em 0;
@@ -665,5 +651,5 @@ input[type=radio].hidden-input:focus + label {
  color:#FFFFFF;
  background-color:#4eb5f1;
  text-align:center;
- box-shadow:0 0 7px gray
+ box-shadow:0 0 7px gray;
 }
