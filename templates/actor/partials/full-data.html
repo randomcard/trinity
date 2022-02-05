@@ -67,6 +67,26 @@
   </div>
 </div>
 
+{{!-- Roll Options --}}
+<button type="button" id="fd-roll-header" class="collapsible">Default Roll Options</button>
+<div id="fd-roll-content" class="collapsible-content">
+  <div class="roll-options flexrow flex-group-center">
+    <label for="fd-succ" class="resource-label">Success On</label>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-succ" name="data.rollSettings.succ.value" value="{{data.data.rollSettings.succ.value}}" data-dtype="Number"/>
+  </div>
+  <div class="roll-options flexrow flex-group-center">
+    <label for="fd-expl" class="resource-label">Explode On / X Again</label>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-expl" name="data.rollSettings.expl.value" value="{{data.data.rollSettings.expl.value}}" data-dtype="Number"/>
+  </div>
+  <div class="roll-options flexrow flex-group-center">
+    <label for="fd-nsca" class="resource-label">Narrative Scale</label>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-nsca" name="data.rollSettings.nsca.value" value="{{data.data.rollSettings.nsca.value}}" data-dtype="Number"/>
+  </div>
+  <div class="roll-options flexrow flex-group-center">
+    <label for="fd-dsca" class="resource-label">Dramatic Scale</label>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-dsca" name="data.rollSettings.dsca.value" value="{{data.data.rollSettings.dsca.value}}" data-dtype="Number"/>
+  </div>
+</div>
 
 {{!-- Flags --}}
 <button type="button" id="fd-flags-header" class="collapsible">Character Options</button>

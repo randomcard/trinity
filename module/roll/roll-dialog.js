@@ -12,6 +12,15 @@ export async function rollDialog(targetActor, rollData, event, force) {
   var targetSkill = [];
 */
 
+  // Elements table, or picked elements, will include the details of the selected roll components. (Replacing rollParts)
+  // Build defaults if empty
+  if (typeof rollData === 'undefined' || rollData === null ) {
+    console.log("Creating default rollData");
+    rollData = {};
+    rollData = JSON.parse(JSON.stringify(rollDataTemplate));
+    console.log(rollData);
+  }
+
   let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html");
 
   class TRDialog extends Dialog {
