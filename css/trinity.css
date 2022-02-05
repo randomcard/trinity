@@ -639,3 +639,9 @@ input[type=radio].hidden-input:focus + label {
   vertical-align: bottom;
   height: 150px;
 }
+
+.mid-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
