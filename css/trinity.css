@@ -633,3 +633,12 @@ input[type=radio].hidden-input:focus + label {
 .min-height {
   min-height: 150px;
 }
+
+.v-split {
+  position: relative;
+}
+
+.v-split .bottom {
+  position: absolute;
+  bottom: 0;
+}
