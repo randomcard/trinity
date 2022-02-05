@@ -668,6 +668,9 @@ if (content.style.maxHeight){
     /* Original roll code, before checking for saved roll info */
     html.find('.rollable').click(this._onRoll.bind(this));
 
+    // Test Button, for testing & debugging
+    html.find('testButton').click(this._testButton.bind(this));
+
 
 /*
     html.find('.rollable').click(ev => {
@@ -793,6 +796,16 @@ if (content.style.maxHeight){
       trinityRoll(this.actor, null, event);
     }
   }
+
+  _testButton(event) {
+    let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html", {} );
+    new Dialog({
+      title: 'Test Window',
+      content: html,
+      close: html => {}
+    }).render(true);
+  }
+
 
 /* Original Roll code, before adding in saved roll passthrough
 _onRoll(event) {
