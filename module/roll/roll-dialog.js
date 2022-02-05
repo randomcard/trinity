@@ -19,6 +19,7 @@ export async function rollDialog(targetActor, rollData, event, force) {
     rollData = {};
     rollData = JSON.parse(JSON.stringify(rollDataTemplate));
     console.log(rollData);
+    // -------- Insert Actor's Roll Defaults here -------------
   }
 
   let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html");
@@ -60,6 +61,12 @@ export async function rollDialog(targetActor, rollData, event, force) {
 
     }
   }
+
+// logging
+  console.log("Pre-TRDialog: -------------");
+  console.log("this", this);
+  console.log("targetActor", targetActor);
+  console.log("rollData", rollData);
 
   new TRDialog({
     title: 'Roll',
