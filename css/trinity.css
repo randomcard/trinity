@@ -493,6 +493,13 @@
   margin: 3px;
 }
 
+.flex-parent-wide {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 3px;
+  width: 100%;
+}
+
 .flex-parent-center-column {
   display: flex;
   flex-flow: column nowrap;
