@@ -35,7 +35,7 @@ export const pickedElementsProto = {
 };
 
 
-export const trinityRollDataTemplate = {
+export const rollDataTemplate = {
   name : "Trinity Roll",
   // id : "",
   get flavor() {

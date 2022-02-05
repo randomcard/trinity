@@ -8,6 +8,8 @@
 
 // trinity roll 2
 import { trinityRoll } from "/systems/trinity/module/trinity-roll.js";
+import { rollDialog } from "/systems/trinity/module/roll/roll-dialog.js";
+
 
 
 export class TrinityActorSheet extends ActorSheet {
@@ -669,7 +671,8 @@ if (content.style.maxHeight){
     html.find('.rollable').click(this._onRoll.bind(this));
 
     // Test Button, for testing & debugging
-    html.find('.testButton').click(this._testButton.bind(this));
+    // html.find('.testButton').click(this._testButton.bind(this));
+    html.find('.testButton').click(rollDialog().bind(this));
 
 
 /*
@@ -797,6 +800,7 @@ if (content.style.maxHeight){
     }
   }
 
+/*
   async _testButton(event) {
     let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html");
     new Dialog({
@@ -805,7 +809,7 @@ if (content.style.maxHeight){
       content: html
     }, {width: 350, height: "auto"}).render(true);
   }
-
+*/
 
 /* Original Roll code, before adding in saved roll passthrough
 _onRoll(event) {

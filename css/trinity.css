@@ -641,15 +641,9 @@ input[type=radio].hidden-input:focus + label {
 }
 
 .roll-button {
-  display:inline-block;
-  padding:0.3em 1.2em;
-  margin:0 0.3em 0.3em 0;
-  border-radius:2em;
-  box-sizing: border-box;
-  text-decoration:none;
-  font-weight:300;
-  color:#FFFFFF;
-  background-color:#4eb5f1;
-  text-align:center;
-  box-shadow:0 0 7px gray;
+  display: block;
+  padding: 0.3em 1.2em;
+  margin: 0.1em auto 0.1em auto;
+  border-radius: 2em;
+  width: fit-content;
 }
