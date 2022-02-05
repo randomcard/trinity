@@ -25,10 +25,14 @@ export async function rollDialog(targetActor, rollData, event, force) {
     activateListeners(html) {
       super.activateListeners(html);
 
-      html.find('.attr-label').click((event) => {
-        // pickedElements = Picker.pDialog("attr", targetActor, pickedElements);
-        // rollDialog.close();
+      html.find('.selector').click((event) => {
+        document.getElementById("overlay").style.display = "block";
       });
+
+      html.find('.back').click((event) => {
+        document.getElementById("overlay").style.display = "none";
+      });
+
     }
   }
 
