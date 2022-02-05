@@ -26,10 +26,10 @@ export async function rollDialog(targetActor, rollData, event, force) {
 
   class TRDialog extends Dialog {
 
-    constructor(data, params, options) {
+    constructor(data, options, params) {
       super(data, options);
-      // targetActor = params.targetActor;
-      // pickedElements = params.pickedElements;
+      targetActor = params.targetActor;
+      rollData = params.rollData;
     }
 
     activateListeners(html) {
@@ -72,7 +72,7 @@ export async function rollDialog(targetActor, rollData, event, force) {
     title: 'Roll',
     buttons: {},
     content: html
-  }, {width: 350, height: "auto"}).render(true);
+  }, {width: 350, height: "auto"}, {targetActor, rollData}).render(true);
 
 }
 
