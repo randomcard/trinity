@@ -51,24 +51,24 @@ export const trinityRollDataTemplate = {
   desc : "",
   formula : "", // use Getter to compute this automatically
   dice : {
-
+    /*
     diceSourceID :{
       value
       name
       SourceType
       SourceItemID
     }
-
+    */
   },
   enha : {
-
+    /*
     enhaSourceID :{
       value
       name
       SourceType
       SourceItemID
     }
-
+    */
   },
   get diceTotal() {
     let total = 0;
