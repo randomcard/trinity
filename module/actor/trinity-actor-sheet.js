@@ -669,7 +669,7 @@ if (content.style.maxHeight){
     html.find('.rollable').click(this._onRoll.bind(this));
 
     // Test Button, for testing & debugging
-    html.find('testButton').click(this._testButton.bind(this));
+    html.find('.testButton').click(this._testButton.bind(this));
 
 
 /*
