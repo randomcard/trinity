@@ -631,5 +631,5 @@ input[type=radio].hidden-input:focus + label {
 }
 
 .min-height {
-  min-height: 150;
+  min-height: 150px;
 }
