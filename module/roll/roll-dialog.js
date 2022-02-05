@@ -41,7 +41,7 @@ export async function rollDialog(targetActor, rollData, event, force) {
         } else {
           document.getElementById("options").style.display = "grid";
         }
-        this.setPosition();
+        this.setPosition("auto");
       });
 
     }
