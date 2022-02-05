@@ -34,7 +34,7 @@ export const pickedElementsProto = {
   }
 };
 
-/*
+
 export const trinityRollDataTemplate = {
   name : "Trinity Roll",
   // id : "",
@@ -92,4 +92,3 @@ export const trinityRollDataTemplate = {
     init : false // For Compatibility
   }
 };
-*/
