@@ -1,7 +1,13 @@
 <form class="{{cssClass}}">
   <div id="overlay" class="overlay">
-    <i class="xx-large fas fa-arrow-alt-circle-left back"></i>
-    <div>Selector Screen</div>
+    <div class="flex-parent-center-column">
+      <div class="nav flex-child">
+        <i class="xx-large fas fa-arrow-alt-circle-left back"></i>
+        <div>Back to Roll Options</div>
+      </div>
+      <div class="flex-child-full">
+        ITEMS GO HERE
+      </div>
   </div>
   <section class="sheet-body">
     <div class="">
@@ -26,10 +32,10 @@
       <div class="bottom-section">
         <div class="grid grid-2col">
           <button type="button" id="enhancements" class="grid-span2col selector">Enhancements <i class="fas fa-hashtag"></i></button>
-          <button type="button" id="options" class="">Options <i class="fas fa-caret-down"></i></button>
+          <button type="button" id="options" class="showOptions">Options <i class="fas fa-caret-down opt-down"></i></button>
           <button type="button" id="save" class="">Save <i class="fas fa-save"></i></button>
         </div>
-        <div class="grid grid-4col center-text">
+        <div class="grid grid-4col center-text options" style="display:none;">
           <div class="">
             <label class="small-note" for="succ" id="succ-label">
               Success

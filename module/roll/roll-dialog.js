@@ -26,6 +26,7 @@ export async function rollDialog(targetActor, rollData, event, force) {
       super.activateListeners(html);
 
       html.find('.selector').click((event) => {
+        console.log("Roller This:", this);
         document.getElementById("overlay").style.display = "block";
       });
 
@@ -33,11 +34,20 @@ export async function rollDialog(targetActor, rollData, event, force) {
         document.getElementById("overlay").style.display = "none";
       });
 
+      html.find('.showOptions').click((event) => {
+        if (document.getElementById("options").style.display === "block") {
+          document.getElementById("options").style.display = "none";
+        } else {
+          document.getElementById("options").style.display = "block";
+        }
+        this.setPosition();
+      });
+
     }
   }
 
   new TRDialog({
-    title: 'Test Window',
+    title: 'Roll',
     buttons: {},
     content: html
   }, {width: 350, height: "auto"}).render(true);
