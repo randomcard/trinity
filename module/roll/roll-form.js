@@ -65,6 +65,7 @@ export class RollForm extends FormApplication {
     html.find('.selector').click((event) => {
       console.log("Roll Dialog This:", this);
       console.log("Selector Event:", event);
+      console.log("Selector Event ID:", event.currentTarget.id);
       this._getItems(event.currentTarget.id); // Update ItemList
       console.log("itemList:", this.itemList);
       // this._render(true);
@@ -99,7 +100,8 @@ export class RollForm extends FormApplication {
 
   _getItems(type) {
     for (let i of this.actor.items) {
-      if (i.type === "attributes" && i.data.data.flags.isMain) { continue; }
+      if (i.name === type) { this.itemList.push(i); continue; }
+      if (i.type === "attributes" && i.data.data.flags.isMain === false) { continue; }
       if (i.type === type) { this.itemList.push(i); }
     }
   }
