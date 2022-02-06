@@ -23,9 +23,9 @@ export class RollForm extends FormApplication {
 
   // since the main form object is created by the form, rearranging args for easier use
   // constructor(actor={}, options={}, object={}) {
-  constructor(actor, options, object) { 
+  constructor(actor, options, object) {
     super(object, options);
-    console.log("RollForm Constructor");
+    console.log("RollForm Constructor this: ", this);
     console.log("RollForm Constructor Actor: ", this.actor);
     console.log("RollForm Object Pre-Check: ", this.object);
     if (typeof object === 'undefined' || object === null) {
