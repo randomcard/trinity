@@ -21,8 +21,9 @@ import { rollDataTemplate } from "/systems/trinity/module/protos.js";
 
 export class RollForm extends FormApplication {
 
-  // constructor(actor={}, options={}, object={}) { // since the main form object is created by the form, rearranging args for easier use
-  constructor(actor, options, object) { // since the main form object is created by the form, rearranging args for easier use
+  // since the main form object is created by the form, rearranging args for easier use
+  // constructor(actor={}, options={}, object={}) {
+  constructor(actor, options, object) { 
     super(object, options);
     console.log("RollForm Constructor");
     console.log("RollForm Constructor Actor: ", this.actor);
