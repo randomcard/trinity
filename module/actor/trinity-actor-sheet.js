@@ -9,7 +9,7 @@
 // trinity roll 2
 import { trinityRoll } from "/systems/trinity/module/trinity-roll.js";
 import { rollDialog } from "/systems/trinity/module/roll/roll-dialog.js";
-import { rollForm } from "/systems/trinity/module/roll/roll-form.js";
+import { RollForm } from "/systems/trinity/module/roll/roll-form.js";
 
 
 
@@ -680,9 +680,10 @@ if (content.style.maxHeight){
     */
     // New Test, for FormApplication
     html.find('.testButton').click(ev => {
+      /*
       const rollForm = new RollForm(this.actor, {event:ev});
-      rollForm.render(true);
-      // new RollForm(this.actor, {event:ev}).render(true);
+      rollForm.render(true);*/
+      new RollForm(this.actor, {event:ev}).render(true);
     });
 
 /*
