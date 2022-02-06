@@ -500,6 +500,12 @@
   width: 100%;
 }
 
+.flex-parent-wide-noflow {
+  display: flex;
+  margin: 3px;
+  width: 100%;
+}
+
 .flex-parent-center-column {
   display: flex;
   flex-flow: column nowrap;
@@ -555,6 +561,7 @@
 .flex-child-full {
   flex: 1 1 auto;
   margin: 3px;
+  width: 100%;
 }
 
 .flex-child-fit {

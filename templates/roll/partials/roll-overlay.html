@@ -4,12 +4,12 @@
       <i class="xx-large fas fa-arrow-alt-circle-left back flex-valign"></i>
       <div class="flex-child-full flex-valign back">Back to Roll Options</div>
     </div>
-    <div class="flex-child-full" style="height: 450px; overflow: auto;">
+    <div class="flex-child-full" style="height: 450px; overflow-x: hidden; overflow-y: auto;">
       {{#unless this.itemList}}No options of this type found.{{/unless}}
       {{#each this.itemList as |item key|}}
-        <div class="flex-parent-wide boxed" id="{{item.id}}">
-          <div class="xx-large">
-            {{item.data.data.value}}{{#if item.data.data.flags.isEnhancement}}e{{else}}d{{/if}}
+        <div class="flex-parent-wide-noflow boxed" id="{{item.id}}">
+          <div class="xx-large flex-valign">
+            {{item.data.data.value}}{{#if item.data.data.flags.isEnhancement}}<i class="fas fa-hashtag"></i>{{else}}<i class="fas fa-circle"></i>{{/if}}
           </div>
           <div class="flex-child-full flex-parent-column">
             <div class="flex-child-full big">
@@ -24,3 +24,5 @@
     </div>
   </div>
 </div>
+
+[0].data.data.flags.isEnhancement
