@@ -62,13 +62,13 @@ export class RollForm extends FormApplication {
   activateListeners(html) {
     super.activateListeners(html);
 
-    html.find('.selector').click((event) => {
+    html.find('.selector').click(async (event) => {
       console.log("Roll Dialog This:", this);
       console.log("Selector Event:", event);
       console.log("Selector Event ID:", event.currentTarget.id);
       this._getItems(event.currentTarget.id); // Update ItemList
       console.log("itemList:", this.itemList);
-      this._render(true);
+      await this._render(true);
       console.log("rendered");
       document.getElementById("overlay").style.display = "block";
       console.log("overlaid");
