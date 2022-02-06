@@ -36,7 +36,8 @@ export async function rollDialog(targetActor, rollData, event, force) {
       super.activateListeners(html);
 
       html.find('.selector').click((event) => {
-        console.log("Roller This:", this);
+        console.log("Roll Dialog This:", this);
+        console.log("Selector Event:", event);
         document.getElementById("overlay").style.display = "block";
       });
 
