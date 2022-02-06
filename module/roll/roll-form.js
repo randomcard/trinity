@@ -124,6 +124,8 @@ export class RollForm extends FormApplication {
           SourceType : item.type
         }
       }
+      await this._render(true);
+      this._resetHeight();
       console.log("rollData after Selection: ", rollData);
     });
 
