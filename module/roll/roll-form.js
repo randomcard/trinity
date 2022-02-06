@@ -34,6 +34,7 @@ export class RollForm extends FormApplication {
       this.object = object;
     }
     this.actor = actor;
+    this.itemList = [];
     console.log("RollForm Object Post-Check this: ", this);
   }
 
@@ -53,7 +54,8 @@ export class RollForm extends FormApplication {
     // Send data to the template
     return {
       actor: this.actor,
-      rollData: this.object
+      rollData: this.object,
+      itemList: this.itemList
     };
   }
 
@@ -63,12 +65,7 @@ export class RollForm extends FormApplication {
     html.find('.selector').click((event) => {
       console.log("Roll Dialog This:", this);
       console.log("Selector Event:", event);
-      switch(event.currentTarget.id) {
-        case "attributes": itemList = attributes; break;
-        case "skills": itemList = skills; break;
-        case "quantum": itemList = quantum; break;
-        case "powers": itemList = powers; break;
-      }
+      _getItems(event.currentTarget.id); // Update ItemList
       console.log("itemList:", itemList);
       // this._render(true);
       // console.log("rendered");
@@ -98,6 +95,13 @@ export class RollForm extends FormApplication {
     console.log("_updateObject event: ", event);
     console.log("_updateObject formData: ", formData);
     console.log(formData.exampleInput);
+  }
+
+  _getItems(type) {
+    for (let i of this.actor.items) {
+      if (i.type === "attributes" && i.data.data.flags.isMain) { continue; }
+      if (i.type === type) { this.itemList.push(i); }
+    }
   }
 
 }
