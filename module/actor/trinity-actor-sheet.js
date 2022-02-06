@@ -9,6 +9,7 @@
 // trinity roll 2
 import { trinityRoll } from "/systems/trinity/module/trinity-roll.js";
 import { rollDialog } from "/systems/trinity/module/roll/roll-dialog.js";
+import { rollForm } from "/systems/trinity/module/roll/roll-form.js";
 
 
 
@@ -672,10 +673,15 @@ if (content.style.maxHeight){
 
     // Test Button, for testing & debugging
     // html.find('.testButton').click(this._testButton.bind(this));
+    /* Old Test form - for Dialog
     html.find('.testButton').click(ev => {
-      rollDialog(this.actor, null, ev);
+      rollForm(this.actor, null, ev);
     });
-
+    */
+    // New Test, for FormApplication
+    html.find('.testButton').click(ev => {
+      new RollForm(this.actor, {event:ev}).render(true);
+    });
 
 /*
     html.find('.rollable').click(ev => {

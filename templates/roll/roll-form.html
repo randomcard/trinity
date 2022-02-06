@@ -1,0 +1,76 @@
+{{log "roll-dialog.html logging, this:" this}}
+<form class="{{cssClass}}">
+  <div id="overlay" class="overlay">
+    <div class="flex-parent-center-column">
+      <div class="nav flex-child flex-parent-wide">
+        <i class="xx-large fas fa-arrow-alt-circle-left back flex-valign"></i>
+        <div class="flex-child-full flex-valign back">Back to Roll Options</div>
+      </div>
+      <div class="flex-child-full">
+        ITEMS GO HERE
+        {{#each this.itemList as |item key|}}
+          <div class="boxed" id="{{item.id}}">
+            <span class="icons"> {{{toDots item.data.data.value}}} </span>
+            <span class=""> {{item.name}} </span> <br>
+            <span class="small-note"> {{item.id}} Misc - Replace by type {{attribute.approach}} - {{attribute.arena}} </span>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <section class="sheet-body">
+    <div class="">
+      <div class="top-section">
+        <div class="grid grid-2col">
+          <button type="button" id="attributes" class="selector">Attributes <i class="fas fa-dice"></i></button>
+          <button type="button" id="skills" class="selector">Skills <i class="fas fa-dice"></i></button>
+          <button type="button" id="quantum" class="selector">Quantum <i class="fas fa-dice"></i></button>
+          <button type="button" id="powers" class="selector">Powers <i class="fas fa-dice"></i></button>
+        </div>
+      </div>
+      <div class="middle-section">
+        <div class="min-height">
+          Selected Die Pool Area
+        </div>
+        {{!-- Roll button --}}
+        <button type="button" id="roll" class="roll-button">Roll Xd+Ye</button>
+        <div class="min-height bottom">
+          Selected Enhancement Area
+        </div>
+      </div>
+      <div class="bottom-section">
+        <div class="grid grid-2col">
+          <button type="button" id="enhancements" class="grid-span2col selector">Enhancements <i class="fas fa-hashtag"></i></button>
+          <button type="button" id="showOptions" class="showOptions">Options <i class="fas fa-cog"></i></button>
+          <button type="button" id="save" class="">Save <i class="fas fa-save"></i></button>
+        </div>
+        <div class="grid grid-4col center-text options" id="options" style="display:none;">
+          <div class="">
+            <label class="small-note" for="succ" id="succ-label">
+              Success
+            </label><br>
+            <input class="narrow-input" type="number" id="succ" name="rollData.settings.succ" value="{{rollData.settings.succ}}" data-dtype="Number"/>
+          </div>
+          <div class="">
+            <label class="small-note" for="expl" id="expl-label">
+              Explode
+            </label><br>
+            <input class="narrow-input" type="number" id="expl" name="rollData.settings.expl" value="{{rollData.settings.expl}}" data-dtype="Number"/>
+          </div>
+          <div class="">
+            <label class="center-text small-note" for="nsca" id="nsca-label">
+              N. Scale
+            </label><br>
+            <input class="narrow-input" type="number" id="nsca" name="rollData.settings.nsca" value="{{rollData.settings.nsca}}" data-dtype="Number"/>
+          </div>
+          <div class="">
+            <label class="center-text small-note" for="dsca" id="dsca-label">
+              D. Scale
+            </label><br>
+            <input class="narrow-input" type="number" id="dsca" name="rollData.settings.dsca" value="{{rollData.settings.dsca}}" data-dtype="Number"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
