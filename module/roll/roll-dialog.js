@@ -49,6 +49,68 @@ export async function rollDialog(targetActor, rollData, event, force) {
       // rollData = params.rollData;
     }
 
+    // ------- New Method of Collapse/Expand Content
+    /*
+    async _render(force = false, options = {}) {
+      this._saveToggleStates();
+      await super._render(force, options);
+      this._setToggleStates();
+    }
+
+    _saveToggleStates() {
+      if (this.form === null)
+        return;
+
+      const html = $(this.form).parent();
+
+      this.toggleStates = {
+        headers : [],
+        content : []
+      };
+
+      // Headers
+      let headerItems = $(html.find(".collapsible"));
+      for (let item of headerItems) {
+        this.toggleStates.headers.push($(item).hasClass("collapsible-active"));
+      }
+
+      // Content
+      let contentItems = $(html.find(".collapsible-content"));
+      for (let item of contentItems) {
+        this.toggleStates.content.push($(item).hasClass("collapsible-content-active"));
+      }
+
+      console.log("_saveToggleStates:",this.toggleStates);
+
+    }
+
+    _setToggleStates() {
+      if (this.toggleStates) {
+        const html = $(this.form).parent();
+
+        // Headers
+        let headerItems = $(html.find(".collapsible"));
+        for (let i = 0; i < headerItems.length; i++) {
+          if (this.toggleStates.headers[i]) {
+            $(headerItems[i]).addClass("collapsible-active");
+          } else {
+            $(headerItems[i]).removeClass("collapsible-active");
+          }
+        }
+
+        // Content
+        let contentItems = $(html.find(".collapsible-content"));
+        for (let i = 0; i < contentItems.length; i++) {
+          if (this.toggleStates.content[i]) {
+            $(contentItems[i]).addClass("collapsible-content-active");
+          } else {
+            $(contentItems[i]).removeClass("collapsible-content-active");
+          }
+        }
+      }
+    }
+*/
+
     activateListeners(html) {
       super.activateListeners(html);
 
@@ -62,8 +124,10 @@ export async function rollDialog(targetActor, rollData, event, force) {
           case "powers": itemList = powers; break;
         }
         console.log("itemList:", itemList);
-        this.getData();
+        this.render();
+        console.log("rendered");
         document.getElementById("overlay").style.display = "block";
+        console.log("overlaid");
       });
 
       html.find('.back').click((event) => {
