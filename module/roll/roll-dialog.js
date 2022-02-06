@@ -30,7 +30,7 @@ export async function rollDialog(targetActor, rollData, event, force) {
   var enhancements = {};
   var itemList = {};
 
-  for (let i of sheetData.items) {
+  for (let i of targetActor.items) {
     if (i.type === 'attribute' && i.data.data.flags.isMain) { attributes.push(i); }
     if (i.type === 'skill') { skills.push(i); }
     if (i.type === 'attribute' && i.data.data.flags.isQuantum) { quantum.push(i); }
