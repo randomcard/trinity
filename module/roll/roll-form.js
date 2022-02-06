@@ -68,8 +68,8 @@ export class RollForm extends FormApplication {
       console.log("Selector Event ID:", event.currentTarget.id);
       this._getItems(event.currentTarget.id); // Update ItemList
       console.log("itemList:", this.itemList);
-      // this._render(true);
-      // console.log("rendered");
+      this._render(true);
+      console.log("rendered");
       document.getElementById("overlay").style.display = "block";
       console.log("overlaid");
     });
@@ -99,6 +99,7 @@ export class RollForm extends FormApplication {
   }
 
   _getItems(type) {
+    this.itemList = [];
     for (let i of this.actor.items) {
       if (i.name === type) { this.itemList.push(i); continue; }
       if (i.type === "attributes" && i.data.data.flags.isMain === false) { continue; }
