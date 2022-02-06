@@ -508,6 +508,13 @@
   width: 100%;
 }
 
+.flex-parent-column {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 3px;
+  width: 100%;
+}
+
 .flex-parent-evenly {
   display: flex;
   -webkit-box-pack: space-evenly;

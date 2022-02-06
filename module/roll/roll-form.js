@@ -72,6 +72,10 @@ export class RollForm extends FormApplication {
       console.log("rendered");
       document.getElementById("overlay").style.display = "block";
       console.log("overlaid");
+      // reset height
+      const position = this.position;
+      position.height = "100%";
+      this.setPosition(position);
     });
 
     html.find('.back').click((event) => {
