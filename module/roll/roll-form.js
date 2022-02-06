@@ -26,12 +26,15 @@ export class RollForm extends FormApplication {
   constructor(actor, options, object) {
     super(object, options);
     console.log("RollForm Constructor this: ", this);
-    console.log("RollForm Constructor Actor: ", this.actor);
-    console.log("RollForm Object Pre-Check: ", this.object);
+    console.log("RollForm Constructor Actor: ", actor);
+    console.log("RollForm Object Pre-Check: ", object);
     if (typeof object === 'undefined' || object === null) {
       this.object = JSON.parse(JSON.stringify(rollDataTemplate));
+    } else {
+      this.object = object;
     }
-    console.log("RollForm Object Post-Check: ", this.object);
+    this.actor = actor;
+    console.log("RollForm Object Post-Check this: ", this);
   }
 
   static get defaultOptions() {
