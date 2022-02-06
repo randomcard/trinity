@@ -70,8 +70,8 @@ export class RollForm extends FormApplication {
         case "powers": itemList = powers; break;
       }
       console.log("itemList:", itemList);
-      this._render(true);
-      console.log("rendered");
+      // this._render(true);
+      // console.log("rendered");
       document.getElementById("overlay").style.display = "block";
       console.log("overlaid");
     });
