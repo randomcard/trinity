@@ -22,7 +22,24 @@ export async function rollDialog(targetActor, rollData, event, force) {
     // -------- Insert Actor's Roll Defaults here -------------
   }
 
-  let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html", {actor: targetActor, rollData: rollData});
+  // Collect Actor Items into Catagories
+  var attributes = {};
+  var skills = {};
+  var quantum = {};
+  var powers = {};
+  var enhancements = {};
+  var itemList = {};
+
+  for (let i of sheetData.items) {
+    if (i.type === 'attribute' && i.data.data.flags.isMain) { attributes.push(i); }
+    if (i.type === 'skill') { skills.push(i); }
+    if (i.type === 'attribute' && i.data.data.flags.isQuantum) { quantum.push(i); }
+    if (i.type === 'quantumPower' && i.data.data.flags.isDice) { powers.push(i); }
+    if (i.data.data.flags.isEnhancement) { enhancements.push(i); }
+
+
+
+  let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html", {actor: targetActor, rollData: rollData, itemList: itemList});
 
   class TRDialog extends Dialog {
 
@@ -38,6 +55,12 @@ export async function rollDialog(targetActor, rollData, event, force) {
       html.find('.selector').click((event) => {
         console.log("Roll Dialog This:", this);
         console.log("Selector Event:", event);
+        switch(event.currentTarget.id) {
+          case "attributes": itemList = attributes; break;
+          case "skills": itemList = skills; break;
+          case "quantum": itemList = quantum; break;
+          case "powers": itemList = powers; break;
+        }
         document.getElementById("overlay").style.display = "block";
       });
 

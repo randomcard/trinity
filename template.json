@@ -336,7 +336,8 @@
       "sortNum": 0,
       "flags" : {
         "isDice" : true,
-        "isMain" : true
+        "isMain" : true,
+        "isQuantum" : false
       }
     },
     "edge": {

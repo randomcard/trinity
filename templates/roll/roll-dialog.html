@@ -8,6 +8,13 @@
       </div>
       <div class="flex-child-full">
         ITEMS GO HERE
+        {{#each this.itemList as |item key|}}
+          <div class="boxed" id="{{item.id}}">
+            <span class="icons"> {{{toDots item.data.data.value}}} </span>
+            <span class=""> {{item.name}} </span> <br>
+            <span class="small-note"> {{item.id}} Misc - Replace by type {{attribute.approach}} - {{attribute.arena}} </span>
+          </div>
+        {{/each}}
       </div>
     </div>
   </div>
@@ -18,7 +25,7 @@
           <button type="button" id="attributes" class="selector">Attributes <i class="fas fa-dice"></i></button>
           <button type="button" id="skills" class="selector">Skills <i class="fas fa-dice"></i></button>
           <button type="button" id="quantum" class="selector">Quantum <i class="fas fa-dice"></i></button>
-          <button type="button" id="Power" class="selector">Power <i class="fas fa-dice"></i></button>
+          <button type="button" id="powers" class="selector">Powers <i class="fas fa-dice"></i></button>
         </div>
       </div>
       <div class="middle-section">
