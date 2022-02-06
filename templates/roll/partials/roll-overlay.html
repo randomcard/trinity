@@ -1,0 +1,18 @@
+<div id="overlay" class="overlay">
+  <div class="flex-parent-center-column">
+    <div class="nav flex-child flex-parent-wide">
+      <i class="xx-large fas fa-arrow-alt-circle-left back flex-valign"></i>
+      <div class="flex-child-full flex-valign back">Back to Roll Options</div>
+    </div>
+    <div class="flex-child-full" style="height: 450px; overflow: auto;">
+      ITEMS GO HERE
+      {{#each this.itemList as |item key|}}
+        <div class="boxed" id="{{item.id}}">
+          <span class="icons"> {{{toDots item.data.data.value}}} </span>
+          <span class=""> {{item.name}} </span> <br>
+          <span class="small-note"> {{item.id}} Item Notes, Type specific? </span>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

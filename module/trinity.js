@@ -277,7 +277,7 @@ Hooks.on("init", () => {
         var successCount = 0;
         if (!enhaValue || !Number.isNumeric(enhaValue)) return;
         console.log("DIE Modifer ae, this:", this);
-        
+
         for (var d = 0; d < this.results.length; d++) {
           if (this.results[d].success) { successCount += 1; }
         }
@@ -393,7 +393,8 @@ async function loadTrinityTemplates()
     "systems/trinity/templates/item/partials/stunt-data.html",
     "systems/trinity/templates/actor/partials/unflagged.html",
     "systems/trinity/templates/actor/partials/psi.html",
-    "systems/trinity/templates/actor/partials/nova.html"
+    "systems/trinity/templates/actor/partials/nova.html",
+    "systems/trinity/templates/roll/partials/roll-overlay.html"
   ];
   return loadTemplates( templatePaths );
 }

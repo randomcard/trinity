@@ -1,23 +1,6 @@
 {{log "roll-form.html logging, this:" this}}
 <form class="{{cssClass}}">
-  <div id="overlay" class="overlay">
-    <div class="flex-parent-center-column">
-      <div class="nav flex-child flex-parent-wide">
-        <i class="xx-large fas fa-arrow-alt-circle-left back flex-valign"></i>
-        <div class="flex-child-full flex-valign back">Back to Roll Options</div>
-      </div>
-      <div class="flex-child-full">
-        ITEMS GO HERE
-        {{#each this.itemList as |item key|}}
-          <div class="boxed" id="{{item.id}}">
-            <span class="icons"> {{{toDots item.data.data.value}}} </span>
-            <span class=""> {{item.name}} </span> <br>
-            <span class="small-note"> {{item.id}} Misc - Replace by type {{attribute.approach}} - {{attribute.arena}} </span>
-          </div>
-        {{/each}}
-      </div>
-    </div>
-  </div>
+  {{> "systems/trinity/templates/roll/partials/roll-overlay.html"}}
   <section class="sheet-body">
     <div class="">
       <div class="top-section">
