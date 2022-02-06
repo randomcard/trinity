@@ -36,7 +36,7 @@ export async function rollDialog(targetActor, rollData, event, force) {
     if (i.type === 'attribute' && i.data.data.flags.isQuantum) { quantum.push(i); }
     if (i.type === 'quantumPower' && i.data.data.flags.isDice) { powers.push(i); }
     if (i.data.data.flags.isEnhancement) { enhancements.push(i); }
-
+  }
 
 
   let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html", {actor: targetActor, rollData: rollData, itemList: itemList});
