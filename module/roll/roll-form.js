@@ -66,7 +66,7 @@ export class RollForm extends FormApplication {
       console.log("Roll Dialog This:", this);
       console.log("Selector Event:", event);
       this._getItems(event.currentTarget.id); // Update ItemList
-      console.log("itemList:", itemList);
+      console.log("itemList:", this.itemList);
       // this._render(true);
       // console.log("rendered");
       document.getElementById("overlay").style.display = "block";
