@@ -59,6 +59,38 @@ export class RollForm extends FormApplication {
 
   activateListeners(html) {
     super.activateListeners(html);
+
+    html.find('.selector').click((event) => {
+      console.log("Roll Dialog This:", this);
+      console.log("Selector Event:", event);
+      switch(event.currentTarget.id) {
+        case "attributes": itemList = attributes; break;
+        case "skills": itemList = skills; break;
+        case "quantum": itemList = quantum; break;
+        case "powers": itemList = powers; break;
+      }
+      console.log("itemList:", itemList);
+      this._render(true);
+      console.log("rendered");
+      document.getElementById("overlay").style.display = "block";
+      console.log("overlaid");
+    });
+
+    html.find('.back').click((event) => {
+      document.getElementById("overlay").style.display = "none";
+    });
+
+    html.find('.showOptions').click((event) => {
+      if (document.getElementById("options").style.display === "grid") {
+        document.getElementById("options").style.display = "none";
+      } else {
+        document.getElementById("options").style.display = "grid";
+      }
+      // reset height
+      const position = this.position;
+      position.height = "100%";
+      this.setPosition(position);
+    });
   }
 
   async _updateObject(event, formData) {
