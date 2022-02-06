@@ -124,7 +124,7 @@ export async function rollDialog(targetActor, rollData, event, force) {
           case "powers": itemList = powers; break;
         }
         console.log("itemList:", itemList);
-        this.render(true);
+        this._render(true);
         console.log("rendered");
         document.getElementById("overlay").style.display = "block";
         console.log("overlaid");
