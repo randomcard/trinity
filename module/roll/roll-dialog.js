@@ -23,12 +23,12 @@ export async function rollDialog(targetActor, rollData, event, force) {
   }
 
   // Collect Actor Items into Catagories
-  var attributes = {};
-  var skills = {};
-  var quantum = {};
-  var powers = {};
-  var enhancements = {};
-  var itemList = {};
+  var attributes = [];
+  var skills = [];
+  var quantum = [];
+  var powers = [];
+  var enhancements = [];
+  var itemList = [];
 
   for (let i of targetActor.items) {
     if (i.type === 'attribute' && i.data.data.flags.isMain) { attributes.push(i); }
