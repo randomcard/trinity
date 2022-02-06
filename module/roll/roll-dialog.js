@@ -22,14 +22,14 @@ export async function rollDialog(targetActor, rollData, event, force) {
     // -------- Insert Actor's Roll Defaults here -------------
   }
 
-  let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html");
+  let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html", {actor: targetActor, rollData: rollData});
 
   class TRDialog extends Dialog {
 
     constructor(data, options, params) {
       super(data, options);
-      targetActor = params.targetActor;
-      rollData = params.rollData;
+      // targetActor = params.targetActor;
+      // rollData = params.rollData;
     }
 
     activateListeners(html) {
@@ -45,14 +45,11 @@ export async function rollDialog(targetActor, rollData, event, force) {
       });
 
       html.find('.showOptions').click((event) => {
-        // if (typeof document.getElementById("options").style.display !== 'undefined' || document.getElementById("options").style.display !== "grid") {
         if (document.getElementById("options").style.display === "grid") {
           document.getElementById("options").style.display = "none";
         } else {
           document.getElementById("options").style.display = "grid";
         }
-        // this.setPosition("auto");
-
         // reset height
         const position = this.position;
         position.height = "auto";
