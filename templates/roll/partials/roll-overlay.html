@@ -5,7 +5,7 @@
       <div class="flex-child-full flex-valign back">Back to Roll Options</div>
     </div>
     <div class="flex-child-full" style="height: 450px; overflow: auto;">
-      {{#if !this.itemList}}No options of this type found.{{/if}}
+      {{#unless this.itemList}}No options of this type found.{{/unless}}
       {{#each this.itemList as |item key|}}
         <div class="flex-parent-wide boxed" id="{{item.id}}">
           <div class="xx-large">
