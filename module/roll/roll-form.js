@@ -107,7 +107,7 @@ export class RollForm extends FormApplication {
       */
     });
 
-    html.find('.select-item').click((event) => {
+    html.find('.select-item').click(async (event) => {
       document.getElementById("overlay").style.display = "none"; // Remove overlay
       const item = this.actor.items.get(event.currentTarget.id);
       var rollData = this.object;
