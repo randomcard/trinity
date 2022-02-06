@@ -394,7 +394,8 @@ async function loadTrinityTemplates()
     "systems/trinity/templates/actor/partials/unflagged.html",
     "systems/trinity/templates/actor/partials/psi.html",
     "systems/trinity/templates/actor/partials/nova.html",
-    "systems/trinity/templates/roll/partials/roll-overlay.html"
+    "systems/trinity/templates/roll/partials/roll-overlay.html",
+    "systems/trinity/templates/roll/partials/item-box.html"
   ];
   return loadTemplates( templatePaths );
 }

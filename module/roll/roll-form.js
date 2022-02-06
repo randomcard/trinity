@@ -73,13 +73,23 @@ export class RollForm extends FormApplication {
       document.getElementById("overlay").style.display = "block";
       console.log("overlaid");
       // reset height
+      this._resetHeight();
+      /*
       const position = this.position;
       position.height = "100%";
       this.setPosition(position);
+      */
     });
 
     html.find('.back').click((event) => {
       document.getElementById("overlay").style.display = "none";
+      // reset height
+      this._resetHeight();
+      /*
+      const position = this.position;
+      position.height = "100%";
+      this.setPosition(position);
+      */
     });
 
     html.find('.showOptions').click((event) => {
@@ -89,10 +99,34 @@ export class RollForm extends FormApplication {
         document.getElementById("options").style.display = "grid";
       }
       // reset height
+      this._resetHeight();
+      /*
       const position = this.position;
       position.height = "100%";
       this.setPosition(position);
+      */
     });
+
+    html.find('.select-item').click((event) => {
+      document.getElementById("overlay").style.display = "none"; // Remove overlay
+      const item = this.actor.items.get(event.currentTarget.id);
+      var rollData = this.object;
+      if (item.data.data.flags.isEnhancement === true) {
+        rollData.enha[item.id] = {
+          value : item.data.data.value,
+          name : item.name,
+          SourceType : item.type
+        }
+      } else {
+        rollData.dice[item.id] = {
+          value : item.data.data.value,
+          name : item.name,
+          SourceType : item.type
+        }
+      }
+      console.log("rollData after Selection: ", rollData);
+    });
+
   }
 
   async _updateObject(event, formData) {
@@ -100,6 +134,13 @@ export class RollForm extends FormApplication {
     console.log("_updateObject event: ", event);
     console.log("_updateObject formData: ", formData);
     console.log(formData.exampleInput);
+  }
+
+  // reset height
+  _resetHeight() {
+    const position = this.position;
+    position.height = "100%";
+    this.setPosition(position);
   }
 
   _getItems(type) {

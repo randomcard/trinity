@@ -14,11 +14,17 @@
       <div class="middle-section">
         <div class="min-height">
           Selected Die Pool Area
+          {{#each this.rollData.dice as |item key|}}
+          {{> "systems/trinity/templates/roll/partials/roll-overlay.html"}}
+          {{/each}}
         </div>
         {{!-- Roll button --}}
-        <button type="button" id="roll" class="roll-button">Roll Xd+Ye</button>
+        <button type="button" id="roll" class="roll-button">Roll {{this.rollData.diceTotal}}d+{{this.rollData.enhaTotal}}e</button>
         <div class="min-height bottom">
           Selected Enhancement Area
+          {{#each this.rollData.enha as |item key|}}
+          {{> "systems/trinity/templates/roll/partials/roll-overlay.html"}}
+          {{/each}}
         </div>
       </div>
       <div class="bottom-section">

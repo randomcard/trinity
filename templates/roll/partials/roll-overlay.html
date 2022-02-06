@@ -7,7 +7,7 @@
     <div class="flex-child-full" style="height: 450px; overflow-x: hidden; overflow-y: auto;">
       {{#unless this.itemList}}<center>No options of this type found.</center>{{/unless}}
       {{#each this.itemList as |item key|}}
-        <div class="flex-parent-wide-noflow boxed" id="{{item.id}}">
+        <div class="flex-parent-wide-noflow boxed select-item" id="{{item.id}}">
           <div class="xx-large flex-valign">
             {{item.data.data.value}}<span class="large">{{#if item.data.data.flags.isEnhancement}}<i class="fas fa-hashtag"></i>{{else}}<i class="fas fa-circle"></i>{{/if}}</span>
           </div>
