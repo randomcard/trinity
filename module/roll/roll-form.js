@@ -45,7 +45,8 @@ export class RollForm extends FormApplication {
       id: "roll-form",
       title: "Roll",
       width: 350,
-      height: "auto"
+      height: "100%",
+      overflow-y: "hidden"
     });
   }
 
