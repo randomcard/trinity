@@ -65,7 +65,7 @@ export class RollForm extends FormApplication {
     html.find('.selector').click((event) => {
       console.log("Roll Dialog This:", this);
       console.log("Selector Event:", event);
-      _getItems(event.currentTarget.id); // Update ItemList
+      this._getItems(event.currentTarget.id); // Update ItemList
       console.log("itemList:", itemList);
       // this._render(true);
       // console.log("rendered");
