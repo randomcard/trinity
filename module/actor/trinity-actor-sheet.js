@@ -680,7 +680,9 @@ if (content.style.maxHeight){
     */
     // New Test, for FormApplication
     html.find('.testButton').click(ev => {
-      new RollForm(this.actor, {event:ev}).render(true);
+      const rollForm = new RollForm(this.actor, {event:ev});
+      rollForm.render(true);
+      // new RollForm(this.actor, {event:ev}).render(true);
     });
 
 /*
