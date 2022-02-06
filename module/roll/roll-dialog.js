@@ -61,7 +61,8 @@ export async function rollDialog(targetActor, rollData, event, force) {
           case "quantum": itemList = quantum; break;
           case "powers": itemList = powers; break;
         }
-        this.render();
+        console.log("itemList:", itemList);
+        this.getData();
         document.getElementById("overlay").style.display = "block";
       });
 
