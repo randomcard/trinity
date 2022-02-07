@@ -18,8 +18,8 @@
           {{#if item.isDice}}
             <div class="flex-parent-wide-noflow boxed" id="{{item.id}}">
               <div class="flex-child-fit flex-valign left x-large">
-                {{item.value}}<span class="small">{{#if item.isDice}}<i class="fas fa-circle"></i>{{else}}<i class="fas fa-hashtag"></i>{{/if}}</span><br>
-                <span class="small">{{item.multiplier}}x</span>
+                <div>{{item.value}}<span class="small">{{#if item.isDice}}<i class="fas fa-circle"></i>{{else}}<i class="fas fa-hashtag"></i>{{/if}}</span></div>
+                <div class="small">{{item.multiplier}}x</div>
               </div>
               <div class="flex-child-full flex-parent-column">
                 <div class="flex-child-full">
@@ -44,8 +44,8 @@
           {{#unless item.isDice}}
             <div class="flex-parent-wide-noflow boxed" id="{{item.id}}">
               <div class="flex-child-fit flex-valign left x-large">
-                {{item.value}}<span class="small">{{#if item.isDice}}<i class="fas fa-circle"></i>{{else}}<i class="fas fa-hashtag"></i>{{/if}}</span><br>
-                <span class="small">{{item.multiplier}}x</span>
+                <div>{{item.value}}<span class="small">{{#if item.isDice}}<i class="fas fa-circle"></i>{{else}}<i class="fas fa-hashtag"></i>{{/if}}</span></div>
+                <div class="small">{{item.multiplier}}x</div>
               </div>
               <div class="flex-child-full flex-parent-column">
                 <div class="flex-child-full">

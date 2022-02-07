@@ -137,7 +137,7 @@ export class RollForm extends FormApplication {
 
     html.find('.remove').click(async (event) => {
       const item = this.actor.items.get(event.currentTarget.id);
-      this._removeItem(item);
+      this._removeItem(item.id);
       await this._render(true);
       this._resetHeight();
     });
