@@ -180,14 +180,12 @@ export class RollForm extends FormApplication {
   }
 
   _roll() {
-    // new Roll(this.object).roll({async: false}).toMessage(messageData);
     var rollData = this.object;
-    let messageData = {
+    let roll = new Roll(rollData.formula);
+    roll.roll().toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: rollData.flavor
-    };
-    new Roll(rollData.formula).roll().toMessage(messageData);
-  }
+    });
 
   _rollDataTemplate() {
     return {

@@ -276,8 +276,6 @@ Hooks.on("init", () => {
         const enhaValue = parseInt(modifier.match(/\d+/));
         var successCount = 0;
         if (!enhaValue || !Number.isNumeric(enhaValue)) return;
-        console.log("DIE Modifer ae, this:", this);
-
         for (var d = 0; d < this.results.length; d++) {
           if (this.results[d].success) { successCount += 1; }
         }
