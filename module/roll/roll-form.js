@@ -130,6 +130,13 @@ export class RollForm extends FormApplication {
       console.log("rollData after Selection: ", rollData);
     });
 
+    html.find('.select-item').click(async (event) => {
+      const item = this.actor.items.get(event.currentTarget.id);
+      this._removeItem(item);
+      await this._render(true);
+      this._resetHeight();
+    });
+
   }
 
   async _updateObject(event, formData) {
@@ -154,6 +161,11 @@ export class RollForm extends FormApplication {
       if (i.type === type) { this.itemList.push(i); }
       if (type === "enhancement" && i.data.data.flags.isEnhancement === true) { this.itemList.push(i); }
     }
+  }
+
+  _removeItem(id) {
+    var rollData = this.object;
+    delete rollData[id];
   }
 
   _rollDataTemplate() {

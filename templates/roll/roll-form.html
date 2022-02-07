@@ -17,7 +17,7 @@
           {{#each this.rollData.items as |item key|}}
           {{#if item.isDice}}
             <div class="flex-parent-wide-noflow boxed select-item" id="{{item.id}}">
-              <div class="flex-child-fit flex-valign left large">
+              <div class="flex-child-fit flex-valign left x-large">
                 {{item.value}}<span class="small">{{#if item.isDice}}<i class="fas fa-circle"></i>{{else}}<i class="fas fa-hashtag"></i>{{/if}}</span>
               </div>
               <div class="flex-child-full flex-parent-column">
@@ -27,9 +27,9 @@
                 <div class="flex-child-full small-note">
                   {{item.note}}
                 </div>
+              </div>
               <div class="flex-child-fit flex-valign right remove clickable" id="{{item.id}}">
                 <i class="far fa-minus-square"></i>
-              </div>
               </div>
             </div>
           {{/if}}
@@ -42,7 +42,7 @@
           {{#each this.rollData.items as |item key|}}
           {{#unless item.isDice}}
             <div class="flex-parent-wide-noflow boxed select-item" id="{{item.id}}">
-              <div class="flex-child-fit flex-valign left large">
+              <div class="flex-child-fit flex-valign left x-large">
                 {{item.value}}<span class="small">{{#if item.isDice}}<i class="fas fa-circle"></i>{{else}}<i class="fas fa-hashtag"></i>{{/if}}</span>
               </div>
               <div class="flex-child-full flex-parent-column">
@@ -52,9 +52,9 @@
                 <div class="flex-child-full small-note">
                   {{item.note}}
                 </div>
+              </div>
               <div class="flex-child-fit flex-valign right remove clickable" id="{{item.id}}">
                 <i class="far fa-minus-square"></i>
-              </div>
               </div>
             </div>
           {{/unless}}
