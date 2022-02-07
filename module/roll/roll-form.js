@@ -186,6 +186,7 @@ export class RollForm extends FormApplication {
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: rollData.flavor
     });
+  }
 
   _rollDataTemplate() {
     return {
