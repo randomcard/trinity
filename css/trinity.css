@@ -455,7 +455,12 @@
 }
 
 .lowmargin {
-  margin: 2px !important;
+  margin: 2px;
+}
+
+.low-margin-padding {
+  margin: 1px !important;
+  padding: 1px !important;
 }
 
 .grid-flow-column {
