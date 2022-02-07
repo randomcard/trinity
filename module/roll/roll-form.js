@@ -111,17 +111,25 @@ export class RollForm extends FormApplication {
       document.getElementById("overlay").style.display = "none"; // Remove overlay
       const item = this.actor.items.get(event.currentTarget.id);
       var rollData = this.object;
+      var note = "";
+      if (item.type === "attribute" && item.data.data.flags.isMain === true) {
+        note = item.data.data.arena + "/" + item.data.data.approach;
+      }
       if (item.data.data.flags.isEnhancement === true) {
         rollData.enha[item.id] = {
           value : item.data.data.value,
           name : item.name,
-          SourceType : item.type
+          SourceType : item.type,
+          note : item.data.data.enhancement.relevance,
+          dice : false
         }
       } else {
         rollData.dice[item.id] = {
           value : item.data.data.value,
           name : item.name,
-          SourceType : item.type
+          SourceType : item.type,
+          note : note,
+          dice : true
         }
       }
       await this._render(true);

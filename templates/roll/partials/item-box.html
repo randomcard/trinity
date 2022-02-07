@@ -1,14 +1,13 @@
-test each 2
 <div class="flex-parent-wide-noflow boxed select-item" id="{{item.id}}">
   <div class="large flex-valign">
-    {{item.data.data.value}}<span class="small">{{#if item.data.data.flags.isEnhancement}}<i class="fas fa-hashtag"></i>{{else}}<i class="fas fa-circle"></i>{{/if}}</span>
+    {{item.value}}<span class="small">{{#if item.dice}}<i class="fas fa-circle"></i>{{else}}<i class="fas fa-hashtag"></i>{{/if}}</span>
   </div>
   <div class="flex-child-full flex-parent-column">
     <div class="flex-child-full">
       {{item.name}}
     </div>
     <div class="flex-child-full small-note">
-      {{item.id}}
+      {{item.note}}
     </div>
   </div>
 </div>
