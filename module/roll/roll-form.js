@@ -93,6 +93,10 @@ export class RollForm extends FormApplication {
       */
     });
 
+    html.find('.roll-button').click((event) => {
+      this._roll();
+    });
+
     html.find('.showOptions').click((event) => {
       if (document.getElementById("options").style.display === "grid") {
         document.getElementById("options").style.display = "none";
@@ -175,6 +179,16 @@ export class RollForm extends FormApplication {
     delete rollData.items[id];
   }
 
+  _roll() {
+    // new Roll(this.object).roll({async: false}).toMessage(messageData);
+    var rollData = this.object;
+    let messageData = {
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: rollData.flavor
+    };
+    new Roll(rollData.formula).roll().toMessage(messageData);
+  }
+
   _rollDataTemplate() {
     return {
       name : "Trinity Roll",
@@ -188,13 +202,19 @@ export class RollForm extends FormApplication {
         }
         for (let i of Object.keys(this.items)) {
           if (!i.isDice) {
-            text += "+" + this.enha[i].value + "e " + this.enha[i].name + " "; // Expand this for better Flavortext
+            text += "+" + this.dice[i].value + "e " + this.dice[i].name + " "; // Expand this for better Flavortext
           }
         }
         return text;
       },
       desc : "",
       formula : "", // use Getter to compute this automatically
+      get formula() {
+        if (!this.dice) { return 0; }
+        let enhaScale = this.enhaTotal + (this.settings.dsca * 2);
+        let rollFormula = `(${this.diceTotal}d10x>=${this.settings.expl}cs>=${this.settings.succ}ae${enhaScale})*${this.settings.nsca}`;
+        return rollFormula;
+      },
       items : {
         /*
         value
@@ -207,14 +227,14 @@ export class RollForm extends FormApplication {
       get diceTotal() {
         let total = 0;
         for (let i of Object.keys(this.items)) {
-          if (this.items[i].isDice) { total += this.items[i].value; }
+          if (this.items[i].isDice) { total += this.items[i].value * this.items[i].multiplier; }
         }
         return total;
       },
       get enhaTotal() {
         let total = 0;
         for (let i of Object.keys(this.items)) {
-          if (!this.items[i].isDice) { total += this.items[i].value; }
+          if (!this.items[i].isDice) { total += this.items[i].value * this.items[i].multiplier; }
         }
         return total;
       },
