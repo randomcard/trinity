@@ -188,14 +188,14 @@ export class RollForm extends FormApplication {
       get diceTotal() {
         let total = 0;
         for (let i of Object.keys(this.items)) {
-          if (i.isDice) { total = total + this.items[i].value; }
+          if (this.items[i].isDice) { total += this.items[i].value; }
         }
         return total;
       },
       get enhaTotal() {
         let total = 0;
         for (let i of Object.keys(this.items)) {
-          if (!i.isDice) { total = total + this.items[i].value; }
+          if (!this.items[i].isDice) { total += this.items[i].value; }
         }
         return total;
       },

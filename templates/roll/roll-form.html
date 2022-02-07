@@ -14,15 +14,8 @@
       <div class="middle-section">
         <div class="min-height">
           Selected Die Pool Area
-          {{#each this.rollData.dice as |item key|}}
-          {{> "systems/trinity/templates/roll/partials/item-box.html"}}
-          {{/each}}
-        </div>
-        {{!-- Roll button --}}
-        <button type="button" id="roll" class="roll-button">Roll {{this.rollData.diceTotal}}d+{{this.rollData.enhaTotal}}e</button>
-        <div class="min-height bottom">
-          Selected Enhancement Area
-          {{#each this.rollData.enha as |item key|}}
+          {{#each this.rollData.items as |item key|}}
+          {{#if item.isDice}}
             <div class="flex-parent-wide-noflow boxed select-item" id="{{item.id}}">
               <div class="flex-child-fit flex-valign left large">
                 {{item.value}}<span class="small">{{#if item.isDice}}<i class="fas fa-circle"></i>{{else}}<i class="fas fa-hashtag"></i>{{/if}}</span>
@@ -39,6 +32,32 @@
               </div>
               </div>
             </div>
+          {{/if}}
+          {{/each}}
+        </div>
+        {{!-- Roll button --}}
+        <button type="button" id="roll" class="roll-button">Roll {{this.rollData.diceTotal}}d+{{this.rollData.enhaTotal}}e</button>
+        <div class="min-height bottom">
+          Selected Enhancement Area
+          {{#each this.rollData.items as |item key|}}
+          {{#unless item.isDice}}
+            <div class="flex-parent-wide-noflow boxed select-item" id="{{item.id}}">
+              <div class="flex-child-fit flex-valign left large">
+                {{item.value}}<span class="small">{{#if item.isDice}}<i class="fas fa-circle"></i>{{else}}<i class="fas fa-hashtag"></i>{{/if}}</span>
+              </div>
+              <div class="flex-child-full flex-parent-column">
+                <div class="flex-child-full">
+                  {{item.name}}
+                </div>
+                <div class="flex-child-full small-note">
+                  {{item.note}}
+                </div>
+              <div class="flex-child-fit flex-valign right remove clickable" id="{{item.id}}">
+                <i class="far fa-minus-square"></i>
+              </div>
+              </div>
+            </div>
+          {{/unless}}
           {{/each}}
         </div>
       </div>
