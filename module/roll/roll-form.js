@@ -191,7 +191,7 @@ export class RollForm extends FormApplication {
       get enhaTotal() {
         let total = 0;
         for (let i of Object.keys(this.dice)) {
-          if (i.!isDice) { total = total + this.items[i].value; }
+          if (!i.isDice) { total = total + this.items[i].value; }
         }
         return total;
       },
