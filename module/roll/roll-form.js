@@ -115,23 +115,15 @@ export class RollForm extends FormApplication {
       var note = "";
       if (item.type === "attribute" && item.data.data.flags.isMain === true) {
         note = item.data.data.arena + "/" + item.data.data.approach;
-      }
-      if (item.data.data.flags.isEnhancement === true) {
-        rollData.enha[item.id] = {
-          value : item.data.data.value,
-          name : item.name,
-          SourceType : item.type,
-          note : item.data.data.enhancement.relevance,
-          isDice : false
-        }
       } else {
-        rollData.dice[item.id] = {
-          value : item.data.data.value,
-          name : item.name,
-          SourceType : item.type,
-          note : note,
-          isDice : true
-        }
+        note = item.data.data.enhancement.relevance;
+      }
+      rollData.items[item.id] = {
+        value : item.data.data.value,
+        name : item.name,
+        SourceType : item.type,
+        note : note,
+        isDice : item.data.data.flags.!isEnhancement
       }
       await this._render(true);
       this._resetHeight();
