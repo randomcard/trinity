@@ -123,7 +123,7 @@ export class RollForm extends FormApplication {
         name : item.name,
         SourceType : item.type,
         note : note,
-        isDice : item.data.data.flags.!isEnhancement
+        isDice : !item.data.data.flags.isEnhancement
       }
       await this._render(true);
       this._resetHeight();
