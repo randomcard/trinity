@@ -118,7 +118,7 @@ export class RollForm extends FormApplication {
       } else {
         note = item.data.data.enhancement.relevance;
       }
-      if (item.id in obj) {
+      if (item.id in rollData.items) {
         rollData.items[item.id].multiplier += 1;
       } else {
         rollData.items[item.id] = {
