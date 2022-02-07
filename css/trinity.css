@@ -455,7 +455,7 @@
 }
 
 .lowmargin {
-  margin: 2px;
+  margin: 2px !important;
 }
 
 .grid-flow-column {
