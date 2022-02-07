@@ -130,7 +130,7 @@ export class RollForm extends FormApplication {
       console.log("rollData after Selection: ", rollData);
     });
 
-    html.find('.select-item').click(async (event) => {
+    html.find('.remove').click(async (event) => {
       const item = this.actor.items.get(event.currentTarget.id);
       this._removeItem(item);
       await this._render(true);
@@ -139,6 +139,7 @@ export class RollForm extends FormApplication {
 
   }
 
+  // Example - not yet used...
   async _updateObject(event, formData) {
     console.log("_updateObject");
     console.log("_updateObject event: ", event);
