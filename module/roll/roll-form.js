@@ -30,7 +30,7 @@ export class RollForm extends FormApplication {
     console.log("RollForm Object Pre-Check: ", object);
     if (typeof object === 'undefined' || object === null) {
       // this.object = JSON.parse(JSON.stringify(rollDataTemplate));
-      this.object = _rollDataTemplate();
+      this.object = this._rollDataTemplate();
     } else {
       this.object = object;
     }
