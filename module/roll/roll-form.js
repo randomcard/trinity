@@ -162,11 +162,15 @@ export class RollForm extends FormApplication {
       // id : "",
       get flavor() {
         let text = "";
-        for (let d of Object.keys(this.dice)) {
-          text += this.dice[d].value + "●" + this.dice[d].name + " "; // Expand this for better Flavortext
+        for (let i of Object.keys(this.items)) {
+          if (i.isDice) {
+            text += this.dice[i].value + "●" + this.dice[i].name + " "; // Expand this for better Flavortext
+          }
         }
-        for (let e of Object.keys(this.enha)) {
-          text += "+" + this.enha[e].value + "e " + this.enha[e].name + " "; // Expand this for better Flavortext
+        for (let i of Object.keys(this.items)) {
+          if (!i.isDice) {
+            text += "+" + this.enha[i].value + "e " + this.enha[i].name + " "; // Expand this for better Flavortext
+          }
         }
         return text;
       },
@@ -183,14 +187,14 @@ export class RollForm extends FormApplication {
       },
       get diceTotal() {
         let total = 0;
-        for (let i of Object.keys(this.dice)) {
+        for (let i of Object.keys(this.items)) {
           if (i.isDice) { total = total + this.items[i].value; }
         }
         return total;
       },
       get enhaTotal() {
         let total = 0;
-        for (let i of Object.keys(this.dice)) {
+        for (let i of Object.keys(this.items)) {
           if (!i.isDice) { total = total + this.items[i].value; }
         }
         return total;
