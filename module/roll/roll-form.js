@@ -29,7 +29,8 @@ export class RollForm extends FormApplication {
     console.log("RollForm Constructor Actor: ", actor);
     console.log("RollForm Object Pre-Check: ", object);
     if (typeof object === 'undefined' || object === null) {
-      this.object = JSON.parse(JSON.stringify(rollDataTemplate));
+      // this.object = JSON.parse(JSON.stringify(rollDataTemplate));
+      this.object = _rollDataTemplate();
     } else {
       this.object = object;
     }
@@ -121,7 +122,7 @@ export class RollForm extends FormApplication {
           name : item.name,
           SourceType : item.type,
           note : item.data.data.enhancement.relevance,
-          dice : false
+          isDice : false
         }
       } else {
         rollData.dice[item.id] = {
@@ -129,7 +130,7 @@ export class RollForm extends FormApplication {
           name : item.name,
           SourceType : item.type,
           note : note,
-          dice : true
+          isDice : true
         }
       }
       await this._render(true);
@@ -161,6 +162,55 @@ export class RollForm extends FormApplication {
       if (i.type === type) { this.itemList.push(i); }
       if (type === "enhancement" && i.data.data.flags.isEnhancement === true) { this.itemList.push(i); }
     }
+  }
+
+  _rollDataTemplate() {
+    return {
+      name : "Trinity Roll",
+      // id : "",
+      get flavor() {
+        let text = "";
+        for (let d of Object.keys(this.dice)) {
+          text += this.dice[d].value + "●" + this.dice[d].name + " "; // Expand this for better Flavortext
+        }
+        for (let e of Object.keys(this.enha)) {
+          text += "+" + this.enha[e].value + "e " + this.enha[e].name + " "; // Expand this for better Flavortext
+        }
+        return text;
+      },
+      desc : "",
+      formula : "", // use Getter to compute this automatically
+      items : {
+        /*
+        value
+        name
+        SourceType
+        note
+        isDice
+        */
+      },
+      get diceTotal() {
+        let total = 0;
+        for (let i of Object.keys(this.dice)) {
+          if (i.isDice) { total = total + this.items[i].value; }
+        }
+        return total;
+      },
+      get enhaTotal() {
+        let total = 0;
+        for (let i of Object.keys(this.dice)) {
+          if (i.!isDice) { total = total + this.items[i].value; }
+        }
+        return total;
+      },
+      settings : {
+        expl : 10,
+        succ : 8,
+        nsca : 1, // Narrative Scale (Absolute)
+        dsca : 0, // Dramatic Scale (Difference)
+        init : false // For Compatibility
+      }
+    };
   }
 
 }
