@@ -172,7 +172,7 @@ export class RollForm extends FormApplication {
 
   _removeItem(id) {
     var rollData = this.object;
-    delete rollData[id];
+    delete rollData.items[id];
   }
 
   _rollDataTemplate() {
