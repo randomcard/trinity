@@ -127,7 +127,8 @@ export class RollForm extends FormApplication {
           SourceType : item.type,
           note : note,
           isDice : !item.data.data.flags.isEnhancement,
-          multiplier : 1
+          multiplier : 1,
+          id : item.id
         }
       }
       await this._render(true);
