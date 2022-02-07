@@ -182,7 +182,7 @@ export class RollForm extends FormApplication {
   _roll() {
     var rollData = this.object;
     let roll = new Roll(rollData.formula);
-    roll.roll().toMessage({
+    roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: rollData.flavor
     });
