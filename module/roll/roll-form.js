@@ -197,12 +197,12 @@ export class RollForm extends FormApplication {
         let text = "";
         for (let i of Object.keys(this.items)) {
           if (i.isDice) {
-            text += this.dice[i].value + "●" + this.dice[i].name + " "; // Expand this for better Flavortext
+            text += this.items[i].value + "●" + this.items[i].name + " "; // Expand this for better Flavortext
           }
         }
         for (let i of Object.keys(this.items)) {
           if (!i.isDice) {
-            text += "+" + this.dice[i].value + "e " + this.dice[i].name + " "; // Expand this for better Flavortext
+            text += "+" + this.items[i].value + "e " + this.items[i].name + " "; // Expand this for better Flavortext
           }
         }
         return text;
@@ -210,7 +210,7 @@ export class RollForm extends FormApplication {
       desc : "",
       formula : "", // use Getter to compute this automatically
       get formula() {
-        if (!this.dice) { return 0; }
+        if (!this.items) { return 0; }
         let enhaScale = this.enhaTotal + (this.settings.dsca * 2);
         let rollFormula = `(${this.diceTotal}d10x>=${this.settings.expl}cs>=${this.settings.succ}ae${enhaScale})*${this.settings.nsca}`;
         return rollFormula;
