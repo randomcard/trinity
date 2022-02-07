@@ -118,12 +118,17 @@ export class RollForm extends FormApplication {
       } else {
         note = item.data.data.enhancement.relevance;
       }
-      rollData.items[item.id] = {
-        value : item.data.data.value,
-        name : item.name,
-        SourceType : item.type,
-        note : note,
-        isDice : !item.data.data.flags.isEnhancement
+      if (item.id in obj) {
+        rollData.items[item.id].multiplier += 1;
+      } else {
+        rollData.items[item.id] = {
+          value : item.data.data.value,
+          name : item.name,
+          SourceType : item.type,
+          note : note,
+          isDice : !item.data.data.flags.isEnhancement,
+          multiplier : 1
+        }
       }
       await this._render(true);
       this._resetHeight();
