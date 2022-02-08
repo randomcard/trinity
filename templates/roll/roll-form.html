@@ -7,8 +7,10 @@
         <div class="grid grid-2col">
           <button type="button" id="attribute" class="selector">Attributes <i class="fas fa-dice"></i></button>
           <button type="button" id="skill" class="selector">Skills <i class="fas fa-dice"></i></button>
+          {{#if this.actor.data.data.flags.isNova}}
           <button type="button" id="Quantum" class="selector">Quantum <i class="fas fa-dice"></i></button>
           <button type="button" id="quantumPower" class="selector">Powers <i class="fas fa-dice"></i></button>
+          {{/if}}
           <button type="button" id="enhancement" class="grid-span2col selector">Enhancements <i class="fas fa-hashtag"></i></button>
         </div>
       </div>
@@ -19,7 +21,7 @@
             <div class="flex-parent-wide-noflow boxed low-margin-padding">
               <div class="flex-child-fit flex-parent-column low-margin-padding">
                 <div class="flex-valign left x-large low-margin-padding">{{item.value}}<span class="small"><i class="fas fa-circle"></i></span></div>
-                <div class="flex-valign left small">{{item.multiplier}}x</div>
+                <div class="flex-valign left small">{{{mult item.multiplier}}}</div>
               </div>
               <div class="flex-child-full flex-parent-column">
                 <div class="flex-child-full">
@@ -40,7 +42,7 @@
             <div class="flex-parent-wide-noflow boxed low-margin-padding">
               <div class="flex-child-fit flex-parent-column low-margin-padding">
                 <div class="flex-valign left x-large low-margin-padding">{{item.value}}<span class="small"><i class="fas fa-hashtag"></i></span></div>
-                <div class="flex-valign left small">{{item.multiplier}}x</div>
+                <div class="flex-valign left small">{{{mult item.multiplier}}}</div>
               </div>
               <div class="flex-child-full flex-parent-column">
                 <div class="flex-child-full">
@@ -59,11 +61,11 @@
         </div>
         {{!-- Roll button --}}
         <button type="button" id="roll" class="roll-button">
-          Roll {{this.rollData.diceTotal}}<i class="small fas fa-dice"></i> + {{this.rollData.enhaTotal}}<i class="small fas fa-hashtag"></i>
+          Roll <b>{{this.rollData.diceTotal}}</b><i class="small fas fa-dice"></i> + <b>{{this.rollData.enhaTotal}}</b><i class="small fas fa-hashtag"></i>
         </button>
       </div>
       <div class="bottom-section">
-        <div class="grid grid-2col">  
+        <div class="grid grid-2col">
           <button type="button" id="showOptions" class="showOptions">Options <i class="fas fa-cog"></i></button>
           <button type="button" id="save" class="save">Save <i class="fas fa-save"></i></button>
         </div>
