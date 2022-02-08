@@ -9,6 +9,7 @@
           <button type="button" id="skill" class="selector">Skills <i class="fas fa-dice"></i></button>
           <button type="button" id="Quantum" class="selector">Quantum <i class="fas fa-dice"></i></button>
           <button type="button" id="quantumPower" class="selector">Powers <i class="fas fa-dice"></i></button>
+          <button type="button" id="enhancement" class="grid-span2col selector">Enhancements <i class="fas fa-hashtag"></i></button>
         </div>
       </div>
       <div class="middle-section">
@@ -34,10 +35,6 @@
             </div>
           {{/if}}
           {{/each}}
-        </div>
-        {{!-- Roll button --}}
-        <button type="button" id="roll" class="roll-button">Roll {{this.rollData.diceTotal}}d+{{this.rollData.enhaTotal}}e</button>
-        <div class="min-height bottom">
           {{#each this.rollData.items as |item key|}}
           {{#unless item.isDice}}
             <div class="flex-parent-wide-noflow boxed low-margin-padding">
@@ -60,10 +57,13 @@
           {{/unless}}
           {{/each}}
         </div>
+        {{!-- Roll button --}}
+        <button type="button" id="roll" class="roll-button">
+          Roll {{this.rollData.diceTotal}}<i class="small fas fa-dice"></i> + {{this.rollData.enhaTotal}}<i class="small fas fa-hashtag"></i>
+        </button>
       </div>
       <div class="bottom-section">
-        <div class="grid grid-2col">
-          <button type="button" id="enhancement" class="grid-span2col selector">Enhancements <i class="fas fa-hashtag"></i></button>
+        <div class="grid grid-2col">  
           <button type="button" id="showOptions" class="showOptions">Options <i class="fas fa-cog"></i></button>
           <button type="button" id="save" class="save">Save <i class="fas fa-save"></i></button>
         </div>
