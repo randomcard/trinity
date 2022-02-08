@@ -117,7 +117,7 @@ export class RollForm extends FormApplication {
       const item = this.actor.items.get(event.currentTarget.id);
       var rollData = this.object;
       var note = "";
-      var itemValue = data.data.flags.isEnhancement ? item.data.data.enhancement.value : item.data.data.value;
+      var itemValue = item.data.data.flags.isEnhancement ? item.data.data.enhancement.value : item.data.data.value;
       if (item.type === "attribute" && item.data.data.flags.isMain === true) {
         note = item.data.data.arena + "/" + item.data.data.approach;
       } else {
