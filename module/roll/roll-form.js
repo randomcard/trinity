@@ -256,7 +256,7 @@ export class RollForm extends FormApplication {
     console.log("_save started");
     new Dialog({
       title: "Save Roll As",
-      content: "systems/trinity/templates/save-prompt.html",
+      template: "systems/trinity/templates/save-prompt.html",
       default: 'save',
       buttons: {
         save: {

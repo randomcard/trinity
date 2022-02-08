@@ -13,10 +13,9 @@
       </div>
       <div class="middle-section">
         <div class="min-height">
-          Selected Die Pool Area
           {{#each this.rollData.items as |item key|}}
           {{#if item.isDice}}
-            <div class="flex-parent-wide-noflow boxed">
+            <div class="flex-parent-wide-noflow boxed low-margin-padding">
               <div class="flex-child-fit flex-parent-column low-margin-padding">
                 <div class="flex-valign left x-large low-margin-padding">{{item.value}}<span class="small"><i class="fas fa-circle"></i></span></div>
                 <div class="flex-valign left small">{{item.multiplier}}x</div>
@@ -39,10 +38,9 @@
         {{!-- Roll button --}}
         <button type="button" id="roll" class="roll-button">Roll {{this.rollData.diceTotal}}d+{{this.rollData.enhaTotal}}e</button>
         <div class="min-height bottom">
-          Selected Enhancement Area
           {{#each this.rollData.items as |item key|}}
           {{#unless item.isDice}}
-            <div class="flex-parent-wide-noflow boxed">
+            <div class="flex-parent-wide-noflow boxed low-margin-padding">
               <div class="flex-child-fit flex-parent-column low-margin-padding">
                 <div class="flex-valign left x-large low-margin-padding">{{item.value}}<span class="small"><i class="fas fa-hashtag"></i></span></div>
                 <div class="flex-valign left small">{{item.multiplier}}x</div>
