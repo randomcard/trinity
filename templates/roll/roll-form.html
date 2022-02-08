@@ -18,7 +18,7 @@
           {{#if item.isDice}}
             <div class="flex-parent-wide-noflow boxed">
               <div class="flex-child-fit flex-parent-column low-margin-padding">
-                <div class="flex-valign left x-large low-margin-padding">{{item.value}}<span class="small">{{#if item.isDice}}<i class="fas fa-circle"></i>{{else}}<i class="fas fa-hashtag"></i>{{/if}}</span></div>
+                <div class="flex-valign left x-large low-margin-padding">{{item.value}}<span class="small"><i class="fas fa-circle"></i></span></div>
                 <div class="flex-valign left small">{{item.multiplier}}x</div>
               </div>
               <div class="flex-child-full flex-parent-column">
@@ -44,7 +44,7 @@
           {{#unless item.isDice}}
             <div class="flex-parent-wide-noflow boxed">
               <div class="flex-child-fit flex-parent-column low-margin-padding">
-                <div class="flex-valign left x-large low-margin-padding">{{item.value}}<span class="small">{{#if item.isDice}}<i class="fas fa-circle"></i>{{else}}<i class="fas fa-hashtag"></i>{{/if}}</span></div>
+                <div class="flex-valign left x-large low-margin-padding">{{item.value}}<span class="small"><i class="fas fa-hashtag"></i></span></div>
                 <div class="flex-valign left small">{{item.multiplier}}x</div>
               </div>
               <div class="flex-child-full flex-parent-column">

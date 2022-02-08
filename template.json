@@ -249,12 +249,10 @@
         "description": "",
         "source": "",
         "enhancement" : {
-          "isEnhancement" : false,
           "value" : 0,
           "relevance" : ""
         },
         "complication" : {
-          "isComplication" : false,
           "value" : 0,
           "relevance" : ""
         },

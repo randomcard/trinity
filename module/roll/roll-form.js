@@ -117,6 +117,7 @@ export class RollForm extends FormApplication {
       const item = this.actor.items.get(event.currentTarget.id);
       var rollData = this.object;
       var note = "";
+      var itemValue = data.data.flags.isEnhancement ? item.data.data.enhancement.value : item.data.data.value;
       if (item.type === "attribute" && item.data.data.flags.isMain === true) {
         note = item.data.data.arena + "/" + item.data.data.approach;
       } else {
@@ -126,7 +127,7 @@ export class RollForm extends FormApplication {
         rollData.items[item.id].multiplier += 1;
       } else {
         rollData.items[item.id] = {
-          value : item.data.data.value,
+          value : itemValue,
           name : item.name,
           SourceType : item.type,
           note : note,
@@ -252,7 +253,8 @@ export class RollForm extends FormApplication {
   }
 
   _save(rollData, targetActor) {
-   new Dialog({
+    console.log("_save started");
+    new Dialog({
       title: "Save Roll As",
       content: "systems/trinity/templates/save-prompt.html",
       default: 'save',
