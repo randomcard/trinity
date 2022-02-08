@@ -147,6 +147,10 @@ export class RollForm extends FormApplication {
       this._resetHeight();
     });
 
+    html.find('.save').click(async (event) => {
+      this._save(this.object, this.actor);
+    });
+
   }
 
   // Example - not yet used...
@@ -245,6 +249,41 @@ export class RollForm extends FormApplication {
         init : false // For Compatibility
       }
     };
+  }
+
+  _save(rollData, targetActor) {
+   new Dialog({
+      title: "Save Roll As",
+      content: "systems/trinity/templates/save-prompt.html",
+      default: 'save',
+      buttons: {
+        save: {
+          icon: '<i class="fas fa-check"></i>',
+          label: 'Save',
+          default: true,
+          callback: html => {
+            let results = document.getElementById('saveName').value;
+            console.log("Save Roll As: ",results);
+
+            let uniqueRollNumber = randomID(16);
+
+            let updates = {
+              "data.savedRolls": {
+                [uniqueRollNumber]: rollData
+              }
+            };
+
+            console.log("Updates", updates);
+
+            game.actors.get(targetActor.id).update(updates);
+
+            console.log("Saved Roll on Actor:", game.actors.get(targetActor.id));
+            ui.notifications.notify(`Saved Roll to ${targetActor.name} as "${results}".`);
+            return;
+          },
+        }
+      }
+    }).render(true);
   }
 
 }
