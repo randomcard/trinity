@@ -705,5 +705,6 @@ input[type=radio].hidden-input:focus + label {
 }
 
 .trinity .roll-form .window-content {
+  height: 100%;
   overflow-y: hidden;
 }
