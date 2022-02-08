@@ -246,7 +246,7 @@ Hooks.once('init', async function() {
     let end = n.toString() + 'x</div>';
     let hidden = '<div style="display:hidden;">';
     let visible = '<div style="display:hidden;">';
-    if {n === 1} {
+    if (n === 1) {
       return (hidden+end);
     } else {
       return (visible+end);
