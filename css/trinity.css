@@ -668,8 +668,10 @@ input[type=radio].hidden-input:focus + label {
   visibility: visible;
 }
 
-.min-height {
+.roll-items-area {
   min-height: 200px;
+  width: 95%;
+  margin: auto;
 }
 
 .bottom {
