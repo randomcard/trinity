@@ -41,7 +41,7 @@ export class RollForm extends FormApplication {
 
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["trinity", "form", "roll"],
+      classes: ["trinity", "roll-form"],
       popOut: true,
       template: "systems/trinity/templates/roll/roll-form.html",
       id: "roll-form",
@@ -187,12 +187,16 @@ export class RollForm extends FormApplication {
         let text = "";
         for (let i of Object.keys(this.items)) {
           if (this.items[i].isDice) {
-            text += this.items[i].value + "●" + this.items[i].name + " "; // Expand this for better Flavortext
+            text += '<span class="small-trait">';
+            text += this.items[i].value + "● " + this.items[i].name; // Expand this for better Flavortext
+            text += '</span>';
           }
         }
         for (let i of Object.keys(this.items)) {
           if (!this.items[i].isDice) {
-            text += "+" + this.items[i].value + "e " + this.items[i].name + " "; // Expand this for better Flavortext
+            text += '<span class="small-trait">';
+            text += this.items[i].value + "# " + this.items[i].name; // Expand this for better Flavortext
+            text += '</span>';
           }
         }
         return text;
