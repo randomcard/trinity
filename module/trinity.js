@@ -244,8 +244,8 @@ Hooks.once('init', async function() {
 
   Handlebars.registerHelper('mult', function(n) {
     let end = n.toString() + 'x</div>';
-    let hidden = '<div style="display:hidden;">';
-    let visible = '<div style="display:hidden;">';
+    let hidden = '<div class="flex-valign left small" style="visibility:hidden;">';
+    let visible = '<div class="flex-valign left small">';
     if (n === 1) {
       return (hidden+end);
     } else {
