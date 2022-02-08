@@ -75,22 +75,12 @@ export class RollForm extends FormApplication {
       console.log("overlaid");
       // reset height
       this._resetHeight();
-      /*
-      const position = this.position;
-      position.height = "100%";
-      this.setPosition(position);
-      */
     });
 
     html.find('.back').click((event) => {
       document.getElementById("overlay").style.display = "none";
       // reset height
       this._resetHeight();
-      /*
-      const position = this.position;
-      position.height = "100%";
-      this.setPosition(position);
-      */
     });
 
     html.find('.roll-button').click((event) => {
@@ -105,11 +95,6 @@ export class RollForm extends FormApplication {
       }
       // reset height
       this._resetHeight();
-      /*
-      const position = this.position;
-      position.height = "100%";
-      this.setPosition(position);
-      */
     });
 
     html.find('.select-item').click(async (event) => {
@@ -164,6 +149,7 @@ export class RollForm extends FormApplication {
 
   // reset height
   _resetHeight() {
+    console.log("_resetHeight this:", this);
     const position = this.position;
     position.height = "100%";
     this.setPosition(position);
@@ -200,12 +186,12 @@ export class RollForm extends FormApplication {
       get flavor() {
         let text = "";
         for (let i of Object.keys(this.items)) {
-          if (i.isDice) {
+          if (this.items[i].isDice) {
             text += this.items[i].value + "●" + this.items[i].name + " "; // Expand this for better Flavortext
           }
         }
         for (let i of Object.keys(this.items)) {
-          if (!i.isDice) {
+          if (!this.items[i].isDice) {
             text += "+" + this.items[i].value + "e " + this.items[i].name + " "; // Expand this for better Flavortext
           }
         }
