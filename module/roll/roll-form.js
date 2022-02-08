@@ -252,11 +252,12 @@ export class RollForm extends FormApplication {
     };
   }
 
-  _save(rollData, targetActor) {
+  async _save(rollData, targetActor) {
     console.log("_save started");
+    let html = await renderTemplate("systems/trinity/templates/save-prompt.html");
     new Dialog({
       title: "Save Roll As",
-      template: "systems/trinity/templates/save-prompt.html",
+      content: html,
       default: 'save',
       buttons: {
         save: {
