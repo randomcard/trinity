@@ -49,6 +49,7 @@ export class RollForm extends FormApplication {
       width: 350
     });
   }
+  // height : "100%"
 
   getData() {
     // Send data to the template
@@ -150,7 +151,7 @@ export class RollForm extends FormApplication {
   _resetHeight() {
     console.log("_resetHeight this:", this);
     const position = this.position;
-    position.height = "100%";
+    // position.height = "100%";
     this.setPosition(position);
   }
 
