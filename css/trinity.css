@@ -32,6 +32,10 @@
   grid-column-start: span 2;
 }
 
+.align-content-start {
+  align-content: start;
+}
+
 .grid-2col-colflow {
   grid-row: span 2 / span 2;
   grid-template-rows: repeat(2, minmax(0, 1fr));
