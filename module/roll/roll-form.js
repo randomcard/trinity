@@ -46,8 +46,7 @@ export class RollForm extends FormApplication {
       template: "systems/trinity/templates/roll/roll-form.html",
       id: "roll-form",
       title: "Roll",
-      width: 350,
-      height: "100%"
+      width: 350
     });
   }
 

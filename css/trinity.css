@@ -705,6 +705,5 @@ input[type=radio].hidden-input:focus + label {
 }
 
 .roll-form section.window-content {
-  height: 100%;
   overflow-y: hidden;
 }
