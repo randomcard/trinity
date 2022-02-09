@@ -712,15 +712,18 @@ input[type=radio].hidden-input:focus + label {
 
 .flex-flavor {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: flex-start;
-  align-items: flex-start;
 }
 
 .flex-flavor-trait {
   order: 0;
   flex: 0 1 auto;
   align-self: auto;
+  display: inline-block;
+  font-size: x-small;
+  padding: 0px 4px 0px 4px;
+  background-color: rgba(255, 200, 200, 0.5);
+  border: 1px solid darkRed;
+  border-radius: 10px;
+  margin: 1px 2px;
 }
