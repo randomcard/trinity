@@ -205,7 +205,8 @@ export class RollForm extends FormApplication {
         return text;
       },
       desc : "",
-      formula : "", // use Getter to compute this automatically
+      // formula : "",
+      // use Getter to compute this automatically
       get formula() {
         if (!this.items) { return 0; }
         let enhaScale = this.enhaTotal + (this.settings.dsca * 2);

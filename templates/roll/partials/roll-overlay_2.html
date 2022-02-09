@@ -1,0 +1,26 @@
+<div id="overlay" class="overlay">
+  <div class="flex-parent-center-column">
+    <div class="nav flex-child flex-parent-wide">
+      <i class="xx-large fas fa-arrow-alt-circle-left back flex-valign"></i>
+      <div class="flex-child flex-valign back">Back to Roll Options</div>
+    </div>
+    <div class="flex-child-full" style="height: 350px; overflow-x: hidden; overflow-y: auto;">
+      {{#unless this.itemList}}<center>No options of this type found.</center>{{/unless}}
+      {{#each this.itemList as |item key|}}
+        <div class="flex-parent-wide-noflow boxed select-item" id="{{item.id}}">
+          <div class="xx-large flex-valign">
+            {{#if item.data.data.flags.isEnhancement}}{{item.data.data.enhancement.value}}{{else}}{{item.data.data.value}}{{/if}}<span class="large">{{#if item.data.data.flags.isEnhancement}}<i class="fas fa-hashtag"></i>{{else}}<i class="fas fa-circle"></i>{{/if}}</span>
+          </div>
+          <div class="flex-child-full flex-parent-column">
+            <div class="flex-child-full x-large">
+              {{item.name}}
+            </div>
+            <div class="flex-child-full small-note">
+              {{item.id}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
