@@ -186,21 +186,22 @@ export class RollForm extends FormApplication {
       name : "Trinity Roll",
       // id : "",
       get flavor() {
-        let text = "";
+        let text = '<div class="flex-flavor">';
         for (let i of Object.keys(this.items)) {
           if (this.items[i].isDice) {
-            text += '<span class="small-trait">';
+            text += '<span class="flex-flavor-trait small-trait">';
             text += this.items[i].value + "● " + this.items[i].name; // Expand this for better Flavortext
             text += '</span>';
           }
         }
         for (let i of Object.keys(this.items)) {
           if (!this.items[i].isDice) {
-            text += '<span class="small-trait">';
+            text += '<span class="flex-flavor-trait small-trait">';
             text += this.items[i].value + "# " + this.items[i].name; // Expand this for better Flavortext
             text += '</span>';
           }
         }
+        text += '</div>'
         return text;
       },
       desc : "",

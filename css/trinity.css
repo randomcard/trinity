@@ -706,4 +706,21 @@ input[type=radio].hidden-input:focus + label {
 
 .roll-form section.window-content {
   overflow-y: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.flex-flavor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.flex-flavor-trait {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
 }
