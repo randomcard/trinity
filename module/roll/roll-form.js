@@ -150,7 +150,8 @@ export class RollForm extends FormApplication {
   // reset height
   _resetHeight() {
     console.log("_resetHeight this:", this);
-    const position = this.position;
+    const position = this.form.clientHeight
+    // const position = this.position;
     // position.height = "100%";
     this.setPosition(position);
   }
