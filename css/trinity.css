@@ -726,4 +726,6 @@ input[type=radio].hidden-input:focus + label {
   border: 1px solid darkRed;
   border-radius: 10px;
   margin: 1px 2px;
+  height: 18px;
+  line-height: 170%;
 }
