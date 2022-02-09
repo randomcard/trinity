@@ -20,9 +20,9 @@
           <i class="far fa-plus-square"></i>
         </div>
       </div>
-      {{#unless this.itemList}}<center>No options of this type found.</center>{{/unless}}
+      {{#unless this.itemList}}<div class="grid-span2col"><center>No options of this type found.</center></div>{{/unless}}
       {{#each this.itemList as |item key|}}
-        <div class="flex-parent-wide-noflow boxed low-margin-padding" id="{{item.id}}">
+        <div class="flex-parent-wide-noflow boxed low-margin-padding select-item" id="{{item.id}}">
           <div class="flex-child-fit flex-parent-column low-margin-padding">
             <div class="flex-valign left x-large low-margin-padding">
               {{#if item.data.data.flags.isEnhancement}}{{item.data.data.enhancement.value}}{{else}}{{item.data.data.value}}{{/if}}<span class="small">{{#if item.data.data.flags.isEnhancement}}<i class="fas fa-hashtag"></i>{{else}}<i class="fas fa-circle"></i>{{/if}}</span>
