@@ -55,7 +55,7 @@ export class TrinityItemSheet extends ItemSheet {
 
     // Roll handlers, click handlers, etc. would go here.
 
-    html.find('.memorization-slot').on("drop", console.log("something dropped: ",this));
+    // html.find('.memorization-slot').on("drop", console.log("something dropped: ",this));
 
   }
 }

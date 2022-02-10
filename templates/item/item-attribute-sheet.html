@@ -33,12 +33,34 @@
             {{!-- As you add new fields, add them in here! --}}
             <div class="">
               <label class="resource-label" for="approach">Approach</label>
-              <input type="text" id="approach" value="{{item.data.data.approach}}" data-dtype="String"/>
+              <input type="text" id="approach" name="data.approach" value="{{item.data.data.approach}}" data-dtype="String"/>
             </div>
             <div class="">
               <label class="resource-label" for="arena">Arena</label>
-              <input type="text" id="arena" value="{{item.data.data.arena}}" data-dtype="String"/>
+              <input type="text" id="arena" name="data.arena" value="{{item.data.data.arena}}" data-dtype="String"/>
             </div>
+            <div class="">
+              <label class="resource-label" for="sort">Sort Order</label>
+              <input type="number" id="sort" name="data.sortNum" value="{{item.data.data.sortNum}}" data-dtype="Number"/>
+            </div>
+            <div class="">
+              <label class="resource-label" for="megaValue">Mega Value</label>
+              <input type="number" id="megaValue" name="data.megaValue" value="{{item.data.data.megaValue}}" data-dtype="Number"/>
+            </div>
+            <div class="">
+              <label class="resource-label" for="megaValue">Mega Value</label>
+              <input type="number" id="megaValue" name="data.megaValue" value="{{item.data.data.megaValue}}" data-dtype="Number"/>
+            </div>
+            <div class="">
+              <input class="left-vcenter" type="checkbox" id="mainFlag" name="data.flags.isMain" value="{{data.data.flags.isMain}}" data-dtype="Boolean" {{checked data.data.flags.isMain}}/>
+              <label class="resource-label left-vcenter" for="mainFlag">Standard Attribute</label>
+            </div>
+            <div class="">
+              <input class="left-vcenter" type="checkbox" id="quantumFlag" name="data.flags.isQuantum" value="{{data.data.flags.isQuantum}}" data-dtype="Boolean" {{checked data.data.flags.isQuantum}}/>
+              <label class="resource-label left-vcenter" for="quantumFlag">Quantum Attribute</label>
+            </div>
+
+
             {{> "systems/trinity/templates/item/partials/dots-flag.html"}}
             {{> "systems/trinity/templates/item/partials/enhancement-flag.html"}}
             {{> "systems/trinity/templates/item/partials/complication-flag.html"}}
