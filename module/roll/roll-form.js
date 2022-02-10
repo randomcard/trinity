@@ -144,7 +144,7 @@ export class RollForm extends FormApplication {
 
     html.find('.setting').change(async (event) => {
       console.log("Setting Listener");
-      this.submit(event, {preventClose : true});
+      this.submit({preventClose: true});
     });
 
   }
@@ -154,7 +154,7 @@ export class RollForm extends FormApplication {
     console.log("_updateObject");
     console.log("_updateObject event: ", event);
     console.log("_updateObject formData: ", formData);
-    mergeObject(formData, this);
+    mergeObject(this, formData);
     console.log("_updateObject rollData after merge: ", this);
   }
 

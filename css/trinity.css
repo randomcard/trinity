@@ -734,7 +734,7 @@ input[type=radio].hidden-input:focus + label {
   line-height: 170%;
 }
 
-.on-dark {
+input[type="text"].on-dark, input[type="number"].on-dark {
   min-width: 35px;
   text-align: center;
   color: white;
