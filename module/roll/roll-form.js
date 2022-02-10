@@ -119,7 +119,8 @@ export class RollForm extends FormApplication {
           note : note,
           isDice : !item.data.data.flags.isEnhancement,
           multiplier : 1,
-          id : item.id
+          id : item.id,
+          isCustom : false
         }
       }
       await this._render(true);
@@ -140,10 +141,33 @@ export class RollForm extends FormApplication {
 
     html.find('.add-custom').click(async (event) => {
       console.log("add-custom Listener, this: ", this);
+      console.log("add-custom Listener, this: ", event);
+
+      let customValue = document.getElementById("customValue").value || 0;
+      let customName = document.getElementById("customName").value || "Custom Value";
+      let note = "Manually Entered";
+      var rollData = this.object;
+      let uniqueNumber = randomID(16);
+      let isDice = (this.itemListType === "enhancement") ? false : true;
+
+      rollData.items[uniqueNumber] = {
+        value : customValue,
+        name : customName,
+        SourceType : this.itemListType,
+        note : note,
+        isDice : isDice,
+        multiplier : 1,
+        id : uniqueNumber,
+        isCustom : true
+      }
+
+      await this._render(true);
+      this._resetHeight();
+      console.log("rollData after Selection: ", rollData);
+
     });
 
     html.find('.setting').change(async (event) => {
-      console.log("Setting Listener");
       this.submit({preventClose: true});
     });
 
@@ -160,7 +184,6 @@ export class RollForm extends FormApplication {
 
   // reset height
   _resetHeight() {
-    console.log("_resetHeight this:", this);
     const position = this.position;
     // position.height = "100%";
     // position.height = this.form.clientHeight + 30;
@@ -169,6 +192,7 @@ export class RollForm extends FormApplication {
   }
 
   _getItems(type) {
+    this.itemListType = type;
     this.itemList = [];
     for (let i of this.actor.items) {
       if (i.name === type) { this.itemList.push(i); continue; }
