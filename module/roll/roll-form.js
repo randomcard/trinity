@@ -163,6 +163,7 @@ export class RollForm extends FormApplication {
   }
 
   _addItem(id, custom) {
+    console.log("_addItem this/args", this, id, custom);
     var rollData = this.object;
     let itemValue = 0;
     let itemName = "";
