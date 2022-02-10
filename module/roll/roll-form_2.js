@@ -23,7 +23,7 @@ export class RollForm extends FormApplication {
 
   // since the main form object is created by the form, rearranging args for easier use
   // constructor(actor={}, options={}, object={}) {
-  constructor(actor, options, object, elementID) {
+  constructor(actor, options, object) {
     super(object, options);
     console.log("RollForm Constructor this: ", this);
     console.log("RollForm Constructor Actor: ", actor);
@@ -31,9 +31,6 @@ export class RollForm extends FormApplication {
     if (typeof object === 'undefined' || object === null) {
       // this.object = JSON.parse(JSON.stringify(rollDataTemplate));
       this.object = this._rollDataTemplate();
-      if (typeof elementID !== 'undefined' && elementID !== null) {
-        this._addItem(elementID).bind(this);
-      }
     } else {
       this.object = object;
     }
@@ -103,9 +100,32 @@ export class RollForm extends FormApplication {
 
     html.find('.select-item').click(async (event) => {
       document.getElementById("overlay").style.display = "none"; // Remove overlay
-      this._addItem(event.currentTarget.id).bind(this);
+      const item = this.actor.items.get(event.currentTarget.id);
+      var rollData = this.object;
+      var note = "";
+      var itemValue = item.data.data.flags.isEnhancement ? item.data.data.enhancement.value : item.data.data.value;
+      if (item.type === "attribute" && item.data.data.flags.isMain === true) {
+        note = item.data.data.arena + "/" + item.data.data.approach;
+      } else {
+        note = item.data.data.enhancement.relevance;
+      }
+      if (item.id in rollData.items) {
+        rollData.items[item.id].multiplier += 1;
+      } else {
+        rollData.items[item.id] = {
+          value : itemValue,
+          name : item.name,
+          SourceType : item.type,
+          note : note,
+          isDice : !item.data.data.flags.isEnhancement,
+          multiplier : 1,
+          id : item.id,
+          isCustom : false
+        }
+      }
       await this._render(true);
       this._resetHeight();
+      console.log("rollData after Selection: ", rollData);
     });
 
     html.find('.remove').click(async (event) => {
@@ -122,9 +142,29 @@ export class RollForm extends FormApplication {
     html.find('.add-custom').click(async (event) => {
       console.log("add-custom Listener, this: ", this);
       console.log("add-custom Listener, this: ", event);
-      this._addItem(null, true).bind(this);
+
+      let customValue = document.getElementById("customValue").value || 0;
+      let customName = document.getElementById("customName").value || "Custom Value";
+      let note = "Manually Entered";
+      var rollData = this.object;
+      let uniqueNumber = randomID(16);
+      let isDice = (this.itemListType === "enhancement") ? false : true;
+
+      rollData.items[uniqueNumber] = {
+        value : customValue,
+        name : customName,
+        SourceType : this.itemListType,
+        note : note,
+        isDice : isDice,
+        multiplier : 1,
+        id : uniqueNumber,
+        isCustom : true
+      }
+
       await this._render(true);
       this._resetHeight();
+      console.log("rollData after Selection: ", rollData);
+
     });
 
     html.find('.setting').change(async (event) => {
@@ -159,56 +199,6 @@ export class RollForm extends FormApplication {
       if (i.type === "attribute" && i.data.data.flags.isMain === false) { continue; }
       if (i.type === type) { this.itemList.push(i); }
       if (type === "enhancement" && i.data.data.flags.isEnhancement === true) { this.itemList.push(i); }
-    }
-  }
-
-  _addItem(id, custom) {
-    var rollData = this.object;
-    let itemValue = 0;
-    let itemName = "";
-    let isDice = true;
-    let note = "";
-    let rollItemID ="";
-    let sourceType = "";
-    let isCustom = false;
-    let mult = 1;
-
-    if (typeof custom !== "undefined") {
-      itemValue = document.getElementById("customValue").value || 0;
-      itemName = document.getElementById("customName").value || "Custom Value";
-      rollItemID = randomID(16);
-      note = "Manually Entered";
-      isDice = (this.itemListType === "enhancement") ? false : true;
-      sourceType = this.itemListType;
-      isCustom = true;
-    } else {
-      const item = this.actor.items.get(id);
-      rollItemID = item.id;
-      itemValue = item.data.data.flags.isEnhancement ? item.data.data.enhancement.value : item.data.data.value;
-      itemName = item.name;
-      isDice = !item.data.data.flags.isEnhancement;
-      sourceType = item.type;
-      // Note:
-      if (item.type === "attribute" && item.data.data.flags.isMain === true) {
-        note = item.data.data.arena + "/" + item.data.data.approach;
-      } else {
-        note = item.data.data.enhancement.relevance;
-      }
-      // Multiplier:
-      if (item.id in rollData.items) {
-        mult = rollData.items[rollItemID].multiplier + 1;
-      }
-    }
-
-    rollData.items[rollItemID] = {
-      value : itemValue,
-      name : itemName,
-      SourceType : sourceType,
-      note : note,
-      isDice : isDice,
-      multiplier : mult,
-      id : rollItemID,
-      isCustom : isCustom
     }
   }
 
