@@ -31,7 +31,14 @@
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             {{!-- As you add new fields, add them in here! --}}
-
+            <div class="">
+              <label class="resource-label" for="approach">Approach</label>
+              <input type="text" id="approach" value="{{item.data.data.approach}}" data-dtype="String"/>
+            </div>
+            <div class="">
+              <label class="resource-label" for="arena">Arena</label>
+              <input type="text" id="arena" value="{{item.data.data.arena}}" data-dtype="String"/>
+            </div>
             {{> "systems/trinity/templates/item/partials/dots-flag.html"}}
             {{> "systems/trinity/templates/item/partials/enhancement-flag.html"}}
             {{> "systems/trinity/templates/item/partials/complication-flag.html"}}

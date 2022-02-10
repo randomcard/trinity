@@ -54,5 +54,8 @@ export class TrinityItemSheet extends ItemSheet {
     if (!this.options.editable) return;
 
     // Roll handlers, click handlers, etc. would go here.
+
+    html.find('.memorization-slot').on("drop", console.log("something dropped: ",this));
+
   }
 }

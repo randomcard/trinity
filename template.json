@@ -333,6 +333,7 @@
       "approach": "",
       "sortNum": 0,
       "flags" : {
+        "hasDots" : true,
         "isDice" : true,
         "isMain" : true,
         "isQuantum" : false
