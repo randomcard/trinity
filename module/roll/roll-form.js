@@ -103,7 +103,7 @@ export class RollForm extends FormApplication {
 
     html.find('.select-item').click(async (event) => {
       document.getElementById("overlay").style.display = "none"; // Remove overlay
-      this._addItem.bind(this, event.currentTarget.id);
+      await this._addItem.bind(this, event.currentTarget.id);
       await this._render(true);
       this._resetHeight();
     });
@@ -122,7 +122,7 @@ export class RollForm extends FormApplication {
     html.find('.add-custom').click(async (event) => {
       console.log("add-custom Listener, this: ", this);
       console.log("add-custom Listener, this: ", event);
-      this._addItem.bind(this, null, true);
+      await this._addItem.bind(this, null, true);
       await this._render(true);
       this._resetHeight();
     });
