@@ -733,3 +733,10 @@ input[type=radio].hidden-input:focus + label {
   height: 18px;
   line-height: 170%;
 }
+
+.on-dark {
+  min-width: 35px;
+  text-align: center;
+  color: white;
+  border-color: darkgray;
+}

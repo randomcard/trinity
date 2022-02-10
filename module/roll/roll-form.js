@@ -53,6 +53,7 @@ export class RollForm extends FormApplication {
 
   getData() {
     // Send data to the template
+    console.log("RollForm getData called");
     return {
       actor: this.actor,
       rollData: this.object,
@@ -135,6 +136,15 @@ export class RollForm extends FormApplication {
 
     html.find('.save').click(async (event) => {
       this._save(this.object, this.actor);
+    });
+
+    html.find('.add-custom').click(async (event) => {
+      console.log("add-custom Listener, this: ", this);
+    });
+
+    html.find('.setting').change(async (event) => {
+      console.log("Setting Listener");
+      this.submit();
     });
 
   }
