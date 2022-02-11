@@ -204,7 +204,7 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
     // Check that Default Initiative Roll is still valid
-    if (this.actor.data.data.initiativeRollID !== "";) {
+    if (this.actor.data.data.initiativeRollID !== "") {
       if(typeof this.actor.data.data.savedRolls[this.actor.data.data.initiativeRollID] === 'undefined') {
         this.actor.data.data.initiativeRollID = "";
       }
