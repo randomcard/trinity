@@ -650,6 +650,7 @@ if (content.style.maxHeight){
     html.find('.roll-delete').click(ev => {
       const roll = event.currentTarget.dataset.rollid;
       const rollDeleteString = "data.savedRolls.-=" + roll;
+      let aID = this.actor.id;
 
       let deleteConfirm = new Dialog({
         title: "Delete Confirmation",
@@ -658,8 +659,9 @@ if (content.style.maxHeight){
           Yes: {
             icon: '<i class="fa fa-check"></i>',
             label: "Yes",
-            callback: async dlg => {
-              await this.actor.update({[rollDeleteString]: null});
+            callback: dlg => {
+              // this.actor.update({[rollDeleteString]: null});
+              game.actors.get(aID).update({[rollDeleteString]: null});
 
             }
           },
