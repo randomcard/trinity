@@ -265,6 +265,7 @@ if (content.style.maxHeight){
     const unflaggedEquipment = [];
     const modes = [];
     const quantumPowers = [];
+    const attributes = [];
 
 /* Removed to test new HB iteration
     const healthBoxes = {
@@ -438,6 +439,7 @@ if (content.style.maxHeight){
       if (i.type === 'bond') { bonds.push(i); }
       if (i.type === 'mode') { modes.push(i); }
       if (i.type === 'quantumPower') { quantumPowers.push(i); }
+      if (i.type === 'attribute') { attributes.push(i); }
       allItems.push(i);
 
     }
@@ -465,6 +467,7 @@ if (content.style.maxHeight){
     actorData.unflaggedEquipment = unflaggedEquipment;
     actorData.modes = modes;
     actorData.quantumPowers = quantumPowers;
+    actorData.attributes = attributes;
 
     if (typeof actorData.allItemsFilter === 'undefined') {
       actorData.allItemsFilter = "";
@@ -803,29 +806,10 @@ if (content.style.maxHeight){
       console.log("Elements found: ", passElements);
       trinityRoll(this.actor, passElements, event);
     } else {
-      trinityRoll(this.actor, null, event);
+      // trinityRoll(this.actor, null, event);
+      new RollForm(this.actor, {event:ev}, null, event.currentTarget.id).render(true);
+
     }
   }
-
-/*
-  async _testButton(event) {
-    let html = await renderTemplate("systems/trinity/templates/roll/roll-dialog.html");
-    new Dialog({
-      title: 'Test Window',
-      buttons: {},
-      content: html
-    }, {width: 350, height: "auto"}).render(true);
-  }
-*/
-
-/* Original Roll code, before adding in saved roll passthrough
-_onRoll(event) {
-  event.preventDefault();
-  console.log("Launch trinityRoll event");
-  console.log(this.actor);
-  trinityRoll(this.actor, null, event);
-}
-*/
-
 
 }
