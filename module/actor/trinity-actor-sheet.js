@@ -807,7 +807,7 @@ if (content.style.maxHeight){
       trinityRoll(this.actor, passElements, event);
     } else {
       // trinityRoll(this.actor, null, event);
-      new RollForm(this.actor, {event:ev}, null, event.currentTarget.id).render(true);
+      new RollForm(this.actor, {event:event}, null, event.currentTarget.id).render(true);
 
     }
   }
