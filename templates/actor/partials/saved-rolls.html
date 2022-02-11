@@ -14,17 +14,15 @@
 <div class="saved-rolls grid grid-4col">
   {{#each data.data.savedRolls as |roll key|}}
   <div class="boxed" id="{{key}}">
-    <div class="flexcol flex-group-center rollable saved-roll" data-rollID="{{key}}">
-      <span class="resource-label"> {{roll.name}} </span>
-      <!-- <span class="icons"> {{{toDots roll.value}}} </span>
-      <span class="small-note"> {{roll.approach}} - {{savedroll.arena}} </span> -->
-    </div>
-    <div class="flex-parent">
-      <span class="flex-child left-vcenter small-note">
-        <b>{{roll.diceTotal}}</b><i class="small fas fa-dice"></i> + <b>{{roll.enhaTotal}}</b><i class="small fas fa-hashtag"></i>
-      </span>
-      {{#if roll.elements.init.value}}<i class="flex-child right-vcenter fas fa-fist-raised"></i>{{/if}}
-      <i class="flex-child right-vcenter far fa-minus-square roll-delete clickable" data-rollID="{{key}}"></i>
+    <div class="flexcol flex-group-center">
+      <div class="resource-label rollable saved-roll" data-rollID="{{key}}"> {{roll.name}} </div>
+      <div class="flexcol flex-parent">
+        <span class="flex-child left-vcenter small-note">
+          <b>{{roll.diceTotal}}</b><i class="small fas fa-dice"></i> + <b>{{roll.enhaTotal}}</b><i class="small fas fa-hashtag"></i>
+        </span>
+        {{#if roll.elements.init.value}}<i class="flex-child right-vcenter fas fa-fist-raised"></i>{{/if}}
+        <i class="flex-child right-vcenter far fa-minus-square roll-delete clickable" data-rollID="{{key}}"></i>
+      </div>
     </div>
   </div>
   {{/each}}
