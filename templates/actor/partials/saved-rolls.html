@@ -2,7 +2,7 @@
 
 <h2>Saved Rolls</h2>
 <label class="resource-label" for="selectDIRoll">Default Initiative Roll: </label>
-<select id="selectDIRoll" name="data.initiativeRollID" data-dtype="String">
+<select class="selectDIRoll" id="selectDIRoll" name="data.initiativeRollID" data-dtype="String">
   {{#select data.data.initiativeRollID}}
   <option value="">None Selected</option>
   {{#each this.actor.data.data.savedRolls as |iRoll key|}}

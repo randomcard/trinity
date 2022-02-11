@@ -7,8 +7,8 @@
 // import { TrinityRoll } from "/systems/trinity/module/trinity-roll.js";
 
 // trinity roll 2
-import { trinityRoll } from "/systems/trinity/module/trinity-roll.js";
-import { rollDialog } from "/systems/trinity/module/roll/roll-dialog.js";
+// import { trinityRoll } from "/systems/trinity/module/trinity-roll.js";
+// import { rollDialog } from "/systems/trinity/module/roll/roll-dialog.js";
 import { RollForm } from "/systems/trinity/module/roll/roll-form.js";
 
 
@@ -20,21 +20,6 @@ export class TrinityActorSheet extends ActorSheet {
     this.options.collapsedSections = [];
     this.options.collapsedHeaders = [];
     this.options.collapsedContent = [];
-
-
-    /* Example from the CPR system:
-    // Moved this to the constructor since this only needs to be set on the Sheet Object
-    // The first time it is created.  The contents are then loaded from the User Settings
-    // if they exist.
-    this.options.collapsedSections = [];
-    const collapsedSections = SystemUtils.GetUserSetting("sheetConfig", "sheetCollapsedSections", this.id);
-    if (collapsedSections) {
-      this.options.collapsedSections = collapsedSections;
-    }
-    */
-
-    // this.htmlSaved = [];
-
 
   }
 
@@ -98,28 +83,6 @@ export class TrinityActorSheet extends ActorSheet {
         }
       }
 
-      /*
-      // Headers
-      let headerItems = $(html.find(".collapsible"));
-      for (let i = 0; i < headerItems.length; i++) {
-        if (this.toggleStates.headers[i]) {
-          $(headerItems[i]).show().addClass("collapsible-active");
-        } else {
-          $(headerItems[i]).hide().removeClass("collapsible-active");
-        }
-      }
-
-      // Content
-      let contentItems = $(html.find(".collapsible-content"));
-      for (let i = 0; i < contentItems.length; i++) {
-        if (this.toggleStates.content[i]) {
-          $(contentItems[i]).show().addClass("collapsible-content-active");
-        } else {
-          $(contentItems[i]).hide().removeClass("collapsible-content-active");
-        }
-      }
-      */
-
     }
 
     console.log("_setToggleStates:",this.toggleStates);
@@ -143,11 +106,6 @@ export class TrinityActorSheet extends ActorSheet {
   /** @override */
   get template() {
     const path = "systems/trinity/templates/actor";
-    // Return a single sheet for all item types.
-    // return `${path}/item-sheet.html`;
-
-    // Alternatively, you could use the following return statement to do a
-    // unique item sheet by type, like `weapon-sheet.html`.
 
     if (this.actor.data.type == 'TrinityCharacter') {
       return `${path}/trinity-actor-sheet.html`;
@@ -161,75 +119,9 @@ export class TrinityActorSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
-//    for (let attr of Object.values(data.data.attributes)) {
-//      attr.isCheckbox = attr.dtype === "Boolean";
-//    }
-
-    // Prepare items.
-    // if (this.actor.data.type == 'TrinityCharacter') {
-      this._prepareTrinityCharacterItems(data);
-    // }
-
-// Find & expand collapsible sections - this.options.collapsedSections
-/*
-if (this.options.collapsedSections !== null) {
-  console.log("this.options.collapsedSections is not null");
-  console.log(document);
-  console.log(this);
-  console.log(html);
-  for (let c of this.options.collapsedSections) {
-    // html.find(c).
-    var cElement = document.getElementById(c);
-    console.log("cElement:");
-    cElement.classList.toggle("collapsible-active");
-    // var content = cElement.nextElementSibling;
-    cElement.nextElementSibling.classList.toggle("collapsible-content-active");
-    cElement.nextElementSibling.style.maxHeight = cElement.nextElementSibling.scrollHeight + "px";
+    this._prepareTrinityCharacterItems(data);
+    return data;
   }
-}
-*/
-
-// ----------------- Reference
-/*
-collapsibleElement.classList.toggle("collapsible-active");
-var content = collapsibleElement.nextElementSibling;
-if (content.style.maxHeight){
-  content.classList.toggle("collapsible-content-active");
-  content.style.maxHeight = null;
-} else {
-  content.classList.toggle("collapsible-content-active");
-  content.style.maxHeight = content.scrollHeight + "px";
-}
-*/
-// ----------------
-
-  /*
-  console.log("getData this:", this);
-  var coll = document.getElementsByClassName("collapsible");
-  console.log("getData coll:", coll);
-  var collOld = this.htmlSaved;
-  console.log("getData collOld:", collOld);
-
-  for (let i = 0; i < coll.length; i++) {
-    coll[i] = collOld[i];
-      //
-      this.classList.toggle("collapsible-active");
-      console.log("Collapsible Listener, uses This:", this);
-      var content = this.nextElementSibling;
-      if (content.style.maxHeight){
-        content.classList.toggle("collapsible-content-active");
-        content.style.maxHeight = null;
-      } else {
-        content.classList.toggle("collapsible-content-active");
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-      //
-      // Copy current HTML, so it can selectively replace the normal template, keeping collapsible css.
-      // htmlSaved = JSON.parse(JSON.stringify(html));
-    }
- */
-  return data;
-}
 
 
   /**
@@ -266,39 +158,6 @@ if (content.style.maxHeight){
     const modes = [];
     const quantumPowers = [];
     const attributes = [];
-
-/* Removed to test new HB iteration
-    const healthBoxes = {
-      bruised : {
-        name : this.actor.data.data.healthboxes.bru.name
-      },
-      injured : {
-        name : this.actor.data.data.healthboxes.inj.name
-      },
-      maimed : {
-        name : this.actor.data.data.healthboxes.mai.name
-      },
-      takenOut : {
-        name : this.actor.data.data.healthboxes.tak.name
-      }
-    };
-*/
-
-
-
-/*
-    healthBoxes.bruised = [];
-    healthBoxes.bruised.name = this.actor.data.data.healthboxes.bru.name;
-    healthBoxes.injured = [];
-    healthBoxes.injured.name = this.actor.data.data.healthboxes.inj.name;
-    healthBoxes.maimed = [];
-    healthBoxes.maimed.name = this.actor.data.data.healthboxes.mai.name;
-    healthBoxes.takenOut = [];
-    healthBoxes.takenOut.name = this.actor.data.data.healthboxes.tak.name;
-*/
-
-    // Create healthboxes
-    // Get # of injuries - Turn this into a loop to reduce code...
 
     for (let hb of Object.keys(this.actor.data.data.healthboxes)) {
       // console.log("Heathbox Logging - hb:", hb);
@@ -348,63 +207,6 @@ if (content.style.maxHeight){
         if(typeof this.actor.data.data.savedRolls[this.actor.data.data.initiativeRollID] === 'undefined' || this.actor.data.data.savedRolls[this.actor.data.data.initiativeRollID].elements.init.value === false) {
       this.actor.data.data.initiativeRollID = "";
     }
-
-
-
-
-
-    /* -------------------------Removed to test new HB iteration-----------------
-    // Bruised (1)
-    let bruisedNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === 1))).length;
-    if (bruisedNum <= this.actor.data.data.healthboxes.bru.value) {
-      healthBoxes.bruised.filled = bruisedNum;
-      healthBoxes.bruised.empty = this.actor.data.data.healthboxes.bru.value - healthBoxes.bruised.filled;
-      healthBoxes.bruised.extra = 0;
-    } else {
-      healthBoxes.bruised.extra = bruisedNum - this.actor.data.data.healthboxes.bru.value;
-      healthBoxes.bruised.filled = bruisedNum - healthBoxes.bruised.extra;
-      healthBoxes.bruised.empty = 0;
-    }
-
-    // Injured (2)
-    let injuredNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === 2))).length;
-    if (injuredNum <= this.actor.data.data.healthboxes.inj.value) {
-      healthBoxes.injured.filled = injuredNum;
-      healthBoxes.injured.empty = this.actor.data.data.healthboxes.inj.value - healthBoxes.injured.filled;
-    } else {
-      healthBoxes.injured.extra = injuredNum - this.actor.data.data.healthboxes.inj.value;
-      healthBoxes.injured.filled = injuredNum - healthBoxes.injured.extra;
-      healthBoxes.injured.empty = 0;
-    }
-
-    // Maimed (Value 3, Condition level 4)
-    let maimedNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === 3 ))).length;
-    if (maimedNum <= this.actor.data.data.healthboxes.mai.value) {
-      healthBoxes.maimed.filled = maimedNum;
-      healthBoxes.maimed.empty = this.actor.data.data.healthboxes.mai.value - healthBoxes.maimed.filled;
-    } else {
-      healthBoxes.maimed.extra = maimedNum - this.actor.data.data.healthboxes.mai.value;
-      healthBoxes.maimed.filled = maimedNum - healthBoxes.maimed.extra;
-      healthBoxes.maimed.empty = 0;
-    }
-
-    // Taken Out (Value 4, Condition Level "Taken Out")
-    let takenOutNum = Object.keys(this.actor.data.items.filter(h => h.data.flags.isInjury && (h.data.injury.value === 4 ))).length;
-    if (takenOutNum <= this.actor.data.data.healthboxes.tak.value) {
-      healthBoxes.takenOut.filled = takenOutNum;
-      healthBoxes.takenOut.empty = this.actor.data.data.healthboxes.tak.value - healthBoxes.takenOut.filled;
-    } else {
-      healthBoxes.takenOut.extra = takenOutNum - this.actor.data.data.healthboxes.tak.value;
-      healthBoxes.takenOut.filled = takenOutNum - healthBoxes.takenOut.extra;
-      healthBoxes.takenOut.empty = 0;
-    }
-*/
-/*
-    console.log("healthboxes:");
-    console.log(healthBoxes);
-*/
-
-
 
     // Iterate through items, allocating to containers
     for (let i of sheetData.items) {
@@ -493,26 +295,6 @@ if (content.style.maxHeight){
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-
-/* Remove - now handled by _render
-    if (this.options.collapsedHeaders !== null) {
-      for (let c of this.options.collapsedHeaders) {
-        var cElement = html.find("#"+c);
-        cElement.addClass("collapsible-active");
-      }
-    }
-
-    if (this.options.collapsedContent !== null) {
-      for (let c of this.options.collapsedContent) {
-        var cElement = html.find("#"+c);
-        cElement.addClass("collapsible-content-active");
-        console.log("cElement");
-        console.log(cElement);
-        cElement[0].style.maxHeight = cElement[0].scrollHeight + "px";
-      }
-    }
-*/
-
     html.find('.collapsible').click(event => {
       const collapsibleElement = event.currentTarget;
       /*
@@ -522,34 +304,7 @@ if (content.style.maxHeight){
       */
       collapsibleElement.classList.toggle("collapsible-active");
       collapsibleElement.nextElementSibling.classList.toggle("collapsible-content-active");
-
-/*
-      var content = collapsibleElement.nextElementSibling;
-      if (content.style.maxHeight){
-        content.classList.toggle("collapsible-content-active");
-        content.style.maxHeight = null;
-      } else {
-        content.classList.toggle("collapsible-content-active");
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-*/
       this._saveToggleStates();
-
-/* Remove, handled by _render
-      if (this.options.collapsedHeaders.includes(event.currentTarget.id)) {
-		  // if IF is true, remove header & content from options
-        this.options.collapsedHeaders = this.options.collapsedHeaders.filter((sectionName) => sectionName !== event.currentTarget.id);
-        this.options.collapsedContent = this.options.collapsedContent.filter((sectionName) => sectionName !== event.currentTarget.id);
-      } else {
-		  // otherwise, add it
-        this.options.collapsedHeaders.push(event.currentTarget.id);
-        this.options.collapsedContent.push(content.id);
-      }
-
-      console.log("collapsedHeaders", this.options.collapsedHeaders);
-      console.log("collapsedContent", this.options.collapsedContent);
-*/
-
     });
 
     // Return a value by putting together two pieces of a variable name.
@@ -641,9 +396,6 @@ if (content.style.maxHeight){
         default: 'Yes'
       });
       deleteConfirm.render(true);
-
-      // this.actor.deleteOwnedItem(li.data("itemId"));
-      // li.slideUp(200, () => this.render(false));
     });
 
     // Delete Saved Roll
@@ -679,35 +431,18 @@ if (content.style.maxHeight){
     /* Original roll code, before checking for saved roll info */
     html.find('.rollable').click(this._onRoll.bind(this));
 
-    // Test Button, for testing & debugging
-    // html.find('.testButton').click(this._testButton.bind(this));
-    /* Old Test form - for Dialog
-    html.find('.testButton').click(ev => {
-      rollForm(this.actor, null, ev);
-    });
-    */
     // New Test, for FormApplication
     html.find('.testButton').click(ev => {
-      /*
-      const rollForm = new RollForm(this.actor, {event:ev});
-      rollForm.render(true);*/
+
       new RollForm(this.actor, {event:ev}).render(true);
     });
 
-/*
-    html.find('.rollable').click(ev => {
-      console.log(ev);
-      let passElements = {};
-      if (ev.currentTarget.classList.contains("saved-roll")) {
-        passElements = this.actor.data.data.savedRolls[event.currentTarget.id].elements;
-        console.log("Elements found: ", passElements);
-      }
-      let rollFunction = this._onRoll.bind(this);
-      rollFunction(passElements);
-      // this._onRoll.bind(this, {ev, passElements});
-      console.log("Roll Listener Complete");
+    // Set InitRoll
+    html.find('.selectDIRoll').change(ev => {
+      let rValue = ev.currentTarget.value;
+      let aID = this.actor.id;
+      game.actors.get(aID).update({data.initiativeRollID: rValue});
     });
-*/
 
     // Drag events for macros.
     // if (this.actor.owner) {
@@ -779,18 +514,7 @@ if (content.style.maxHeight){
 
       // pop-out new condition, bypass normal process
       delete itemData.data["type"];
-      // let newItem = await this.actor.createOwnedItem(itemData);
-      // console.log(this.actor);
-      // console.log(itemData);
-      // let newItem = await this.actor.createEmbeddedDocuments('Item', [itemData.toObject()]);
-      // let newItem = await this.actor.createEmbeddedDocuments('Item', [itemData]);
-      // console.log("-------> Injury Creation <--------------");
-      // console.log(this.actor);
-      // console.log(newItem);
-      // let createdItem = this.actor.items.get(newItem._id);
-      // createdItem.sheet.render(true);
 
-      // await newItem.sheet.render(true);
 
       this.actor.createEmbeddedDocuments('Item', [itemData], { renderSheet: true });
 
