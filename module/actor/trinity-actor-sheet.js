@@ -658,8 +658,8 @@ if (content.style.maxHeight){
           Yes: {
             icon: '<i class="fa fa-check"></i>',
             label: "Yes",
-            callback: dlg => {
-              this.actor.update({[rollDeleteString]: null});
+            callback: async dlg => {
+              await this.actor.update({[rollDeleteString]: null});
 
             }
           },
