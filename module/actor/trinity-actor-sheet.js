@@ -439,9 +439,11 @@ export class TrinityActorSheet extends ActorSheet {
 
     // Set InitRoll
     html.find('.selectDIRoll').change(ev => {
+      console.log("Init Roll Changed:", ev);
       let rValue = ev.currentTarget.value;
       let aID = this.actor.id;
-      game.actors.get(aID).update({"data.initiativeRollID": rValue});
+      this.actor.data.data.initiativeRollID = rValue;
+      // game.actors.get(aID).update({"data.initiativeRollID": rValue});
     });
 
     // Drag events for macros.
