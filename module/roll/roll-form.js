@@ -28,6 +28,8 @@ export class RollForm extends FormApplication {
     console.log("RollForm Constructor this: ", this);
     console.log("RollForm Constructor Actor: ", actor);
     console.log("RollForm Object Pre-Check: ", object);
+    this.actor = actor;
+    this.itemList = [];
     if (typeof object === 'undefined' || object === null) {
       // this.object = JSON.parse(JSON.stringify(rollDataTemplate));
       this.object = this._rollDataTemplate();
@@ -38,8 +40,6 @@ export class RollForm extends FormApplication {
     } else {
       this.object = object;
     }
-    this.actor = actor;
-    this.itemList = [];
     console.log("RollForm Object Post-Check this: ", this);
   }
 
