@@ -811,9 +811,10 @@ if (content.style.maxHeight){
     console.log(event);
     event.preventDefault();
     if (event.currentTarget.classList.contains("saved-roll")) {
-      let passElements = this.actor.data.data.savedRolls[event.currentTarget.dataset.rollid].elements;
-      console.log("Elements found: ", passElements);
-      trinityRoll(this.actor, passElements, event);
+      let rollData = this.actor.data.data.savedRolls[event.currentTarget.dataset.rollid];
+      console.log("rollData found: ", rollData);
+      // trinityRoll(this.actor, passElements, event);
+      new RollForm(this.actor, {event:event}, rollData).render(true);
     } else {
       // trinityRoll(this.actor, null, event);
       new RollForm(this.actor, {event:event}, null, event.currentTarget.id).render(true);
