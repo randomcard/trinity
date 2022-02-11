@@ -439,7 +439,12 @@ if (content.style.maxHeight){
       if (i.type === 'bond') { bonds.push(i); }
       if (i.type === 'mode') { modes.push(i); }
       if (i.type === 'quantumPower') { quantumPowers.push(i); }
-      if (i.type === 'attribute') { attributes.push(i); }
+      if (i.type === 'attribute') {
+        attributes.push(i);
+        attributes.sort(function(a, b) {
+          return a.sortNum - b.sortNum;
+        });
+      }
       allItems.push(i);
 
     }
@@ -468,6 +473,7 @@ if (content.style.maxHeight){
     actorData.modes = modes;
     actorData.quantumPowers = quantumPowers;
     actorData.attributes = attributes;
+
 
     if (typeof actorData.allItemsFilter === 'undefined') {
       actorData.allItemsFilter = "";
