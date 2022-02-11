@@ -66,7 +66,7 @@ export class TrinityCombat extends Combat
 
         roll.toMessage({
           speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-          flavor: `Initiative Roll:<br>` + p.flavor;
+          flavor: `Initiative Roll:<br>` + p.flavor,
           content: `${await roll.render()}` + compList
         });
 
