@@ -36,7 +36,8 @@ export class TrinityCombat extends Combat
         let breaker = p.diceTotal * 0.01;
         let rollFormula = `(${p.formula})*${breaker}`;
 
-        const roll = game.trinity.TRoll.create(rollFormula, {}, {}, p.enha.value);
+        // const roll = game.trinity.TRoll.create(rollFormula, {}, {}, p.enha.value);
+        let roll = new Roll(rollFormula);
         await roll.evaluate({async: true});
 
         updates.push({
@@ -62,7 +63,7 @@ export class TrinityCombat extends Combat
               }
             }
 
-        let roll = new Roll(rollFormula);
+
         roll.toMessage({
           speaker: ChatMessage.getSpeaker({ actor: this.actor }),
           flavor: `Initiative Roll:<br>` + p.flavor;
