@@ -291,7 +291,8 @@ export class RollForm extends FormApplication {
         nsca : this.actor.data.data.rollSettings.nsca.value, // Narrative Scale (Absolute)
         dsca : this.actor.data.data.rollSettings.dsca.value, // Dramatic Scale (Difference)
         init : false // For Compatibility
-      }
+      },
+      favorite : false
     };
   }
 
