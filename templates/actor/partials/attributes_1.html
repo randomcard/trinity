@@ -9,3 +9,14 @@
   </div>
   {{/each}}
 </div>
+
+<h2>Old Attributes</h2>
+<div class="attributes grid grid-3row">
+  {{#each actor.data.data.attributes as |attribute key|}}
+  <div class="flexcol flex-group-center rollable boxed" data-attrname="{{attribute.name}}" id="{{key}}">
+    <span class="resource-label"> {{attribute.name}} </span>
+    <span class="icons"> {{{toDots attribute.value}}} </span>
+    <span class="small-note"> {{attribute.approach}} - {{attribute.arena}} </span>
+  </div>
+  {{/each}}
+</div>
