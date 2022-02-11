@@ -5,7 +5,7 @@
 <select id="selectDIRoll" name="data.initiativeRollID" data-dtype="String">
   {{#select data.data.initiativeRollID}}
   <option value="">None Selected</option>
-  {{#each this.actor.data.data.savedRolls as |iRoll key|}}
+  {{#each this.actor.initRolls as |iRoll key|}}
     <option value="{{iRoll}}">{{{lookupSavedRoll iRoll ../this}}}</option>
   {{/each}}
   {{/select}}

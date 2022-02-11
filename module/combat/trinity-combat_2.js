@@ -32,9 +32,9 @@ export class TrinityCombat extends Combat
       } else {
 
       // Actors w/ an initiative roll selected
-        let p = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID];
-        let breaker = p.diceTotal * 0.01;
-        let rollFormula = `(${p.formula})*${breaker}`;
+        let p = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].elements;
+        let breaker = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].dice;
+        let rollFormula = `(((${p.skil.value}+${p.attr.value})d10x>=${p.expl.value}cs>=${p.succ.value})*${p.nsca.value})+((${p.skil.value}+${p.attr.value})*0.01)`;
 
         const roll = game.trinity.TRoll.create(rollFormula, {}, {}, p.enha.value);
         await roll.evaluate({async: true});
@@ -62,10 +62,10 @@ export class TrinityCombat extends Combat
               }
             }
 
-        let roll = new Roll(rollFormula);
-        roll.toMessage({
-          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-          flavor: `Initiative Roll:<br>` + p.flavor;
+        // Construct chat message data
+        ChatMessage.create({
+          speaker: ChatMessage.getSpeaker({ actor: combatant.actor }),
+          flavor: "Initiative Roll:<br>" + [p.skil.name, p.attr.name, p.enha.name].join(' • '),
           content: `${await roll.render()}` + compList
         });
 
