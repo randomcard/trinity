@@ -227,10 +227,12 @@ Hooks.once('init', async function() {
     return boxes;
 	});
 
+/* No longer needed
   Handlebars.registerHelper('lookupSavedRoll', function(rollID, context) {
     let name = context.actor.data.data.savedRolls[rollID].name;
     return name;
 	});
+*/
 
   Handlebars.registerHelper('uniqueTypes', function(items) {
     let types = [];
