@@ -438,13 +438,15 @@ export class TrinityActorSheet extends ActorSheet {
     });
 
     // Set InitRoll
+    /*
     html.find('.selectDIRoll').change(ev => {
       console.log("Init Roll Changed:", ev);
       let rValue = ev.currentTarget.value;
       let aID = this.actor.id;
       this.actor.data.data.initiativeRollID = rValue;
-      // game.actors.get(aID).update({"data.initiativeRollID": rValue});
+      game.actors.get(aID).update({"data.initiativeRollID": rValue});
     });
+    */
 
     // Drag events for macros.
     // if (this.actor.owner) {
