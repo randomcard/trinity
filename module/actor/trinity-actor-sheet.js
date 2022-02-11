@@ -440,9 +440,10 @@ if (content.style.maxHeight){
       if (i.type === 'mode') { modes.push(i); }
       if (i.type === 'quantumPower') { quantumPowers.push(i); }
       if (i.type === 'attribute') {
+        if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
         attributes.push(i);
         attributes.sort(function(a, b) {
-          return a.sortNum - b.sortNum;
+          return a.data.sortNum - b.data.sortNum;
         });
       }
       allItems.push(i);
