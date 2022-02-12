@@ -16,6 +16,7 @@
         },
         "savedRolls": {},
         "initiativeRollID" : "",
+        "linkedRolls" : {},
         "tier" : 2,
         "rollSettings" : {
           "expl" : {

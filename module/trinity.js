@@ -10,6 +10,7 @@ import { TRoll } from "./roll/troll.js";
 import { OverviewApp } from "./overview/overview.js"; // Overview App
 import { TrinityCombat } from "./combat/trinity-combat.js"; // Custom Combat Class
 import { loadTrinityTemplates } from "./core/templates.js"; // HTML Templates
+import { handlebarHelpers } from "./core/handlebar-helpers.js"; // Handlebar Helpers
 
 // Overview
 let overview;
@@ -115,6 +116,9 @@ Hooks.once('init', async function() {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("trinity", TrinityItemSheet, { makeDefault: true });
 
+  handlebarHelpers();
+
+  /*
   // If you need to add Handlebars helpers, here are a few useful examples:
   Handlebars.registerHelper('concat', function() {
     var outStr = '';
@@ -129,12 +133,6 @@ Hooks.once('init', async function() {
   Handlebars.registerHelper('toLowerCase', function(str) {
     return str.toLowerCase();
   });
-
-/* Not used now, fixed template
-  Handlebars.registerHelper('varToString', function(v) {
-    return Object.keys({v})[0];
-  });
-*/
 
   // From Party-Overview
   Handlebars.registerHelper("ifEquals", function (arg1, arg2, options) {
@@ -228,13 +226,6 @@ Hooks.once('init', async function() {
     return boxes;
 	});
 
-/* No longer needed
-  Handlebars.registerHelper('lookupSavedRoll', function(rollID, context) {
-    let name = context.actor.data.data.savedRolls[rollID].name;
-    return name;
-	});
-*/
-
   Handlebars.registerHelper('uniqueTypes', function(items) {
     let types = [];
     for (let i of items) {
@@ -255,6 +246,7 @@ Hooks.once('init', async function() {
       return (visible+end);
     }
 	});
+  */
 
 });
 
