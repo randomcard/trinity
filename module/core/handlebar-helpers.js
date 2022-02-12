@@ -148,6 +148,13 @@ export function handlebarHelpers() {
     let rollName = "No Roll Linked";
     let rollData = {};
     let linkedRoll = "";
+
+    let refPath = targetActor.data.data.linkedRolls;
+    let refSplit = ref.split('.');
+    for(var i = 0; i < refSplit.length; i++) {
+      refPath = refPath[refSplit[i]];
+    }
+
     // check if ref is an actor quality or an item
     if (typeof targetActor.items.get(ref) !== "undefined") {isItem = true;}
     // Check for existing linkage
@@ -156,6 +163,7 @@ export function handlebarHelpers() {
     console.log("check for linkage, this", this);
     console.log("check for linkage, targetActor.data.data.linkedRolls", targetActor.data.data.linkedRolls);
     console.log("check for linkage, Item/Actor", isItem, targetActor.data.data.linkedRolls[ref]);
+    console.log("check for linkage, refPath", refPath);
     if (!isItem) {
       if (typeof targetActor.data.data.linkedRolls[ref] !== "undefined") {
         linkedRoll = targetActor.data.data.linkedRolls[ref];
