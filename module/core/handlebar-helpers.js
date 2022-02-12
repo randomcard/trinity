@@ -168,12 +168,13 @@ export function handlebarHelpers() {
 
     //build option list
     let optionHTML = "";
-    for (let sRoll of Object.keys(targetActor.data.data.savedRolls)) {
+    // for (let sRoll of Object.keys(targetActor.data.data.savedRolls)) {
+    for (const [key, sRoll] of Object.entries(targetActor.data.data.savedRolls)) {
       let selected = "";
       // let sRollKey = Object.keys({sRoll})[0];
-      let sRollKey = Object.keys(targetActor.data.data.savedRolls[sRoll]);
-      if (sRollKey === linkedRoll) {selected = "selected"}
-      optionHTML += `<option value="${sRollKey}" ${selected}>${targetActor.data.data.savedRolls[sRoll].name}</option>`;
+      // let sRollKey = Object.keys(targetActor.data.data.savedRolls[sRoll]);
+      if (key === linkedRoll) {selected = "selected"}
+      optionHTML += `<option value="${key}" ${selected}>${targetActor.data.data.savedRolls[sRoll].name}</option>`;
     }
 
     let html =
@@ -191,7 +192,7 @@ export function handlebarHelpers() {
       </div>
       <div class="chip-content chip-change">
         <label class="chip-select resource-label" for="chip-select">Link Roll: </label>
-        <select class="chip-select" id="chip-select" name="data.linkedRollID" data-dtype="String">
+        <select class="chip-select" id="chip-select" name="data.linkedRolls" data-dtype="String">
           <option value="">None Selected</option>
           ${optionHTML}
         </select>
