@@ -147,16 +147,19 @@ export function handlebarHelpers() {
     let isLinked = false;
     let rollName = "No Roll Linked";
     let rollData = {};
+    let linkedRoll = "";
     // check if ref is an actor quality or an item
     if (typeof targetActor.items.get(ref) !== "undefined") {isItem = true;}
     // Check for existing linkage
     if (!isItem) {
       if (typeof targetActor.data.data.linkedRolls[ref] !== "undefined") {
+        linkedRoll = targetActor.data.data.linkedRolls[ref];
         isLinked = true;
         rollData = targetActor.data.data.savedRolls[targetActor.data.data.linkedRolls[ref]];
       }
     } else {
       if (typeof targetActor.items[ref].data.data.linkedRollID !== "undefined") {
+        linkedRoll = targetActor.items[ref].data.data.linkedRollID;
         isLinked = true;
         rollData = targetActor.data.data.savedRolls[targetActor.items[ref].data.data.linkedRollID];
       }
@@ -167,8 +170,9 @@ export function handlebarHelpers() {
     let optionHTML = "";
     for (let sRoll of Object.keys(targetActor.data.data.savedRolls)) {
       let selected = "";
-      let sRollKey = Object.keys({sRoll})[0];
-      if (sRollKey === Object.keys({rollData})[0]) {selected = "selected"}
+      // let sRollKey = Object.keys({sRoll})[0];
+      let sRollKey = Object.keys(targetActor.data.data.savedRolls[sRoll]);
+      if (sRollKey === linkedRoll) {selected = "selected"}
       optionHTML += `<option value="${sRollKey}" ${selected}>${targetActor.data.data.savedRolls[sRoll].name}</option>`;
     }
 
