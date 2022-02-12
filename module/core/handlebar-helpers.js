@@ -140,5 +140,67 @@ export function handlebarHelpers() {
       return (visible+end);
     }
   });
-  
+
+  Handlebars.registerHelper('createChip', function(actorID, ref) {
+    let targetActor = game.actors.get(actorID);
+    let isItem = false;
+    let isLinked = false;
+    let rollName = "No Roll Linked";
+    let rollData = {};
+    // check if ref is an actor quality or an item
+    if (typeof targetActor.items.get(ref) !== "undefined") {isItem = true;}
+    // Check for existing linkage
+    if (!isItem) {
+      if (typeof targetActor.data.data.linkedRolls[ref] !== "undefined") {
+        isLinked = true;
+        rollData = targetActor.data.data.savedRolls[targetActor.data.data.linkedRolls[ref]];
+      }
+    } else {
+      if (typeof targetActor.items[ref].data.data.linkedRollID !== "undefined") {
+        isLinked = true;
+        rollData = targetActor.data.data.savedRolls[targetActor.items[ref].data.data.linkedRollID];
+      }
+    }
+    if (isLinked) {rollName = rollData.name;}
+
+    //build option list
+    let optionHTML = "";
+    for (let sRoll of targetActor.data.data.savedRolls) {
+      let selected = "";
+      let sRollKey = Object.keys({sRoll})[0];
+      if (sRollKey === Object.keys({rollData})[0]) {selected = "selected"}
+      optionHTML += `<option value="${sRollKey}" ${selected}>${sRoll.name}</option>`;
+    }
+
+    let html =
+    `<div class="chip">
+      <div class="chip-head">
+        <i class="fas fa-dice">
+      </div>
+      <div class="chip-content chip-view">
+        <div class="chip-roll-name" id="${ref}">
+          ${rollName}
+        </div>
+        <div class="chip-link">
+          <i class="fas fa-link">
+        </div>
+      </div>
+      <div class="chip-content chip-change">
+        <label class="chip-select resource-label" for="chip-select">Link Roll: </label>
+        <select class="chip-select" id="chip-select" name="data.linkedRollID" data-dtype="String">
+          {{#select data.linkedRollID}}
+          <option value="">None Selected</option>
+          ${optionHTML}
+          {{/select}}
+        </select>
+        <div class="chip-save">
+          <i class="fas fa-save">
+        </div>
+      </div>
+    </div>`
+    ;
+
+    return html;
+  });
+
 }
