@@ -152,7 +152,7 @@ export function handlebarHelpers() {
     if (typeof targetActor.items.get(ref) !== "undefined") {isItem = true;}
     // Check for existing linkage
     if (!isItem) {
-      if (typeof targetActor.data.data.linkedRolls[ref].value !== "undefined") {
+      if (typeof targetActor.data.data.linkedRolls[ref] !== "undefined") {
         linkedRoll = targetActor.data.data.linkedRolls[ref].value;
         isLinked = true;
         rollData = targetActor.data.data.savedRolls[targetActor.data.data.linkedRolls[ref].value];
@@ -173,6 +173,7 @@ export function handlebarHelpers() {
       let selected = "";
       // let sRollKey = Object.keys({sRoll})[0];
       // let sRollKey = Object.keys(targetActor.data.data.savedRolls[sRoll]);
+      console.log("option/select loop", key, linkedRoll);
       if (key === linkedRoll) {selected = "selected"}
       optionHTML += `<option value="${key}" ${selected}>${targetActor.data.data.savedRolls[key].name}</option>`;
     }
