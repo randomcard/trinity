@@ -165,11 +165,10 @@ export function handlebarHelpers() {
 
     //build option list
     let optionHTML = "";
-    for (let sRoll of targetActor.data.data.savedRolls) {
+    for (let sRoll of Object.keys(targetActor.data.data.savedRolls)) {
       let selected = "";
-      let sRollKey = Object.keys({sRoll})[0];
-      if (sRollKey === Object.keys({rollData})[0]) {selected = "selected"}
-      optionHTML += `<option value="${sRollKey}" ${selected}>${sRoll.name}</option>`;
+      if (sRoll === Object.keys({rollData})[0]) {selected = "selected"}
+      optionHTML += `<option value="${sRoll}" ${selected}>${targetActor.data.data.savedRolls[sRoll]}</option>`;
     }
 
     let html =
