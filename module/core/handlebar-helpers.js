@@ -153,6 +153,7 @@ export function handlebarHelpers() {
     // Check for existing linkage
     console.log("check for linkage, ref", ref);
     console.log("check for linkage, actor", targetActor);
+    console.log("check for linkage, this", this);
     console.log("check for linkage, targetActor.data.data.linkedRolls", targetActor.data.data.linkedRolls);
     console.log("check for linkage, Item/Actor", isItem, targetActor.data.data.linkedRolls[ref]);
     if (!isItem) {
@@ -178,7 +179,7 @@ export function handlebarHelpers() {
       // let sRollKey = Object.keys({sRoll})[0];
       // let sRollKey = Object.keys(targetActor.data.data.savedRolls[sRoll]);
       console.log("option/select loop", key, linkedRoll);
-      if (key === linkedRoll) {selected = "selected"}
+      if (key === linkedRoll) {selected = "selected";}
       optionHTML += `<option value="${key}" ${selected}>${targetActor.data.data.savedRolls[key].name}</option>`;
     }
 
