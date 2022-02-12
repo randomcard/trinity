@@ -175,6 +175,33 @@ export function handlebarHelpers() {
     let html =
     `<div class="chip">
       <div class="chip-head">
+        D
+      </div>
+      <div class="chip-content chip-view">
+        <div class="chip-roll-name" id="${ref}">
+          ${rollName}
+        </div>
+        <div class="chip-link">
+          L
+        </div>
+      </div>
+      <div class="chip-content chip-change">
+        <label class="chip-select resource-label" for="chip-select">Link Roll: </label>
+        <select class="chip-select" id="chip-select" name="data.linkedRollID" data-dtype="String">
+          <option value="">None Selected</option>
+          ${optionHTML}
+        </select>
+        <div class="chip-save">
+          S
+        </div>
+      </div>
+    </div>`
+    ;
+
+    /*
+    let html =
+    `<div class="chip">
+      <div class="chip-head">
         <i class="fas fa-dice" />
       </div>
       <div class="chip-content chip-view">
@@ -197,6 +224,7 @@ export function handlebarHelpers() {
       </div>
     </div>`
     ;
+    */
 
     return html;
   });
