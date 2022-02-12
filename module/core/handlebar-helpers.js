@@ -142,7 +142,7 @@ export function handlebarHelpers() {
   });
 
   Handlebars.registerHelper('createChip', function(actorID, ref) {
-    let targetActor = game.actors.get(actorID);
+    let targetActor = this.actor;
     let isItem = false;
     let isLinked = false;
     let rollName = "No Roll Linked";
