@@ -182,7 +182,7 @@ export function handlebarHelpers() {
           ${rollName}
         </div>
         <div class="chip-link">
-          L
+          <i class="fas fa-link"></i>
         </div>
       </div>
       <div class="chip-content chip-change">
@@ -192,39 +192,11 @@ export function handlebarHelpers() {
           ${optionHTML}
         </select>
         <div class="chip-save">
-          S
+          <i class="fas fa-save"></i>
         </div>
       </div>
     </div>`
     ;
-
-    /*
-    let html =
-    `<div class="chip">
-      <div class="chip-head">
-        <i class="fas fa-dice" />
-      </div>
-      <div class="chip-content chip-view">
-        <div class="chip-roll-name" id="${ref}">
-          ${rollName}
-        </div>
-        <div class="chip-link">
-          <i class="fas fa-link" />
-        </div>
-      </div>
-      <div class="chip-content chip-change">
-        <label class="chip-select resource-label" for="chip-select">Link Roll: </label>
-        <select class="chip-select" id="chip-select" name="data.linkedRollID" data-dtype="String">
-          <option value="">None Selected</option>
-          ${optionHTML}
-        </select>
-        <div class="chip-save">
-          <i class="fas fa-save" />
-        </div>
-      </div>
-    </div>`
-    ;
-    */
 
     return html;
   });

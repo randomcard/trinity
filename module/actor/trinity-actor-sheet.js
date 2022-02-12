@@ -120,6 +120,7 @@ export class TrinityActorSheet extends ActorSheet {
     const data = super.getData();
     data.dtypes = ["String", "Number", "Boolean"];
     this._prepareTrinityCharacterItems(data);
+    console.log("getData -----", data);
     return data;
   }
 
