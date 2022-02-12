@@ -175,14 +175,14 @@ export function handlebarHelpers() {
     let html =
     `<div class="chip">
       <div class="chip-head">
-        <i class="fas fa-dice">
+        <i class="fas fa-dice" />
       </div>
       <div class="chip-content chip-view">
         <div class="chip-roll-name" id="${ref}">
           ${rollName}
         </div>
         <div class="chip-link">
-          <i class="fas fa-link">
+          <i class="fas fa-link" />
         </div>
       </div>
       <div class="chip-content chip-change">
@@ -192,7 +192,7 @@ export function handlebarHelpers() {
           ${optionHTML}
         </select>
         <div class="chip-save">
-          <i class="fas fa-save">
+          <i class="fas fa-save" />
         </div>
       </div>
     </div>`
