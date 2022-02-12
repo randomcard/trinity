@@ -171,7 +171,7 @@ export function handlebarHelpers() {
         isLinked = true;
         rollData = targetActor.data.data.savedRolls[refPath];
       }
-    } else {
+    } else if (isItem) {
       if (typeof targetActor.items[ref].data.data.linkedRollID !== "undefined") {
         linkedRoll = targetActor.items[ref].data.data.linkedRollID;
         isLinked = true;
