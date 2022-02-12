@@ -169,12 +169,12 @@ export function handlebarHelpers() {
     //build option list
     let optionHTML = "";
     // for (let sRoll of Object.keys(targetActor.data.data.savedRolls)) {
-    for (const [key, sRoll] of Object.entries(targetActor.data.data.savedRolls)) {
+    for (const [key, value] of Object.entries(targetActor.data.data.savedRolls)) {
       let selected = "";
       // let sRollKey = Object.keys({sRoll})[0];
       // let sRollKey = Object.keys(targetActor.data.data.savedRolls[sRoll]);
       if (key === linkedRoll) {selected = "selected"}
-      optionHTML += `<option value="${key}" ${selected}>${targetActor.data.data.savedRolls[sRoll].name}</option>`;
+      optionHTML += `<option value="${key}" ${selected}>${targetActor.data.data.savedRolls[key].name}</option>`;
     }
 
     let html =
