@@ -175,7 +175,7 @@ export function handlebarHelpers() {
     let html =
     `<div class="chip">
       <div class="chip-head">
-        D
+        <i class="fas fa-dice"></i>
       </div>
       <div class="chip-content chip-view">
         <div class="chip-roll-name" id="${ref}">
