@@ -151,6 +151,7 @@ export function handlebarHelpers() {
     // check if ref is an actor quality or an item
     if (typeof targetActor.items.get(ref) !== "undefined") {isItem = true;}
     // Check for existing linkage
+    console.log("check for linkage, ref", ref);
     console.log("check for linkage, Item/Actor", isItem, targetActor.data.data.linkedRolls[ref]);
     if (!isItem) {
       if (typeof targetActor.data.data.linkedRolls[ref] !== "undefined") {
