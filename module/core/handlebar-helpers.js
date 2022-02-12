@@ -198,7 +198,7 @@ export function handlebarHelpers() {
         `<div class="chip-roll-name" id="${ref}">`
     } else {
       rollNameDiv +=
-        `<div class="chip-roll-name rollable" id="${ref}" data-rollID="${linkKey}">`
+        `<div class="chip-roll-name saved-roll rollable" id="${ref}" data-rollID="${linkKey}">`
     }
 
     let html =
