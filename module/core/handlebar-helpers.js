@@ -207,7 +207,7 @@ export function handlebarHelpers() {
         <i class="fas fa-dice"></i>
       </div>
       <div class="chip-content chip-view">
-        <div class="chip-roll-name" id="${ref}">
+        ${rollNameDiv}
           ${rollName}
         </div>
         <div class="chip-link">
