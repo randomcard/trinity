@@ -40,7 +40,8 @@ export class TrinityActorSheet extends ActorSheet {
 
     this.toggleStates = {
       headers : [],
-      content : []
+      content : [],
+      chipContent : []
     };
 
     // Headers
@@ -53,6 +54,12 @@ export class TrinityActorSheet extends ActorSheet {
     let contentItems = $(html.find(".collapsible-content"));
     for (let item of contentItems) {
       this.toggleStates.content.push($(item).hasClass("collapsible-content-active"));
+    }
+
+    // Chip-Content
+    let chipItems = $(html.find(".chip-content"));
+    for (let item of chipItems) {
+      this.toggleStates.chipContent.push($(item).hasClass("chip-hidden"));
     }
 
     console.log("_saveToggleStates:",this.toggleStates);
@@ -80,6 +87,16 @@ export class TrinityActorSheet extends ActorSheet {
           $(contentItems[i]).addClass("collapsible-content-active");
         } else {
           $(contentItems[i]).removeClass("collapsible-content-active");
+        }
+      }
+
+      // Chip-Content
+      let chipItems = $(html.find(".chip-content"));
+      for (let i = 0; i < chipItems.length; i++) {
+        if (this.toggleStates.content[i]) {
+          $(chipItems[i]).addClass("chip-hidden");
+        } else {
+          $(chipItems[i]).removeClass("chip-hidden");
         }
       }
 
@@ -307,6 +324,20 @@ export class TrinityActorSheet extends ActorSheet {
       */
       collapsibleElement.classList.toggle("collapsible-active");
       collapsibleElement.nextElementSibling.classList.toggle("collapsible-content-active");
+      this._saveToggleStates();
+    });
+
+    html.find('.chip-control').click(event => {
+      // const collapsibleElement = event.currentTarget;
+      event.currentTarget.previousElementSibling.classList.toggle("chip-hidden");
+      event.currentTarget.previousElementSibling.previousElementSibling.classList.toggle("chip-hidden");
+      /*
+      console.log("Collapsible Listener, HTML.find style. event:", event);
+      console.log("Collapsible Listener, HTML.find style. this:", this);
+      console.log("Collapsible Listener, HTML.find style. collapsibleElement:", collapsibleElement);
+      */
+      //collapsibleElement.classList.toggle("collapsible-active");
+      //collapsibleElement.nextElementSibling.classList.toggle("collapsible-content-active");
       this._saveToggleStates();
     });
 

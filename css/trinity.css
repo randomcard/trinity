@@ -786,3 +786,6 @@ input[type="text"].on-dark, input[type="number"].on-dark {
     padding-left: 12px;
     padding-right: 12px;
 }
+.chip-hidden{
+  display: none;
+}

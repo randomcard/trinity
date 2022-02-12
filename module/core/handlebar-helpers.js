@@ -210,19 +210,16 @@ export function handlebarHelpers() {
         ${rollNameDiv}
           ${rollName}
         </div>
-        <div class="chip-link">
-          <i class="fas fa-link"></i>
-        </div>
       </div>
-      <div class="chip-content chip-change">
+      <div class="chip-content chip-change chip-hidden">
         <label class="chip-select resource-label" for="chip-select">Link Roll: </label>
         <select class="chip-select" id="chip-select" name="data.linkedRolls.${ref}" data-dtype="String">
           <option value="">None Selected</option>
           ${optionHTML}
         </select>
-        <div class="chip-save">
-          <i class="fas fa-save"></i>
-        </div>
+      </div>
+      <div class="chip-control">
+        <i class="fas fa-link"></i>
       </div>
     </div>`
     ;
