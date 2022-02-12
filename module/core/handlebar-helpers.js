@@ -152,7 +152,8 @@ export function handlebarHelpers() {
     if (typeof targetActor.items.get(ref) !== "undefined") {isItem = true;}
     // Check for existing linkage
     console.log("check for linkage, ref", ref);
-    console.log("check for linkage, Item/Actor", targetActor.data.data.linkedRolls);
+    console.log("check for linkage, actor", targetActor);
+    console.log("check for linkage, targetActor.data.linkedRolls", targetActor.data.linkedRolls);
     console.log("check for linkage, Item/Actor", isItem, targetActor.data.data.linkedRolls[ref]);
     if (!isItem) {
       if (typeof targetActor.data.data.linkedRolls[ref] !== "undefined") {
