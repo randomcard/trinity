@@ -153,13 +153,13 @@ export function handlebarHelpers() {
     // Check for existing linkage
     console.log("check for linkage, ref", ref);
     console.log("check for linkage, actor", targetActor);
-    console.log("check for linkage, targetActor.data.linkedRolls", targetActor.data.linkedRolls);
+    console.log("check for linkage, targetActor.data.data.linkedRolls", targetActor.data.data.linkedRolls);
     console.log("check for linkage, Item/Actor", isItem, targetActor.data.data.linkedRolls[ref]);
     if (!isItem) {
       if (typeof targetActor.data.data.linkedRolls[ref] !== "undefined") {
-        linkedRoll = targetActor.data.data.linkedRolls[ref].value;
+        linkedRoll = targetActor.data.data.linkedRolls[ref];
         isLinked = true;
-        rollData = targetActor.data.data.savedRolls[targetActor.data.data.linkedRolls[ref].value];
+        rollData = targetActor.data.data.savedRolls[targetActor.data.data.linkedRolls[ref]];
       }
     } else {
       if (typeof targetActor.items[ref].data.data.linkedRollID !== "undefined") {
