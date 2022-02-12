@@ -153,9 +153,9 @@ export function handlebarHelpers() {
     // Check for existing linkage
     if (!isItem) {
       if (typeof targetActor.data.data.linkedRolls[ref] !== "undefined") {
-        linkedRoll = targetActor.data.data.linkedRolls[ref];
+        linkedRoll = targetActor.data.data.linkedRolls[ref].value;
         isLinked = true;
-        rollData = targetActor.data.data.savedRolls[targetActor.data.data.linkedRolls[ref]];
+        rollData = targetActor.data.data.savedRolls[targetActor.data.data.linkedRolls[ref].value];
       }
     } else {
       if (typeof targetActor.items[ref].data.data.linkedRollID !== "undefined") {
