@@ -153,7 +153,7 @@ export function handlebarHelpers() {
     let refPath = targetActor.data.data.linkedRolls;
     let refSplit = ref.split('.');
     for(var i = 0; i < refSplit.length; i++) {
-      refPath = refPath[refSplit[i]];
+      if (typeof refPath[refSplit[i]] !== "undefined") {refPath = refPath[refSplit[i]];}
     }
 
     // check if ref is an actor quality or an item
