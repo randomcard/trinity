@@ -187,10 +187,8 @@ export function handlebarHelpers() {
       <div class="chip-content chip-change">
         <label class="chip-select resource-label" for="chip-select">Link Roll: </label>
         <select class="chip-select" id="chip-select" name="data.linkedRollID" data-dtype="String">
-          {{#select data.linkedRollID}}
           <option value="">None Selected</option>
           ${optionHTML}
-          {{/select}}
         </select>
         <div class="chip-save">
           <i class="fas fa-save">
