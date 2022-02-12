@@ -9,6 +9,7 @@ import { trinityRoll } from "./trinity-roll.js";
 import { TRoll } from "./roll/troll.js";
 import { OverviewApp } from "./overview/overview.js"; // Overview App
 import { TrinityCombat } from "./combat/trinity-combat.js"; // Custom Combat Class
+import { loadTrinityTemplates } from "./core/templates.js"; // HTML Templates
 
 // Overview
 let overview;
@@ -364,7 +365,7 @@ Hooks.once( "init", function() {
 });
 
 // Templates:
-
+ /*
 async function loadTrinityTemplates()
 {
   // register templates parts
@@ -410,6 +411,7 @@ async function loadTrinityTemplates()
   ];
   return loadTemplates( templatePaths );
 }
+*/
 
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
