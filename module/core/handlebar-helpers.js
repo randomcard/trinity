@@ -148,6 +148,7 @@ export function handlebarHelpers() {
     let rollName = "No Roll Linked";
     let rollData = {};
     let linkedRoll = "";
+    let linkKey = "";
 
     // convert the ref to a complete path
     let refPath = targetActor.data.data.linkedRolls;
@@ -186,11 +187,18 @@ export function handlebarHelpers() {
     // for (let sRoll of Object.keys(targetActor.data.data.savedRolls)) {
     for (const [key, value] of Object.entries(targetActor.data.data.savedRolls)) {
       let selected = "";
-      // let sRollKey = Object.keys({sRoll})[0];
-      // let sRollKey = Object.keys(targetActor.data.data.savedRolls[sRoll]);
       console.log("option/select loop", key, linkedRoll);
-      if (key === linkedRoll) {selected = "selected";}
+      if (key === linkedRoll) {selected = "selected"; linkKey = key;}
       optionHTML += `<option value="${key}" ${selected}>${targetActor.data.data.savedRolls[key].name}</option>`;
+    }
+
+    let rollNameDiv = "";
+    if (rollData === {}) {
+      rollNameDiv +=
+        `<div class="chip-roll-name" id="${ref}">`
+    } else {
+      rollNameDiv +=
+        `<div class="chip-roll-name saved-roll" id="${ref}" data-rollID="${linkKey}">`
     }
 
     let html =
