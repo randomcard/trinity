@@ -57,10 +57,13 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
     // Chip-Content
+    /*
     let chipItems = $(html.find(".chip-content"));
     for (let item of chipItems) {
       this.toggleStates.chipContent.push($(item).hasClass("chip-hidden"));
     }
+    */
+
 
     console.log("_saveToggleStates:",this.toggleStates);
 
@@ -91,6 +94,7 @@ export class TrinityActorSheet extends ActorSheet {
       }
 
       // Chip-Content
+      /*
       let chipItems = $(html.find(".chip-content"));
       for (let i = 0; i < chipItems.length; i++) {
         if (this.toggleStates.content[i]) {
@@ -99,6 +103,7 @@ export class TrinityActorSheet extends ActorSheet {
           $(chipItems[i]).removeClass("chip-hidden");
         }
       }
+      */
 
     }
 
@@ -338,7 +343,7 @@ export class TrinityActorSheet extends ActorSheet {
       */
       //collapsibleElement.classList.toggle("collapsible-active");
       //collapsibleElement.nextElementSibling.classList.toggle("collapsible-content-active");
-      this._saveToggleStates();
+      // this._saveToggleStates();
     });
 
     // Return a value by putting together two pieces of a variable name.
