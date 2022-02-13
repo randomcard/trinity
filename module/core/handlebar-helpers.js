@@ -145,12 +145,12 @@ export function handlebarHelpers() {
 // Use on an actor sheet like: {{{createChip "data.defense.value"}}}
 // Use on an actor sheet, within an #each, like: {{{createChip this.item._id --FIGURE THIS OUT-- }}}
 // Use on an item sheet like: {{{createChip this.item._id}}}
-  Handlebars.registerHelper('createChip', function(ref, actor) {
+  Handlebars.registerHelper('createChip', function(ref, argActor) {
     console.log("createChip, this", this);
     console.log("createChip, actor", this.actor);
     let targetActor = {};
-    if (actor) {
-      targetActor = actor;
+    if (argActor) {
+      targetActor = argActor;
     } else {
       targetActor = this.actor || this.item.actor;
     }
