@@ -148,12 +148,13 @@ export function handlebarHelpers() {
   Handlebars.registerHelper('createChip', function(ref, actor) {
     console.log("createChip, this", this);
     console.log("createChip, actor", this.actor);
-    let targetActor;
+    let targetActor = {};
     if (actor) {
       targetActor = actor;
     } else {
       targetActor = this.actor || this.item.actor;
     }
+    console.log("createChip, targetActor", targetActor);
     // let targetActor = this.actor || this.item.actor;
     let isItem = false;
     let isLinked = false;
