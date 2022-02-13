@@ -79,36 +79,48 @@ export class TrinityItemSheet extends ItemSheet {
     } catch (err) {
       return false;
     }
+
     console.log(event);
     console.log(data);
-    // const actor = this.actor;
 
-    /**
-     * A hook event that fires when some useful data is dropped onto an ActorSheet.
-     * @function dropActorSheetData
-     * @memberof hookEvents
-     * @param {Actor} actor      The Actor
-     * @param {ActorSheet} sheet The ActorSheet application
-     * @param {object} data      The data that has been dropped onto the sheet
-     */
-    /*
-    const allowed = Hooks.call("dropActorSheetData", actor, this, data);
-    if ( allowed === false ) return;
-    */
-
-    // Handle different data types
-    /*
     switch ( data.type ) {
-      case "ActiveEffect":
+    /*  case "ActiveEffect":
         return this._onDropActiveEffect(event, data);
       case "Actor":
-        return this._onDropActor(event, data);
+        return this._onDropActor(event, data); */
       case "Item":
         return this._onDropItem(event, data);
       case "Folder":
         return this._onDropFolder(event, data);
     }
-    */
   }
+
+  async _onDropItem(event, data) {
+    if ( !this.item.isOwner ) return false;
+    const item = await Item.implementation.fromDropData(data);
+    const itemData = item.toObject();
+
+    // Handle item sorting within the same Actor
+    // if ( await this._isFromSameActor(data) ) return this._onSortItem(event, itemData);
+
+    // Create the owned item
+    return this._onDropItemCreate(itemData);
+  }
+
+  async _onDropFolder(event, data) {
+    if ( !this.item.isOwner ) return [];
+    if ( data.documentName !== "Item" ) return [];
+    const folder = game.folders.get(data.id);
+    if ( !folder ) return [];
+    return this._onDropItemCreate(folder.contents.map(e => e.toObject()));
+  }
+
+  async _onDropItemCreate(itemData) {
+    itemData = itemData instanceof Array ? itemData : [itemData];
+    console.log("_onDropItemCreate itemData", itemData);
+    // return this.actor.createEmbeddedDocuments("Item", itemData);
+  }
+
+
 
 }

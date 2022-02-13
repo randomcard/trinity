@@ -272,9 +272,7 @@
         },
         "defaultSkill" : "",
         "defaultAttribute" : "",
-        "linkedRollID": "",
-        "stunts" : {},
-        "tags" : {}
+        "linkedRollID": ""
       }
     },
     "item": {
