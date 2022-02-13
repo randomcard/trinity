@@ -150,7 +150,7 @@ export function handlebarHelpers() {
     console.log("createChip, actor", this.actor);
     console.log("createChip, argActor", argActor);
     let targetActor = {};
-    if (argActor) {
+    if (typeof argActor.name !== "undefined" && argActor.name === "createChip") {
       targetActor = argActor;
     } else {
       targetActor = this.actor || this.item.actor;
