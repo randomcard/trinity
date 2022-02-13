@@ -10,7 +10,19 @@ export class TrinityItemSheet extends ItemSheet {
       classes: ["trinity", "sheet", "item"],
       width: 520,
       height: 480,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs:
+      [
+        {
+        navSelector: ".sheet-tabs",
+        contentSelector: ".sheet-body",
+        initial: "description"
+        }
+      ],
+      dragDrop:
+      [
+                { dragSelector: '.item[data-item-id]', dropSelector: '.stunts' },
+                { dragSelector: '.active-effect[data-effect-id]' },
+      ]
     });
   }
 

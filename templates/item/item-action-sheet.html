@@ -1,0 +1,55 @@
+{{log "edge sheet logging, this:" this}}
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+      <div class="header-fields"> {{! Left Side of Header}}
+        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        <div class="left-vcenter"> {{! Type & Flagged Info }}
+          <span class="trait">
+            <span class="small icons">{{#if item.data.data.flags.hasDots}}{{{toDots item.data.data.value}}}{{/if}}</span>
+            {{item.data.data.typeName}}
+          </span>
+          {{! Flagged Info }}
+          {{#if item.data.data.flags.isInjury}}<span class="boxed">Injury</span>{{/if}}
+          {{#if item.data.data.flags.isComplication}}<span class="boxed">Complication</span>{{/if}}
+          {{#if item.data.data.flags.isEnhancement}}<span class="boxed">Enhancement</span>{{/if}}
+          {{#if item.data.data.flags.hasRoll}}{{{createChip this.item.id}}}{{/if}}
+        </div>
+      </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="attributes">Attributes</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Drag/Drop Test Tab: Stunts --}}
+        <div class="tab stunts" data-group="primary" data-tab="stunts">
+            TEST AREA
+            |
+            |
+            |
+            TEST AREA
+        </div>
+
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+            {{!-- As you add new fields, add them in here! --}}
+
+            {{> "systems/trinity/templates/item/partials/dots-flag.html"}}
+            {{> "systems/trinity/templates/item/partials/enhancement-flag.html"}}
+            {{> "systems/trinity/templates/item/partials/complication-flag.html"}}
+            {{> "systems/trinity/templates/item/partials/roll-flag.html"}}
+
+
+        </div>
+    </section>
+</form>
