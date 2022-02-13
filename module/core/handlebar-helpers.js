@@ -198,7 +198,8 @@ export function handlebarHelpers() {
       console.log("check for linkage, item>", targetActor.items);
       console.log("check for linkage, item.ref>", targetActor.items[ref]);
       console.log("check for linkage, targetItem>", targetItem);
-      if (typeof targetItem.data.data.linkedRollID !== "undefined" && targetItem.data.data.linkedRollID !== "") {
+      // if (typeof targetItem.data.data.linkedRollID !== "undefined" && targetItem.data.data.linkedRollID !== "") {
+      if (typeof targetActor.data.data.linkedRolls[ref] !== "undefined" && targetActor.data.data.linkedRolls[ref] !== "") {
         // linkedRoll = targetItem.data.data.linkedRollID;
         // linkedRoll = targetActor.data.data.savedRolls[ref];
         linkedRoll = targetActor.data.data.linkedRolls[ref];
