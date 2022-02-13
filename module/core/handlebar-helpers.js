@@ -143,11 +143,18 @@ export function handlebarHelpers() {
 
 
 // Use on an actor sheet like: {{{createChip "data.defense.value"}}}
-// Use on an item shet like: {{{createChip this.item._id}}}
-  Handlebars.registerHelper('createChip', function(ref) {
+// Use on an actor sheet, within an #each, like: {{{createChip this.item._id --FIGURE THIS OUT-- }}}
+// Use on an item sheet like: {{{createChip this.item._id}}}
+  Handlebars.registerHelper('createChip', function(ref, actor) {
     console.log("createChip, this", this);
     console.log("createChip, actor", this.actor);
-    let targetActor = this.actor || this.item.actor;
+    let targetActor;
+    if (actor) {
+      targetActor = actor;
+    } else {
+      targetActor = this.actor || this.item.actor;
+    }
+    // let targetActor = this.actor || this.item.actor;
     let isItem = false;
     let isLinked = false;
     let rollName = "No Roll Linked";
