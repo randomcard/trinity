@@ -206,7 +206,7 @@ export function handlebarHelpers() {
 
         isLinked = true;
         // rollData = targetActor.data.data.savedRolls[targetItem.data.data.linkedRollID];
-        rollData = targetActor.data.data.savedRolls[ref];
+        rollData = targetActor.data.data.savedRolls[linkedRoll];
       }
       console.log("check for linkage, linkedRoll>", linkedRoll);
       console.log("check for linkage, rollData>", rollData);
