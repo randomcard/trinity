@@ -16,8 +16,8 @@
         <h4 class="item-name item-edit clickable">
           {{item.name}}
           {{#if item.data.flags.isInjury}}<span><i class="fas fa-user-injured"></i></span>{{/if}}
-          {{#if item.data.flags.hasRoll}}{{{createChip item._id ../actor}}}{{/if}}
         </h4>
+        {{#if item.data.flags.hasRoll}}{{{createChip item._id ../actor}}}{{/if}}
         <div class="item-dots small icons">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</div>
         <div class="item-controls">
             <!-- <a class="item-control item-edit" title="Edit Item"><i class="far fa-edit"></i></a> -->
