@@ -744,7 +744,7 @@ input[type="text"].on-dark, input[type="number"].on-dark {
 .chip{
     display: inline-flex;
     flex-direction: row;
-    background-color: #e5e5e5;
+    background-color: #ffcba9;
     border: none;
     cursor: default;
     height: 26px;
@@ -764,28 +764,53 @@ input[type="text"].on-dark, input[type="number"].on-dark {
     display: flex;
     position: relative;
     overflow: hidden;
-    background-color: #32C5D2;
+    background-color: #ff4d008c;
     font-size: 1.25rem;
     flex-shrink: 0;
     align-items: center;
     user-select: none;
     border-radius: 50%;
     justify-content: center;
-    width: 30px;
-    color: #fff;
-    height: 30px;
-    font-size: 20px;
+    width: 24px;
+    color: #0d0d0d;
+    height: 24px;
+    font-size: 16px;
     margin-right: -4px;
 }
+
 .chip-content{
     cursor: inherit;
     display: flex;
     align-items: center;
     user-select: none;
     white-space: nowrap;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 .chip-hidden{
   display: none;
+}
+
+.chip-control {
+  margin-right: 5px;
+}
+
+.chip-label {
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: smaller;
+}
+
+select.chip-select {
+  height: auto;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border-light-tertiary);
+  border-radius: 3px;
+  padding: 0px;
+  text-overflow: ellipsis;
+  margin-left: 4px;
+}
+
+.chip-roll-name {
+  font-weight: bold;
 }

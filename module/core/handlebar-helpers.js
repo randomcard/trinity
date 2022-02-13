@@ -212,13 +212,13 @@ export function handlebarHelpers() {
         </div>
       </div>
       <div class="chip-content chip-change chip-hidden">
-        <label class="chip-select resource-label" for="chip-select">Link Roll: </label>
+        <label class="chip-select chip-label" for="chip-select">Link Roll: </label>
         <select class="chip-select" id="chip-select" name="data.linkedRolls.${ref}" data-dtype="String">
           <option value="">None Selected</option>
           ${optionHTML}
         </select>
       </div>
-      <div class="chip-control">
+      <div class="chip-control clickable">
         <i class="fas fa-link"></i>
       </div>
     </div>`
