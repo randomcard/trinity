@@ -199,10 +199,16 @@ export function handlebarHelpers() {
       console.log("check for linkage, item.ref>", targetActor.items[ref]);
       console.log("check for linkage, targetItem>", targetItem);
       if (typeof targetItem.data.data.linkedRollID !== "undefined" && targetItem.data.data.linkedRollID !== "") {
-        linkedRoll = targetItem.data.data.linkedRollID;
+        // linkedRoll = targetItem.data.data.linkedRollID;
+        // linkedRoll = targetActor.data.data.savedRolls[ref];
+        linkedRoll = targetActor.data.data.linkedRolls[ref];
+
         isLinked = true;
-        rollData = targetActor.data.data.savedRolls[targetItem.data.data.linkedRollID];
+        // rollData = targetActor.data.data.savedRolls[targetItem.data.data.linkedRollID];
+        rollData = targetActor.data.data.savedRolls[ref];
       }
+      console.log("check for linkage, linkedRoll>", linkedRoll);
+      console.log("check for linkage, rollData>", rollData);
     }
     if (isLinked && typeof rollData.name !== "undefined") {rollName = rollData.name;}
 
