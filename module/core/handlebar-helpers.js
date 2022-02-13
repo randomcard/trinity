@@ -142,10 +142,10 @@ export function handlebarHelpers() {
   });
 
 
-// Use on an actor sheet like: {{{createChip this.actor.id "data.defense.value"}}}
-// Use on an item shet like: {{{createChip this.item.actor.id this.item._id}}}
-  Handlebars.registerHelper('createChip', function(actorID, ref) {
-    let targetActor = this.actor;
+// Use on an actor sheet like: {{{createChip "data.defense.value"}}}
+// Use on an item shet like: {{{createChip this.item._id}}}
+  Handlebars.registerHelper('createChip', function(ref) {
+    let targetActor = this.actor || this.item.actor;
     let isItem = false;
     let isLinked = false;
     let rollName = "No Roll Linked";
