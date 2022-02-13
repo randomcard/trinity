@@ -190,6 +190,7 @@ export function handlebarHelpers() {
         rollData = targetActor.data.data.savedRolls[refPath];
       }
     } else if (isItem) {
+      console.log("check for linkage, item>", targetActor.items[ref]);
       if (typeof targetActor.items[ref].data.data.linkedRollID !== "undefined" && targetActor.items[ref].data.data.linkedRollID !== "") {
         linkedRoll = targetActor.items[ref].data.data.linkedRollID;
         isLinked = true;
