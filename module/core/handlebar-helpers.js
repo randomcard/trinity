@@ -145,6 +145,8 @@ export function handlebarHelpers() {
 // Use on an actor sheet like: {{{createChip "data.defense.value"}}}
 // Use on an item shet like: {{{createChip this.item._id}}}
   Handlebars.registerHelper('createChip', function(ref) {
+    console.log("createChip, this", this);
+    console.log("createChip, actor", this.actor);
     let targetActor = this.actor || this.item.actor;
     let isItem = false;
     let isLinked = false;
@@ -166,7 +168,6 @@ export function handlebarHelpers() {
     // Check for existing linkage
     console.log("check for linkage, ref", ref);
     console.log("check for linkage, actor", targetActor);
-    console.log("check for linkage, this", this);
     console.log("check for linkage, targetActor.data.data.linkedRolls", targetActor.data.data.linkedRolls);
     console.log("check for linkage, Item/Actor", isItem, targetActor.data.data.linkedRolls[ref]);
     console.log("check for linkage, refPath", refPath);
