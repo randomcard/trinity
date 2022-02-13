@@ -148,6 +148,7 @@ export function handlebarHelpers() {
   Handlebars.registerHelper('createChip', function(ref, argActor) {
     console.log("createChip, this", this);
     console.log("createChip, actor", this.actor);
+    console.log("createChip, argActor", argActor);
     let targetActor = {};
     if (argActor) {
       targetActor = argActor;
