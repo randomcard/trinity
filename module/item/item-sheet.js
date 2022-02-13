@@ -20,8 +20,7 @@ export class TrinityItemSheet extends ItemSheet {
       ],
       dragDrop:
       [
-                { dragSelector: '.item[data-item-id]', dropSelector: '.stunts' },
-                { dragSelector: '.active-effect[data-effect-id]' },
+                { dragSelector: '.item[data-item-id]', dropSelector: null }
       ]
     });
   }
@@ -70,4 +69,46 @@ export class TrinityItemSheet extends ItemSheet {
     // html.find('.memorization-slot').on("drop", console.log("something dropped: ",this));
 
   }
+
+  async _onDrop(event) {
+
+    // Try to extract the data
+    let data;
+    try {
+      data = JSON.parse(event.dataTransfer.getData('text/plain'));
+    } catch (err) {
+      return false;
+    }
+    console.log(event);
+    console.log(data);
+    // const actor = this.actor;
+
+    /**
+     * A hook event that fires when some useful data is dropped onto an ActorSheet.
+     * @function dropActorSheetData
+     * @memberof hookEvents
+     * @param {Actor} actor      The Actor
+     * @param {ActorSheet} sheet The ActorSheet application
+     * @param {object} data      The data that has been dropped onto the sheet
+     */
+    /*
+    const allowed = Hooks.call("dropActorSheetData", actor, this, data);
+    if ( allowed === false ) return;
+    */
+
+    // Handle different data types
+    /*
+    switch ( data.type ) {
+      case "ActiveEffect":
+        return this._onDropActiveEffect(event, data);
+      case "Actor":
+        return this._onDropActor(event, data);
+      case "Item":
+        return this._onDropItem(event, data);
+      case "Folder":
+        return this._onDropFolder(event, data);
+    }
+    */
+  }
+
 }
