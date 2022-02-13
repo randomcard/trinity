@@ -141,6 +141,9 @@ export function handlebarHelpers() {
     }
   });
 
+
+// Use on an actor sheet like: {{{createChip this.actor.id "data.defense.value"}}}
+// Use on an item shet like: {{{createChip this.item.actor.id this.item._id}}}
   Handlebars.registerHelper('createChip', function(actorID, ref) {
     let targetActor = this.actor;
     let isItem = false;

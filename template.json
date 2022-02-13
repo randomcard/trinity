@@ -267,7 +267,8 @@
           "isInjury" : false,
           "isEquipped" : true,
           "hasDots" : true,
-          "isDice" : false
+          "isDice" : false,
+          "hasRoll" : false
         },
         "defaultSkill" : "",
         "defaultAttribute" : "",
