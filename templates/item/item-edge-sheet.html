@@ -12,7 +12,7 @@
           {{#if item.data.data.flags.isInjury}}<span class="boxed">Injury</span>{{/if}}
           {{#if item.data.data.flags.isComplication}}<span class="boxed">Complication</span>{{/if}}
           {{#if item.data.data.flags.isEnhancement}}<span class="boxed">Enhancement</span>{{/if}}
-          {{#if item.data.data.flags.hasRoll}}{{{createChip this.item._id}}}{{/if}}
+          {{#if item.data.data.flags.hasRoll}}{{{createChip item._id}}}{{/if}}
         </div>
       </div>
     </header>
