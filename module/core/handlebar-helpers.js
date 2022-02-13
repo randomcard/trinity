@@ -166,6 +166,7 @@ export function handlebarHelpers() {
     let rollData = {};
     let linkedRoll = "";
     let linkKey = "";
+    let targetItem = {};
 
     // convert the ref to a complete path
     let refPath = targetActor.data.data.linkedRolls;
@@ -176,7 +177,11 @@ export function handlebarHelpers() {
     }
 
     // check if ref is an actor quality or an item
-    if (typeof targetActor.items.get(ref) !== "undefined") {isItem = true;}
+    if (typeof targetActor.items.get(ref) !== "undefined") {
+      isItem = true;
+      targetItem = targetActor.items.get(ref);
+    }
+
     // Check for existing linkage
     console.log("check for linkage, ref", ref);
     console.log("check for linkage, actor", targetActor);
@@ -190,11 +195,13 @@ export function handlebarHelpers() {
         rollData = targetActor.data.data.savedRolls[refPath];
       }
     } else if (isItem) {
-      console.log("check for linkage, item>", targetActor.items[ref]);
-      if (typeof targetActor.items[ref].data.data.linkedRollID !== "undefined" && targetActor.items[ref].data.data.linkedRollID !== "") {
-        linkedRoll = targetActor.items[ref].data.data.linkedRollID;
+      console.log("check for linkage, item>", targetActor.items);
+      console.log("check for linkage, item.ref>", targetActor.items[ref]);
+      console.log("check for linkage, targetItem>", targetItem);
+      if (typeof targetItem.data.data.linkedRollID !== "undefined" && targetItem.data.data.linkedRollID !== "") {
+        linkedRoll = targetItem.data.data.linkedRollID;
         isLinked = true;
-        rollData = targetActor.data.data.savedRolls[targetActor.items[ref].data.data.linkedRollID];
+        rollData = targetActor.data.data.savedRolls[targetItem.data.data.linkedRollID];
       }
     }
     if (isLinked && typeof rollData.name !== "undefined") {rollName = rollData.name;}
