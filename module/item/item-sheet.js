@@ -136,7 +136,9 @@ export class TrinityItemSheet extends ItemSheet {
           break;
       }
     }
+    console.log("_onDropGetInfo updates", updates);
     await this.item.update(updates);
+    console.log("_onDropGetInfo this.item", this.item);
     // return this.actor.createEmbeddedDocuments("Item", itemData);
   }
 
