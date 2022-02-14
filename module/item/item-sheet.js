@@ -117,8 +117,10 @@ export class TrinityItemSheet extends ItemSheet {
 
   async _onDropGetInfo(itemData) {
     itemData = itemData instanceof Array ? itemData : [itemData];
-    let updates = [];
     console.log("_onDropGetInfo itemData", itemData);
+    let item = game.items[this.item.id] || game.actors.get(this.item.actor.id).items.get(this.item.id).type
+    console.log("_onDropGetInfo item", item);
+    let updates = [];
     for (var droppedItem of itemData) {
       switch (droppedItem.type) {
         case "stunt":
@@ -144,8 +146,10 @@ export class TrinityItemSheet extends ItemSheet {
       }
     }
     console.log("_onDropGetInfo updates", updates);
-    await this.item.update(updates);
+    // await this.item.update(updates);
+    await item.update(updates);
     console.log("_onDropGetInfo this.item", this.item);
+    console.log("_onDropGetInfo item", item);
     // return this.actor.createEmbeddedDocuments("Item", itemData);
   }
 
