@@ -123,12 +123,19 @@ export class TrinityItemSheet extends ItemSheet {
       switch (droppedItem.type) {
         case "stunt":
           updates.push({
+            /*
             "data.stunts" : {
               [droppedItem._id] :{
                 name : droppedItem.name,
-                description : droppedItem.description,
-                costDescription : droppedItem.costDescription,
+                description : droppedItem.data.description,
+                costDescription : droppedItem..data.costDescription,
               }
+            }
+            */
+            "data.stunts"+droppedItem._id : {
+              name : droppedItem.name,
+              description : droppedItem.data.description,
+              costDescription : droppedItem.data.costDescription
             }
           });
           break;
