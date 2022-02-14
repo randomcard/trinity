@@ -132,7 +132,7 @@ export class TrinityItemSheet extends ItemSheet {
               }
             }
             */
-            "data.stunts"+droppedItem._id : {
+            ["data.stunts"+droppedItem._id] : {
               name : droppedItem.name,
               description : droppedItem.data.description,
               costDescription : droppedItem.data.costDescription
