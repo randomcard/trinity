@@ -104,7 +104,7 @@ export class TrinityItemSheet extends ItemSheet {
     // if ( await this._isFromSameActor(data) ) return this._onSortItem(event, itemData);
 
     // Create the owned item
-    return this._onDropItemCreate(itemData);
+    return this._onDropGetInfo(itemData);
   }
 
   async _onDropFolder(event, data) {
@@ -112,12 +112,31 @@ export class TrinityItemSheet extends ItemSheet {
     if ( data.documentName !== "Item" ) return [];
     const folder = game.folders.get(data.id);
     if ( !folder ) return [];
-    return this._onDropItemCreate(folder.contents.map(e => e.toObject()));
+    return this._onDropGetInfo(folder.contents.map(e => e.toObject()));
   }
 
-  async _onDropItemCreate(itemData) {
+  async _onDropGetInfo(itemData) {
     itemData = itemData instanceof Array ? itemData : [itemData];
-    console.log("_onDropItemCreate itemData", itemData);
+    let updates = {};
+    console.log("_onDropGetInfo itemData", itemData);
+    for (var droppedItem of itemData) {
+      switch (droppedItem.type) {
+        case "stunt":
+          updates.push({
+            "data.stunts" : {
+              [droppedItem._id] :{
+                name : droppedItem.name,
+                description : droppedItem.description,
+                costDescription : droppedItem.costDescription,
+              }
+            }
+          });
+          break;
+        case "tag":
+          break;
+      }
+    }
+    await this.item.update(updates);
     // return this.actor.createEmbeddedDocuments("Item", itemData);
   }
 
