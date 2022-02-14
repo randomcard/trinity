@@ -135,7 +135,7 @@ export class TrinityItemSheet extends ItemSheet {
               }
             }
             */
-            ["data.stunts."+droppedItem._id] : {
+            ['data.stunts.'+droppedItem._id] : {
               name : droppedItem.name,
               description : droppedItem.data.description,
               costDescription : droppedItem.data.costDescription
@@ -149,7 +149,9 @@ export class TrinityItemSheet extends ItemSheet {
     console.log("_onDropGetInfo updates", updates);
     // await this.item.update(updates);
     // await this.object.update(updates);
-    await destinationItem.update(updates);
+    // await destinationItem.update(updates);
+    let logReturn = await destinationItem.update(updates);
+    console.log("_onDropGetInfo logReturn", logReturn);
     console.log("_onDropGetInfo this.item", this.item);
     // console.log("_onDropGetInfo destinationItem", destinationItem);
     // return this.actor.createEmbeddedDocuments("Item", itemData);
