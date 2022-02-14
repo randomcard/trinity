@@ -117,7 +117,7 @@ export class TrinityItemSheet extends ItemSheet {
 
   async _onDropGetInfo(itemData) {
     itemData = itemData instanceof Array ? itemData : [itemData];
-    let updates = {};
+    let updates = [];
     console.log("_onDropGetInfo itemData", itemData);
     for (var droppedItem of itemData) {
       switch (droppedItem.type) {
