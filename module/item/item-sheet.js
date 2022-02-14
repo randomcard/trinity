@@ -119,7 +119,7 @@ export class TrinityItemSheet extends ItemSheet {
     itemData = itemData instanceof Array ? itemData : [itemData];
     console.log("_onDropGetInfo itemData", itemData);
     console.log("_onDropGetInfo this", this);
-    let destinationItem = game.items[this.object.id] || game.actors.get(this.object.actor).items.get(this.object.id).type
+    let destinationItem = game.items.get(this.object.id) || game.actors.get(this.object.actor).items.get(this.object.id).type
     console.log("_onDropGetInfo destinationItem", destinationItem);
     let updates = [];
     for (var droppedItem of itemData) {
