@@ -128,7 +128,7 @@ export class TrinityItemSheet extends ItemSheet {
           console.log("_onDropGetInfo this-in-loop", this);
           console.log("_onDropGetInfo droppedItem-in-loop", droppedItem);
           let stunts = this.item.data.data.stunts;
-          stunts.[droppedItem] = {
+          stunts[droppedItem] = {
             name : droppedItem.name,
             description : droppedItem.data.description,
             costDescription : droppedItem..data.costDescription
