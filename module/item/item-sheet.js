@@ -127,8 +127,9 @@ export class TrinityItemSheet extends ItemSheet {
         case "stunt":
           console.log("_onDropGetInfo this-in-loop", this);
           this.item.update({test: "Simple Test"});
+          this.item.update({name: "Name Changed"});
           destinationItem.update({test2: "Simple Test 2"});
-          
+
           /*
           updates.push({
 
