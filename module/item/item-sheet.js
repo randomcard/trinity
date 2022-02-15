@@ -119,16 +119,24 @@ export class TrinityItemSheet extends ItemSheet {
     itemData = itemData instanceof Array ? itemData : [itemData];
     console.log("_onDropGetInfo itemData", itemData);
     console.log("_onDropGetInfo this", this);
-    let destinationItem = game.items.get(this.object.id) || game.actors.get(this.object.actor).items.get(this.object.id).type
-    console.log("_onDropGetInfo destinationItem", destinationItem);
+    // let destinationItem = game.items.get(this.object.id) || game.actors.get(this.object.actor).items.get(this.object.id).type
+    // console.log("_onDropGetInfo destinationItem", destinationItem);
     let updates = [];
     for (var droppedItem of itemData) {
       switch (droppedItem.type) {
         case "stunt":
           console.log("_onDropGetInfo this-in-loop", this);
-          this.item.update({test: "Simple Test"});
-          this.item.update({name: "Name Changed"});
-          destinationItem.update({test2: "Simple Test 2"});
+          console.log("_onDropGetInfo droppedItem-in-loop", droppedItem);
+          let stunts = this.item.data.data.stunts;
+          stunts.[droppedItem] = {
+            name : droppedItem.name,
+            description : droppedItem.data.description,
+            costDescription : droppedItem..data.costDescription
+          };
+          this.item.update({data.stunts: stunts});
+          // this.item.update({name: "Name Changed"}); // This works
+          // this.item.update({test: "Simple Test"}); // this doesn't
+          // destinationItem.update({test2: "Simple Test 2"});
 
           /*
           updates.push({
