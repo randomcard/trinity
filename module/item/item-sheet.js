@@ -125,8 +125,10 @@ export class TrinityItemSheet extends ItemSheet {
     for (var droppedItem of itemData) {
       switch (droppedItem.type) {
         case "stunt":
+          this.item.update({test: "Simple Test"});
+          /*
           updates.push({
-            /*
+
             "data.stunts" : {
               [droppedItem._id] :{
                 name : droppedItem.name,
@@ -134,28 +136,29 @@ export class TrinityItemSheet extends ItemSheet {
                 costDescription : droppedItem..data.costDescription,
               }
             }
-            */
-            test : "Simple Test"
-            /*
+
+
+
             ['data.stunts.'+droppedItem._id] : {
               name : droppedItem.name,
               description : droppedItem.data.description,
               costDescription : droppedItem.data.costDescription
             }
-            */
+
           });
+          */
           break;
         case "tag":
           break;
       }
     }
-    console.log("_onDropGetInfo updates", updates);
+    //console.log("_onDropGetInfo updates", updates);
     // await this.item.update(updates);
     // await this.object.update(updates);
     // await destinationItem.update(updates);
-    let logReturn = await destinationItem.update(updates);
-    console.log("_onDropGetInfo logReturn", logReturn);
-    console.log("_onDropGetInfo this.item", this.item);
+    //let logReturn = await destinationItem.update(updates);
+    //console.log("_onDropGetInfo logReturn", logReturn);
+    console.log("_onDropGetInfo after switch this", this);
     // console.log("_onDropGetInfo destinationItem", destinationItem);
     // return this.actor.createEmbeddedDocuments("Item", itemData);
   }
