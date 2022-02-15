@@ -48,8 +48,8 @@ export class TrinityItemSheet extends ItemSheet {
 
     for (let i of Object.keys(this.item.data.data.subItems)) {
       let subItem = this.item.data.data.subItems[i];
-      if (subItem.type === 'stunt') { stunts.push(i); }
-      if (subItem.type === 'tag') { tags.push(i); }
+      if (subItem.type === 'stunt') { stunts.push(subItem); }
+      if (subItem.type === 'tag') { tags.push(subItem); }
     }
 
     // Assign and return
