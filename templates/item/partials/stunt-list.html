@@ -7,8 +7,8 @@
         <a class="item-control sub-item-create" title="Create item" data-type="stunt"><i class="far fa-plus-square"></i></a>
       </div>
     </li>
-{{#each item.data.data.stunts as |stunt id|}}
-    <li class="item" data-item-id="{{id}}">
+{{#each item.stunts as |stunt id|}}
+    <li class="item sub" data-item-id="{{stunt.id}}">
       <div class="flexrow">
         <h4 class="item-name">
           {{stunt.name}}
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="flexrow">
-        {{stunt.description}}
+        {{{stunt.description}}}
       </div>
     </li>
 {{/each}}

@@ -285,6 +285,12 @@
   border-bottom: 1px solid #BBB;
 }
 
+.trinity .items-list .item.sub {
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+}
+
 .trinity .items-list .item .item-image {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 24px;
