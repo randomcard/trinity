@@ -131,7 +131,7 @@ export class TrinityItemSheet extends ItemSheet {
           stunts[droppedItem] = {
             name : droppedItem.name,
             description : droppedItem.data.description,
-            costDescription : droppedItem..data.costDescription
+            costDescription : droppedItem.data.costDescription
           };
           this.item.update({data.stunts: stunts});
           // this.item.update({name: "Name Changed"}); // This works
