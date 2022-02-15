@@ -99,7 +99,7 @@ export class TrinityItemSheet extends ItemSheet {
               console.log("liID", liID);
               console.log("ev", ev);
               //this.item.update({`data.subItems.-=${liID}`: null});
-              this.item.update({"data.subItems."+liID : null});
+              this.item.update({'data.subItems.-=${liID}' : null});
               // li.slideUp(200, () => this.render(false));
             }
           },
