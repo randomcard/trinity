@@ -135,11 +135,14 @@ export class TrinityItemSheet extends ItemSheet {
               }
             }
             */
+            test : "Simple Test"
+            /*
             ['data.stunts.'+droppedItem._id] : {
               name : droppedItem.name,
               description : droppedItem.data.description,
               costDescription : droppedItem.data.costDescription
             }
+            */
           });
           break;
         case "tag":
