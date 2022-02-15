@@ -274,7 +274,8 @@
         "defaultAttribute" : "",
         "linkedRollID": "",
         "stunts" : {},
-        "tags" : {}
+        "tags" : {},
+        "subItems" : {}
       }
     },
     "item": {

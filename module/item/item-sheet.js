@@ -41,6 +41,21 @@ export class TrinityItemSheet extends ItemSheet {
   /** @override */
   getData() {
     const data = super.getData();
+
+    const itemData = data.item;
+    const stunts = [];
+    const tags = [];
+
+    for (let i of Object.keys(this.item.data.data.subItems)) {
+      let subItem = this.item.data.data.subItems[i];
+      if (subItem.type === 'stunt') { stunts.push(i); }
+      if (subItem.type === 'tag') { tags.push(i); }
+    }
+
+    // Assign and return
+    itemData.stunts = stunts;
+    itemData.tags = tags;
+
     return data;
   }
 
@@ -65,6 +80,35 @@ export class TrinityItemSheet extends ItemSheet {
     if (!this.options.editable) return;
 
     // Roll handlers, click handlers, etc. would go here.
+
+    html.find('.sub-item-delete').click(ev => {
+      const li = $(ev.currentTarget).parents(".item");
+
+      let deleteConfirm = new Dialog({
+        title: "Delete Confirmation",
+        content: "Delete Item?",
+        buttons: {
+          Yes: {
+            icon: '<i class="fa fa-check"></i>',
+            label: "Yes",
+            callback: dlg => {
+              // this.actor.deleteOwnedItem(li.data("itemId"));
+              // this.actor.deleteEmbeddedDocuments('Item',[li.data("itemId")]);
+              let liID = li.data("itemId");
+              this.item.update('data.subItems.-=${liID}': null})
+              li.slideUp(200, () => this.render(false));
+            }
+          },
+          cancel: {
+            icon: '<i class="fas fa-times"></i>',
+            label: "Cancel"
+          },
+        },
+        default: 'Yes'
+      });
+      deleteConfirm.render(true);
+    });
+
 
     // html.find('.memorization-slot').on("drop", console.log("something dropped: ",this));
 
@@ -117,23 +161,25 @@ export class TrinityItemSheet extends ItemSheet {
 
   async _onDropGetInfo(itemData) {
     itemData = itemData instanceof Array ? itemData : [itemData];
-    console.log("_onDropGetInfo itemData", itemData);
-    console.log("_onDropGetInfo this", this);
+    // console.log("_onDropGetInfo itemData", itemData);
+    // console.log("_onDropGetInfo this", this);
     // let destinationItem = game.items.get(this.object.id) || game.actors.get(this.object.actor).items.get(this.object.id).type
     // console.log("_onDropGetInfo destinationItem", destinationItem);
     let updates = [];
     for (var droppedItem of itemData) {
       switch (droppedItem.type) {
         case "stunt":
-          console.log("_onDropGetInfo this-in-loop", this);
-          console.log("_onDropGetInfo droppedItem-in-loop", droppedItem);
-          let stunts = this.item.data.data.stunts;
-          stunts[droppedItem] = {
+          // console.log("_onDropGetInfo this-in-loop", this);
+          // console.log("_onDropGetInfo droppedItem-in-loop", droppedItem);
+          let subItems = this.item.data.data.subItems;
+          subItems[droppedItem._id] = {
+            id : droppedItem._id,
             name : droppedItem.name,
+            type : droppedItem.type,
             description : droppedItem.data.description,
             costDescription : droppedItem.data.costDescription
           };
-          this.item.update({'data.stunts': stunts});
+          this.item.update({'data.subItems': subItems});
           // this.item.update({name: "Name Changed"}); // This works
           // this.item.update({test: "Simple Test"}); // this doesn't
           // destinationItem.update({test2: "Simple Test 2"});
@@ -170,7 +216,7 @@ export class TrinityItemSheet extends ItemSheet {
     // await destinationItem.update(updates);
     //let logReturn = await destinationItem.update(updates);
     //console.log("_onDropGetInfo logReturn", logReturn);
-    console.log("_onDropGetInfo after switch this", this);
+    // console.log("_onDropGetInfo after switch this", this);
     // console.log("_onDropGetInfo destinationItem", destinationItem);
     // return this.actor.createEmbeddedDocuments("Item", itemData);
   }
