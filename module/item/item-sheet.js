@@ -95,7 +95,7 @@ export class TrinityItemSheet extends ItemSheet {
               // this.actor.deleteOwnedItem(li.data("itemId"));
               // this.actor.deleteEmbeddedDocuments('Item',[li.data("itemId")]);
               let liID = li.data("itemId");
-              this.item.update('data.subItems.-=${liID}': null})
+              this.item.update({'data.subItems.-=${liID}': null});
               li.slideUp(200, () => this.render(false));
             }
           },
