@@ -286,6 +286,7 @@
 }
 
 .trinity .items-list .item.sub {
+  height: auto;
   line-height: 24px;
   padding: 3px 0;
   border-bottom: 1px solid #BBB;
