@@ -133,7 +133,7 @@ export class TrinityItemSheet extends ItemSheet {
             description : droppedItem.data.description,
             costDescription : droppedItem.data.costDescription
           };
-          this.item.update({data.stunts: stunts});
+          this.item.update({'data.stunts': stunts});
           // this.item.update({name: "Name Changed"}); // This works
           // this.item.update({test: "Simple Test"}); // this doesn't
           // destinationItem.update({test2: "Simple Test 2"});
