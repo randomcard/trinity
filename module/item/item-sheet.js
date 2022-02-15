@@ -125,7 +125,10 @@ export class TrinityItemSheet extends ItemSheet {
     for (var droppedItem of itemData) {
       switch (droppedItem.type) {
         case "stunt":
+          console.log("_onDropGetInfo this-in-loop", this);
           this.item.update({test: "Simple Test"});
+          destinationItem.update({test2: "Simple Test 2"});
+          
           /*
           updates.push({
 
