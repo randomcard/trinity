@@ -169,6 +169,17 @@ export function handlebarHelpers() {
     let linkedRoll = "";
     let linkKey = "";
     let targetItem = {};
+    let html = "";
+
+    if (!argActor && !targetActor) {
+      html =
+      `<div class="chip">
+        <div class="chip-head">
+          <i class="fas fa-dice"></i>
+        </div>
+      </div>`;
+      return html;
+    }
 
     // convert the ref to a complete path
     let refPath = targetActor.data.data.linkedRolls;
@@ -234,7 +245,7 @@ export function handlebarHelpers() {
         `<div class="chip-roll-name saved-roll rollable" id="${ref}" data-rollID="${linkKey}">`
     }
 
-    let html =
+    html =
     `<div class="chip">
       <div class="chip-head">
         <i class="fas fa-dice"></i>
