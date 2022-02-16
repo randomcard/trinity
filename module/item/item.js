@@ -16,10 +16,10 @@ export class TrinityItem extends Item {
   }
 
   prepareDerivedData() {
-    console.log("prepareDerivedData called", itemData);
     const itemData = this.data;
     const actorData = this.actor ? this.actor.data : {};
     const data = itemData.data;
+    console.log("prepareDerivedData called", itemData);
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
