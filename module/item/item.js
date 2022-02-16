@@ -15,6 +15,21 @@ export class TrinityItem extends Item {
     const data = itemData.data;
   }
 
+  prepareDerivedData() {
+    console.log("prepareDerivedData called", itemData);
+    const itemData = this.data;
+    const actorData = this.actor ? this.actor.data : {};
+    const data = itemData.data;
+
+    // Make separate methods for each Actor type (character, npc, etc.) to keep
+    // things organized.
+    this._prepareSubItemData(itemData);
+  }
+
+  _prepareSubItemData(itemData) {
+    console.log("_prepareSubItemData called", itemData);
+  }
+
   /**
    * Handle clickable rolls.
    * @param {Event} event   The originating click event

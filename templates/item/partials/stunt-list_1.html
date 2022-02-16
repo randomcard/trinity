@@ -1,18 +1,19 @@
 {{!-- Stunts item Box --}}
 <ol class="items-list boxed">
     <li class="item flexrow item-header">
-      <div class="big item-name">Stunts&ensp;
-        <span class="small-note">Add new stunts by dropping them here from the Items Directory</span>
-      </div>
+      <div class="big item-name">Stunts</div>
       <div class="item-dots"></div>
-      <div class="item-controls"></div>
+      <div class="item-controls">
+        <a class="item-control sub-item-create" title="Create item" data-type="stunt"><i class="far fa-plus-square"></i></a>
+      </div>
     </li>
 {{#each item.stunts as |stunt id|}}
     <li class="item sub" data-item-id="{{stunt.id}}">
       <div class="flexrow">
         <h4 class="item-name">
-          {{stunt.name}}&ensp;-&ensp;<em>{{stunt.costDescription}}</em>
+          {{stunt.name}}
         </h4>
+        <div class="">{{stunt.costDescription}}</div>
         <div class="item-controls">
             <a class="item-control sub-item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
             <a class="item-control sub-item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
