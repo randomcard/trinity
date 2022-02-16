@@ -19,7 +19,7 @@ export class TrinityItem extends Item {
     const itemData = this.data;
     const actorData = this.actor ? this.actor.data : {};
     const data = itemData.data;
-    console.log("prepareDerivedData called", itemData);
+    // console.log("prepareDerivedData called", itemData);
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
@@ -27,7 +27,21 @@ export class TrinityItem extends Item {
   }
 
   _prepareSubItemData(itemData) {
-    console.log("_prepareSubItemData called", itemData);
+    // console.log("_prepareSubItemData called", itemData);
+
+    const stunts = [];
+    const tags = [];
+
+    for (let i of Object.keys(this.data.data.subItems)) {
+      let subItem = this.data.data.subItems[i];
+      if (subItem.type === 'stunt') { stunts.push(subItem); }
+      if (subItem.type === 'tag') { tags.push(subItem); }
+    }
+
+    // Assign and return
+    this.data.data.stunts = stunts;
+    this.data.data.tags = tags;
+    
   }
 
   /**
