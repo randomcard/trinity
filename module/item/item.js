@@ -28,20 +28,20 @@ export class TrinityItem extends Item {
 
   _prepareSubItemData(itemData) {
     // console.log("_prepareSubItemData called", itemData);
+    if (typeof this.data.data.subItems !== "undefined") {
+      const stunts = [];
+      const tags = [];
 
-    const stunts = [];
-    const tags = [];
-
-    for (let i of Object.keys(this.data.data.subItems)) {
-      let subItem = this.data.data.subItems[i];
-      if (subItem.type === 'stunt') { stunts.push(subItem); }
-      if (subItem.type === 'tag') { tags.push(subItem); }
+      for (let i of Object.keys(this.data.data.subItems)) {
+        let subItem = this.data.data.subItems[i];
+        if (subItem.type === 'stunt') { stunts.push(subItem); }
+        if (subItem.type === 'tag') { tags.push(subItem); }
+      }
+      // Assign
+      this.data.data.stunts = stunts;
+      this.data.data.tags = tags;
     }
 
-    // Assign and return
-    this.data.data.stunts = stunts;
-    this.data.data.tags = tags;
-    
   }
 
   /**
