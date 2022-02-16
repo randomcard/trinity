@@ -40,7 +40,7 @@ export class TrinityItem extends Item {
       // Assign
       this.data.data.stunts = stunts;
       this.data.data.tags = tags;
-      this.data.data.stats.totalTagValue = this._getTotalTagValue(tags);
+      this.data.data.totalTagValue = this._getTotalTagValue(tags);
     }
 
   }
