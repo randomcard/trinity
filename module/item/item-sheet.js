@@ -172,12 +172,13 @@ export class TrinityItemSheet extends ItemSheet {
     // let destinationItem = game.items.get(this.object.id) || game.actors.get(this.object.actor).items.get(this.object.id).type
     // console.log("_onDropGetInfo destinationItem", destinationItem);
     let updates = [];
+    let subItems = {};
     for (var droppedItem of itemData) {
       switch (droppedItem.type) {
         case "stunt":
           // console.log("_onDropGetInfo this-in-loop", this);
           // console.log("_onDropGetInfo droppedItem-in-loop", droppedItem);
-          let subItems = this.item.data.data.subItems;
+          subItems = this.item.data.data.subItems;
           subItems[droppedItem._id] = {
             id : droppedItem._id,
             name : droppedItem.name,
@@ -188,7 +189,7 @@ export class TrinityItemSheet extends ItemSheet {
           this.item.update({'data.subItems': subItems});
           break;
         case "tag":
-          let subItems = this.item.data.data.subItems;
+          subItems = this.item.data.data.subItems;
           subItems[droppedItem._id] = {
             id : droppedItem._id,
             name : droppedItem.name,
@@ -197,7 +198,6 @@ export class TrinityItemSheet extends ItemSheet {
             tagValue : droppedItem.data.tagValue
           };
           this.item.update({'data.subItems': subItems});
-          break;
           break;
       }
     }
