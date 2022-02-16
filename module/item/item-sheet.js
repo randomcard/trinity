@@ -42,6 +42,7 @@ export class TrinityItemSheet extends ItemSheet {
   getData() {
     const data = super.getData();
 
+    /* -- Moved to item.js
     const itemData = data.item;
     const stunts = [];
     const tags = [];
@@ -55,6 +56,7 @@ export class TrinityItemSheet extends ItemSheet {
     // Assign and return
     itemData.stunts = stunts;
     itemData.tags = tags;
+    */
 
     return data;
   }
@@ -184,33 +186,18 @@ export class TrinityItemSheet extends ItemSheet {
             costDescription : droppedItem.data.costDescription
           };
           this.item.update({'data.subItems': subItems});
-          // this.item.update({name: "Name Changed"}); // This works
-          // this.item.update({test: "Simple Test"}); // this doesn't
-          // destinationItem.update({test2: "Simple Test 2"});
-
-          /*
-          updates.push({
-
-            "data.stunts" : {
-              [droppedItem._id] :{
-                name : droppedItem.name,
-                description : droppedItem.data.description,
-                costDescription : droppedItem..data.costDescription,
-              }
-            }
-
-
-
-            ['data.stunts.'+droppedItem._id] : {
-              name : droppedItem.name,
-              description : droppedItem.data.description,
-              costDescription : droppedItem.data.costDescription
-            }
-
-          });
-          */
           break;
         case "tag":
+          let subItems = this.item.data.data.subItems;
+          subItems[droppedItem._id] = {
+            id : droppedItem._id,
+            name : droppedItem.name,
+            type : droppedItem.type,
+            description : droppedItem.data.description,
+            tagValue : droppedItem.data.tagValue
+          };
+          this.item.update({'data.subItems': subItems});
+          break;
           break;
       }
     }

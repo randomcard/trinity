@@ -821,3 +821,9 @@ select.chip-select {
 .chip-roll-name {
   font-weight: bold;
 }
+
+.title-note {
+  font-size: small;
+  font-style: italic;
+  font-weight: 500;
+}

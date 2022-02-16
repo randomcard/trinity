@@ -1,4 +1,4 @@
-{{log "ACTION sheet logging, this:" this}}
+{{log "tag sheet logging, this:" this}}
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
       <div class="header-fields"> {{! Left Side of Header}}
@@ -20,8 +20,6 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a>
-        {{#if item.data.data.stunts}}<a class="item" data-tab="stunts">Stunts</a>{{/if}}
-        {{#if item.data.data.tags}}<a class="item" data-tab="tags">Tags</a>{{/if}}
         <a class="item" data-tab="attributes">Attributes</a>
     </nav>
 
@@ -33,20 +31,25 @@
             {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
 
-        {{!-- Stunts Tab --}}
-        <div class="tab stunts" data-group="primary" data-tab="stunts">
-          {{> "systems/trinity/templates/item/partials/stunt-list.html"}}
-        </div>
-
-        {{!-- Tags Tab --}}
-        <div class="tab stunts" data-group="primary" data-tab="stunts">
-          {{> "systems/trinity/templates/item/partials/tag-list.html"}}
-        </div>
-
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             {{!-- As you add new fields, add them in here! --}}
-
+            <div>
+              <label class="resource-label" for="tag-value">Tag Value</label>
+              <input
+                  class="resource"
+                  type="number"
+                  min="-10"
+                  max="10"
+                  step="1"
+                  onfocus="this.previousValue = this.value"
+                  onkeydown="this.previousValue = this.value"
+                  oninput="validity.valid || (value = this.previousValue)"
+                  id="tag-value"
+                  name="data.tagValue"
+                  value="{{data.data.tagValue}}"
+                  data-dtype="Number"/>
+            </div>
             {{> "systems/trinity/templates/item/partials/dots-flag.html"}}
             {{> "systems/trinity/templates/item/partials/enhancement-flag.html"}}
             {{> "systems/trinity/templates/item/partials/complication-flag.html"}}

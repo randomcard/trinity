@@ -40,33 +40,17 @@ export class TrinityItem extends Item {
       // Assign
       this.data.data.stunts = stunts;
       this.data.data.tags = tags;
+      this.data.data.stats.totalTagValue = _getTotalTagValue(tags);
     }
 
   }
 
-  /**
-   * Handle clickable rolls.
-   * @param {Event} event   The originating click event
-   * @private
-   */
-  async roll(attribute) {
-    // Basic template rendering data
-    const token = this.actor.token;
-    const item = this.data;
-    const actorData = this.actor ? this.actor.data.data : {};
-    const itemData = item.data;
-    if (attribute == null){
-    attribute = 0;
+  _getTotalTagValue(tags) {
+    let total = 0;
+    for (let t of tags) {
+      total = total + t.tagValue;
     }
-
-    // Original example roll
-    // let roll = new Roll('d20+@abilities.str.mod', actorData);
-    let roll = new Roll("(@att+@ski)d10x10cs>=7", {att: attribute, ski: item.skill.value});
-    // goals: let the explode value & success value be changeable, and add mofifiers like enhancements
-    let label = `Rolling ${item.name}`;
-    roll.roll().toMessage({
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: label
-    });
+    return total;
   }
+
 }

@@ -1,17 +1,17 @@
-{{!-- Stunts item Box --}}
+{{!-- Tags item Box --}}
 <ol class="items-list boxed">
     <li class="item flexrow item-header">
-      <div class="big item-name">Stunts&ensp;
-        <span class="title-note">Add new stunts by dropping them here from the Items Directory</span>
+      <div class="big item-name">Tags ({{item.data.data.stats.totalTagValue}} points)&ensp;
+        <span class="title-note">Add new tags by dropping them here from the Items Directory</span>
       </div>
       <div class="item-dots"></div>
       <div class="item-controls"></div>
     </li>
-{{#each item.data.data.stunts as |stunt id|}}
-    <li class="item sub" data-item-id="{{stunt.id}}">
+{{#each item.data.data.tags as |tag id|}}
+    <li class="item sub" data-item-id="{{tag.id}}">
       <div class="flexrow">
         <h4 class="item-name">
-          {{stunt.name}}&ensp;-&ensp;<em>{{stunt.costDescription}}</em>
+          {{tag.name}}&ensp;-&ensp;<em>{{tag.costDescription}}</em>
         </h4>
         <div class="item-controls">
             <a class="item-control sub-item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="flexrow">
-        {{{stunt.description}}}
+        {{{tag.description}}}
       </div>
     </li>
 {{/each}}
