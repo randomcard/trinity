@@ -123,7 +123,7 @@ export class TrinityItemSheet extends ItemSheet {
       let chatData = {
         user: game.user.id,
         speaker: ChatMessage.getSpeaker(),
-        flavor: ("From " this.item.data.name),
+        flavor: ("From "+this.item.data.name),
         content: ("<h2>"+this.item.data.data.subItems[liID].name+"</h2>"+this.item.data.data.subItems[liID].description)
       };
       console.log("chatData:", chatData);
