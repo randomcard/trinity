@@ -121,8 +121,8 @@ export class TrinityItemSheet extends ItemSheet {
       // let ownerItem =
       // console.log("chat output:", this, ev, li, liID);
       let ownerName = this.item.data.name;
-      let subItemName = item.data.data.subItems[liID].name;
-      let subItemDesc = item.data.data.subItems[liID].description;
+      let subItemName = this.item.data.data.subItems[liID].name;
+      let subItemDesc = this.item.data.data.subItems[liID].description;
       console.log("chat output:", this, ownerName, subItemName, subItemDesc);
       let chatData = {
         user: game.user.id,
