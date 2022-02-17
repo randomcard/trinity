@@ -597,6 +597,11 @@
   margin: 3px;
 }
 
+.flex-fit {
+  flex: 0 0 auto;
+  margin: 3px;
+}
+
 .flex-child-center {
   flex: auto;
   margin: 3px;
