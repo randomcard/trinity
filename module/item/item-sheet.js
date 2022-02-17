@@ -115,6 +115,22 @@ export class TrinityItemSheet extends ItemSheet {
       deleteConfirm.render(true);
     });
 
+    html.find('.sub-item-chat').click(ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      let liID = li.data("itemId");
+      // const item = this.actor.items.get(li.data("itemId"));
+      console.log("chat item:", item);
+      let chatData = {
+        user: game.user.id,
+        speaker: ChatMessage.getSpeaker(),
+        flavor: ("From " this.item.data.name),
+        content: ("<h2>"+this.item.data.data.subItems[liID].name+"</h2>"+this.item.data.data.subItems[liID].description)
+      };
+      console.log("chatData:", chatData);
+      ChatMessage.create(chatData);
+      // item.sheet.render(true);
+    });
+
 
     // html.find('.memorization-slot').on("drop", console.log("something dropped: ",this));
 
