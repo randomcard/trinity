@@ -1,17 +1,14 @@
 {{!-- Tags item Box --}}
 <ol class="items-list boxed">
     <li class="item flexrow item-header">
-      <div class="big item-name">Tags ({{item.data.data.totalTagValue}} points)&ensp;
-        <span class="title-note">Add new tags by dropping them here from the Items Directory</span>
-      </div>
-      <div class="item-dots"></div>
-      <div class="item-controls"></div>
+        <div class="big item-name">Tags ({{item.data.data.totalTagValue}} points)&ensp;</div>
+        <div class="title-note">Add new tags by dropping them here from the Items Directory</div>
     </li>
 {{#each item.data.data.tags as |tag id|}}
     <li class="item sub" data-item-id="{{tag.id}}">
       <div class="flexrow">
         <h4 class="item-name">
-          {{tag.name}}&ensp;-&ensp;<em>{{tag.costDescription}}</em>
+          {{tag.name}} ({{tag.tagValue}})
         </h4>
         <div class="item-controls">
             <a class="item-control sub-item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
