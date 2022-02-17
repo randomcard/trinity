@@ -118,7 +118,20 @@ export class TrinityItemSheet extends ItemSheet {
     html.find('.sub-item-chat').click(ev => {
       let li = $(ev.currentTarget).parents(".item");
       let liID = li.data("itemId");
-      console.log("chat output:", this, ev, li, liID);
+      // let ownerItem =
+      // console.log("chat output:", this, ev, li, liID);
+      let ownerName = this.item.data.name;
+      let subItemName = item.data.data.subItems[liID].name;
+      let subItemDesc = item.data.data.subItems[liID].description;
+      console.log("chat output:", this, ownerName, subItemName, subItemDesc);
+      let chatData = {
+        user: game.user.id,
+        speaker: ChatMessage.getSpeaker(),
+        flavor: ("From "+ownerName),
+        content: ("<h2>"+subItemName+"</h2>"+subItemDesc)
+      };
+      console.log("chatData:", chatData);
+      ChatMessage.create(chatData);
       // let item = game.items.get(liID);
       // console.log("chat item:", item);
       /*
