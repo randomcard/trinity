@@ -39,8 +39,8 @@ export class TrinityItem extends Item {
       }
 
       // Sort & Assign
-      this.data.data.stunts = stunts.sort((a, b) => a.name < b.name ? 1 : -1);
-      this.data.data.tags = tags.sort((a, b) => a.name < b.name ? 1 : -1);
+      this.data.data.stunts = stunts.sort((a, b) => a.name > b.name ? 1 : -1);
+      this.data.data.tags = tags.sort((a, b) => a.name > b.name ? 1 : -1);
       this.data.data.totalTagValue = this._getTotalTagValue(tags);
     }
 
