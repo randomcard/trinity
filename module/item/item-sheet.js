@@ -121,7 +121,8 @@ export class TrinityItemSheet extends ItemSheet {
       // let ownerItem =
       // console.log("chat output:", this, ev, li, liID);
       let ownerName = this.item.data.name;
-      let subItemName = this.item.data.data.subItems[liID].name;
+      let addinfo = (this.item.data.data.subItems[liID].type = "stunt") ? this.item.data.data.subItems[liID].costDescription : this.item.data.data.subItems[liID].tagValue;
+      let subItemName = this.item.data.data.subItems[liID].name+" ("+addinfo+")";
       let subItemDesc = this.item.data.data.subItems[liID].description;
       console.log("chat output:", this, ownerName, subItemName, subItemDesc);
       let chatData = {
