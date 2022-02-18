@@ -93,7 +93,7 @@ export class TrinityItemSheet extends ItemSheet {
     if (!this.options.editable) return;
 
     // Roll handlers, click handlers, etc. would go here.
-    html.find('.item-name').click(ev => {
+    html.find('.sub-item-name').click(ev => {
       // let element = $(ev.currentTarget.parentElement).siblings(".item-detail");
       // console.log("item-name click", ev, element);
       //element.classList.toggle("hidden");
