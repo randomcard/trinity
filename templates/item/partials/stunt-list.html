@@ -7,6 +7,9 @@
 {{#each item.data.data.stunts as |stunt id|}}
     <li class="item sub" data-item-id="{{stunt.id}}">
       <div class="flexrow">
+        <div class="flex-left item-detail-button">
+          <i class="fa-solid fa-circle-info"></i>
+        </div>
         <h4 class="item-name">
           <b>{{stunt.name}}</b>&ensp;-&ensp;<em>{{stunt.costDescription}}</em>
         </h4>
@@ -15,7 +18,7 @@
             <a class="item-control sub-item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
         </div>
       </div>
-      <div class="flexrow">
+      <div class="flexrow item-detail">
         {{{stunt.description}}}
       </div>
     </li>

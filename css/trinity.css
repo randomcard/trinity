@@ -803,6 +803,10 @@ input[type="text"].on-dark, input[type="number"].on-dark {
   display: none;
 }
 
+.hidden {
+  display: none;
+}
+
 .chip-control {
   margin-right: 5px;
 }
