@@ -94,10 +94,10 @@ export class TrinityItemSheet extends ItemSheet {
 
     // Roll handlers, click handlers, etc. would go here.
     html.find('.item-name').click(ev => {
-      //let element = $(ev.currentTarget.ParentElement).siblings(".item-detail");
-      //console.log("item-name click", ev, element);
-      //element.classList.toggle("hidden");
-      event.currentTarget.parentElement.nextElementSibling.classList.toggle("hidden");
+      let element = $(ev.currentTarget.ParentElement).siblings(".item-detail");
+      console.log("item-name click", ev, element);
+      element.classList.toggle("hidden");
+      // event.currentTarget.parentElement.nextElementSibling.classList.toggle("hidden");
       // event.currentTarget.previousElementSibling.previousElementSibling.classList.toggle("chip-hidden");
     });
 
