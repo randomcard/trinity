@@ -97,7 +97,7 @@ export class TrinityItemSheet extends ItemSheet {
       //let element = $(ev.currentTarget.ParentElement).siblings(".item-detail");
       //console.log("item-name click", ev, element);
       //element.classList.toggle("hidden");
-      event.currentTarget.ParentElement.nextElementSibling.classList.toggle("hidden");
+      event.currentTarget.parentElement.nextElementSibling.classList.toggle("hidden");
       // event.currentTarget.previousElementSibling.previousElementSibling.classList.toggle("chip-hidden");
     });
 
