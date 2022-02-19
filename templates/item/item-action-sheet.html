@@ -8,9 +8,10 @@
             {{item.data.data.typeName}}
           </span>
           {{! Flagged Info }}
-          {{#if item.data.data.flags.isInjury}}<span class="top-trait">Injury</span>{{/if}}
-          {{#if item.data.data.flags.isComplication}}<span class="top-trait">Complication</span>{{/if}}
-          {{#if item.data.data.flags.isEnhancement}}<span class="top-trait">Enhancement</span>{{/if}}
+          {{#if item.data.data.flags.isInjury}}<span class="top-trait secondary">Injury</span>{{/if}}
+          {{#if item.data.data.flags.isComplication}}<span class="top-trait secondary">Complication</span>{{/if}}
+          {{#if item.data.data.flags.isEnhancement}}<span class="top-trait secondary">Enhancement</span>{{/if}}
+          {{#if item.data.data.flags.hasRoll}}<span class="top-trait secondary">Roll</span>{{/if}}
         </div>
         <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
         <div class="left-vcenter"> {{! Primary Value }}

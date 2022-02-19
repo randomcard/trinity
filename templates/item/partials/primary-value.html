@@ -1,11 +1,11 @@
 <div class="flex-parent">
 
   {{#if (isEqual item.data.type "stunt") }}
-    <div>
+    <div class="flex-parent">
       <label class="resource-label" for="stunt-type">Stunt Type</label>
       <input class="resource" type="text" id="stunt-type" name="data.stuntType" value="{{data.data.stuntType}}" data-dtype="String"/>
     </div>
-    <div>
+    <div class="flex-parent">
       <label class="resource-label" for="stunt-cost">Stunt Cost</label>
       <input class="resource" type="text" id="stunt-cost" name="data.costDescription" value="{{data.data.costDescription}}" data-dtype="String"/>
     </div>

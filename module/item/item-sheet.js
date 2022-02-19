@@ -42,6 +42,13 @@ export class TrinityItemSheet extends ItemSheet {
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.html`;
 
+    // Temporary direction as "omni" sheet is developed for different
+    let useTypes = ['action','stunt'];
+    if (useTypes.indexOf(this.item.data.type) > -1) {
+      return `${path}/item-sheet.html`;
+    }
+
+
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
     return `${path}/item-${this.item.data.type}-sheet.html`;
