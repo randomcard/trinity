@@ -848,11 +848,16 @@ select.chip-select {
   text-transform: uppercase;
   overflow:hidden;
   padding: 4px;
-  background-color: rgba(255, 200, 200, 0.4);
+  background-color: tomato;
   border-color: solid darkRed;
   border-width: 0px 1px 1px 1px;
   border-radius: 0px 0px 5px 5px;
   margin: 0px 2px 2px 2px;
+  padding: 5px 5px 0px;
+}
+
+.top-trait.secondary {
+  background-color: mediumaquamarine;
 }
 
 .item .window-content {
