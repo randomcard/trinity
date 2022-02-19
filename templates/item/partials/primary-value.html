@@ -10,4 +10,30 @@
   {{#if (isEqual item.data.type "action") }}
   {{/if}}
 
+  {{#if (isEqual item.data.type "tag") }}
+  <div class="flex-parent-nowrap">
+    <label class="flex-fit flex-valign resource-label" for="tag-value">Tag Value</label>
+    <input
+        class=" flex-valign resource"
+        type="number"
+        min="-10"
+        max="10"
+        step="1"
+        onfocus="this.previousValue = this.value"
+        onkeydown="this.previousValue = this.value"
+        oninput="validity.valid || (value = this.previousValue)"
+        id="tag-value"
+        name="data.tagValue"
+        value="{{data.data.tagValue}}"
+        data-dtype="Number"/>
+  </div>
+  {{/if}}
+
+  {{#if (isEqual item.data.type "edge") }}
+  <div>
+    <label class="resource-label" for="dot-value">Dot Value</label>
+    <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="dot-value" name="data.value" value="{{data.data.value}}" data-dtype="Number"/>
+  </div>
+  {{/if}}
+
 </div>

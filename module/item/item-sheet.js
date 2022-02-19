@@ -43,7 +43,7 @@ export class TrinityItemSheet extends ItemSheet {
     // return `${path}/item-sheet.html`;
 
     // Temporary direction as "omni" sheet is developed for different
-    let useTypes = ['action','stunt'];
+    let useTypes = ['action','stunt', 'tag', 'edge'];
     if (useTypes.indexOf(this.item.data.type) > -1) {
       return `${path}/item-sheet.html`;
     }
