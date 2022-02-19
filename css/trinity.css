@@ -529,6 +529,11 @@
   margin: 3px;
 }
 
+.flex-parent-nowrap {
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .flex-parent-wide {
   display: flex;
   flex-flow: row wrap;

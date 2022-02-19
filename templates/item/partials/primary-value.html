@@ -1,7 +1,7 @@
 <div>
 
   {{#if (isEqual item.data.type "stunt") }}
-    <div class="flex-parent">
+    <div class="flex-parent-nowrap">
       <label class="flex-fit flex-valign resource-label" for="stunt-cost">Stunt Cost</label>
       <input class="flex-valign resource" type="text" id="stunt-cost" name="data.costDescription" value="{{data.data.costDescription}}" data-dtype="String"/>
     </div>
