@@ -1,13 +1,12 @@
 {{log "ACTION sheet logging, this:" this}}
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-      <div class="header-fields"> {{! Left Side of Header}}
+      <div class="header-fields">
+        {{! Tabs/Traits at top }}
         {{> "systems/trinity/templates/item/partials/top-traits.html"}}
-        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-        <div class="left-vcenter"> {{! Primary Value }}
-          {{> "systems/trinity/templates/item/partials/primary-value.html"}}
-          {{#if item.data.data.flags.hasRoll}}{{{createChip this.item.id}}}{{/if}}
-        </div>
+        <h1 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        {{! Primary Value }}
+        {{> "systems/trinity/templates/item/partials/primary-value.html"}}
       </div>
     </header>
 
