@@ -1,17 +1,14 @@
-<div>
+<div class="flex-parent-nowrap">
 
   {{#if (isEqual item.data.type "stunt") }}
-    <div class="flex-parent-nowrap">
       <label class="flex-fit flex-valign resource-label" for="stunt-cost">Stunt Cost</label>
       <input class="flex-valign resource" type="text" id="stunt-cost" name="data.costDescription" value="{{data.data.costDescription}}" data-dtype="String"/>
-    </div>
   {{/if}}
 
   {{#if (isEqual item.data.type "action") }}
   {{/if}}
 
   {{#if (isEqual item.data.type "tag") }}
-  <div class="flex-parent-nowrap">
     <label class="flex-fit flex-valign resource-label" for="tag-value">Tag Value</label>
     <input
         class=" flex-valign resource"
@@ -26,14 +23,11 @@
         name="data.tagValue"
         value="{{data.data.tagValue}}"
         data-dtype="Number"/>
-  </div>
   {{/if}}
 
   {{#if (isEqual item.data.type "edge") }}
-  <div>
-    <label class="resource-label" for="dot-value">Dot Value</label>
-    <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="dot-value" name="data.value" value="{{data.data.value}}" data-dtype="Number"/>
-  </div>
+    <label class="flex-fit flex-valign resource-label" for="dot-value">Dot Value</label>
+    <input class="flex-valign resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="dot-value" name="data.value" value="{{data.data.value}}" data-dtype="Number"/>
   {{/if}}
 
 </div>

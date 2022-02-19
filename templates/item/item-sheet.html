@@ -5,7 +5,7 @@
         {{! Tabs/Traits at top }}
         {{> "systems/trinity/templates/item/partials/top-traits.html"}}
         <h1 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-        {{! Primary Value }}
+        {{! Primary Value(s) }}
         {{> "systems/trinity/templates/item/partials/primary-value.html"}}
       </div>
     </header>
@@ -40,7 +40,6 @@
         <div class="tab attributes" data-group="primary" data-tab="attributes">
             {{!-- As you add new fields, add them in here! --}}
 
-            {{> "systems/trinity/templates/item/partials/dots-flag.html"}}
             {{> "systems/trinity/templates/item/partials/enhancement-flag.html"}}
             {{> "systems/trinity/templates/item/partials/complication-flag.html"}}
             {{> "systems/trinity/templates/item/partials/roll-flag.html"}}
