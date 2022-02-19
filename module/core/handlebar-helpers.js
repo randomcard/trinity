@@ -29,7 +29,7 @@ export function handlebarHelpers() {
   Handlebars.registerHelper("isEqual", function (arg1, arg2) {
     console.log("isEqual HBHelper:", arg1, arg2);
     let isEqual = false;
-    if (arg1 = arg2) { isEqual = true; }
+    if (arg1 === arg2) { isEqual = true; }
     return isEqual;
   });
 
