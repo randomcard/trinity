@@ -2,17 +2,7 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
       <div class="header-fields"> {{! Left Side of Header}}
-        <div class="top-traits">
-          <span class="top-trait">
-            <span class="small icons">{{#if item.data.data.flags.hasDots}}{{{toDots item.data.data.value}}}{{/if}}</span>
-            {{item.data.data.typeName}}
-          </span>
-          {{! Flagged Info }}
-          {{#if item.data.data.flags.isInjury}}<span class="top-trait secondary">Injury</span>{{/if}}
-          {{#if item.data.data.flags.isComplication}}<span class="top-trait secondary">Complication</span>{{/if}}
-          {{#if item.data.data.flags.isEnhancement}}<span class="top-trait secondary">Enhancement</span>{{/if}}
-          {{#if item.data.data.flags.hasRoll}}<span class="top-trait secondary">Roll</span>{{/if}}
-        </div>
+        {{> "systems/trinity/templates/item/partials/top-traits.html"}}
         <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
         <div class="left-vcenter"> {{! Primary Value }}
           {{> "systems/trinity/templates/item/partials/primary-value.html"}}

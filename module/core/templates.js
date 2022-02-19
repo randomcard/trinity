@@ -39,6 +39,7 @@ export async function loadTrinityTemplates()
     "systems/trinity/templates/item/partials/stunt-list.html",
     "systems/trinity/templates/item/partials/tag-list.html",
     "systems/trinity/templates/item/partials/primary-value.html",
+    "systems/trinity/templates/item/partials/top-traits.html",
     "systems/trinity/templates/actor/partials/unflagged.html",
     "systems/trinity/templates/actor/partials/psi.html",
     "systems/trinity/templates/actor/partials/nova.html",

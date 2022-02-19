@@ -1,0 +1,11 @@
+<div class="top-traits">
+  <span class="top-trait">
+    {{#if item.data.data.flags.hasDots}}<span class="small icons">{{{toDots item.data.data.value}}}</span>{{/if}}
+    {{item.data.data.typeName}}
+  </span>
+  {{! Flagged Info }}
+  {{#if item.data.data.flags.isInjury}}<span class="top-trait secondary">Injury</span>{{/if}}
+  {{#if item.data.data.flags.isComplication}}<span class="top-trait secondary">Complication</span>{{/if}}
+  {{#if item.data.data.flags.isEnhancement}}<span class="top-trait secondary">Enhancement</span>{{/if}}
+  {{#if item.data.data.flags.hasRoll}}<span class="top-trait secondary">Roll</span>{{/if}}
+</div>
