@@ -26,6 +26,12 @@ export function handlebarHelpers() {
     return arg1 == arg2 ? options.fn(this) : options.inverse(this);
   });
 
+  Handlebars.registerHelper("isEqual", function (arg1, arg2) {
+    let isEqual = false;
+    if (arg1 = arg2) { isEqual = true; }
+    return isEqual;
+  });
+
   Handlebars.registerHelper('toDots', function(n) {
     let dots = '';
     let filled = '<i class="fa fa-circle"></i>';
