@@ -54,11 +54,8 @@
     <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.value"></i>
     <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="complication-value" name="data.complication.value" value="{{data.data.complication.value}}" data-dtype="Number"/>
     <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.value"></i>
-    <label class="flex-fit flex-valign resource-label" for="enhancement-value">Enhancement:</label>
-    <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.enhancement.value"></i>
-    <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="enhancement-value" name="data.enhancement.value" value="{{data.data.enhancement.value}}" data-dtype="Number"/>
-    <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.enhancement.value"></i>
-    <label class="flex-fit flex-valign resource-label" for="injury-level">Injury Level</label>
+
+    <label class="flex-fit flex-valign resource-label" for="injury-level">Injury:</label>
     <select id="injury-level" name="data.injury.value" data-dtype="Number">
       {{#select data.data.injury.value}}
       <option value="">None</option>
@@ -69,6 +66,11 @@
       <option value="5">Taken Out</option>
       {{/select}}
     </select>
+
+    <label class="flex-fit flex-valign resource-label" for="enhancement-value">Enhancement:</label>
+    <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.enhancement.value"></i>
+    <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="enhancement-value" name="data.enhancement.value" value="{{data.data.enhancement.value}}" data-dtype="Number"/>
+    <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.enhancement.value"></i>
   {{/if}}
 
 </div>
