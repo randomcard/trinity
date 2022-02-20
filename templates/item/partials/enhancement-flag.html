@@ -6,7 +6,7 @@
   </div>
   {{#if data.data.flags.isEnhancement}}
   <hr>
-  {{#unless (isEqual item.data.type "equipment") }}
+  {{#unless (isEqual item.data.type "equipment" "condition") }}
   <div>
     <label class="resource-label" for="enhancement-value">Enhancement Value</label>
     <input
