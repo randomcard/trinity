@@ -339,7 +339,8 @@
         "hasDots" : true,
         "isDice" : true,
         "isMain" : true,
-        "isQuantum" : false
+        "isQuantum" : false,
+        "isSource" : false
       }
     },
     "edge": {
@@ -362,6 +363,10 @@
       "templates": ["base"],
       "typeName" : "Specialty",
       "skillOrigin": "",
+      "enhancement" : {
+        "value" : 1,
+        "relevance" : "Specialty: Skill Name"
+      },
       "flags" : {
         "hasDots" : false
       }
@@ -436,7 +441,10 @@
     "action" : {
       "templates": ["base"],
       "typeName" : "Action",
-      "linkedItemIDs" : []
+      "linkedItemIDs" : [],
+      "flags" : {
+        "hasDots" : false
+      }
     },
     "quantumPower" : {
       "templates": ["base"],
@@ -456,7 +464,10 @@
     "tag" : {
       "templates": ["base"],
       "typeName" : "Tag",
-      "tagValue": 0
+      "tagValue": 0,
+      "flags" : {
+        "hasDots" : false
+      }
     }
   }
 }

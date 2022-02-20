@@ -21,9 +21,11 @@
         value="{{data.data.enhancement.value}}"
         data-dtype="Number"/>
   </div>
+  {{#unless (isEqual item.data.type "specialty") }}
   <div>
     <label class="resource-label" for="enhancement-condition">Enhancement Condition</label>
     <input class="resource" type="text" id="enhancement-condition" name="data.enhancement.relevance" value="{{data.data.enhancement.relevance}}" data-dtype="String"/>
   </div>
+  {{/unless}}
   {{/if}}
 </div>
