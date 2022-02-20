@@ -1,7 +1,7 @@
 <div class="top-traits">
   <span class="top-trait">
-    {{item.data.data.typeName}}
-    {{#if item.data.data.flags.hasDots}}<span class="small icons">{{{toDots item.data.data.value}}}</span>{{/if}}
+    {{~item.data.data.typeName~}}
+    {{~#if item.data.data.flags.hasDots~}}<span class="small icons">{{~{toDots item.data.data.value}~}}</span>{{~/if~}}
   </span>
   {{! Flagged Info }}
   {{~#if item.data.data.flags.isGear~}}<span class="top-trait secondary">Gear</span>{{~/if~}}
