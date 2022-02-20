@@ -4,12 +4,12 @@
     {{#if item.data.data.flags.hasDots}}<span class="small icons">{{{toDots item.data.data.value}}}</span>{{/if}}
   </span>
   {{! Flagged Info }}
-  {{#if item.data.data.flags.isGear}}<span class="top-trait secondary">Gear</span>{{/if}}
-  {{#if item.data.data.flags.isWeapon}}<span class="top-trait secondary">Weapon</span>{{/if}}
-  {{#if item.data.data.flags.isArmor}}<span class="top-trait secondary">Armor</span>{{/if}}
-  {{#if item.data.data.flags.isVehicle}}<span class="top-trait secondary">Vehicle</span>{{/if}}
-  {{#if item.data.data.flags.isInjury}}<span class="top-trait secondary">Injury</span>{{/if}}
-  {{#if item.data.data.flags.isComplication}}<span class="top-trait secondary">Complication</span>{{/if}}
-  {{#if item.data.data.flags.isEnhancement}}<span class="top-trait secondary">Enhancement {{item.data.data.enhancement.value}}</span>{{/if}}
-  {{#if item.data.data.flags.hasRoll}}<span class="top-trait secondary">Roll</span>{{/if}}
+  {{~#if item.data.data.flags.isGear~}}<span class="top-trait secondary">Gear</span>{{~/if~}}
+  {{~#if item.data.data.flags.isWeapon~}}<span class="top-trait secondary">Weapon</span>{{~/if~}}
+  {{~#if item.data.data.flags.isArmor~}}<span class="top-trait secondary">Armor</span>{{~/if~}}
+  {{~#if item.data.data.flags.isVehicle~}}<span class="top-trait secondary">Vehicle</span>{{~/if~}}
+  {{~#if item.data.data.flags.isInjury~}}<span class="top-trait secondary">Injury</span>{{~/if~}}
+  {{~#if item.data.data.flags.isComplication~}}<span class="top-trait secondary">Complication</span>{{~/if~}}
+  {{~#if item.data.data.flags.isEnhancement~}}<span class="top-trait secondary">Enhancement {{item.data.data.enhancement.value}}</span>{{~/if~}}
+  {{~#if item.data.data.flags.hasRoll~}}<span class="top-trait secondary">Roll</span>{{~/if~}}
 </div>
