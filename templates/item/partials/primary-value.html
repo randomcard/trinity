@@ -2,10 +2,20 @@
 
   {{#if (isEqual item.data.type "stunt") }}
       <label class="flex-fit flex-valign resource-label" for="stunt-cost">Stunt Cost:</label>
-      <input class="flex-valign resource" type="text" id="stunt-cost" name="data.costDescription" value="{{data.data.costDescription}}" data-dtype="String"/>
+      <input class="flex-valign short-input resource" type="text" id="stunt-cost" name="data.costDescription" value="{{data.data.costDescription}}" data-dtype="String"/>
   {{/if}}
 
   {{#if (isEqual item.data.type "action") }}
+  {{/if}}
+
+  {{#if (isEqual item.data.type "equipment") }}
+    <label class="flex-fit flex-valign resource-label" for="enhancement-value">Enhancement Value</label>
+    <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.enhancement.value"></i>
+    <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="enhancement-value" name="data.enhancement.value" value="{{data.data.enhancement.value}}" data-dtype="Number"/>
+    <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.enhancement.value"></i>
+    <div class="flex-right">
+      {{item.data.data.totalTagValue}} Tag Points
+    </div>
   {{/if}}
 
   {{#if (isEqual item.data.type "tag") }}

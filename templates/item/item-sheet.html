@@ -46,7 +46,9 @@
                 <label class="resource-label left-vcenter" for="data.flags.hasDots">Dots</label>
               </div>
             </div>
-
+            {{#if (isEqual item.data.type "equipment") }}
+            {{> "systems/trinity/templates/item/partials/item-flag.html"}}
+            {{/if}}
             {{> "systems/trinity/templates/item/partials/enhancement-flag.html"}}
             {{> "systems/trinity/templates/item/partials/complication-flag.html"}}
             {{> "systems/trinity/templates/item/partials/roll-flag.html"}}

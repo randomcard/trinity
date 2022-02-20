@@ -325,6 +325,10 @@
         "handling" : 1,
         "speed" : 1,
         "cost" : 1
+      },
+      "enhancement" : {
+        "value" : 1,
+        "relevance" : ""
       }
     },
     "attribute": {
@@ -417,13 +421,13 @@
     "contact" : {
       "templates": ["base"],
       "typeName" : "Contact",
-      "value" : 0,
+      "value" : 1,
       "pathOrigin": ""
     },
     "bond" : {
       "templates": ["base"],
       "typeName" : "Bond",
-      "value" : 0,
+      "value" : 1,
       "skillOrigin": ""
     },
     "mode" : {

@@ -893,5 +893,5 @@ input[type="text"].short-input {
   margin: 2px;
   border: none;
   border-radius: 10px;
-  /* font-size: large; */
+  font-size: large;
 }
