@@ -27,7 +27,7 @@
     <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.tagValue"></i>
   {{/if}}
 
-  {{#if isEqual item.data.data.flags.hasDots }}
+  {{#if item.data.data.flags.hasDots }}
     <label class="flex-fit flex-valign resource-label" for="dot-value">Dot Value:</label>
     <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.value"></i>
     <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="dot-value" name="data.value" value="{{data.data.value}}" data-dtype="Number"/>
