@@ -329,6 +329,9 @@
       "enhancement" : {
         "value" : 1,
         "relevance" : ""
+      },
+      "flags" : {
+        "hasDots" : false
       }
     },
     "attribute": {
