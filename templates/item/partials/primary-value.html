@@ -52,25 +52,26 @@
   {{#if (isEqual item.data.type "condition") }}
     <label class="flex-fit flex-valign resource-label" for="complication-value">Complication:</label>
     <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.value"></i>
-    <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="complication-value" name="data.complication.value" value="{{data.data.complication.value}}" data-dtype="Number"/>
+    <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="complication-value" name="data.complication.value" value="{{data.data.complication.value}}" data-dtype="Number"/>
     <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.value"></i>
-
-    <label class="flex-fit flex-valign resource-label" for="injury-level">Injury:</label>
-    <select id="injury-level" name="data.injury.value" data-dtype="Number">
-      {{#select data.data.injury.value}}
-      <option value="">None</option>
-      <option value="0">Armor</option>
-      <option value="1">Bruised (+1)</option>
-      <option value="2">Injured (+2)</option>
-      <option value="4">Maimed (+4)</option>
-      <option value="5">Taken Out</option>
-      {{/select}}
-    </select>
-
-    <label class="flex-fit flex-valign resource-label" for="enhancement-value">Enhancement:</label>
-    <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.enhancement.value"></i>
-    <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="enhancement-value" name="data.enhancement.value" value="{{data.data.enhancement.value}}" data-dtype="Number"/>
-    <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.enhancement.value"></i>
+    <div class="flex-child flex-right flex-valign">
+      <label class="flex-fit flex-valign resource-label" for="injury-level">Injury:</label>
+      <select id="injury-level" name="data.injury.value" data-dtype="Number">
+        {{#select data.data.injury.value}}
+        <option value="">None</option>
+        <option value="0">Armor</option>
+        <option value="1">Bruised (+1)</option>
+        <option value="2">Injured (+2)</option>
+        <option value="4">Maimed (+4)</option>
+        <option value="5">Taken Out</option>
+        {{/select}}
+      </select>
+    </div>
+    <div class="flex-parent-nowrap">
+      <label class="flex-fit flex-valign resource-label" for="enhancement-value">Enhancement:</label>
+      <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.enhancement.value"></i>
+      <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="enhancement-value" name="data.enhancement.value" value="{{data.data.enhancement.value}}" data-dtype="Number"/>
+      <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.enhancement.value"></i>
   {{/if}}
 
 </div>
