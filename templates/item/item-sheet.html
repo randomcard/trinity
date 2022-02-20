@@ -50,7 +50,29 @@
             {{> "systems/trinity/templates/item/partials/item-flag.html"}}
             {{/if}}
             {{> "systems/trinity/templates/item/partials/enhancement-flag.html"}}
-            {{> "systems/trinity/templates/item/partials/complication-flag.html"}}
+
+            {{! Complication Box }}
+            <div class="boxed fit">
+              <div class="left-vcenter">
+                <input class="left-vcenter" type="checkbox" name="data.flags.isComplication" value="{{data.data.flags.isComplication}}" data-dtype="Boolean" {{checked data.data.flags.isComplication}}/>
+                <label class="resource-label left-vcenter" for="data.flags.isComplication">Complication</label>
+              </div>
+              {{#if data.data.flags.isComplication}}
+              <hr>
+              {{#if (isEqual item.data.type "condition") }}
+              <div>
+                <label class="resource-label" for="complication-value">Complication Value</label>
+                <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="complication-value" name="data.complication.value" value="{{data.data.complication.value}}" data-dtype="Number"/>
+              </div>
+              {{/if}}
+              <div>
+                <label class="resource-label" for="complication-condition">Complication Condition</label>
+                <input class="resource" type="text" id="complication-condition" name="data.complication.relevance" value="{{data.data.complication.relevance}}" data-dtype="String"/>
+              </div>
+              {{/if}}
+            </div>
+
+
             {{> "systems/trinity/templates/item/partials/roll-flag.html"}}
 
 
