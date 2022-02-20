@@ -881,4 +881,8 @@ select.chip-select {
   width: 50px;
   text-align: center;
   font-weight: bold;
+  margin: 2px;
+  border: none;
+  border-radius: 10px;
+  font-size: large;
 }
