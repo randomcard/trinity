@@ -90,6 +90,7 @@ export class RollForm extends FormApplication {
 
     html.find('.roll-button').click((event) => {
       this._roll();
+      this.close();
     });
 
     html.find('.showOptions').click((event) => {
