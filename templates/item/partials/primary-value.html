@@ -10,7 +10,7 @@
 
   {{#if (isEqual item.data.type "tag") }}
     <label class="flex-fit flex-valign resource-label" for="tag-value">Tag Value:</label>
-    <i class="clickable sub-value fas fa-minus-circle" data-target="data.value"></i>
+    <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.tagValue"></i>
     <input
         class=" flex-valign short-input resource"
         type="number"
@@ -24,14 +24,14 @@
         name="data.tagValue"
         value="{{data.data.tagValue}}"
         data-dtype="Number"/>
-    <i class="clickable add-value far fa-plus-circle" data-target="data.value"></i>
+    <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.tagValue"></i>
   {{/if}}
 
   {{#if (isEqual item.data.type "edge") }}
     <label class="flex-fit flex-valign resource-label" for="dot-value">Dot Value:</label>
-    <i class="clickable sub-value fas fa-minus-circle" data-target="data.value"></i>
+    <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.value"></i>
     <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="dot-value" name="data.value" value="{{data.data.value}}" data-dtype="Number"/>
-    <i class="clickable add-value far fa-plus-circle" data-target="data.value"></i>
+    <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.value"></i>
   {{/if}}
 
 </div>
