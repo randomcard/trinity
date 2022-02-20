@@ -59,12 +59,12 @@
               </div>
               {{#if data.data.flags.isComplication}}
               <hr>
-              {{#if (isEqual item.data.type "condition") }}
+              {{#unless (isEqual item.data.type "condition") }}
               <div>
                 <label class="resource-label" for="complication-value">Complication Value</label>
                 <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="complication-value" name="data.complication.value" value="{{data.data.complication.value}}" data-dtype="Number"/>
               </div>
-              {{/if}}
+              {{/unless}}
               <div>
                 <label class="resource-label" for="complication-condition">Complication Condition</label>
                 <input class="resource" type="text" id="complication-condition" name="data.complication.relevance" value="{{data.data.complication.relevance}}" data-dtype="String"/>
