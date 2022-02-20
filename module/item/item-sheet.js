@@ -173,6 +173,38 @@ export class TrinityItemSheet extends ItemSheet {
       */
     });
 
+    function getDescendantProp(obj, desc) {
+      var arr = desc.split('.');
+      while (arr.length) {
+        obj = obj[arr.shift()];
+      }
+      return obj;
+    }
+
+    // Remove value
+    html.find('.sub-value').click(ev => {
+      let target = event.currentTarget.dataset.target;
+      let current = getDescendantProp(this.item.data, target);
+      if (current === null) {
+        this.item.update({ [target]: 2 });
+      }
+      if (current > 0) {
+        this.item.update({ [target]: --current });
+        this.render(true);
+      }
+    });
+
+  // Add Value
+    html.find('.add-value').click(ev => {
+      let target = event.currentTarget.dataset.target;
+      let current = getDescendantProp(this.item.data, target);
+      console.log("Add Value:", ev);
+      if (current === null || current < 0) {
+        this.item.update({ [target]: 0 });
+      }
+      this.item.update({ [target]: ++current });
+      this.render(true);
+    });
 
     // html.find('.memorization-slot').on("drop", console.log("something dropped: ",this));
 

@@ -267,7 +267,7 @@
 }
 
 .trinity .tabs .item {
-  line-height: 30px;
+  line-height: 10px;
   font-weight: bold;
 }
 
@@ -875,4 +875,10 @@ select.chip-select {
 
 .item .window-content {
   padding-top: 0px;
+}
+
+.short-input {
+  width: 50px;
+  text-align: center;
+  font-weight: bold;
 }
