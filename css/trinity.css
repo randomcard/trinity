@@ -877,7 +877,7 @@ select.chip-select {
   padding-top: 0px;
 }
 
-.short-input.resource input[type="number"] {
+input[type="number"].short-input {
   width: 50px;
   text-align: center;
   font-weight: bold;
