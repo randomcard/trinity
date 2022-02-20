@@ -36,7 +36,7 @@ export class TrinityItem extends Item {
     else {{this.data.data.flags.isComplication = false;}
     */
     if (this.data.data.injury.value < 1) {this.data.data.flags.isInjury = false;}
-    else {{this.data.data.flags.isInjury = true;}
+    else {this.data.data.flags.isInjury = true;}
   }
 
 
