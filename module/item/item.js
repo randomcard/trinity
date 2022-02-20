@@ -24,17 +24,21 @@ export class TrinityItem extends Item {
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     this._prepareSubItemData(itemData);
-    // this._updateFlags(itemData);
+    this._updateFlags(itemData);
   }
 
-/*
+
   _updateFlags(itemData) {
+    /*
     if (this.data.data.enhancement.value > 0) {this.data.data.flags.isEnhancement = true;}
     else {{this.data.data.flags.isEnhancement = false;}
     if (this.data.data.complication.value > 0) {this.data.data.flags.isComplication = true;}
     else {{this.data.data.flags.isComplication = false;}
+    */
+    if (this.data.data.injury.value < 1) {this.data.data.flags.isInjury = false;}
+    else {{this.data.data.flags.isInjury = true;}
   }
-*/
+
 
   _prepareSubItemData(itemData) {
     // console.log("_prepareSubItemData called", itemData);
