@@ -32,18 +32,22 @@ export function handlebarHelpers() {
     return isEqual;
   });
 
-  Handlebars.registerHelper('toDots', function(n) {
+  Handlebars.registerHelper('toDots', function(n, m) {
     let dots = '';
     let filled = '<i class="fa fa-circle"></i>';
     let empty = '<i class="far fa-circle"></i>';
+    let mega = '<i class="fas fa-certificate"></i>';
     if (n > 10) {
       dots = n.toString();
       dots += filled;
     } else {
       for (let i = 0; i < Math.max(n, 5); i++) {
         if (i === 5) { dots += ' '; }
-        if (i < n) { dots += filled; }
-          else {dots += empty;}
+        if (i < n) {
+          if (i < m) { dots += mega; }
+          else { dots += filled; }
+        }
+        else {dots += empty;}
       }
     }
     return dots;
