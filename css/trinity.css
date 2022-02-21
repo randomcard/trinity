@@ -478,6 +478,10 @@
   margin: 2px;
 }
 
+.nomargin {
+  margin: 0px;
+}
+
 .low-margin-padding {
   margin: 1px !important;
   padding: 1px !important;
