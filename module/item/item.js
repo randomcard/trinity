@@ -25,6 +25,7 @@ export class TrinityItem extends Item {
     // things organized.
     this._prepareSubItemData(itemData);
     this._updateFlags(itemData);
+    this._matchValues(itemData);
   }
 
 
@@ -38,6 +39,14 @@ export class TrinityItem extends Item {
     if (typeof this.data.data.injury !== "undefined" && typeof this.data.data.injury.value !== "undefined") {
       if (this.data.data.injury.value < 1) {this.data.data.flags.isInjury = false;}
       else {this.data.data.flags.isInjury = true;}
+    }
+  }
+
+  _matchValues(itemData) {
+    // Certain item types have an enhancement calue equal to dots - this updates that manually
+    if (this.data.type === "attribute" && typeof this.data.data.flags.isFacet !== "undefined" && this.data.data.flags.isFacet) {
+      this.data.data.enhancement.value = this.data.data.value;
+      this.data.data.flags.isEnhancement = true;
     }
   }
 

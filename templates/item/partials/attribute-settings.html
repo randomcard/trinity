@@ -1,0 +1,37 @@
+<div class="boxed">
+  <div class="grid grid-4col center-text options">
+    <div class="">
+      <label class="center-text resource-label" for="core" id="core-label">Core</label><br>
+      <input class="" type="checkbox" id="core" name="data.flags.isMain" value="{{data.data.flags.isMain}}" data-dtype="Boolean" {{checked data.data.flags.isMain}}/>
+    </div>
+    <div class="">
+      <label class="center-text resource-label" for="facet" id="facet-label">Facet</label><br>
+      <input class="" type="checkbox" id="facet" name="data.flags.isFacet" value="{{data.data.flags.isFacet}}" data-dtype="Boolean" {{checked data.data.flags.isFacet}}/>
+    </div>
+    <div class="">
+      <label class="center-text resource-label" for="psi" id="psi-label">Psi</label><br>
+      <input class="" type="checkbox" id="psi" name="data.flags.isPsi" value="{{data.data.flags.isPsi}}" data-dtype="Boolean" {{checked data.data.flags.isPsi}}/>
+    </div>
+    <div class="">
+      <label class="center-text resource-label" for="quantum" id="quantum-label">Quantum</label><br>
+      <input class="" type="checkbox" id="quantum" name="data.flags.isQuantum" value="{{data.data.flags.isQuantum}}" data-dtype="Boolean" {{checked data.data.flags.isQuantum}}/>
+    </div>
+  </div>
+
+  <div>
+    <label class="resource-label" for="mega-value">Mega Value</label>
+    <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="mega-value" name="data.megaValue" value="{{data.data.megaValue}}" data-dtype="Number"/>
+  </div>
+  <div>
+    <label class="resource-label" for="arena-text">Arena</label>
+    <input class="resource" type="text" id="arena-text" name="data.arena" value="{{data.data.arena}}" data-dtype="String"/>
+  </div>
+  <div>
+    <label class="resource-label" for="approach-text">Approach</label>
+    <input class="resource" type="text" id="approach-text" name="data.approach" value="{{data.data.approach}}" data-dtype="String"/>
+  </div>
+  <div>
+    <label class="resource-label" for="sortNum-value">Sort Order</label>
+    <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="sortNum-value" name="data.sortNum" value="{{data.data.sortNum}}" data-dtype="Number"/>
+  </div>
+</div>

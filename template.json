@@ -348,7 +348,13 @@
         "isDice" : true,
         "isMain" : true,
         "isQuantum" : false,
+        "isPsi" : false,
+        "isFacet" : false,
         "isSource" : false
+      },
+      "enhancement" : {
+        "value" : 1,
+        "relevance" : "Spend Inspiration"
       }
     },
     "edge": {
@@ -457,7 +463,7 @@
     "quantumPower" : {
       "templates": ["base"],
       "typeName" : "Quantum Power",
-      "value" : 0,
+      "value" : 1,
       "quantumMin" : "",
       "actionType" : "",
       "cost" : "",

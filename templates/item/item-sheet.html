@@ -39,6 +39,10 @@
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
 
+          {{#if (isEqual item.data.type "attribute") }}
+          {{> "systems/trinity/templates/item/partials/attribute-settings.html"}}
+          {{/if}}
+
             {{!-- The dots flag should be able to be removed from this section once all items are migrated to current templates --}}
             <div class="boxed fit">
               <div class="left-vcenter">

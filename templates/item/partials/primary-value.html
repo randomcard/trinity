@@ -42,6 +42,14 @@
     <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.value"></i>
     <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="dot-value" name="data.value" value="{{data.data.value}}" data-dtype="Number"/>
     <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.value"></i>
+    {{#if item.data.data.flags.isEnhancement }}
+    </div>
+    <div class="flex-parent-nowrap">
+      <label class="flex-fit flex-valign resource-label" for="enhancement-value">Enhancement:</label>
+      <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.enhancement.value"></i>
+      <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="enhancement-value" name="data.enhancement.value" value="{{data.data.enhancement.value}}" data-dtype="Number"/>
+      <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.enhancement.value"></i>
+    {{/if}}
   {{/if}}
 
   {{#if (isEqual item.data.type "specialty") }}
