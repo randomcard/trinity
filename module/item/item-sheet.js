@@ -40,18 +40,20 @@ export class TrinityItemSheet extends ItemSheet {
   get template() {
     const path = "systems/trinity/templates/item";
     // Return a single sheet for all item types.
-    // return `${path}/item-sheet.html`;
+    return `${path}/item-sheet.html`;
 
     // Temporary direction as "omni" sheet is developed for different
+    /*
     let useTypes = ["attribute", "edge", "skill", "specialty", "path", "stunt", "gift", "trick", "contact", "bond", "action", "tag", "equipment", "condition"];
     if (useTypes.indexOf(this.item.data.type) > -1) {
       return `${path}/item-sheet.html`;
     }
+    */
 
 
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.html`.
-    return `${path}/item-${this.item.data.type}-sheet.html`;
+    // return `${path}/item-${this.item.data.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */
