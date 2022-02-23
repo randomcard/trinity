@@ -1,11 +1,10 @@
 {{!-- Facets --}}
 
-<div class="facets boxed">
-  <div class="flex-parent-center-column resource-label">Facets</div>
-  {{#each this.actor.data.data.facets as |facet key|}}
-  <div class="grid grid-2col lowmargin" id="{{key}}">
-    <div class="bold right-vcenter">{{facet.name}}</div>
-    <div class="icons left-vcenter">{{{toDots facet.value}}}</div>
+<div class="facets grid grid-1col">
+  {{#each actor.facets as |facet key|}}
+  <div class="flexcol flex-group-center rollable boxed" data-skillid="{{facet._id}}" id="{{facet._id}}">
+    <span class="resource-label"> {{facet.name}} </span>
+    <span class="icons"> {{{toDots facet.data.value}}} </span>
   </div>
   {{/each}}
 </div>

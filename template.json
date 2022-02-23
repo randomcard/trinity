@@ -443,6 +443,7 @@
     "mode" : {
       "templates": ["base"],
       "typeName" : "Mode",
+      "value" : 1,
       "aptitude" : "",
       "psiCost" : "",
       "system" : "",
