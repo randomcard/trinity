@@ -272,25 +272,25 @@ export class TrinityActorSheet extends ActorSheet {
       if (i.type === 'mode') { modes.push(i); }
       if (i.type === 'quantumPower') { quantumPowers.push(i); }
       if (i.type === 'attribute') {
-        if (typeof i.data.flags.isMain) {
+        if (i.data.flags.isMain) {
           if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
           attributes.push(i);
           attributes.sort(function(a, b) {
             return a.data.sortNum - b.data.sortNum;
           });
-        } else if (typeof i.data.flags.isFacet) {
+        } else if (i.data.flags.isFacet) {
           if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
           facets.push(i);
           facets.sort(function(a, b) {
             return a.data.sortNum - b.data.sortNum;
           });
-        } else if (typeof i.data.flags.isPsi) {
+        } else if (i.data.flags.isPsi) {
           if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
           psi.push(i);
           psi.sort(function(a, b) {
             return a.data.sortNum - b.data.sortNum;
           });
-        } else if (typeof i.data.data.isQuantum) {
+        } else if (i.data.data.isQuantum) {
           if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
           quantum.push(i);
           quantum.sort(function(a, b) {
