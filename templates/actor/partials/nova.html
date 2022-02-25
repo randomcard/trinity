@@ -1,56 +1,68 @@
-{{!-- Nova Info --}}
+<div class="flex-parent-evenly">
+  <div class="flex-child-even">
 
-<div class="quantum boxed">
-
-  <div class="flex-parent-center-column">
-    <div class="flex-parent-center-column flex-child">
-      <div class="flex-child resource-label">Quantum Rating {{this.actor.data.data.quantum.rating}}</div>
-      <div class="flex-child big icons">
-        <i class="clickable sub-value far fa-caret-square-left" data-target="data.quantum.rating"></i>
-        {{{to10Dots this.actor.data.data.quantum.rating}}}
-        <i class="clickable add-value far fa-caret-square-right" data-target="data.quantum.rating"></i>
+    <div class="quantum grid grid-1col">
+      {{#each actor.quantum as |quantum key|}}
+      <div class="flexcol flex-group-center rollable boxed can-hide" data-itemid="{{quantum._id}}" id="{{quantum._id}}">
+        <span class="resource-label"> {{quantum.name}} </span>
+        <span class="icons"> {{{toDots quantum.data.value}}} </span>
       </div>
-    </div>
-    <div class="flex-parent-center-column flex-child">
-      <div class="flex-child big icons">
-        <i class="clickable sub-value far fa-caret-square-left" data-target="data.flux"></i>
-        {{{to10Boxes this.actor.data.data.flux}}}
-        <i class="clickable add-value far fa-caret-square-right" data-target="data.flux"></i>
-      </div>
-      <div class="flex-child resource-label">Flux</div>
-    </div>
-    <div class="flex-parent-center-column flex-child">
-      <div class="flex-child big icons">
-        <i class="clickable sub-value far fa-caret-square-left" data-target="data.transcendence"></i>
-        {{{to10Boxes this.actor.data.data.transcendence}}}
-        <i class="clickable add-value far fa-caret-square-right" data-target="data.transcendence"></i>
-      </div>
-      <div class="flex-child resource-label">Transcendence</div>
-    </div>
-  </div>
-
-</div>
-
-{{!-- Quantum Powers item Box --}}
-<ol class="items-list boxed">
-    <li class="item flexrow item-header">
-      <div class="big item-name">Quantum Powers</div>
-      <div class="item-dots"></div>
-      <div class="item-controls">
-        <a class="item-control item-create" title="Create item" data-type="quantumPower"><i class="far fa-plus-square"></i></a>
-      </div>
-    </li>
-{{#each actor.quantumPowers as |item id|}}
-    <li class="item flexrow" data-item-id="{{item._id}}">
-        <h4 class="item-name item-edit clickable">
-          {{item.name}}
-          {{#if item.data.flags.isInjury}}<span><i class="fas fa-user-injured"></i></span>{{/if}}
-        </h4>
-        <div class="item-dots small icons">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</div>
-        <div class="item-controls">
-            <a class="item-control item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
+      <div class="flexcol flex-group-center boxed edit-area can-hide hidden" data-itemid="{{quantum._id}}">
+        <span class="resource-label"> {{quantum.name}} </span>
+        <div class="flex-parent-nowrap-center">
+          <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-itemid="{{quantum._id}}" data-target="data.value"></i>
+          <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="{{quantum._id}}-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>
+          <i class="clickable add-value large flex-valign fas fa-plus-circle" data-itemid="{{quantum._id}}" data-target="data.value"></i>
         </div>
-    </li>
-{{/each}}
-</ol>
+      </div>
+      {{/each}}
+    </div>
+
+
+    <div class="inspiration boxed">
+      <div class="flex-parent-center-column flex-child">
+        <div class="flex-child big icons">
+          <i class="clickable sub-value far fa-caret-square-left" data-target="data.flux"></i>
+          {{{to10Boxes this.actor.data.data.flux}}}
+          <i class="clickable add-value far fa-caret-square-right" data-target="data.flux"></i>
+        </div>
+        <div class="flex-child resource-label">Flux</div>
+      </div>
+      <div class="flex-parent-center-column flex-child">
+        <div class="flex-child big icons">
+          <i class="clickable sub-value far fa-caret-square-left" data-target="data.transcendence"></i>
+          {{{to10Boxes this.actor.data.data.transcendence}}}
+          <i class="clickable add-value far fa-caret-square-right" data-target="data.transcendence"></i>
+        </div>
+        <div class="flex-child resource-label">Transcendence</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="flex-child-even">
+    {{!-- Quantum Powers item Box --}}
+    <ol class="items-list boxed">
+        <li class="item flexrow item-header">
+          <div class="big item-name">Quantum Powers</div>
+          <div class="item-dots"></div>
+          <div class="item-controls">
+            <a class="item-control item-create" title="Create item" data-type="quantumPower"><i class="far fa-plus-square"></i></a>
+          </div>
+        </li>
+    {{#each actor.quantumPowers as |item id|}}
+        <li class="item flexrow" data-item-id="{{item._id}}">
+            <h4 class="item-name item-edit clickable">
+              {{item.name}}
+              {{#if item.data.flags.isInjury}}<span><i class="fas fa-user-injured"></i></span>{{/if}}
+            </h4>
+            {{#if item.data.flags.hasRoll}}{{{createChip item._id ../actor}}}{{/if}}
+            <div class="item-dots small icons rollable" id="{{item._id}}">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</div>
+            <div class="item-controls">
+                <a class="item-control item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
+            </div>
+        </li>
+    {{/each}}
+    </ol>
+  </div>
+</div>
