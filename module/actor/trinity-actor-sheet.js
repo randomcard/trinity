@@ -426,6 +426,7 @@ export class TrinityActorSheet extends ActorSheet {
     // Remove value
     html.find('.sub-value').click(ev => {
       let target = event.currentTarget.dataset.target;
+      console.log("event.currentTarget.dataset", event.currentTarget.dataset);
       if (typeof event.currentTarget.dataset.itemid) {
         let itemid = event.currentTarget.dataset.itemid;
         let item = this.actor.items.get(itemid);
