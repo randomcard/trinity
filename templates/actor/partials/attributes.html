@@ -14,7 +14,7 @@
       <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="{{attribute._id}}-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>
       <i class="clickable add-value large flex-valign fas fa-plus-circle" data-itemid="{{attribute._id}}" data-target="data.value"></i>
     </div>
-    {{#if actor.data.data.flags.isNova}}
+    {{#if ../actor.data.data.flags.isNova}}
     <span class="resource-label"> Mega: </span>
     <div class="flex-parent-nowrap-center">
       <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-itemid="{{attribute._id}}" data-target="data.megaValue"></i>
