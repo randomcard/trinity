@@ -184,6 +184,7 @@ export class TrinityActorSheet extends ActorSheet {
     const facets = [];
     const psi = [];
     const quantum = [];
+    const miscAttributes = [];
 
 
     for (let hb of Object.keys(this.actor.data.data.healthboxes)) {
@@ -271,37 +272,34 @@ export class TrinityActorSheet extends ActorSheet {
       if (i.type === 'mode') { modes.push(i); }
       if (i.type === 'quantumPower') { quantumPowers.push(i); }
       if (i.type === 'attribute') {
-        if (typeof i.data.data.flags.isMain) {
+        if (typeof i.data.flags.isMain) {
           if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
           attributes.push(i);
           attributes.sort(function(a, b) {
             return a.data.sortNum - b.data.sortNum;
           });
-        }
-      }
-      if (i.type === 'attribute') {
-        if (typeof i.data.data.flags.isFacet) {
+        } else if (typeof i.data.flags.isFacet) {
           if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
           facets.push(i);
           facets.sort(function(a, b) {
             return a.data.sortNum - b.data.sortNum;
           });
-        }
-      }
-      if (i.type === 'attribute') {
-        if (typeof i.data.data.flags.isPsi) {
+        } else if (typeof i.data.flags.isPsi) {
           if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
           psi.push(i);
           psi.sort(function(a, b) {
             return a.data.sortNum - b.data.sortNum;
           });
-        }
-      }
-      if (i.type === 'attribute') {
-        if (typeof i.data.data.flags.isQuantum) {
+        } else if (typeof i.data.data.isQuantum) {
           if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
           quantum.push(i);
           quantum.sort(function(a, b) {
+            return a.data.sortNum - b.data.sortNum;
+          });
+        } else {
+          if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
+          miscAttributes.push(i);
+          miscAttributes.sort(function(a, b) {
             return a.data.sortNum - b.data.sortNum;
           });
         }
@@ -337,6 +335,7 @@ export class TrinityActorSheet extends ActorSheet {
     actorData.facets = facets;
     actorData.psi = psi;
     actorData.quantum = quantum;
+    actorData.miscAttributes = actorData;
 
 
     if (typeof actorData.allItemsFilter === 'undefined') {
