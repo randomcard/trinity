@@ -8,7 +8,7 @@
       <div class="flex-child big icons can-hide">{{{to10Dots this.actor.data.data.inspiration.max}}}</div>
       <div class="flex-parent-nowrap-center edit-area can-hide hidden">
         <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.inspiration.max"></i>
-        <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="maxInsp-value" name="data.inspiration.max" value="{{data.inspiration.max}}" data-dtype="Number"/>
+        <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="maxInsp-value" name="data.inspiration.max" value="{{data.data.inspiration.max}}" data-dtype="Number"/>
         <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.inspiration.max"></i>
       </div>
     </div>
