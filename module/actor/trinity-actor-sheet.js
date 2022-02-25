@@ -426,8 +426,8 @@ export class TrinityActorSheet extends ActorSheet {
     // Remove value
     html.find('.sub-value').click(ev => {
       let target = event.currentTarget.dataset.target;
-      console.log("event.currentTarget.dataset", event.currentTarget.dataset);
-      if (typeof event.currentTarget.dataset.itemid) {
+      // console.log("event.currentTarget.dataset", event.currentTarget.dataset, event.currentTarget.dataset.itemid);
+      if (typeof event.currentTarget.dataset.itemid !== "undefined") {
         let itemid = event.currentTarget.dataset.itemid;
         let item = this.actor.items.get(itemid);
         let current = getDescendantProp(item.data, target);
@@ -457,7 +457,7 @@ export class TrinityActorSheet extends ActorSheet {
   // Add Value
     html.find('.add-value').click(ev => {
       let target = event.currentTarget.dataset.target;
-      if (typeof event.currentTarget.dataset.itemid) {
+      if (typeof event.currentTarget.dataset.itemid !== "undefined") {
         let itemid = event.currentTarget.dataset.itemid;
         let item = this.actor.items.get(itemid);
         let current = getDescendantProp(item.data, target);
