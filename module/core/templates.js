@@ -42,6 +42,7 @@ export async function loadTrinityTemplates()
     "systems/trinity/templates/item/partials/top-traits.html",
     "systems/trinity/templates/item/partials/attribute-settings.html",
     "systems/trinity/templates/actor/partials/unflagged.html",
+    "systems/trinity/templates/actor/partials/talent.html",
     "systems/trinity/templates/actor/partials/psi.html",
     "systems/trinity/templates/actor/partials/nova.html",
     "systems/trinity/templates/roll/partials/roll-overlay.html",
