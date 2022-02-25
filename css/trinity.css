@@ -545,6 +545,12 @@
   flex-flow: row;
 }
 
+.flex-parent-nowrap-center {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
 .flex-parent-wide {
   display: flex;
   flex-flow: row wrap;

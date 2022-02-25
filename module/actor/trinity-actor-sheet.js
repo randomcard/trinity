@@ -41,7 +41,8 @@ export class TrinityActorSheet extends ActorSheet {
     this.toggleStates = {
       headers : [],
       content : [],
-      chipContent : []
+      chipContent : [],
+      hiddenContent : []
     };
 
     // Headers
@@ -54,6 +55,12 @@ export class TrinityActorSheet extends ActorSheet {
     let contentItems = $(html.find(".collapsible-content"));
     for (let item of contentItems) {
       this.toggleStates.content.push($(item).hasClass("collapsible-content-active"));
+    }
+
+    // Other uses of the hidden class
+    let hiddenContentItems = $(html.find(".hidden"));
+    for (let item of hiddenContentItems) {
+      this.toggleStates.hiddenContent.push($(item).hasClass("hidden"));
     }
 
     // Chip-Content
@@ -92,6 +99,17 @@ export class TrinityActorSheet extends ActorSheet {
           $(contentItems[i]).removeClass("collapsible-content-active");
         }
       }
+
+      // Other uses of the hidden class
+      let hiddenContentItems = $(html.find(".hidden"));
+      for (let i = 0; i < hiddenContentItems.length; i++) {
+        if (this.toggleStates.hiddenContent[i]) {
+          $(hiddenContentItems[i]).addClass("hidden");
+        } else {
+          $(hiddenContentItems[i]).removeClass("hidden");
+        }
+      }
+
 
       // Chip-Content
       /*
@@ -356,18 +374,11 @@ export class TrinityActorSheet extends ActorSheet {
     if (!this.options.editable) return;
 
     html.find('.edit-button').click(ev => {
-      console.log("edit-button clicked");
-      console.log(html.find('.edit-area'));
-
-      // html.find('.edit-area').classList.toggle("hidden");
-      // html.find('.edit-area').previousElementSibling.classList.toggle("hidden");
-
       html.find('.edit-area').each((i, editArea) => {
-        console.log("edit-area", i, editArea);
         editArea.classList.toggle("hidden");
         editArea.previousElementSibling.classList.toggle("hidden");
       });
-
+      this._saveToggleStates();
     });
 
     html.find('.collapsible').click(event => {
