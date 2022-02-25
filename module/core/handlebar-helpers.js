@@ -157,10 +157,10 @@ export function handlebarHelpers() {
 // Use on an item sheet like: {{{createChip this.item.id}}}
 // This code is inefficient and repetitive - fixing it will be a project for another day
   Handlebars.registerHelper('createChip', function(ref, argActor) {
-    console.log("createChip, ref", ref);
-    console.log("createChip, this", this);
-    console.log("createChip, actor", this.actor);
-    console.log("createChip, argActor", argActor);
+    //console.log("createChip, ref", ref);
+    //console.log("createChip, this", this);
+    //console.log("createChip, actor", this.actor);
+    //console.log("createChip, argActor", argActor);
     let targetActor = {};
     if (typeof argActor !== "undefined" && typeof argActor.name !== "undefined" && argActor.name === "createChip") {
       argActor = null;
@@ -170,7 +170,7 @@ export function handlebarHelpers() {
     } else {
       targetActor = this.actor || this.item.actor;
     }
-    console.log("createChip, targetActor", targetActor);
+    //console.log("createChip, targetActor", targetActor);
     // let targetActor = this.actor || this.item.actor;
     let isItem = false;
     let isLinked = false;
@@ -206,11 +206,11 @@ export function handlebarHelpers() {
     }
 
     // Check for existing linkage
-    console.log("check for linkage, ref", ref);
-    console.log("check for linkage, actor", targetActor);
-    console.log("check for linkage, targetActor.data.data.linkedRolls", targetActor.data.data.linkedRolls);
-    console.log("check for linkage, Item/Actor", isItem, targetActor.data.data.linkedRolls[ref]);
-    console.log("check for linkage, refPath", refPath);
+    //console.log("check for linkage, ref", ref);
+    //console.log("check for linkage, actor", targetActor);
+    //console.log("check for linkage, targetActor.data.data.linkedRolls", targetActor.data.data.linkedRolls);
+    //console.log("check for linkage, Item/Actor", isItem, targetActor.data.data.linkedRolls[ref]);
+    //console.log("check for linkage, refPath", refPath);
     if (!isItem) {
       if (typeof refPath !== "undefined" && refPath !== "") {
         linkedRoll = refPath;
@@ -218,9 +218,9 @@ export function handlebarHelpers() {
         rollData = targetActor.data.data.savedRolls[refPath];
       }
     } else if (isItem) {
-      console.log("check for linkage, item>", targetActor.items);
-      console.log("check for linkage, item.ref>", targetActor.items[ref]);
-      console.log("check for linkage, targetItem>", targetItem);
+      //console.log("check for linkage, item>", targetActor.items);
+      //console.log("check for linkage, item.ref>", targetActor.items[ref]);
+      //console.log("check for linkage, targetItem>", targetItem);
       // if (typeof targetItem.data.data.linkedRollID !== "undefined" && targetItem.data.data.linkedRollID !== "") {
       if (typeof targetActor.data.data.linkedRolls[ref] !== "undefined" && targetActor.data.data.linkedRolls[ref] !== "") {
         // linkedRoll = targetItem.data.data.linkedRollID;
@@ -231,8 +231,8 @@ export function handlebarHelpers() {
         // rollData = targetActor.data.data.savedRolls[targetItem.data.data.linkedRollID];
         rollData = targetActor.data.data.savedRolls[linkedRoll];
       }
-      console.log("check for linkage, linkedRoll>", linkedRoll);
-      console.log("check for linkage, rollData>", rollData);
+      //console.log("check for linkage, linkedRoll>", linkedRoll);
+      //console.log("check for linkage, rollData>", rollData);
     }
     if (isLinked && typeof rollData.name !== "undefined") {rollName = rollData.name;}
 
@@ -241,7 +241,7 @@ export function handlebarHelpers() {
     // for (let sRoll of Object.keys(targetActor.data.data.savedRolls)) {
     for (const [key, value] of Object.entries(targetActor.data.data.savedRolls)) {
       let selected = "";
-      console.log("option/select loop", key, linkedRoll);
+      //console.log("option/select loop", key, linkedRoll);
       if (key === linkedRoll) {selected = "selected"; linkKey = key;}
       optionHTML += `<option value="${key}" ${selected}>${targetActor.data.data.savedRolls[key].name}</option>`;
     }

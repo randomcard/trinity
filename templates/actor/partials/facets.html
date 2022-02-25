@@ -2,11 +2,11 @@
 
 <div class="facets grid grid-1col nomargin">
   {{#each actor.facets as |facet key|}}
-  <div class="flexcol flex-group-center rollable boxed" data-itemid="{{facet._id}}" id="{{facet._id}}">
+  <div class="flexcol flex-group-center rollable boxed can-hide" data-itemid="{{facet._id}}" id="{{facet._id}}">
     <span class="resource-label"> {{facet.name}} </span>
     <span class="icons"> {{{toDots facet.data.value}}} </span>
   </div>
-  <div class="flexcol flex-group-center boxed edit-area hidden" data-itemid="{{facet._id}}">
+  <div class="flexcol flex-group-center boxed edit-area can-hide hidden" data-itemid="{{facet._id}}">
     <span class="resource-label"> {{facet.name}} </span>
     <div class="flex-parent-nowrap-center">
       <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-itemid="{{facet._id}}" data-target="data.value"></i>

@@ -58,7 +58,7 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
     // Other uses of the hidden class
-    let hiddenContentItems = $(html.find(".hidden"));
+    let hiddenContentItems = $(html.find(".can-hide"));
     for (let item of hiddenContentItems) {
       this.toggleStates.hiddenContent.push($(item).hasClass("hidden"));
     }
@@ -101,7 +101,7 @@ export class TrinityActorSheet extends ActorSheet {
       }
 
       // Other uses of the hidden class
-      let hiddenContentItems = $(html.find(".hidden"));
+      let hiddenContentItems = $(html.find(".can-hide"));
       for (let i = 0; i < hiddenContentItems.length; i++) {
         if (this.toggleStates.hiddenContent[i]) {
           $(hiddenContentItems[i]).addClass("hidden");
