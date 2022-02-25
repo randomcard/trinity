@@ -160,7 +160,7 @@ export class RollForm extends FormApplication {
     this.itemList = [];
     for (let i of this.actor.items) {
       if (type === "enhancement" && i.data.data.flags.isEnhancement === true) { this.itemList.push(i); continue; }
-      if (i.type === "attribute" && i.data.data.flags.isMain === true) { this.itemList.push(i); continue; }
+      if (type === "attribute" && i.type === "attribute" && i.data.data.flags.isMain === true) { this.itemList.push(i); continue; }
       if (i.name === type) { this.itemList.push(i); continue; }
       if (i.type === type) { this.itemList.push(i); }
     }
