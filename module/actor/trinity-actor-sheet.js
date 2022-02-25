@@ -432,19 +432,23 @@ export class TrinityActorSheet extends ActorSheet {
         let current = getDescendantProp(item.data, target);
         if (current === null) {
           item.update({ [target]: 2 });
+          this._setToggleStates();
         }
         if (current > 0) {
           item.update({ [target]: --current });
-          this._render(true);
+          // this._render(true);
+          this._setToggleStates();
         }
       } else {
         let current = getDescendantProp(this.actor.data, target);
         if (current === null) {
           this.actor.update({ [target]: 2 });
+          this._setToggleStates();
         }
         if (current > 0) {
           this.actor.update({ [target]: --current });
-          this._render(true);
+          // this._render(true);
+          this._setToggleStates();
         }
       }
     });
