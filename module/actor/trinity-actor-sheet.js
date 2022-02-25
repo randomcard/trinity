@@ -355,6 +355,13 @@ export class TrinityActorSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
+    html.find('.edit-button').click(ev => {
+      html.find('edit-area').each((i, editArea) => {
+        editArea.classList.toggle("hidden");
+        editArea.previousElementSibling.classList.toggle("hidden");
+      });
+    });
+
     html.find('.collapsible').click(event => {
       const collapsibleElement = event.currentTarget;
       /*
