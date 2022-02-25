@@ -308,7 +308,7 @@ export class TrinityActorSheet extends ActorSheet {
           psi.sort(function(a, b) {
             return a.data.sortNum - b.data.sortNum;
           });
-        } else if (i.data.data.isQuantum) {
+        } else if (i.data.flags.isQuantum) {
           if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
           quantum.push(i);
           quantum.sort(function(a, b) {
