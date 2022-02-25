@@ -432,23 +432,23 @@ export class TrinityActorSheet extends ActorSheet {
         let current = getDescendantProp(item.data, target);
         if (current === null) {
           item.update({ [target]: 2 });
-          this._setToggleStates();
+          // this._setToggleStates();
         }
         if (current > 0) {
           item.update({ [target]: --current });
           // this._render(true);
-          this._setToggleStates();
+          // this._setToggleStates();
         }
       } else {
         let current = getDescendantProp(this.actor.data, target);
         if (current === null) {
           this.actor.update({ [target]: 2 });
-          this._setToggleStates();
+          // this._setToggleStates();
         }
         if (current > 0) {
           this.actor.update({ [target]: --current });
           // this._render(true);
-          this._setToggleStates();
+          // this._setToggleStates();
         }
       }
     });
@@ -464,7 +464,7 @@ export class TrinityActorSheet extends ActorSheet {
           item.update({ [target]: 0 });
         }
         item.update({ [target]: ++current });
-        this._render(true);
+        // this._render(true);
       } else {
         let current = getDescendantProp(this.actor.data, target);
         console.log("Add Value:", ev);
@@ -472,7 +472,7 @@ export class TrinityActorSheet extends ActorSheet {
           this.actor.update({ [target]: 0 });
         }
         this.actor.update({ [target]: ++current });
-        this._render(true);
+        // this._render(true);
       }
     });
 
