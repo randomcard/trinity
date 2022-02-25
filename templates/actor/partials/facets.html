@@ -1,10 +1,15 @@
 {{!-- Facets --}}
 
-<div class="facets grid grid-1col">
+<div class="facets grid grid-1col nomargin">
   {{#each actor.facets as |facet key|}}
-  <div class="flexcol flex-group-center rollable boxed" data-skillid="{{facet._id}}" id="{{facet._id}}">
+  <div class="flexcol flex-group-center rollable boxed" data-itemid="{{facet._id}}" id="{{facet._id}}">
     <span class="resource-label"> {{facet.name}} </span>
     <span class="icons"> {{{toDots facet.data.value}}} </span>
+  </div>
+  <div class="flexcol flex-group-center boxed edit-area hidden" data-itemid="{{facet._id}}">
+    <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-itemid="{{facet._id}}" data-target="data.value"></i>
+    <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="{{facet._id}}-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>
+    <i class="clickable add-value large flex-valign fas fa-plus-circle" data-itemid="{{facet._id}}" data-target="data.value"></i>
   </div>
   {{/each}}
 </div>
