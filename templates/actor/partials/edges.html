@@ -1,5 +1,4 @@
 {{!-- Edges item Box --}}
-{{log "edge partial logging, this:" this}}
 <ol class="items-list boxed">
     <li class="item flexrow item-header">
       <div class="big item-name">Edges</div>
@@ -9,9 +8,6 @@
       </div>
     </li>
 {{#each actor.edges as |item id|}}
-{{log "edge partial logging, each loop this:" this}}
-{{log "edge partial logging, each loop this ../actor:" ../actor}}
-{{log "edge partial logging, each loop this ../this:" ../this}}
     <li class="item flexrow" data-item-id="{{item._id}}">
         <h4 class="item-name item-edit clickable">
           {{item.name}}
