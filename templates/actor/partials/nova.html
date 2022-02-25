@@ -22,7 +22,7 @@
     <div class="inspiration boxed">
       <div class="quantum flex-parent-center-column">
         <div class="flex-child resource-label">Quantum Points</div>
-        <div class="quantum flexrow flex-group-center">
+        <div class="quantum flex-parent-nowrap-center">
           <div class="flex-parent-center-column flex-child">
             <div class="flex-child resource-label">Current</div>
             <div class="flex-parent-nowrap-center">
@@ -31,8 +31,8 @@
               <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.quantum.points.value"></i>
             </div>
           </div>
+          <div class="flex-child resource-label">&nbsp;/&nbsp;</div>
           <div class="flex-parent-center-column flex-child">
-            <div class="flex-child resource-label">&nbsp;/&nbsp;</div>
             <div class="flex-child resource-label">Max</div>
             <div class="flex-child resource can-hide">{{this.actor.data.data.quantum.points.max}}</div>
             <div class="flex-parent-nowrap-center edit-area can-hide hidden">
