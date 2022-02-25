@@ -374,6 +374,9 @@ export class TrinityActorSheet extends ActorSheet {
     if (!this.options.editable) return;
 
     html.find('.edit-button').click(ev => {
+      html.find('.edit-button').each((i, editButton) => {
+        editButton.classList.toggle("hidden");
+      });
       html.find('.edit-area').each((i, editArea) => {
         editArea.classList.toggle("hidden");
         editArea.previousElementSibling.classList.toggle("hidden");
@@ -423,26 +426,50 @@ export class TrinityActorSheet extends ActorSheet {
     // Remove value
     html.find('.sub-value').click(ev => {
       let target = event.currentTarget.dataset.target;
-      let current = getDescendantProp(this.actor.data, target);
-      if (current === null) {
-        this.actor.update({ [target]: 2 });
-      }
-      if (current > 0) {
-        this.actor.update({ [target]: --current });
-        this.render(true);
+      if (typeof event.currentTarget.dataset.itemid) {
+        let itemid = event.currentTarget.dataset.itemid;
+        let item = this.actor.items.get(itemid);
+        let current = getDescendantProp(item.data, target);
+        if (current === null) {
+          item.update({ [target]: 2 });
+        }
+        if (current > 0) {
+          item.update({ [target]: --current });
+          this.render(true);
+        }
+      } else {
+        let current = getDescendantProp(this.actor.data, target);
+        if (current === null) {
+          this.actor.update({ [target]: 2 });
+        }
+        if (current > 0) {
+          this.actor.update({ [target]: --current });
+          this.render(true);
+        }
       }
     });
 
   // Add Value
     html.find('.add-value').click(ev => {
       let target = event.currentTarget.dataset.target;
-      let current = getDescendantProp(this.actor.data, target);
-      console.log("Add Value:", ev);
-      if (current === null || current < 0) {
-        this.actor.update({ [target]: 0 });
+      if (typeof event.currentTarget.dataset.itemid) {
+        let itemid = event.currentTarget.dataset.itemid;
+        let item = this.actor.items.get(itemid);
+        let current = getDescendantProp(item.data, target);
+        if (current === null || current < 0) {
+          item.update({ [target]: 0 });
+        }
+        item.update({ [target]: ++current });
+        this.render(true);
+      } else {
+        let current = getDescendantProp(this.actor.data, target);
+        console.log("Add Value:", ev);
+        if (current === null || current < 0) {
+          this.actor.update({ [target]: 0 });
+        }
+        this.actor.update({ [target]: ++current });
+        this.render(true);
       }
-      this.actor.update({ [target]: ++current });
-      this.render(true);
     });
 
     // Add Inventory Item
