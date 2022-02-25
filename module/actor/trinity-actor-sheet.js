@@ -357,11 +357,15 @@ export class TrinityActorSheet extends ActorSheet {
 
     html.find('.edit-button').click(ev => {
       console.log("edit-button clicked");
+      html.find('edit-area').classList.toggle("hidden");
+      html.find('edit-area').previousElementSibling.classList.toggle("hidden");
+      /*
       html.find('edit-area').each((i, editArea) => {
         console.log("edit-area", i, editArea);
         editArea.classList.toggle("hidden");
         editArea.previousElementSibling.classList.toggle("hidden");
       });
+      */
     });
 
     html.find('.collapsible').click(event => {
