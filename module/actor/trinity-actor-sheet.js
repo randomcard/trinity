@@ -357,6 +357,8 @@ export class TrinityActorSheet extends ActorSheet {
 
     html.find('.edit-button').click(ev => {
       console.log("edit-button clicked");
+      console.log(html.find('edit-area'));
+
       html.find('edit-area').classList.toggle("hidden");
       html.find('edit-area').previousElementSibling.classList.toggle("hidden");
       /*
