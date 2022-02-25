@@ -63,6 +63,7 @@
 </div>
 
 {{!-- Defense --}}
+<!--
 <button type="button" id="fd-defense-header" class="collapsible">Defense</button>
 <div id="fd-defense-content" class="collapsible-content">
   <div class="defense flexrow flex-group-center">
@@ -70,6 +71,7 @@
     <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-defense" name="data.defense.value" value="{{data.data.defense.value}}" data-dtype="Number"/>
   </div>
 </div>
+-->
 
 {{!-- Roll Options --}}
 <button type="button" id="fd-roll-header" class="collapsible">Default Roll Options</button>
@@ -135,6 +137,7 @@
 
 {{!-- Psion Powers / Stats --}}
 {{#if actor.data.data.flags.isPsion}}
+<!--
 <button type="button" id="fd-psion-header" class="collapsible">Psion Characteristics</button>
 <div id="fd-psion-content" class="collapsible-content">
   <div class="defense flexrow flex-group-center">
@@ -142,10 +145,12 @@
     <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-psiRating" name="data.psi.rating" value="{{data.data.psi.rating}}" data-dtype="Number"/>
   </div>
 </div>
+-->
 {{/if}}
 
 {{!-- Nova Powers / Stats --}}
 {{#if actor.data.data.flags.isNova}}
+<!--
 <button type="button" id="fd-nova-header" class="collapsible">Nova Characteristics</button>
 <div id="fd-nova-content" class="collapsible-content">
   <div class="defense flexrow flex-group-center">
@@ -157,4 +162,5 @@
     <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-quantumPointMax" name="data.quantum.points.max" value="{{data.data.quantum.points.max}}" data-dtype="Number"/>
   </div>
 </div>
+-->
 {{/if}}
