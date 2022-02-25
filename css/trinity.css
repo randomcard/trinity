@@ -289,6 +289,18 @@
   overflow-y: auto;
 }
 
+.trinity .items-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 1;
+  overflow-y: auto;
+}
+
+.trinity .items-list.bottom-margin {
+  margin: 0px;
+  margin-bottom: 7px;
+}
+
 .trinity .items-list .item-header {
   font-weight: bold;
 }
