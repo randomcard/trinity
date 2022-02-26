@@ -20,7 +20,7 @@ export class TrinityActorSheet extends ActorSheet {
     this.options.collapsedSections = [];
     this.options.collapsedHeaders = [];
     this.options.collapsedContent = [];
-    this.options.configTab = false;
+    // this.options.configTab = false;
 
   }
 
@@ -382,9 +382,12 @@ export class TrinityActorSheet extends ActorSheet {
         editArea.classList.toggle("hidden");
         editArea.previousElementSibling.classList.toggle("hidden");
       });
-      console.log("edit-button, this.options.configTab before:", this.options.configTab);
-      this.options.configTab = !this.options.configTab;
-      console.log("edit-button, this.options.configTab after:", this.options.configTab);
+      // console.log("edit-button, this.options.configTab before:", this.options.configTab);
+      // this.options.configTab = !this.options.configTab;
+      html.find('.config-tab').each((i, editArea) => {
+        editArea.classList.toggle("hidden");
+      });
+      // console.log("edit-button, this.options.configTab after:", this.options.configTab);
       this._saveToggleStates();
     });
 
