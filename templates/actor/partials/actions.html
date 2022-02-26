@@ -2,13 +2,13 @@
 <ol class="items-list boxed">
   <li class="item sub flexrow item-header">
     <div class="flex-fit big item-name">Actions</div>
-    <div class="flex-right title-note">Select Action to See Stunts</div>
+    <div class="flex-right title-note"></div>
     </li>
 
   {{#each actor.actions as |item id|}}
   <li class="item sub" data-item-id="{{item._id}}">
     <div class="flexrow">
-      <i class="flex-fit far fa-caret-square-down show-detail clickable"></i>
+      <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
       <h4 class="item-name item-edit clickable">
         {{item.name}}
         </h4>
@@ -21,12 +21,15 @@
         <a class="item-control item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
         </div>
       </div>
-    <div class="flexrow sub-item-detail hidden">
+    <div class="flexcol sub-item-detail hidden">
       test text
       {{#each item.data.subItems as |subItem id|}}
       <div class="boxed">
-        <div><b>{{subItem.name}}</b>&ensp;-&ensp;<em>{{subItem.costDescription}}</em></div>
-        <div>{{{subItem.description}}}</div>
+        <div>
+          <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
+          <b>{{subItem.name}}</b>&ensp;-&ensp;<em>{{subItem.costDescription}}</em>
+          </div>
+        <div class="hidden">{{{subItem.description}}}</div>
         </div>
       {{/each}}
       </div>
