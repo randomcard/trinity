@@ -22,12 +22,11 @@
         </div>
       </div>
     <div class="flexcol sub-item-detail hidden">
-      test text
       {{#each item.data.subItems as |subItem id|}}
       <div class="boxed">
-        <div>
+        <div class="flexrow">
           <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
-          <b>{{subItem.name}}</b>&ensp;-&ensp;<em>{{subItem.costDescription}}</em>
+          <div><b>{{subItem.name}}</b>&ensp;-&ensp;<em>{{subItem.costDescription}}</em></div>
           </div>
         <div class="hidden">{{{subItem.description}}}</div>
         </div>
