@@ -293,7 +293,6 @@ export function handlebarHelpers() {
     html =
     `<div class="chip">
       ${chipHeadDiv}
-      <div class="chip-head">
         <i class="fas fa-dice"></i>
       </div>
       <div class="placeholder can-hide">
