@@ -11,6 +11,7 @@
           "isTalent" : false,
           "isPsion" : false,
           "isNova" : false,
+          "isOther" : false,
           "isActivePlayer" : false,
           "isTakenOut" : false
         },

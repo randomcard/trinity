@@ -11,6 +11,14 @@
           <button type="button" id="Quantum" class="selector">Quantum <i class="fas fa-dice"></i></button>
           <button type="button" id="quantumPower" class="selector">Powers <i class="fas fa-dice"></i></button>
           {{/if}}
+          {{#if this.actor.data.data.flags.isPsion}}
+          <button type="button" id="Psi" class="selector">Psi <i class="fas fa-dice"></i></button>
+          <button type="button" id="mode" class="selector">Mode <i class="fas fa-dice"></i></button>
+          {{/if}}
+          {{#if this.actor.data.data.flags.isOther}}
+          <button type="button" id="Source" class="selector">Source <i class="fas fa-dice"></i></button>
+          <button type="button" id="power" class="selector">Powers <i class="fas fa-dice"></i></button>
+          {{/if}}
           <button type="button" id="enhancement" class="grid-span2col selector">Enhancements <i class="fas fa-hashtag"></i></button>
         </div>
       </div>
