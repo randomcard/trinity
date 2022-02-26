@@ -382,7 +382,9 @@ export class TrinityActorSheet extends ActorSheet {
         editArea.classList.toggle("hidden");
         editArea.previousElementSibling.classList.toggle("hidden");
       });
+      console.log("edit-button, this.options.configTab before:", this.options.configTab);
       this.options.configTab = !this.options.configTab;
+      console.log("edit-button, this.options.configTab after:", this.options.configTab);
       this._saveToggleStates();
     });
 
