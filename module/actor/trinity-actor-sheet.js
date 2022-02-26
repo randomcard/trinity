@@ -20,6 +20,7 @@ export class TrinityActorSheet extends ActorSheet {
     this.options.collapsedSections = [];
     this.options.collapsedHeaders = [];
     this.options.collapsedContent = [];
+    this.options.configTab = false;
 
   }
 
@@ -381,6 +382,7 @@ export class TrinityActorSheet extends ActorSheet {
         editArea.classList.toggle("hidden");
         editArea.previousElementSibling.classList.toggle("hidden");
       });
+      this.options.configTab = !this.options.configTab;
       this._saveToggleStates();
     });
 
