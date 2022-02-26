@@ -6,8 +6,8 @@
     </li>
 
   {{#each actor.actions as |item id|}}
-  <li class="item sub">
-    <div class="flexrow" data-item-id="{{item.id}}">
+  <li class="item sub" data-item-id="{{item.id}}">
+    <div class="flexrow">
       <i class="flex-fit far fa-caret-square-down show-detail clickable"></i>
       <h4 class="item-name item-edit clickable">
         {{item.name}}
@@ -22,6 +22,7 @@
         </div>
       </div>
     <div class="flexrow sub-item-detail hidden">
+      test text
       {{#each item.data.data.subItems as |subItem id|}}
       <div class="boxed">
         <div><b>{{subItem.name}}</b>&ensp;-&ensp;<em>{{subItem.costDescription}}</em></div>

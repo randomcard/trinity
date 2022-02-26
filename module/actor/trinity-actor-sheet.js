@@ -497,6 +497,7 @@ export class TrinityActorSheet extends ActorSheet {
 
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
+      console.log("item-edit click:", ev);
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
