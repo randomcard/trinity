@@ -240,10 +240,12 @@
   margin-bottom: 4px;
 }
 
-.trinity .sheet-tabs {
+.trinity nav.sheet-tabs {
   -webkit-box-flex: 0;
   -ms-flex: 0;
   flex: 0;
+  flex-flow: wrap;
+  padding: 0px;
 }
 
 .trinity .sheet-body,
@@ -275,6 +277,7 @@
 .trinity .tabs .item {
   line-height: 10px;
   font-weight: bold;
+  margin: 5px;
 }
 
 .trinity .tabs .item.active {
