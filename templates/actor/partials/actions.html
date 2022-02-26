@@ -6,8 +6,9 @@
     </li>
 
   {{#each actor.actions as |item id|}}
-  <li class="item sub" data-item-id="{{item.id}}">
-    <div class="flexrow">
+  <li class="item sub">
+    <div class="flexrow" data-item-id="{{item.id}}">
+      <i class="flex-fit far fa-caret-square-down show-detail clickable"></i>
       <h4 class="item-name item-edit clickable">
         {{item.name}}
         </h4>

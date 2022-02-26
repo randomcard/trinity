@@ -377,6 +377,11 @@ export class TrinityActorSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
+    // Show sub-item details
+    html.find('.show-detail').click(ev => {
+      event.currentTarget.parentElement.nextElementSibling.classList.toggle("hidden");
+    });
+
     html.find('.edit-button').click(ev => {
       html.find('.edit-button').each((i, editButton) => {
         editButton.classList.toggle("hidden");
