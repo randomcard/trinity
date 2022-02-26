@@ -246,6 +246,7 @@ export function handlebarHelpers() {
       optionHTML += `<option value="${key}" ${selected}>${targetActor.data.data.savedRolls[key].name}</option>`;
     }
 
+    /* Old method which had it's own listener.
     let rollNameDiv = "";
     if (rollData === {}) {
       rollNameDiv +=
@@ -274,6 +275,35 @@ export function handlebarHelpers() {
       </div>
       <div class="chip-control clickable">
         <i class="fas fa-link"></i>
+      </div>
+    </div>`
+    ;
+    */
+
+    // New method that uses the general edit-area toggle
+    let chipHeadDiv = "";
+    if (rollData === {}) {
+      chipHeadDiv +=
+        `<div class="chip-head" id="${ref}">`
+    } else {
+      chipHeadDiv +=
+        `<div class="chip-head saved-roll rollable" id="${ref}" data-rollID="${linkKey}">`
+    }
+
+    html =
+    `<div class="chip">
+      ${chipHeadDiv}
+      <div class="chip-head">
+        <i class="fas fa-dice"></i>
+      </div>
+      <div class="placeholder can-hide">
+      </div>
+      <div class="chip-content chip-change can-hide hidden edit-area">
+        <label class="chip-select chip-label" for="chip-select">Link Roll: </label>
+        <select class="chip-select" id="chip-select" name="data.linkedRolls.${ref}" data-dtype="String">
+          <option value="">None Selected</option>
+          ${optionHTML}
+        </select>
       </div>
     </div>`
     ;
