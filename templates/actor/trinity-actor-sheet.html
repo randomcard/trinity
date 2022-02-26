@@ -16,6 +16,7 @@
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a> {{!-- Bio, Aspirations, Details, Contacts, Bonds --}}
         <a class="item" data-tab="main">Main</a>
+        <a class="item" data-tab="combat">Combat</a>
         {{#if actor.data.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
         {{#if actor.data.data.flags.isPsion}}<a class="item" data-tab="psion">Psion</a>{{/if}}
         {{#if actor.data.data.flags.isNova}}<a class="item" data-tab="nova">Nova</a>{{/if}}
@@ -42,6 +43,7 @@
             {{> "systems/trinity/templates/actor/partials/saved-rolls.html"}}
             {{> "systems/trinity/templates/actor/partials/skills.html"}}
             {{> "systems/trinity/templates/actor/partials/attributes.html"}}
+            <!--
             <div class="flex-parent-evenly">
               <div class="flex-child-even">
                 {{> "systems/trinity/templates/actor/partials/healthboxes.html"}}
@@ -49,6 +51,12 @@
               </div>
               <div class="flex-child-even">{{> "systems/trinity/templates/actor/partials/conditions.html"}}</div>
             </div>
+            -->
+        </div>
+
+        {{!-- Combat Tab --}}
+        <div class="tab combat" data-group="primary" data-tab="combat">
+          {{> "systems/trinity/templates/actor/partials/combat.html"}}
         </div>
 
         {{!-- Talent Tab --}}

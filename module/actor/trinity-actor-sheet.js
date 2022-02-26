@@ -204,6 +204,7 @@ export class TrinityActorSheet extends ActorSheet {
     const psi = [];
     const quantum = [];
     const miscAttributes = [];
+    const actions = [];
 
 
     for (let hb of Object.keys(this.actor.data.data.healthboxes)) {
@@ -290,6 +291,7 @@ export class TrinityActorSheet extends ActorSheet {
       if (i.type === 'bond') { bonds.push(i); }
       if (i.type === 'mode') { modes.push(i); }
       if (i.type === 'quantumPower') { quantumPowers.push(i); }
+      if (i.type === 'action') { actions.push(i); }
       if (i.type === 'attribute') {
         if (i.data.flags.isMain) {
           if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
@@ -355,6 +357,7 @@ export class TrinityActorSheet extends ActorSheet {
     actorData.psi = psi;
     actorData.quantum = quantum;
     actorData.miscAttributes = actorData;
+    actorData.actions = actions;
 
 
     if (typeof actorData.allItemsFilter === 'undefined') {
