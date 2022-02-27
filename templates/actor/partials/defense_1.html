@@ -1,11 +1,9 @@
 {{!-- Defense Partial --}}
-<div class="boxed lowmargin">
-  <div class="flexrow bold">
-    <div class="flex-valign">
-      Defense:&ensp
-    </div>
-    <div class="big bold can-hide">
-      {{this.actor.data.data.defense.value}}
+  <div class="boxed grid grid-2col lowmargin">
+    <div class="bold right-vcenter">Defense: </div>
+    <div class="big bold left-vcenter can-hide">
+      {{this.actor.data.data.defense.value}}&ensp;/&ensp;
+      {{{createChip "defense"}}}
     </div>
     <div class="flex-parent-nowrap-center edit-area can-hide hidden">
       <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.defense.value"></i>
@@ -13,7 +11,3 @@
       <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.defense.value"></i>
     </div>
   </div>
-  <div class="small-note">
-    See "Actions" for defensive options.
-  </div>
-</div>
