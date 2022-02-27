@@ -47,6 +47,7 @@ export async function loadTrinityTemplates()
     "systems/trinity/templates/actor/partials/nova.html",
     "systems/trinity/templates/actor/partials/actions.html",
     "systems/trinity/templates/actor/partials/combat.html",
+    "systems/trinity/templates/actor/partials/initiative.html",
     "systems/trinity/templates/roll/partials/roll-overlay.html",
     "systems/trinity/templates/roll/partials/item-box.html",
     "systems/trinity/templates/roll/partials/roll-chip.html"
