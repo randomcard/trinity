@@ -349,6 +349,7 @@
 
 .trinity .items-list .item-name {
   margin: 0;
+  margin-right: 0.5em;
 }
 
 .trinity .items-list .item-controls {
