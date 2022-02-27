@@ -9,7 +9,7 @@
     </li>
 {{#each actor.gear as |item id|}}
     <li class="item flexrow" data-item-id="{{item._id}}">
-        <h4 class="item-name item-edit clickable">
+        <h4 class="flex-fit item-name item-edit clickable">
           {{item.name}}
           {{#if item.data.flags.isInjury}}<span><i class="fas fa-user-injured"></i></span>{{/if}}
         </h4>
