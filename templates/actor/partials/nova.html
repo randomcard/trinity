@@ -1,7 +1,7 @@
 <div class="flex-parent-evenly">
   <div class="flex-child-even">
 
-    <div class="quantum grid grid-1col">
+    <div class="quantum grid grid-1col no-top-margin">
       {{#each actor.quantum as |quantum key|}}
       <div class="flexcol flex-group-center rollable boxed can-hide" data-itemid="{{quantum._id}}" id="{{quantum._id}}">
         <span class="resource-label"> {{quantum.name}} </span>
@@ -19,7 +19,7 @@
     </div>
 
 
-    <div class="inspiration boxed">
+    <div class="inspiration boxed no-top-margin">
       <div class="quantum flex-parent-center-column">
         <div class="flex-child resource-label">Quantum Points</div>
         <div class="quantum flex-parent-nowrap-center">

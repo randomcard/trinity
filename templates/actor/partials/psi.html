@@ -1,7 +1,7 @@
 <div class="flex-parent-evenly">
   <div class="flex-child-even">
 
-    <div class="psi grid grid-1col">
+    <div class="psi grid grid-1col no-top-margin">
       {{#each actor.psi as |psi key|}}
       <div class="flexcol flex-group-center rollable boxed can-hide" data-itemid="{{psi._id}}" id="{{psi._id}}">
         <span class="resource-label"> {{psi.name}} </span>
@@ -35,7 +35,7 @@
   </div>
   <div class="flex-child-even">
     {{!-- Modes item Box --}}
-    <ol class="items-list bottom-margin boxed">
+    <ol class="items-list bottom-margin boxed no-top-margin">
         <li class="item flexrow item-header">
           <div class="big item-name">Modes</div>
           <div class="item-dots"></div>

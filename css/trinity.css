@@ -938,3 +938,7 @@ input[type="text"].short-input {
   border-radius: 10px;
   font-size: large;
 }
+
+.no-top-margin {
+  margin-top: 0px;
+}
