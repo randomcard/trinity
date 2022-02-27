@@ -9,12 +9,17 @@
       <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.healthboxes.{{key}}.value"></i>
       <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="Defense-value" name="data.healthboxes.{{key}}.value" value="{{../this.actor.data.data.healthboxes.[key].value}}" data-dtype="Number"/>
       <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.healthboxes.{{key}}.value"></i>
+
       {{log "Healthbox logging, loop this:" this}}
+      {{concat "../this.actor.data.data.healthboxes." key ".value"}}
+      {{log "Healthbox logging, loop this:" (concat "../this.actor.data.data.healthboxes." key ".value")}}
+      <!--
       {{log "Healthbox logging, loop healthBox:" healthBox}}
       {{log "Healthbox logging, loop key:" key}}
       {{log "Healthbox logging, ../actor.data.data.healthboxes:" ../actor.data.data.healthboxes}}
       {{log "Healthbox logging, ../actor.data.data.healthboxes.[key]:" ../actor.data.data.healthboxes.[key]}}
       {{log "Healthbox logging, ../actor.data.data.healthboxes.[key].value:" ../actor.data.data.healthboxes.[key].value}}
+      -->
     </div>
   </div>
   {{/each}}
