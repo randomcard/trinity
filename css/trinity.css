@@ -16,7 +16,7 @@
   cursor: pointer;
 }
 
-.clickable.chip-head:hover, .clickable.chip-head:focus {
+.rollable.chip-head:hover, .rollable.chip-head:focus {
   color: #000;
   box-shadow: 0 0 10px blue;
   cursor: pointer;
