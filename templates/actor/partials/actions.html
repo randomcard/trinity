@@ -10,7 +10,7 @@
     <div class="flexrow">
       <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
       <h4 class="flex-fit item-name item-edit clickable">
-        {{item.name}}
+        <b>{{item.name}}</b>
         </h4>
       <div>
         {{#if item.data.flags.hasRoll}}{{{createChip item._id ../actor}}}{{/if}}
@@ -21,12 +21,15 @@
         <a class="item-control item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
         </div>
       </div>
-    <div class="flexcol sub-item-detail hidden">
+    <div class="flexcol sub-item-detail smaller hidden">
       {{#each item.data.subItems as |subItem id|}}
       <div class="">
         <div class="flexrow">
           <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
-          <div><b>{{subItem.name}}</b>&ensp;-&ensp;<em>{{subItem.costDescription}}</em></div>
+          <div>{{subItem.name}}&ensp;-&ensp;<em>{{subItem.costDescription}}</em></div>
+          <div class="item-controls">
+            <a class="item-control sub-item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
+            </div>
           </div>
         <div class="hidden">{{{subItem.description}}}</div>
         </div>

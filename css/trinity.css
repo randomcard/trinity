@@ -942,3 +942,7 @@ input[type="text"].short-input {
 .no-top-margin {
   margin-top: 0px;
 }
+
+.smaller {
+  font-size: smaller;
+}
