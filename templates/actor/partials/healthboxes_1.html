@@ -1,0 +1,9 @@
+{{!-- Healthboxes --}}
+<div class="healthboxes boxed flexcol">
+  {{#each this.actor.healthBoxes as |healthBox key|}}
+  <div class="grid grid-2col clickable lowmargin item-create" data-hbname="{{healthBox.name}}" id="{{key}}" data-type="condition">
+    <div class="bold right-vcenter">{{healthBox.name}}</div>
+    <div class="big icons left-vcenter">{{{toHealthBoxes healthBox}}}</div>
+  </div>
+  {{/each}}
+</div>
