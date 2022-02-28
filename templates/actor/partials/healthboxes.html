@@ -7,7 +7,7 @@
     <div class="big icons left-vcenter can-hide">{{{toHealthBoxes healthBox}}}</div>
     <div class="flex-parent-nowrap-center edit-area can-hide hidden">
       <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.healthboxes.{{key}}.value"></i>
-      <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="Defense-value" name="data.healthboxes.{{key}}.value" value="{{concat '../this.actor.data.data.healthboxes.' key '.value'}}" data-dtype="Number"/>
+      <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="Defense-value" name="data.healthboxes.{{key}}.value" value="{{concat 'actor.data.data.healthboxes.' key '.value'}}" data-dtype="Number"/>
       <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.healthboxes.{{key}}.value"></i>
     </div>
   </div>
