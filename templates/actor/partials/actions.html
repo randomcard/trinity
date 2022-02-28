@@ -9,9 +9,9 @@
   <li class="item sub" data-item-id="{{item._id}}">
     <div class="flexrow">
       {{#if item.data.subItems}}
-      <i class="flex-fit flex-valign far fa-square"></i>
-      {{else}}
       <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
+      {{else}}
+      <i class="flex-fit flex-valign far fa-square"></i>
       {{/if}}
       <h4 class="flex-fit item-name item-edit clickable">
         <b>{{item.name}}</b>
