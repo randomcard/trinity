@@ -1,14 +1,18 @@
 {{!-- Action item Box --}}
 <ol class="items-list boxed no-top-margin">
   <li class="item sub flexrow item-header">
-    <div class="flex-fit big item-name">Actions</div>
+    <div class="flex-fit big item-name">Actions & Stunts</div>
     <div class="flex-right title-note"></div>
     </li>
 
   {{#each actor.actions as |item id|}}
   <li class="item sub" data-item-id="{{item._id}}">
     <div class="flexrow">
+      {{#if item.data.subItems}}
+      <i class="flex-fit flex-valign far fa-square"></i>
+      {{else}}
       <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
+      {{/if}}
       <h4 class="flex-fit item-name item-edit clickable">
         <b>{{item.name}}</b>
         </h4>
