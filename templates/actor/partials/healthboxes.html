@@ -2,6 +2,7 @@
 {{!-- Healthboxes --}}
 <div class="healthboxes boxed flexcol">
   {{#each this.actor.healthBoxes as |healthBox key|}}
+  <div class="flex-fit flex-valign bold">Injuries:&ensp;</div>
   <div class="grid grid-2col lowmargin">
     <div class="bold right-vcenter">{{healthBox.name}}</div>
     <div class="big icons left-vcenter clickable item-create can-hide" data-hbname="{{healthBox.name}}" id="{{key}}" data-type="condition">{{{toHealthBoxes healthBox}}}</div>
