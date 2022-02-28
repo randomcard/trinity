@@ -8,7 +8,7 @@
   {{#each actor.actions as |item id|}}
   <li class="item sub" data-item-id="{{item._id}}">
     <div class="flexrow">
-      {{#if item.data.data.subItems}}
+      {{#if item.data.stunts}}
       <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
       {{else}}
       <i class="flex-fit flex-valign far fa-square"></i>
@@ -26,7 +26,7 @@
         </div>
       </div>
     <div class="flexcol sub-item-detail smaller hidden">
-      {{#each item.data.subItems as |subItem id|}}
+      {{#each item.data.stunts as |subItem id|}}
       <div class="">
         <div class="flexrow">
           <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>

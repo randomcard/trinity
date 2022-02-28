@@ -37,6 +37,12 @@ export function handlebarHelpers() {
     return isEqual;
   });
 
+/*
+  Handlebars.registerHelper('isPopulated', function (arg) {
+    return value !== undefined;
+  });
+*/
+
   Handlebars.registerHelper('toDots', function(n, m) {
     let dots = '';
     let filled = '<i class="fa fa-circle"></i>';
