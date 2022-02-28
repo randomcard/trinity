@@ -44,12 +44,15 @@
           {{/if}}
 
             {{!-- The dots flag should be able to be removed from this section once all items are migrated to current templates --}}
+            <!--
             <div class="boxed fit">
               <div class="left-vcenter">
                 <input class="left-vcenter" type="checkbox" name="data.flags.hasDots" value="{{data.data.flags.hasDots}}" data-dtype="Boolean" {{checked data.data.flags.hasDots}}/>
                 <label class="resource-label left-vcenter" for="data.flags.hasDots">Dots</label>
               </div>
             </div>
+            -->
+
             {{#if (isEqual item.data.type "equipment") }}
             {{> "systems/trinity/templates/item/partials/item-flag.html"}}
             {{/if}}
