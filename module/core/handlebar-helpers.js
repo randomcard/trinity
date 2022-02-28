@@ -15,6 +15,11 @@ export function handlebarHelpers() {
     return str.toLowerCase();
   });
 
+  // Used for the HealthBox edit - in need of FIXME / TODO
+  Handlebars.registerHelper('hbPathFixer', function(str) {
+    return actor.data.data.healthboxes[str].value;
+  });
+
   /* Not used now, fixed template
   Handlebars.registerHelper('varToString', function(v) {
     return Object.keys({v})[0];
