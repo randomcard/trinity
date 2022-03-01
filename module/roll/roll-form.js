@@ -1,5 +1,5 @@
 //* Import Functions *//
-import { rollDataTemplate } from "/systems/trinity/module/protos.js";
+// import { rollDataTemplate } from "/systems/trinity/module/protos.js";
 
 /**
  * DOCUMENTATION FOR ORIGINAL FormApplication:
@@ -38,7 +38,13 @@ export class RollForm extends FormApplication {
         this._addItem(elementID);
       }
     } else {
-      this.object = object;
+      // this.object = object;
+      this.object = this._rollDataTemplate();
+      this.object.name = object.name;
+      this.object.desc = object.desc;
+      this.object.items = object.items;
+      this.object.settings = object.settings;
+      this.object.favorite = object.favorite;
     }
     console.log("RollForm Object Post-Check this: ", this);
   }

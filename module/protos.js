@@ -1,3 +1,5 @@
+//This file is now unused...
+
 export const pickedElementsProto = {
   attr : {
     name : "No Attribute Selected",
