@@ -70,6 +70,7 @@ export const rollDataTemplate = {
     }
     */
   },
+  items : {},
   get diceTotal() {
     let total = 0;
     for (let d of Object.keys(this.dice)) {
