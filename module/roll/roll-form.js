@@ -168,7 +168,7 @@ export class RollForm extends FormApplication {
 
   _addItem(id, custom) {
     console.log("_addItem this/args", this, id, custom);
-    var rollData = this.object;
+     // var rollData = this.object;
     let itemValue = 0;
     let itemName = "";
     let isDice = true;
@@ -200,12 +200,12 @@ export class RollForm extends FormApplication {
         note = item.data.data.enhancement.relevance;
       }
       // Multiplier:
-      if (item.id in rollData.items) {
-        mult = rollData.items[rollItemID].multiplier + 1;
+      if (item.id in this.object.items) {
+        mult = this.object.items[rollItemID].multiplier + 1;
       }
     }
 
-    rollData.items[rollItemID] = {
+    this.object.items[rollItemID] = {
       value : itemValue,
       name : itemName,
       SourceType : sourceType,
@@ -218,8 +218,8 @@ export class RollForm extends FormApplication {
   }
 
   _removeItem(id) {
-    var rollData = this.object;
-    delete rollData.items[id];
+    // var rollData = this.object;
+    delete this.object.items[id];
   }
 
   _roll() {
