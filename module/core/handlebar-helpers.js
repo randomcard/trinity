@@ -223,7 +223,7 @@ export function handlebarHelpers() {
     //console.log("check for linkage, Item/Actor", isItem, targetActor.data.data.linkedRolls[ref]);
     //console.log("check for linkage, refPath", refPath);
     if (!isItem) {
-      if (typeof refPath !== "undefined" && refPath !== "") {
+      if (typeof refPath !== "undefined" && refPath !== "" && refPath !== {} ) {
         linkedRoll = refPath;
         isLinked = true;
         rollData = targetActor.data.data.savedRolls[refPath];
