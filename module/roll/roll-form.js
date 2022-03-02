@@ -40,11 +40,18 @@ export class RollForm extends FormApplication {
     } else {
       // this.object = object;
       this.object = this._rollDataTemplate();
+      /*
       this.object.name = object.name;
       this.object.desc = object.desc;
       this.object.items = object.items;
       this.object.settings = object.settings;
       this.object.favorite = object.favorite;
+      */
+      this.object.name = Object.assign({}, object.name);
+      this.object.desc = Object.assign({}, object.desc);
+      this.object.items = Object.assign({}, object.items);
+      this.object.settings = Object.assign({}, object.settings);
+      this.object.favorite = Object.assign({}, object.favorite);
     }
     console.log("RollForm Object Post-Check this: ", this);
   }

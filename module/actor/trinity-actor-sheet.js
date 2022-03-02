@@ -283,7 +283,6 @@ export class TrinityActorSheet extends ActorSheet {
       if (i.type === 'path') { paths.push(i); }
       if (i.data.flags.isComplication === true) { complications.push(i); }
       if (i.data.flags.isEnhancement === true) { enhancements.push(i); }
-      if (i.type === 'stunt') { stunts.push(i); }
       if (i.type === 'gift') { gifts.push(i); }
       if (i.type === 'trick') { tricks.push(i); }
       if (i.type === 'condition') { conditions.push(i); }
@@ -325,6 +324,7 @@ export class TrinityActorSheet extends ActorSheet {
           });
         }
       }
+      if (i.data.stunts) { stunts.push(i); }
       allItems.push(i);
 
     }
