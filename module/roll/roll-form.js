@@ -273,7 +273,9 @@ export class RollForm extends FormApplication {
       get formula() {
         if (!this.items) { return 0; }
         let enhaScale = this.enhaTotal + (this.settings.dsca * 2);
-        let rollFormula = `(${this.diceTotal}d10x>=${this.settings.expl}cs>=${this.settings.succ}df<=${this.settings.fail}ae${enhaScale})*${this.settings.nsca}`;
+        let fail = '';
+        if (typeof this.settings.fail !== "undefined" && this.settings.fail > 0) {fail = `df<=${this.settings.fail}`;}
+        let rollFormula = `(${this.diceTotal}d10x>=${this.settings.expl}cs>=${this.settings.succ}${fail}ae${enhaScale})*${this.settings.nsca}`;
         return rollFormula;
       },
       items : {
