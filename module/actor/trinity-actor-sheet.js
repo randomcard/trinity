@@ -138,7 +138,7 @@ export class TrinityActorSheet extends ActorSheet {
       template: "systems/trinity/templates/actor/trinity-actor-sheet.html",
       width: 600,
       height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "background" }]
     });
   }
 
@@ -324,7 +324,7 @@ export class TrinityActorSheet extends ActorSheet {
           });
         }
       }
-      if (i.data.stunts) { stunts.push(i); }
+      if (i.data.stunts & i.type !== 'action') { stunts.push(i); }
       allItems.push(i);
 
     }
