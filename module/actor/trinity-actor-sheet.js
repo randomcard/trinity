@@ -324,7 +324,7 @@ export class TrinityActorSheet extends ActorSheet {
           });
         }
       }
-      if (Object.keys(i.data.stunts).length > 0  && i.type !== 'action') { stunts.push(i); }
+      if (typeof(i.data.stunts) !== "undefined" && Object.keys(i.data.stunts).length > 0  && i.type !== 'action') { stunts.push(i); }
       allItems.push(i);
 
     }
