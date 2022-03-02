@@ -382,6 +382,7 @@ export class TrinityActorSheet extends ActorSheet {
       event.currentTarget.parentElement.nextElementSibling.classList.toggle("hidden");
     });
 
+    // Edit Button toggle for entire sheet
     html.find('.edit-button').click(ev => {
       html.find('.edit-button').each((i, editButton) => {
         editButton.classList.toggle("hidden");
@@ -399,6 +400,7 @@ export class TrinityActorSheet extends ActorSheet {
       this._saveToggleStates();
     });
 
+    // Collapsible Button on Config page
     html.find('.collapsible').click(event => {
       const collapsibleElement = event.currentTarget;
       /*
@@ -438,7 +440,7 @@ export class TrinityActorSheet extends ActorSheet {
       return obj;
     }
 
-    // Remove value
+    // Subtract 1 from value target
     html.find('.sub-value').click(ev => {
       let target = event.currentTarget.dataset.target;
       // console.log("event.currentTarget.dataset", event.currentTarget.dataset, event.currentTarget.dataset.itemid);
@@ -469,7 +471,7 @@ export class TrinityActorSheet extends ActorSheet {
       }
     });
 
-  // Add Value
+  // Add 1 to value target
     html.find('.add-value').click(ev => {
       let target = event.currentTarget.dataset.target;
       if (typeof event.currentTarget.dataset.itemid !== "undefined") {
