@@ -223,7 +223,7 @@ export function handlebarHelpers() {
     //console.log("check for linkage, Item/Actor", isItem, targetActor.data.data.linkedRolls[ref]);
     //console.log("check for linkage, refPath", refPath);
     if (!isItem) {
-      if (typeof refPath !== "undefined" && refPath !== "" && refPath !== {} ) {
+      if (typeof refPath !== "undefined" && refPath !== "" ) {
         linkedRoll = refPath;
         isLinked = true;
         rollData = targetActor.data.data.savedRolls[refPath];
@@ -245,7 +245,7 @@ export function handlebarHelpers() {
       //console.log("check for linkage, linkedRoll>", linkedRoll);
       //console.log("check for linkage, rollData>", rollData);
     }
-    if (isLinked && typeof rollData.name !== "undefined") {rollName = rollData.name;}
+    if (isLinked && typeof rollData !== "undefined" && typeof rollData.name !== "undefined") {rollName = rollData.name;}
 
     //build option list
     let optionHTML = "";
