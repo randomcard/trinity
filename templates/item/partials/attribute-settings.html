@@ -1,5 +1,5 @@
 <div class="boxed">
-  <div class="grid grid-4col center-text options">
+  <div class="grid grid-5col center-text options">
     <div class="">
       <label class="center-text resource-label" for="core" id="core-label">Core</label><br>
       <input class="" type="checkbox" id="core" name="data.flags.isMain" value="{{data.data.flags.isMain}}" data-dtype="Boolean" {{checked data.data.flags.isMain}}/>
@@ -15,6 +15,10 @@
     <div class="">
       <label class="center-text resource-label" for="quantum" id="quantum-label">Quantum</label><br>
       <input class="" type="checkbox" id="quantum" name="data.flags.isQuantum" value="{{data.data.flags.isQuantum}}" data-dtype="Boolean" {{checked data.data.flags.isQuantum}}/>
+    </div>
+    <div class="">
+      <label class="center-text resource-label" for="custom" id="custom-label">Custom</label><br>
+      <input class="" type="checkbox" id="custom" name="data.flags.isCustom" value="{{data.data.flags.isCustom}}" data-dtype="Boolean" {{checked data.data.flags.isCustom}}/>
     </div>
   </div>
 

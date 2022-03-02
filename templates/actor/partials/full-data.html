@@ -94,6 +94,10 @@
     <label for="fd-dsca" class="resource-label">Dramatic Scale</label>
     <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-dsca" name="data.rollSettings.dsca.value" value="{{data.data.rollSettings.dsca.value}}" data-dtype="Number"/>
   </div>
+  <div class="roll-options flexrow flex-group-center">
+    <label for="fd-fail" class="resource-label">Fail On</label>
+    <input type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="fd-fail" name="data.rollSettings.fail.value" value="{{data.data.rollSettings.fail.value}}" data-dtype="Number"/>
+  </div>
 </div>
 
 {{!-- Flags --}}
@@ -110,6 +114,10 @@
   <div>
     <label for="fd-isNova" class="resource-label"> Nova: </label>
     <input type="checkbox" id="fd-isNova" name="data.flags.isNova" value="{{actor.data.flags.isNova}}" data-dtype="Boolean" {{checked this.data.data.flags.isNova}}/>
+  </div>
+  <div>
+    <label for="fd-isOther" class="resource-label"> Custom: </label>
+    <input type="checkbox" id="fd-isOther" name="data.flags.isOther" value="{{actor.data.flags.isOther}}" data-dtype="Boolean" {{checked this.data.data.flags.isOther}}/>
   </div>
 </div>
 

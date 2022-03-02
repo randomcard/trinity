@@ -273,7 +273,7 @@ export class RollForm extends FormApplication {
       get formula() {
         if (!this.items) { return 0; }
         let enhaScale = this.enhaTotal + (this.settings.dsca * 2);
-        let rollFormula = `(${this.diceTotal}d10x>=${this.settings.expl}cs>=${this.settings.succ}ae${enhaScale})*${this.settings.nsca}`;
+        let rollFormula = `(${this.diceTotal}d10x>=${this.settings.expl}cs>=${this.settings.succ}df<=${this.settings.fail}ae${enhaScale})*${this.settings.nsca}`;
         return rollFormula;
       },
       items : {
@@ -304,6 +304,7 @@ export class RollForm extends FormApplication {
         succ : this.actor.data.data.rollSettings.succ.value,
         nsca : this.actor.data.data.rollSettings.nsca.value, // Narrative Scale (Absolute)
         dsca : this.actor.data.data.rollSettings.dsca.value, // Dramatic Scale (Difference)
+        fail : this.actor.data.data.rollSettings.fail.value, // Fail value, for old-school homebrew
         init : false // For Compatibility
       },
       favorite : false

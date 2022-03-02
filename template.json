@@ -35,6 +35,10 @@
           "dsca" : {
             "name" : "Dramatic Scale (Difference)",
             "value" : 0
+          },
+          "fail" : {
+            "name" : "Fail Threshold",
+            "value" : 0
           }
         }
       },
