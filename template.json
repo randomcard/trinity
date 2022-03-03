@@ -4,6 +4,7 @@
     "templates": {
       "base": {
         "biography": "",
+        "logo" : "",
         "defense": {
           "value": 1
         },

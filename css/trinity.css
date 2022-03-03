@@ -210,12 +210,19 @@
   margin-bottom: 5px;
 }
 
+.trinity header.sheet-header {
+  margin: 0px;
+  background-color: linen;
+  box-shadow: 0 0 5px 5px linen;
+}
+
 .trinity .sheet-header .profile-img .token-img {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   height: 50px;
   margin-right: 10px;
+  border: 0px;
 }
 
 .trinity .sheet-header .header-fields {
@@ -788,6 +795,12 @@ input[type=radio].hidden-input:focus + label {
   padding-top: 0;
   padding-bottom: 0;
 }
+
+/*
+.trinity.sheet.actor section.window-content {
+  padding-top: 0;
+}
+*/
 
 .flex-flavor {
   display: flex;
