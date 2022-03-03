@@ -590,7 +590,7 @@ export class TrinityActorSheet extends ActorSheet {
     html.find('.rollable').click(this._onRoll.bind(this));
 
     // New Test, for FormApplication
-    html.find('.testButton').click(ev => {
+    html.find('.actor-roll-button').click(ev => {
 
       new RollForm(this.actor, {event:ev}).render(true);
     });
