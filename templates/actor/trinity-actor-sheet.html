@@ -7,14 +7,12 @@
             <h1>{{actor.name}}</h1>
         </div>
         <div class="header-fields flex-right">
-            <i class="x-large clickable edit-button fas fa-lock can-hide"></i>
-            <i class="x-large clickable edit-button fas fa-unlock can-hide hidden"></i>
         </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs actor" data-group="primary">
-      <a class="item" data-tab="roll"><i class="large fas fa-dice"></i></a> {{!-- Saved Rolls --}}
+      <a class="item" data-tab="roll"><i class="large clickable fas fa-dice"></i></a> {{!-- Saved Rolls --}}
       <a class="item" data-tab="background">Background</a> {{!-- Bio, Aspirations, Details, Contacts, Bonds --}}
       <a class="item" data-tab="main">Attributes & Skills</a>
       <a class="item" data-tab="combat">Combat</a>
