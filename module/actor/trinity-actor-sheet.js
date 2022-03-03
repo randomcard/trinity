@@ -427,6 +427,14 @@ export class TrinityActorSheet extends ActorSheet {
       // this._saveToggleStates();
     });
 
+    // updates the actor outside the normal input/select process to allow for multiple inputs for the same value
+    html.find('.chip-select').change(event => {
+      console.log(".chip-select", event);
+      let varName = event.currentTarget.dataset.name;
+      let varValue = event.currentTarget.value;
+      this.actor.update({ [varName]: varValue });
+    });
+
     // Return a value by putting together two pieces of a variable name.
     // ex:
     // obj = this.actor.data

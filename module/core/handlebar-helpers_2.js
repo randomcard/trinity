@@ -309,8 +309,8 @@ export function handlebarHelpers() {
       <div class="placeholder can-hide">
       </div>
       <div class="chip-content chip-change can-hide hidden edit-area">
-        <label class="chip-body chip-label" for="chip-select">Link Roll: </label>
-        <select class="chip-body chip-select" id="chip-select" data-name="data.linkedRolls.${ref}" data-dtype="String">
+        <label class="chip-select chip-label" for="chip-select">Link Roll: </label>
+        <select class="chip-select" id="chip-select" name="data.linkedRolls.${ref}" data-dtype="String">
           <option value="">None Selected</option>
           ${optionHTML}
         </select>

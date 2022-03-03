@@ -874,7 +874,7 @@ input[type="text"].on-dark, input[type="number"].on-dark {
   font-size: smaller;
 }
 
-select.chip-select {
+select.chip-body {
   height: auto;
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid var(--color-border-light-tertiary);
