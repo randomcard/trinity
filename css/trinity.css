@@ -257,10 +257,11 @@
 .trinity nav.sheet-tabs.actor {
   justify-content: space-between;
   background-color: linen;
-  box-shadow: 0 0 10px 5px linen;
+  box-shadow: 0 0 5px 5px linen;
   border: 0;
   position: sticky;
   top: -10px;
+  border-radius: 0px 0px 20px 20px;
 }
 
 .trinity .sheet-body,
