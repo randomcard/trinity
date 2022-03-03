@@ -838,7 +838,7 @@ input[type="text"].on-dark, input[type="number"].on-dark {
 }
 .chip-head{
     display: flex;
-    position: relative;
+    /* position: relative; */
     /* overflow: hidden; */
     background-color: #ff4d008c;
     font-size: 1.25rem;
