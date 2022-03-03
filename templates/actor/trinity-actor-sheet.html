@@ -2,12 +2,12 @@
 
     {{!-- Sheet Header --}}
     <header class="sheet-header">
-        <img class="token-img" src="{{actor.data.token.img}}" data-edit="token.img" title="{{actor.name}}" height="50" />
+        <img class="profile-img" src="{{actor.data.token.img}}" data-edit="token.img" title="{{actor.name}}" height="50" />
         <div class="header-fields charname">
             <h1>{{actor.name}}</h1>
         </div>
         <div class="header-fields charname flex-right">
-            <h1>Text Text</h1>
+            <h1>{{actor.data.data.concept}}</h1>
         </div>
         <img class="profile-img" src="{{actor.data.data.logo}}" data-edit="data.logo" height="50" />
     </header>

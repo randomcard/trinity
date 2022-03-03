@@ -136,8 +136,8 @@
     },
     "TrinityCharacter": {
       "templates": ["base", "talent", "psion"],
-      "player" : "",
-      "concept" : "",
+      "player" : "Player Name",
+      "concept" : "Character Concept",
       "flags" : {
         "isTalent" : true,
         "isActivePlayer" : true
