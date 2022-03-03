@@ -1,6 +1,7 @@
 {{!-- Saved Rolls Partial - Read-Only --}}
 
 <h2>Saved Rolls</h2>
+<button type="button" id="rollButton" class="actor-roll-button">New Roll</button>
 <div class="saved-rolls grid grid-4col">
   {{#each data.data.savedRolls as |roll key|}}
     <div class="flexcol flex-group-center boxed" id="{{key}}">

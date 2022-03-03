@@ -262,6 +262,7 @@
   position: sticky;
   top: -10px;
   border-radius: 0px 0px 20px 20px;
+  margin-bottom: 10px;
 }
 
 .trinity .sheet-body,
@@ -955,4 +956,9 @@ input[type="text"].short-input {
 
 .smaller {
   font-size: smaller;
+}
+
+.actor-roll-button {
+  width: auto;
+  margin-left: 1em;
 }
