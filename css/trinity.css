@@ -254,6 +254,10 @@
   padding: 0px;
 }
 
+.trinity nav.sheet-tabs.actor {
+  justify-content: space-between;
+}
+
 .trinity .sheet-body,
 .trinity .sheet-body .tab,
 .trinity .sheet-body .tab .editor {

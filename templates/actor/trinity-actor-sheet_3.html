@@ -7,33 +7,25 @@
             <h1>{{actor.name}}</h1>
         </div>
         <div class="header-fields flex-right">
-            <i class="x-large clickable edit-button fas fa-lock can-hide"></i>
-            <i class="x-large clickable edit-button fas fa-unlock can-hide hidden"></i>
+            <i class="x-large clickable edit-button fas fa-unlock can-hide"></i>
+            <i class="x-large clickable edit-button fas fa-lock can-hide hidden"></i>
         </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
-    <nav class="sheet-tabs tabs actor" data-group="primary">
-      <a class="item" data-tab="roll"><i class="large fas fa-dice"></i></a> {{!-- Saved Rolls --}}
-      <a class="item" data-tab="background">Background</a> {{!-- Bio, Aspirations, Details, Contacts, Bonds --}}
-      <a class="item" data-tab="main">Attributes & Skills</a>
-      <a class="item" data-tab="combat">Combat</a>
-      {{#if actor.data.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
-      {{#if actor.data.data.flags.isPsion}}<a class="item" data-tab="psion">Psion</a>{{/if}}
-      {{#if actor.data.data.flags.isNova}}<a class="item" data-tab="nova">Nova</a>{{/if}}
-      <a class="item" data-tab="equip">Equipment</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
-      <a class="item config-tab hidden" data-tab="data-entry">Configure</a>
-      <i class="x-large clickable edit-button fas fa-lock can-hide"></i> {{!-- No Tab Content, just unlocks editing mode --}}
-      <i class="x-large clickable edit-button fas fa-unlock can-hide hidden"></i>
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="background">Background</a> {{!-- Bio, Aspirations, Details, Contacts, Bonds --}}
+        <a class="item" data-tab="main">Attributes & Skills</a>
+        <a class="item" data-tab="combat">Combat</a>
+        {{#if actor.data.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
+        {{#if actor.data.data.flags.isPsion}}<a class="item" data-tab="psion">Psion</a>{{/if}}
+        {{#if actor.data.data.flags.isNova}}<a class="item" data-tab="nova">Nova</a>{{/if}}
+        <a class="item" data-tab="equip">Equipment</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
+        <a class="item config-tab hidden" data-tab="data-entry">Configure</a>
     </nav>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
-
-      {{!-- "Roll" Tab --}}
-      <div class="tab roll" data-group="primary" data-tab="roll">
-          {{> "systems/trinity/templates/actor/partials/saved-rolls.html"}}
-      </div>
 
         {{!-- Biography Tab --}}
         <div class="tab background" data-group="primary" data-tab="background">
