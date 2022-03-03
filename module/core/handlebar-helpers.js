@@ -47,7 +47,7 @@ export function handlebarHelpers() {
     let dots = '';
     let filled = '<i class="fa fa-circle"></i>';
     let empty = '<i class="far fa-circle"></i>';
-    let mega = '<i class="fas fa-certificate"></i>';
+    let mega = '<i class="fas fa-exclamation-circle"></i>';
     if (n > 10) {
       dots = n.toString();
       dots += filled;
