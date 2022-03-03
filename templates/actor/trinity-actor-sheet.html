@@ -23,8 +23,10 @@
       {{#if actor.data.data.flags.isNova}}<a class="item" data-tab="nova">Nova</a>{{/if}}
       <a class="item" data-tab="equip">Equipment</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
       <a class="item config-tab hidden" data-tab="data-entry">Configure</a>
-      <i class="x-large clickable edit-button fas fa-lock can-hide"></i> {{!-- No Tab Content, just unlocks editing mode --}}
-      <i class="x-large clickable edit-button fas fa-unlock can-hide hidden"></i>
+      <div class="item">
+        <i class="large clickable edit-button fas fa-lock can-hide"></i> {{!-- No Tab Content, just unlocks editing mode --}}
+        <i class="large clickable edit-button fas fa-unlock can-hide hidden"></i>
+      </div>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -48,7 +50,6 @@
         {{!-- "Main" Tab --}}
         <div class="tab main" data-group="primary" data-tab="main">
             {{!-- Partials go here --}}
-            {{> "systems/trinity/templates/actor/partials/saved-rolls.html"}}
             {{> "systems/trinity/templates/actor/partials/attributes.html"}}
             {{> "systems/trinity/templates/actor/partials/skills.html"}}
             {{> "systems/trinity/templates/actor/partials/specialties.html"}}

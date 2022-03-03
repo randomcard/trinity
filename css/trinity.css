@@ -285,7 +285,7 @@
 }
 
 .trinity .tabs .item {
-  line-height: 10px;
+  line-height: 1em;
   font-weight: bold;
   margin: 7px;
 }
