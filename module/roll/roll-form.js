@@ -29,7 +29,9 @@ export class RollForm extends FormApplication {
     console.log("RollForm Constructor Actor: ", actor);
     console.log("RollForm Object Pre-Check: ", object);
     this.actor = actor;
-    this.itemList = [];
+    this.rollname = "";
+    this.oItemList = [];
+    this.saved = false;
     if (typeof object === 'undefined' || object === null) {
       // this.object = JSON.parse(JSON.stringify(rollDataTemplate));
       this.object = this._rollDataTemplate();
@@ -40,6 +42,8 @@ export class RollForm extends FormApplication {
     } else {
       // this.object = object;
       this.object = this._rollDataTemplate();
+      this.oItemList = Object.assign({}, object.items);
+      if (object.id) {this.saved = true;}
       /*
       this.object.name = object.name;
       this.object.desc = object.desc;
@@ -52,6 +56,7 @@ export class RollForm extends FormApplication {
       this.object.items = Object.assign({}, object.items);
       this.object.settings = Object.assign({}, object.settings);
       this.object.favorite = Object.assign({}, object.favorite);
+      this.rollname = Object.assign({}, object.name);
     }
     console.log("RollForm Object Post-Check this: ", this);
   }
@@ -62,7 +67,7 @@ export class RollForm extends FormApplication {
       popOut: true,
       template: "systems/trinity/templates/roll/roll-form.html",
       id: "roll-form",
-      title: "Roll",
+      title: `Rolling: ${this.rollname}`,
       width: 350
     });
   }
@@ -71,10 +76,12 @@ export class RollForm extends FormApplication {
   getData() {
     // Send data to the template
     console.log("RollForm getData called");
+    this.rollname = Object.assign({}, object.name);
     return {
       actor: this.actor,
       rollData: this.object,
-      itemList: this.itemList
+      itemList: this.itemList,
+      saved: this.saved
     };
   }
 
@@ -131,8 +138,8 @@ export class RollForm extends FormApplication {
       this._resetHeight();
     });
 
-    html.find('.save').click(async (event) => {
-      this._save(this.object, this.actor);
+    html.find('.save-as').click(async (event) => {
+      this._saveAs(this.object, this.actor);
     });
 
     html.find('.add-custom').click(async (event) => {
@@ -246,8 +253,8 @@ export class RollForm extends FormApplication {
 
   _rollDataTemplate() {
     return {
-      name : "Trinity Roll",
-      // id : "",
+      name : "New Roll",
+      id : "",
       get flavor() {
         let text = '<div class="flex-flavor">';
         for (let i of Object.keys(this.items)) {
@@ -313,9 +320,9 @@ export class RollForm extends FormApplication {
     };
   }
 
-  async _save(rollData, targetActor) {
-    console.log("_save started");
-    let html = await renderTemplate("systems/trinity/templates/save-prompt.html");
+  async _saveAs(rollData, targetActor) {
+    console.log("_saveAs started");
+    let html = await renderTemplate("systems/trinity/templates/save-as-prompt.html");
     new Dialog({
       title: "Save Roll As",
       content: html,
@@ -323,12 +330,13 @@ export class RollForm extends FormApplication {
       buttons: {
         save: {
           icon: '<i class="fas fa-check"></i>',
-          label: 'Save',
+          label: 'Save As',
           default: true,
           callback: html => {
             let results = document.getElementById('saveName').value;
-            rollData.name = results;
             let uniqueRollNumber = randomID(16);
+            rollData.name = results;
+            rollData.id = uniqueRollNumber;
 
             let updates = {
               "data.savedRolls": {
@@ -340,6 +348,47 @@ export class RollForm extends FormApplication {
             ui.notifications.notify(`Saved Roll to ${targetActor.name} as "${results}".`);
             return;
           },
+        }
+      }
+    }).render(true);
+  }
+
+  async _save(rollData, targetActor) {
+    console.log("_save started");
+    // let html = await renderTemplate("systems/trinity/templates/save-prompt.html");
+    new Dialog({
+      title: "Save Roll",
+      content: "Over-write existing saved roll?",
+      default: 'save',
+      buttons: {
+        save: {
+          icon: '<i class="fas fa-check"></i>',
+          label: 'Save',
+          default: true,
+          callback: html => {
+            // let results = document.getElementById('saveName').value;
+            // let uniqueRollNumber = randomID(16);
+            // rollData.name = results;
+            // rollData.id = uniqueRollNumber;
+
+            let updates = {
+              "data.savedRolls": {
+                [rollData.id]: rollData
+              }
+            };
+            game.actors.get(targetActor.id).update(updates);
+
+            ui.notifications.notify(`Saved Roll to ${targetActor.name} as "${results}".`);
+            return;
+          },
+        },
+        cancel: {
+          icon: '<i class="fas fa-cross"></i>',
+          label: 'Cancel',
+          default: false,
+          callback: html => {
+            return;
+          }
         }
       }
     }).render(true);
