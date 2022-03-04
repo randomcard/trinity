@@ -62,6 +62,7 @@ export class RollForm extends FormApplication {
   }
 
   static get defaultOptions() {
+    console.log("RollForm defaultOptions this: ", this);
     return mergeObject(super.defaultOptions, {
       classes: ["trinity", "roll-form"],
       popOut: true,
