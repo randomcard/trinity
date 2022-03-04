@@ -76,7 +76,7 @@ export class RollForm extends FormApplication {
   getData() {
     // Send data to the template
     console.log("RollForm getData called");
-    this.rollname = Object.assign({}, object.name);
+    this.rollname = Object.assign({}, this.object.name);
     return {
       actor: this.actor,
       rollData: this.object,
