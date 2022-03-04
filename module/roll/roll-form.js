@@ -61,7 +61,7 @@ export class RollForm extends FormApplication {
       this.object.name = JSON.parse(JSON.stringify(object.name));
       // this.object.desc = Object.assign({}, object.desc);
       // this.object.name = (' ' + object.desc).slice(1);
-      this.object.name = JSON.parse(JSON.stringify(object.desc));
+      this.object.desc = JSON.parse(JSON.stringify(object.desc));
       this.object.items = Object.assign({}, object.items);
       this.object.settings = Object.assign({}, object.settings);
       this.object.favorite = object.favorite ? true : false;
