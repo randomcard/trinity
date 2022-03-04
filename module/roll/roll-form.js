@@ -62,13 +62,12 @@ export class RollForm extends FormApplication {
   }
 
   static get defaultOptions() {
-    console.log("RollForm defaultOptions this: ", this);
     return mergeObject(super.defaultOptions, {
       classes: ["trinity", "roll-form"],
       popOut: true,
       template: "systems/trinity/templates/roll/roll-form.html",
       id: "roll-form",
-      title: `Rolling: ${this.object.name}`,
+      title: `Roll`,
       width: 350
     });
   }
@@ -363,7 +362,7 @@ export class RollForm extends FormApplication {
     // let html = await renderTemplate("systems/trinity/templates/save-prompt.html");
     new Dialog({
       title: "Save Roll",
-      content: "Over-write existing saved roll?",
+      content: `Over-write existing saved roll <b>${this.rollname}</b>?`,
       default: 'save',
       buttons: {
         save: {
