@@ -31,6 +31,7 @@ export class RollForm extends FormApplication {
     this.actor = actor;
     // this.rollname = "";
     this.oItemList = [];
+    this.oSettings = [];
     this.saved = false;
     if (typeof object === 'undefined' || object === null) {
       // this.object = JSON.parse(JSON.stringify(rollDataTemplate));
@@ -42,7 +43,11 @@ export class RollForm extends FormApplication {
     } else {
       // this.object = object;
       this.object = this._rollDataTemplate();
+
+      // These two for possible edited checks, TODO
       this.oItemList = Object.assign({}, object.items);
+      this.oSettings = Object.assign({}, object.settings);
+
       if (object.id) {this.saved = true;}
       /*
       this.object.name = object.name;
@@ -52,12 +57,14 @@ export class RollForm extends FormApplication {
       this.object.favorite = object.favorite;
       */
       // this.object.name = Object.assign({}, object.name);
-      this.object.name = (' ' + object.name).slice(1);
+      // this.object.name = (' ' + object.name).slice(1);
+      this.object.name = JSON.parse(JSON.stringify(object.name));
       // this.object.desc = Object.assign({}, object.desc);
-      this.object.name = (' ' + object.desc).slice(1);
+      // this.object.name = (' ' + object.desc).slice(1);
+      this.object.name = JSON.parse(JSON.stringify(object.desc));
       this.object.items = Object.assign({}, object.items);
       this.object.settings = Object.assign({}, object.settings);
-      this.object.favorite = object.favorite;
+      this.object.favorite = object.favorite ? true : false;
       // this.rollname = Object.assign({}, object.name);
     }
     console.log("RollForm Object Post-Check this: ", this);
