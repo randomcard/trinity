@@ -2,7 +2,7 @@
   <section class="sheet-body">
     <div>
       <label class="resource-label" for="saveName">Enter Saved Roll Name:</label>
-      <input class="input" type="text" name="saveNameInput" id="saveName" value="Saved Roll" data-dtype="String"/>
+      <input class="input" onfocus="this.value=''" type="text" name="saveNameInput" id="saveName" value="Saved Roll" data-dtype="String"/>
       <!-- Apparently, without a value=, submitting the dialog w/ an input will crash Foundry.
       Of course, even with a value it crashes sometimes. :( -->
     </div>
