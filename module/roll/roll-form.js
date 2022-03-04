@@ -29,7 +29,7 @@ export class RollForm extends FormApplication {
     console.log("RollForm Constructor Actor: ", actor);
     console.log("RollForm Object Pre-Check: ", object);
     this.actor = actor;
-    this.rollname = "";
+    // this.rollname = "";
     this.oItemList = [];
     this.saved = false;
     if (typeof object === 'undefined' || object === null) {
@@ -51,12 +51,14 @@ export class RollForm extends FormApplication {
       this.object.settings = object.settings;
       this.object.favorite = object.favorite;
       */
-      this.object.name = Object.assign({}, object.name);
-      this.object.desc = Object.assign({}, object.desc);
+      // this.object.name = Object.assign({}, object.name);
+      this.object.name = (' ' + object.name).slice(1);
+      // this.object.desc = Object.assign({}, object.desc);
+      this.object.name = (' ' + object.desc).slice(1);
       this.object.items = Object.assign({}, object.items);
       this.object.settings = Object.assign({}, object.settings);
-      this.object.favorite = Object.assign({}, object.favorite);
-      this.rollname = Object.assign({}, object.name);
+      this.object.favorite = object.favorite;
+      // this.rollname = Object.assign({}, object.name);
     }
     console.log("RollForm Object Post-Check this: ", this);
   }
@@ -76,7 +78,7 @@ export class RollForm extends FormApplication {
   getData() {
     // Send data to the template
     console.log("RollForm getData called");
-    this.rollname = Object.assign({}, this.object.name);
+    // this.rollname = Object.assign({}, this.object.name);
     return {
       actor: this.actor,
       rollData: this.object,
@@ -363,7 +365,7 @@ export class RollForm extends FormApplication {
     // let html = await renderTemplate("systems/trinity/templates/save-prompt.html");
     new Dialog({
       title: "Save Roll",
-      content: `Over-write existing saved roll <b>${this.rollname}</b>?`,
+      content: `Over-write existing saved roll <b>${rollData.name}</b>?`,
       default: 'save',
       buttons: {
         save: {
