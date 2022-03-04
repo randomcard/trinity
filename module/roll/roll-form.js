@@ -105,7 +105,10 @@ export class RollForm extends FormApplication {
       console.log("itemList:", this.itemList);
       await this._render(true);
       console.log("rendered");
+
       document.getElementById("overlay").style.display = "block";
+      document.getElementById("overlay").nextElementSibling.classList.toggle("hidden");
+
       console.log("overlaid");
       // reset height
       this._resetHeight();
@@ -113,6 +116,8 @@ export class RollForm extends FormApplication {
 
     html.find('.back').click((event) => {
       document.getElementById("overlay").style.display = "none";
+      document.getElementById("overlay").nextElementSibling.classList.toggle("hidden");
+      
       // reset height
       this._resetHeight();
     });
@@ -149,6 +154,8 @@ export class RollForm extends FormApplication {
 
     html.find('.save-as').click(async (event) => {
       this._saveAs(this.object, this.actor);
+      await this._render(true);
+      this._resetHeight();
     });
 
     html.find('.save').click(async (event) => {

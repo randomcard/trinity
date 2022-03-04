@@ -781,7 +781,8 @@ input[type=radio].hidden-input:focus + label {
 }
 
 .overlay {
-  position: absolute; /* Sit on top of the window content */
+  /* position: absolute; */ /* Sit on top of the window content */
+
   display: none; /* Hidden by default */
   width: 100%; /* Full width (cover the whole page) */
   /* height: 100%;  Full height (cover the whole page) */

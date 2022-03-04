@@ -69,7 +69,7 @@
         </div>
         {{!-- Roll button --}}
         <button type="button" id="roll" class="roll-button" style="line-height: 1.2em;">
-          Roll "{{this.rollData.name}}"<br><b>{{this.rollData.diceTotal}}</b><i class="small fas fa-dice"></i> + <b>{{this.rollData.enhaTotal}}</b><i class="small fas fa-hashtag"></i>
+          Roll {{~#if this.saved}} "{{this.rollData.name}}"{{~/if~}}<br><b>{{this.rollData.diceTotal}}</b><i class="small fas fa-dice"></i> + <b>{{this.rollData.enhaTotal}}</b><i class="small fas fa-hashtag"></i>
         </button>
       </div>
       <div class="bottom-section">
