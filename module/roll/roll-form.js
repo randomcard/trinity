@@ -67,7 +67,7 @@ export class RollForm extends FormApplication {
       popOut: true,
       template: "systems/trinity/templates/roll/roll-form.html",
       id: "roll-form",
-      title: `Rolling: ${this.rollname}`,
+      title: `Rolling: ${this.object.name}`,
       width: 350
     });
   }
@@ -140,6 +140,10 @@ export class RollForm extends FormApplication {
 
     html.find('.save-as').click(async (event) => {
       this._saveAs(this.object, this.actor);
+    });
+
+    html.find('.save').click(async (event) => {
+      this._save(this.object, this.actor);
     });
 
     html.find('.add-custom').click(async (event) => {
