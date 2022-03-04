@@ -781,26 +781,27 @@ input[type=radio].hidden-input:focus + label {
 }
 
 .overlay {
+  /* Used to be an absolutly positioned overlay - no longer */
   /* position: absolute; */ /* Sit on top of the window content */
-
   display: none; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  /* height: 100%;  Full height (cover the whole page) */
+  background-color: rgba(0,0,0,0.7); /* Black background with opacity */
+  color: white;
+  padding: 1em;
+
+  /*
+  width: 100%;
   top: 30px;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.7); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
-  color: white;
-  padding: 1em;
+  z-index: 2;
+  cursor: pointer;
+  */
 }
 
 .roll-form section.window-content {
   overflow-y: hidden;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0;
 }
 
 /*
