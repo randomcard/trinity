@@ -154,7 +154,8 @@ export class RollForm extends FormApplication {
 
     html.find('.save-as').click(async (event) => {
       await this._saveAs(this.object, this.actor);
-      await this._updateObject();
+      // await this._updateObject();
+      await document.update();
       await this._render(true);
       this._resetHeight();
     });
