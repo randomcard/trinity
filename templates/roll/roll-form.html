@@ -68,15 +68,15 @@
           {{/each}}
         </div>
         {{!-- Roll button --}}
-        <button type="button" id="roll" class="roll-button">
-          Roll <b>{{this.rollData.diceTotal}}</b><i class="small fas fa-dice"></i> + <b>{{this.rollData.enhaTotal}}</b><i class="small fas fa-hashtag"></i>
+        <button type="button" id="roll" class="roll-button" style="line-height: 1.2em;">
+          Roll "{{this.rollData.name}}"<br><b>{{this.rollData.diceTotal}}</b><i class="small fas fa-dice"></i> + <b>{{this.rollData.enhaTotal}}</b><i class="small fas fa-hashtag"></i>
         </button>
       </div>
       <div class="bottom-section">
         <div class="flexrow">
           <button type="button" id="showOptions" class="showOptions">Options <i class="fas fa-cog"></i></button>
-          {{#if this.saved}}<button type="button" id="save" class="save">Save<i class="fas fa-save"></i></button>{{/if}}
-          <button type="button" id="save-as" class="save-as">Save As<i class="fas fa-save"></i></button>
+          {{#if this.saved}}<button type="button" id="save" class="save">Save <i class="fas fa-save"></i></button>{{/if}}
+          <button type="button" id="save-as" class="save-as">Save As <i class="fas fa-save"></i></button>
         </div>
         <div class="grid grid-4col center-text options" id="options" style="display:none;">
           <div class="">

@@ -348,6 +348,7 @@ export class RollForm extends FormApplication {
               }
             };
             game.actors.get(targetActor.id).update(updates);
+            this.saved = true;
 
             ui.notifications.notify(`Saved Roll to ${targetActor.name} as "${results}".`);
             return;
@@ -382,12 +383,13 @@ export class RollForm extends FormApplication {
             };
             game.actors.get(targetActor.id).update(updates);
 
-            ui.notifications.notify(`Saved Roll to ${targetActor.name} as "${results}".`);
+
+            ui.notifications.notify(`Saved Roll to ${targetActor.name} as "${rollData.name}".`);
             return;
           },
         },
         cancel: {
-          icon: '<i class="fas fa-cross"></i>',
+          icon: '<i class="fas fa-times"></i>',
           label: 'Cancel',
           default: false,
           callback: html => {
