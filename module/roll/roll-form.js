@@ -62,6 +62,7 @@ export class RollForm extends FormApplication {
       // this.object.desc = Object.assign({}, object.desc);
       // this.object.name = (' ' + object.desc).slice(1);
       this.object.desc = JSON.parse(JSON.stringify(object.desc));
+      this.object.id = JSON.parse(JSON.stringify(object.id));
       this.object.items = Object.assign({}, object.items);
       this.object.settings = Object.assign({}, object.settings);
       this.object.favorite = object.favorite ? true : false;
@@ -155,7 +156,7 @@ export class RollForm extends FormApplication {
     html.find('.save-as').click(async (event) => {
       await this._saveAs(this.object, this.actor);
       // await this._updateObject();
-      await document.update();
+
       await this._render(true);
       this._resetHeight();
     });
