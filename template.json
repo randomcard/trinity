@@ -395,7 +395,8 @@
     "path": {
       "templates": ["base"],
       "typeName" : "Path",
-      "pathtype": ""
+      "pathtype": "",
+      "value" : 0
     },
     "condition": {
       "templates": ["base"],

@@ -1,6 +1,6 @@
 # Trinity Continuum
 
-Unofficial Foundry Virtual Tabletop implementation of the Trinity Continuum Core RPG, by Onyx Path Publishing. The system currently supports Trinity Adventure in addition to Core (as it shares the same "Talent" mechanics), but not Aeon or Aberrant as yet.
+Unofficial Foundry Virtual Tabletop implementation of the Trinity Continuum Core RPG, by Onyx Path Publishing. The system currently supports Trinity Core, Adventure, Aeon, and Aberrant.
 
 ## Info
 
@@ -11,6 +11,8 @@ This is a beginning work by the system author: Expect errors, bugs, and poor cod
 Install system in Foundry with: https://raw.githubusercontent.com/randomcard/trinity/master/system.json
 
 Due to IP concerns, this system is not playable on installation. It requires the creation of system elements (as Items) that can be added to new characters. The following elements must be created:
+* Attributes
+* Source Attributes (Facets, Psi, Quantum)
 * Skills
 * Paths
 * Contacts
@@ -18,13 +20,29 @@ Due to IP concerns, this system is not playable on installation. It requires the
 * Specialties
 * Skill Tricks
 * Gifts
-* Weapons
-* Armor
+* Equipment
 * Stunts
-* Artifacts
+* Tags
 * Bonds
 
 Information on each of these elements can be found in the Trinity Continuum Core Rulebook, and other Trinity products. Generally, you would populate these items from the rulebook(s), then drop the items on the character sheet. If you have groups of items in a folder (such as Stunts), you can drop the folder on a new character sheet to give the character copies of them all at once.
+
+### Stunts & Tags
+Stunts and tags can be dropped into other item types. For example, Stunts can be added to Actions, or Tags can be added to Equipment.
+
+### Editing the Character
+Once the character is created, and desired items added to it, you can make further changes by selecting the "Lock" icon on the right of the character navigation bar. This will allow changes to a wide variety of settings, as well as make visible a "Configure" tab. This tab allows changing a character type (such as a Talent, or a Psion - or both!) and default dice settings, as well as showing all items associated with the character.
+
+## Rolling Dice
+
+Start rolling dice in one of four ways:
+1. Click on any "rollable" dot value. For example, click on the dots of an Attribute.
+2. Click on a roll icon (Black dice on orange circle). This will bring up the saved roll settings (if set), or an empty roller if not.
+3. Go to the "Saved Rolls" tab (the dice on the left of the character navigation bar), and click on the "New Roll" button.
+4. Go to the "Saved Rolls" tab, and click on any of the saved rolls there, if any.
+
+After doing any of these, a Roll window will appear, where you can add or remove dice, enhancements, and change roll options like the success value. You can also save the roll settings to use them again later, or to associate with a roll icon.
+
 
 ## Other Notes
 
