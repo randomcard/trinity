@@ -261,7 +261,7 @@ export class TrinityActorSheet extends ActorSheet {
     // Sort Items before allocating, alphabetically & favorited
     let sheetItems = sheetData.items;
     sheetItems.sort(function(a, b) {return (a.name > b.name) ? 1 : -1;});
-    sheetItems.sort(function(x, y) {return (x.favorite === y.favorite)? 0 : x? -1 : 1;});
+    sheetItems.sort(function(x, y) {return (x.data.flags.isFavorite === y.data.flags.isFavorite)? 0 : x? -1 : 1;});
 
     // Iterate through items, allocating to containers
     for (let i of sheetItems) {
