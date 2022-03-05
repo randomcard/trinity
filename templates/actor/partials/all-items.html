@@ -8,7 +8,7 @@
         {{log "all-item page, this:" this}}
         <select id="typeFilter" name="data.allItemsFilter" data-dtype="String">
           {{#select actor.data.data.allItemsFilter}}
-          <option value="">None</option>
+          <option value="All">All Items</option>
           {{#each (uniqueTypes actor.allItems) as |typeName id|}}
           <option value="{{typeName}}">{{typeName}}</option>
           {{/each}}
@@ -17,7 +17,7 @@
       </div>
     </li>
 {{#each actor.allItems as |item id|}}
-{{#if (isEqual item.data.typeName ../actor.data.data.allItemsFilter ) ~}}
+{{#if (isEqual ../actor.data.data.allItemsFilter item.data.typeName "All" ) ~}}
     <li class="item flexrow" data-item-id="{{item._id}}">
         <h4 class="item-name item-edit clickable">
           {{item.name}}
