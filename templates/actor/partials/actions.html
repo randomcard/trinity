@@ -29,7 +29,7 @@
     <div class="flexcol sub-item-detail smaller hidden">
       {{#each item.data.stunts as |subItem id|}}
       <div class="">
-        <div class="flexrow">
+        <div class="flexrow sub-item" data-item-id="{{subItem.id}}">
           <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
           <div>{{subItem.name}}&ensp;-&ensp;<em>{{subItem.costDescription}}</em></div>
           <div class="item-controls">
@@ -74,7 +74,7 @@
         <div class="flexcol sub-item-detail smaller hidden">
           {{#each item.data.stunts as |subItem id|}}
           <div class="">
-            <div class="flexrow">
+            <div class="flexrow sub-item" data-item-id="{{subItem.id}}">
               <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
               <div>{{subItem.name}}&ensp;-&ensp;<em>{{subItem.costDescription}}</em></div>
               <div class="item-controls">
