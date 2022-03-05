@@ -258,6 +258,12 @@ export class TrinityActorSheet extends ActorSheet {
       }
     }
 
+    // Get / Set All Items Filter
+    if (typeof actorData.data.data.allItemsFilter === 'undefined') {
+      actorData.data.data.allItemsFilter = "";
+      // console.log("Set/Reset allItemsFilter to empty.")
+    }
+
     // Sort Items before allocating, alphabetically & favorited
     let sheetItems = sheetData.items;
     sheetItems.sort(function(a, b) {return (a.name > b.name) ? 1 : -1;});
@@ -331,7 +337,8 @@ export class TrinityActorSheet extends ActorSheet {
         }
       }
       if (typeof(i.data.stunts) !== "undefined" && Object.keys(i.data.stunts).length > 0  && i.type !== 'action') { stunts.push(i); }
-      allItems.push(i);
+
+      if (i.type === actorData.data.data.allItemsFilter) { allItems.push(i); }
 
     }
 
@@ -366,10 +373,7 @@ export class TrinityActorSheet extends ActorSheet {
     actorData.actions = actions;
 
 
-    if (typeof actorData.data.data.allItemsFilter === 'undefined') {
-      actorData.data.data.allItemsFilter = "";
-      console.log("Set/Reset allItemsFilter to empty.")
-    }
+
 
 
   }
