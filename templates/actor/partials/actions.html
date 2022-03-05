@@ -21,6 +21,7 @@
         </div>
       <!-- <div class="item-dots small icons rollable" id="{{item._id}}">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</div> -->
       <div class="item-controls">
+        <a class="item-control item-favorite" title="Mark as Favorite">{{#if item.data.favorite~}}<i class="fas fa-star"></i>{{~else~}}<i class="far fa-star"></i>{{~/if~}}</a>
         <a class="item-control item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
         <a class="item-control item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
         </div>
