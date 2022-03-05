@@ -3,12 +3,12 @@
 
     <div class="psi grid grid-1col no-top-margin">
       {{#each actor.psi as |psi key|}}
-      <div class="flexcol flex-group-center rollable boxed can-hide" data-itemid="{{psi._id}}" id="{{psi._id}}">
-        <span class="resource-label"> {{psi.name}} </span>
-        <span class="icons"> {{{toDots psi.data.value}}} </span>
+      <div class="flexcol flex-group-center boxed can-hide" data-item-id="{{psi._id}}">
+        <span class="resource-label clickable item-edit"> {{psi.name}} </span>
+        <span class="icons rollable" data-itemid="{{psi._id}}" id="{{psi._id}}"> {{{toDots psi.data.value}}} </span>
       </div>
       <div class="flexcol flex-group-center boxed edit-area can-hide hidden" data-itemid="{{psi._id}}">
-        <span class="resource-label"> {{psi.name}} </span>
+        <span class="resource-label clickable item-edit"> {{psi.name}} </span>
         <div class="flex-parent-nowrap-center">
           <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-itemid="{{psi._id}}" data-target="data.value"></i>
           <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="{{psi._id}}-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>

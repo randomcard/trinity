@@ -3,12 +3,12 @@
 
     <div class="quantum grid grid-1col no-top-margin">
       {{#each actor.quantum as |quantum key|}}
-      <div class="flexcol flex-group-center rollable boxed can-hide" data-itemid="{{quantum._id}}" id="{{quantum._id}}">
-        <span class="resource-label"> {{quantum.name}} </span>
-        <span class="icons"> {{{toDots quantum.data.value}}} </span>
+      <div class="flexcol flex-group-center boxed can-hide" data-item-id="{{quantum._id}}">
+        <span class="resource-label clickable item-edit"> {{quantum.name}} </span>
+        <span class="icons rollable" data-itemid="{{quantum._id}}" id="{{quantum._id}}"> {{{toDots quantum.data.value}}} </span>
       </div>
       <div class="flexcol flex-group-center boxed edit-area can-hide hidden" data-itemid="{{quantum._id}}">
-        <span class="resource-label"> {{quantum.name}} </span>
+        <span class="resource-label clickable item-edit"> {{quantum.name}} </span>
         <div class="flex-parent-nowrap-center">
           <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-itemid="{{quantum._id}}" data-target="data.value"></i>
           <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="{{quantum._id}}-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>
