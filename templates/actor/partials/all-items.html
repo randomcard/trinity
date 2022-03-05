@@ -17,6 +17,7 @@
       </div>
     </li>
 {{#each actor.allItems as |item id|}}
+{{#if (isEqual item.data.type ../actor.data.data.allItemsFilter ) ~}}
     <li class="item flexrow" data-item-id="{{item._id}}">
         <h4 class="item-name item-edit clickable">
           {{item.name}}
@@ -29,5 +30,6 @@
             <a class="item-control item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
         </div>
     </li>
+{{~/if}}
 {{/each}}
 </ol>

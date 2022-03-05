@@ -338,7 +338,8 @@ export class TrinityActorSheet extends ActorSheet {
       }
       if (typeof(i.data.stunts) !== "undefined" && Object.keys(i.data.stunts).length > 0  && i.type !== 'action') { stunts.push(i); }
 
-      if (i.type === actorData.data.data.allItemsFilter) { allItems.push(i); }
+      // if (i.type === actorData.data.data.allItemsFilter) { allItems.push(i); }
+      allItems.push(i);
 
     }
 
