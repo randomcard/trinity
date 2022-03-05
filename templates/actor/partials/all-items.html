@@ -17,7 +17,7 @@
       </div>
     </li>
 {{#each actor.allItems as |item id|}}
-{{#if (isEqual item.data.type ../actor.data.data.allItemsFilter ) ~}}
+{{#if (isEqual item.data.typeName ../actor.data.data.allItemsFilter ) ~}}
     <li class="item flexrow" data-item-id="{{item._id}}">
         <h4 class="item-name item-edit clickable">
           {{item.name}}
