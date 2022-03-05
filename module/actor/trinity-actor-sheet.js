@@ -260,7 +260,7 @@ export class TrinityActorSheet extends ActorSheet {
 
     // Sort Items before allocating, alphabetically & favorited
     let sheetItems = sheetData.items;
-    sheetItems.sort(function(a, b) {return (a.color > b.color) ? 1 : -1;});
+    sheetItems.sort(function(a, b) {return (a.name > b.name) ? 1 : -1;});
     sheetItems.sort(function(x, y) {return (x.favorite === y.favorite)? 0 : x? -1 : 1;});
 
     // Iterate through items, allocating to containers
@@ -524,7 +524,7 @@ export class TrinityActorSheet extends ActorSheet {
       console.log("item-favorite click:", ev);
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
-      item.update({ "data.flags.isFavorite": !data.favorite });
+      item.update({ 'data.flags.isFavorite': !data.favorite });
     });
 
     // Output Item Description to Chat
