@@ -366,8 +366,8 @@ export class TrinityActorSheet extends ActorSheet {
     actorData.actions = actions;
 
 
-    if (typeof actorData.allItemsFilter === 'undefined') {
-      actorData.allItemsFilter = "";
+    if (typeof actorData.data.data.allItemsFilter === 'undefined') {
+      actorData.data.data.allItemsFilter = "";
       console.log("Set/Reset allItemsFilter to empty.")
     }
 
