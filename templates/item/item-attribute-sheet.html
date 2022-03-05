@@ -1,0 +1,67 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+      <div class="header-fields"> {{! Left Side of Header}}
+        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        <div class="left-vcenter"> {{! Type & Flagged Info }}
+          <span class="trait">
+            <span class="small icons">{{#if item.data.data.flags.hasDots}}{{{toDots item.data.data.value}}}{{/if}}</span>
+            {{item.data.data.typeName}}
+          </span>
+          {{! Flagged Info }}
+          {{#if item.data.data.flags.isEnhancement}}<span class="boxed">Enhancement</span>{{/if}}
+          {{#if item.data.data.flags.isComplication}}<span class="boxed">Complication</span>{{/if}}
+        </div>
+      </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="attributes">Attributes</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+            {{!-- As you add new fields, add them in here! --}}
+            <div class="">
+              <label class="resource-label" for="approach">Approach</label>
+              <input type="text" id="approach" name="data.approach" value="{{item.data.data.approach}}" data-dtype="String"/>
+            </div>
+            <div class="">
+              <label class="resource-label" for="arena">Arena</label>
+              <input type="text" id="arena" name="data.arena" value="{{item.data.data.arena}}" data-dtype="String"/>
+            </div>
+            <div class="">
+              <label class="resource-label" for="sort">Sort Order</label>
+              <input type="number" id="sort" name="data.sortNum" value="{{item.data.data.sortNum}}" data-dtype="Number"/>
+            </div>
+            <div class="">
+              <label class="resource-label" for="megaValue">Mega Value</label>
+              <input type="number" id="megaValue" name="data.megaValue" value="{{item.data.data.megaValue}}" data-dtype="Number"/>
+            </div>
+            <div class="">
+              <input class="left-vcenter" type="checkbox" id="mainFlag" name="data.flags.isMain" value="{{data.data.flags.isMain}}" data-dtype="Boolean" {{checked data.data.flags.isMain}}/>
+              <label class="resource-label left-vcenter" for="mainFlag">Standard Attribute</label>
+            </div>
+            <div class="">
+              <input class="left-vcenter" type="checkbox" id="quantumFlag" name="data.flags.isQuantum" value="{{data.data.flags.isQuantum}}" data-dtype="Boolean" {{checked data.data.flags.isQuantum}}/>
+              <label class="resource-label left-vcenter" for="quantumFlag">Quantum Attribute</label>
+            </div>
+
+
+            {{> "systems/trinity/templates/item/partials/dots-flag.html"}}
+            {{> "systems/trinity/templates/item/partials/enhancement-flag.html"}}
+            {{> "systems/trinity/templates/item/partials/complication-flag.html"}}
+
+
+        </div>
+    </section>
+</form>

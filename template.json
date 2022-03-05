@@ -4,16 +4,44 @@
     "templates": {
       "base": {
         "biography": "",
+        "logo" : "",
         "defense": {
           "value": 1
         },
         "flags" : {
           "isTalent" : false,
+          "isPsion" : false,
+          "isNova" : false,
+          "isOther" : false,
           "isActivePlayer" : false,
           "isTakenOut" : false
         },
         "savedRolls": {},
-        "initiativeRollID" : ""
+        "initiativeRollID" : "",
+        "linkedRolls" : {},
+        "tier" : 2,
+        "rollSettings" : {
+          "expl" : {
+            "name" : "Explode Threshold",
+            "value" : 10
+          },
+          "succ" : {
+            "name" : "Success Threshold",
+            "value" : 8
+          },
+          "nsca" : {
+            "name" : "Narrative Scale (Absolute)",
+            "value" : 1
+          },
+          "dsca" : {
+            "name" : "Dramatic Scale (Difference)",
+            "value" : 0
+          },
+          "fail" : {
+            "name" : "Fail Threshold",
+            "value" : 0
+          }
+        }
       },
       "talent" : {
         "moment" : "",
@@ -35,6 +63,33 @@
           "max" : 0,
           "value" : 0
         }
+      },
+      "psion" : {
+        "psiOrder" : "",
+        "psi" : {
+          "aptitude": "",
+          "rating" : 0,
+          "points" : {
+            "max" : 0,
+            "value" : 0
+          },
+          "tolerance" : {
+            "max" : 0,
+            "value" : 0,
+            "linkedItemIDs" : []
+          }
+        }
+      },
+      "nova" : {
+        "quantum" : {
+          "rating" : 1,
+          "points" : {
+            "max" : 0,
+            "value" : 0
+          }
+        },
+        "flux" : 0,
+        "transcendence" : 0
       }
     },
     "TrinityNPC" : {
@@ -80,9 +135,9 @@
       }
     },
     "TrinityCharacter": {
-      "templates": ["base", "talent"],
-      "player" : "",
-      "concept" : "",
+      "templates": ["base", "talent", "psion"],
+      "player" : "Player Name",
+      "concept" : "Character Concept",
       "flags" : {
         "isTalent" : true,
         "isActivePlayer" : true
@@ -195,17 +250,16 @@
     }
   },
   "Item": {
-    "types": ["item", "edge", "skill", "specialty", "path", "condition", "stunt", "gift", "trick", "contact", "bond"],
+    "types": ["equipment", "attribute", "edge", "skill", "specialty", "path", "condition", "stunt", "gift", "trick", "contact", "bond", "mode", "action", "quantumPower", "tag"],
     "templates": {
       "base": {
         "description": "",
+        "source": "",
         "enhancement" : {
-          "isEnhancement" : false,
           "value" : 0,
           "relevance" : ""
         },
         "complication" : {
-          "isComplication" : false,
           "value" : 0,
           "relevance" : ""
         },
@@ -218,10 +272,15 @@
           "isVehicle" : false,
           "isInjury" : false,
           "isEquipped" : true,
-          "hasDots" : true
+          "isFavorite" : false,
+          "hasDots" : true,
+          "isDice" : false,
+          "hasRoll" : false
         },
         "defaultSkill" : "",
-        "defaultAttribute" : ""
+        "defaultAttribute" : "",
+        "linkedRollID": "",
+        "subItems" : {}
       }
     },
     "item": {
@@ -253,6 +312,7 @@
       "templates": ["base"],
       "typeName" : "Equipment",
       "quantity": 1,
+      "tolerance" : 0,
       "gear": {
         "tags" : ""
       },
@@ -272,22 +332,62 @@
         "handling" : 1,
         "speed" : 1,
         "cost" : 1
+      },
+      "enhancement" : {
+        "value" : 1,
+        "relevance" : ""
+      },
+      "flags" : {
+        "isEnhancement" : true,
+        "hasDots" : false
+      }
+    },
+    "attribute": {
+      "name": "",
+      "typeName" : "Attribute",
+      "value" : 0,
+      "megaValue" : 0,
+      "arena": "",
+      "approach": "",
+      "sortNum": 0,
+      "flags" : {
+        "hasDots" : true,
+        "isDice" : true,
+        "isMain" : true,
+        "isQuantum" : false,
+        "isPsi" : false,
+        "isFacet" : false,
+        "isSource" : false
+      },
+      "enhancement" : {
+        "value" : 1,
+        "relevance" : "Spend Inspiration"
       }
     },
     "edge": {
       "templates": ["base"],
       "typeName" : "Edge",
-      "value": 0
+      "value": 0,
+      "flags" : {
+        "isMega" : false
+      }
     },
     "skill": {
       "templates": ["base"],
       "typeName" : "Skill",
-      "value": 0
+      "value": 0,
+      "flags" : {
+        "isDice" : true
+      }
     },
     "specialty": {
       "templates": ["base"],
       "typeName" : "Specialty",
       "skillOrigin": "",
+      "enhancement" : {
+        "value" : 1,
+        "relevance" : "Specialty: Skill Name"
+      },
       "flags" : {
         "hasDots" : false
       }
@@ -338,15 +438,58 @@
     "contact" : {
       "templates": ["base"],
       "typeName" : "Contact",
-      "value" : 0,
+      "value" : 1,
       "pathOrigin": ""
     },
     "bond" : {
       "templates": ["base"],
       "typeName" : "Bond",
-      "value" : 0,
+      "value" : 1,
       "skillOrigin": ""
+    },
+    "mode" : {
+      "templates": ["base"],
+      "typeName" : "Mode",
+      "value" : 1,
+      "aptitude" : "",
+      "psiCost" : "",
+      "system" : "",
+      "flags" : {
+        "hasDots" : true,
+        "isBasicMode" : false,
+        "isAuxillary" : false
+      }
+    },
+    "action" : {
+      "templates": ["base"],
+      "typeName" : "Action",
+      "linkedItemIDs" : [],
+      "flags" : {
+        "hasDots" : false
+      }
+    },
+    "quantumPower" : {
+      "templates": ["base"],
+      "typeName" : "Quantum Power",
+      "value" : 1,
+      "quantumMin" : "",
+      "actionType" : "",
+      "cost" : "",
+      "dicePool" : "",
+      "range" : "",
+      "duration" : "",
+      "flags" : {
+        "isPowerSuite" : false,
+        "isDice" : true
+      }
+    },
+    "tag" : {
+      "templates": ["base"],
+      "typeName" : "Tag",
+      "tagValue": 0,
+      "flags" : {
+        "hasDots" : false
+      }
     }
-
   }
 }

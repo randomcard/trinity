@@ -13,6 +13,18 @@
     <label class="flex-child-fit" for="char-concept">Concept:</label>
       <input class="flex-child-fit" id="char-concept" name="data.concept" type="text" value="{{data.data.concept}}"/>
   </div>
+  {{#if actor.data.data.flags.isPsion}}
+  <div class="flex-parent">
+    <label class="flex-child-fit" for="char-psiOrder">Psi Order:</label>
+      <input class="flex-child-fit" id="char-psiOrder" name="data.psiOrder" type="text" value="{{data.data.psiOrder}}"/>
+  </div>
+  {{/if}}
+  {{#if actor.data.data.flags.isTalent}}
+  <div class="flex-parent">
+    <label class="flex-child-fit" for="moment">Moment of Inspiration:</label>
+      <input class="flex-child-fit" id="moment" name="data.moment" type="text" value="{{actor.data.data.moment}}"/>
+  </div>
+  {{/if}}
   <div class="flex-parent">
     <label class="flex-child-fit" for="char-xp-avail">Experience Available:</label>
       <input class="flex-child-fit" id="char-xp-avail" name="data.experience.available" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" value="{{data.data.experience.available}}"/>

@@ -16,6 +16,12 @@
   cursor: pointer;
 }
 
+.rollable.chip-head:hover, .rollable.chip-head:focus {
+  color: #000;
+  box-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
 .grid {
   display: grid;
   gap: 3px;
@@ -23,9 +29,22 @@
   padding: 0;
 }
 
+.grid-1col {
+  grid-column: span 1 / span 1;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
 .grid-2col {
   grid-column: span 2 / span 2;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-span2col {
+  grid-column-start: span 2;
+}
+
+.align-content-start {
+  align-content: start;
 }
 
 .grid-2col-colflow {
@@ -191,12 +210,25 @@
   margin-bottom: 5px;
 }
 
+.trinity header.sheet-header {
+  margin: 0px;
+  background-color: linen;
+  box-shadow: 0 0 5px 5px linen;
+}
+
 .trinity .sheet-header .profile-img .token-img {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   height: 50px;
   margin-right: 10px;
+  border: 0px;
+}
+
+.sheet header.sheet-header img.profile-img {
+  margin-right: 10px;
+  margin-left: 10px;
+  border: 0px;
 }
 
 .trinity .sheet-header .header-fields {
@@ -210,6 +242,7 @@
   padding: 0px;
   margin: 5px 0;
   border-bottom: 0;
+  font-size: xxx-large;
 }
 
 .trinity .sheet-header h1.charname input {
@@ -218,10 +251,32 @@
   margin: 0;
 }
 
-.trinity .sheet-tabs {
+.trinity .sheet-header h1.itemname input {
+  width: 100%;
+  height: 75%;
+  margin: 0;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.trinity nav.sheet-tabs {
   -webkit-box-flex: 0;
   -ms-flex: 0;
   flex: 0;
+  flex-flow: wrap;
+  padding: 0px;
+}
+
+.trinity nav.sheet-tabs.actor {
+  justify-content: space-between;
+  background-color: linen;
+  box-shadow: 0 0 5px 5px linen;
+  border: 0;
+  position: sticky;
+  top: -10px;
+  border-radius: 0px 0px 20px 20px;
+  margin-bottom: 10px;
+  z-index: 1;
 }
 
 .trinity .sheet-body,
@@ -244,14 +299,16 @@
 }
 
 .trinity .tabs {
-  height: 40px;
+  /* height: 30px; */
   border-top: 0px solid #AAA;
   border-bottom: 1px solid #AAA;
+  padding: 0px
 }
 
 .trinity .tabs .item {
-  line-height: 40px;
+  line-height: 1em;
   font-weight: bold;
+  margin: 7px;
 }
 
 .trinity .tabs .item.active {
@@ -266,12 +323,31 @@
   overflow-y: auto;
 }
 
+.trinity .items-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 1;
+  overflow-y: auto;
+}
+
+.trinity .items-list.bottom-margin {
+  margin: 0px;
+  margin-bottom: 7px;
+}
+
 .trinity .items-list .item-header {
   font-weight: bold;
 }
 
 .trinity .items-list .item {
   height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+}
+
+.trinity .items-list .item.sub {
+  height: auto;
   line-height: 24px;
   padding: 3px 0;
   border-bottom: 1px solid #BBB;
@@ -298,6 +374,7 @@
 
 .trinity .items-list .item-name {
   margin: 0;
+  margin-right: 0.5em;
 }
 
 .trinity .items-list .item-controls {
@@ -342,6 +419,18 @@
 
 .big {
   font-size: large;
+}
+
+.medium {
+  font-size: medium;
+}
+
+.large {
+  font-size: large;
+}
+
+.x-large {
+  font-size: x-large;
 }
 
 .xx-large {
@@ -442,6 +531,15 @@
   margin: 2px;
 }
 
+.nomargin {
+  margin: 0px;
+}
+
+.low-margin-padding {
+  margin: 1px !important;
+  padding: 1px !important;
+}
+
 .grid-flow-column {
   grid-auto-flow: column;
 }
@@ -489,11 +587,42 @@
   margin: 3px;
 }
 
+.flex-parent-nowrap {
+  display: flex;
+  flex-flow: row;
+}
+
+.flex-parent-nowrap-center {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.flex-parent-wide {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 3px;
+  width: 100%;
+}
+
+.flex-parent-wide-noflow {
+  display: flex;
+  margin: 3px;
+  width: 100%;
+}
+
 .flex-parent-center-column {
   display: flex;
   flex-flow: column nowrap;
   margin: 3px;
   align-items: center;
+  width: 100%;
+}
+
+.flex-parent-column {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 3px;
   width: 100%;
 }
 
@@ -537,10 +666,16 @@
 .flex-child-full {
   flex: 1 1 auto;
   margin: 3px;
+  width: 100%;
 }
 
 .flex-child-fit {
   flex: 1 0px;
+  margin: 3px;
+}
+
+.flex-fit {
+  flex: 0 0 auto;
   margin: 3px;
 }
 
@@ -624,4 +759,228 @@ input[type=radio].hidden-input:focus + label {
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.roll-items-area {
+  min-height: 200px;
+  width: 95%;
+  margin: auto;
+}
+
+.bottom {
+  display: table-cell;
+  vertical-align: bottom;
+  height: 150px;
+}
+
+.roll-button {
+  display: block;
+  padding: 0.3em 1.2em;
+  margin: 0.1em auto 0.1em auto;
+  border-radius: 2em;
+  width: fit-content;
+}
+
+.overlay {
+  /* Used to be an absolutly positioned overlay - no longer */
+  /* position: absolute; */ /* Sit on top of the window content */
+  display: none; /* Hidden by default */
+  background-color: rgba(0,0,0,0.7); /* Black background with opacity */
+  color: white;
+  padding: 1em;
+
+  /*
+  width: 100%;
+  top: 30px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  cursor: pointer;
+  */
+}
+
+.roll-form section.window-content {
+  overflow-y: hidden;
+  padding: 0;
+}
+
+/*
+.trinity.sheet.actor section.window-content {
+  padding-top: 0;
+}
+*/
+
+.flex-flavor {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-flavor-trait {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  display: inline-block;
+  font-size: x-small;
+  padding: 0px 4px 0px 4px;
+  background-color: rgba(255, 200, 200, 0.5);
+  border: 1px solid darkRed;
+  border-radius: 10px;
+  margin: 1px 2px;
+  height: 18px;
+  line-height: 170%;
+}
+
+input[type="text"].on-dark, input[type="number"].on-dark {
+  min-width: 35px;
+  text-align: center;
+  color: white;
+  border-color: darkgray;
+}
+
+.chip{
+    display: inline-flex;
+    flex-direction: row;
+    background-color: #ffcba9;
+    border: none;
+    cursor: default;
+    /* height: 26px; */
+    height: 20px;
+    outline: none;
+    padding: 0;
+    font-size: 14px;
+    font-color: #333333;
+    font-family:"Open Sans", sans-serif;
+    white-space: nowrap;
+    align-items: center;
+    border-radius: 16px;
+    vertical-align: middle;
+    text-decoration: none;
+    justify-content: center;
+}
+.chip-head{
+    display: flex;
+    /* position: relative; */
+    /* overflow: hidden; */
+    background-color: #ff4d008c;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    align-items: center;
+    user-select: none;
+    border-radius: 50%;
+    justify-content: center;
+    color: #0d0d0d;
+    /*
+    width: 24px;
+    height: 24px;
+    */
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    margin-right: -4px;
+}
+
+.chip-content{
+    cursor: inherit;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    white-space: nowrap;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.chip-hidden{
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.chip-control {
+  margin-right: 5px;
+}
+
+.chip-label {
+  font-weight: bold;
+  font-variant: small-caps;
+  font-size: smaller;
+}
+
+select.chip-body {
+  height: auto;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border-light-tertiary);
+  border-radius: 3px;
+  padding: 0px;
+  text-overflow: ellipsis;
+  margin-left: 4px;
+}
+
+.chip-roll-name {
+  font-weight: bold;
+}
+
+.title-note {
+  font-size: small;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.top-trait {
+  font-weight: bold;
+  text-transform: uppercase;
+  overflow:hidden;
+  padding: 4px;
+  background-color: tomato;
+  border-color: solid darkRed;
+  border-width: 0px 1px 1px 1px;
+  border-radius: 0px 0px 5px 5px;
+  margin: 0px 2px 2px 2px;
+  padding: 5px 5px 0px;
+}
+
+.top-trait.secondary {
+  background-color: mediumaquamarine;
+}
+
+.item .window-content {
+  padding-top: 0px;
+}
+
+input[type="number"].short-input {
+  width: 50px;
+  text-align: center;
+  font-weight: bold;
+  margin: 2px;
+  border: none;
+  border-radius: 10px;
+  font-size: large;
+}
+
+input[type="text"].short-input {
+  min-width: 50px;
+  width: auto;
+  margin: 2px;
+  border: none;
+  border-radius: 10px;
+  font-size: large;
+}
+
+.no-top-margin {
+  margin-top: 0px !important;
+}
+
+.smaller {
+  font-size: smaller;
+}
+
+.actor-roll-button {
+  width: auto;
+  margin-left: 1em;
 }

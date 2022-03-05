@@ -1,0 +1,99 @@
+Needs:
+Item ID or Actor data path of associated element
+  Item ID to associate with an Item
+  Actor data path for it to be stand-alone/hard-coded (like Defense)
+RollData (when set)
+SavedRolls (to Set)
+
+{{createChip this.actor.id this.actor.data.data.defense}}  <----- Need variable to store linked roll
+actor.linkedRolls = {
+  linkref : linkedRoll,
+  this.actor.data.data.defense : osudhgifdhgk
+}
+update, etc.
+
+{{createChip item.id}}
+
+hb function (ref)
+if/else to determing ref use
+get actor, through the ref parentage
+use template
+  either that works, or
+  also use for() to generate select options
+
+css, listeners, and saved options to control which content is visible
+
+<div class="chip">
+  <div class="chip-head">
+    <i class="fas fa-dice">
+  </div>
+  <div class="chip-content chip-view">
+    <div class="chip-roll-name" id="id/name-chip-value">
+      --item.linkedRollID > Rolldata.name--
+    </div>
+    <div class="chip-link">
+      <i class="fas fa-link">
+    </div>
+  </div>
+  <div class="chip-content chip-change">
+    <label class="chip-select resource-label" for="chip-select">Link Roll: </label>
+    <select class="chip-select" id="chip-select" name="data.linkedRollID" data-dtype="String">
+      {{#select data.linkedRollID}}
+      <option value="">None Selected</option>
+      {{#each this.actor.data.data.savedRolls as |roll key|}}
+        <option value="{{key}}">{{{roll.name}}}</option>
+      {{/each}}
+      {{/select}}
+    </select>
+    <div class="chip-save">
+      <i class="fas fa-save">
+    </div>
+  </div>
+</div>
+
+
+.chip{
+    display: inline-flex;
+    flex-direction: row;
+    background-color: #e5e5e5;
+    border: none;
+    cursor: default;
+    height: 26px;
+    outline: none;
+    padding: 0;
+    font-size: 14px;
+    font-color: #333333;
+    font-family:"Open Sans", sans-serif;
+    white-space: nowrap;
+    align-items: center;
+    border-radius: 16px;
+    vertical-align: middle;
+    text-decoration: none;
+    justify-content: center;
+}
+.chip-head{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    background-color: #32C5D2;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    align-items: center;
+    user-select: none;
+    border-radius: 50%;
+    justify-content: center;
+    width: 30px;
+    color: #fff;
+    height: 30px;
+    font-size: 20px;
+    margin-right: -4px;
+}
+.chip-content{
+    cursor: inherit;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    white-space: nowrap;
+    padding-left: 12px;
+    padding-right: 12px;
+}

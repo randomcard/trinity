@@ -3,28 +3,45 @@
     {{!-- Sheet Header --}}
     <header class="sheet-header">
         <img class="profile-img" src="{{actor.data.token.img}}" data-edit="token.img" title="{{actor.name}}" height="50" />
-        <div class="header-fields">
+        <div class="header-fields charname">
             <h1>{{actor.name}}</h1>
         </div>
+        <div class="header-fields charname flex-right">
+            <h1 class="large">{{actor.data.data.concept}}</h1>
+        </div>
+        <img class="large profile-img" src="{{actor.data.data.logo}}" data-edit="data.logo" height="50" />
     </header>
 
     {{!-- Sheet Tab Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a> {{!-- Bio, Aspirations, Details, Contacts, Bonds --}}
-        <a class="item" data-tab="main">Main</a>
-        {{#if actor.data.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
-        <a class="item" data-tab="background">Background</a> {{!-- Edges, Specialties, Tricks --}}
-        <a class="item" data-tab="equip">Equipment</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
-        <a class="item" data-tab="data-entry">Configure</a>
+    <nav class="sheet-tabs tabs actor" data-group="primary">
+      <a class="item" data-tab="roll"><i class="large clickable fas fa-dice"></i></a> {{!-- Saved Rolls --}}
+      <a class="item" data-tab="background">Background</a> {{!-- Bio, Aspirations, Details, Contacts, Bonds --}}
+      <a class="item" data-tab="main">Attributes & Skills</a>
+      <a class="item" data-tab="combat">Combat</a>
+      {{#if actor.data.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
+      {{#if actor.data.data.flags.isPsion}}<a class="item" data-tab="psion">Psion</a>{{/if}}
+      {{#if actor.data.data.flags.isNova}}<a class="item" data-tab="nova">Nova</a>{{/if}}
+      <a class="item" data-tab="equip">Equipment</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
+      <a class="item config-tab can-hide hidden" data-tab="data-entry">Configure</a>
+      <div class="item">
+        <i class="large clickable edit-button fas fa-lock can-hide"></i> {{!-- No Tab Content, just unlocks editing mode --}}
+        <i class="large clickable edit-button fas fa-unlock can-hide hidden"></i>
+      </div>
     </nav>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
 
+      {{!-- "Roll" Tab --}}
+      <div class="tab roll" data-group="primary" data-tab="roll">
+          {{> "systems/trinity/templates/actor/partials/saved-rolls.html"}}
+      </div>
+
         {{!-- Biography Tab --}}
-        <div class="tab biography" data-group="primary" data-tab="description">
+        <div class="tab background" data-group="primary" data-tab="background">
           {{> "systems/trinity/templates/actor/partials/bio.html"}}
           {{> "systems/trinity/templates/actor/partials/character.html"}}
+          {{> "systems/trinity/templates/actor/partials/paths.html"}}
           {{> "systems/trinity/templates/actor/partials/contacts.html"}}
           {{> "systems/trinity/templates/actor/partials/bonds.html"}}
           <!--  {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}} -->
@@ -33,9 +50,12 @@
         {{!-- "Main" Tab --}}
         <div class="tab main" data-group="primary" data-tab="main">
             {{!-- Partials go here --}}
-            {{> "systems/trinity/templates/actor/partials/saved-rolls.html"}}
-            {{> "systems/trinity/templates/actor/partials/skills.html"}}
             {{> "systems/trinity/templates/actor/partials/attributes.html"}}
+            {{> "systems/trinity/templates/actor/partials/skills.html"}}
+            {{> "systems/trinity/templates/actor/partials/specialties.html"}}
+            {{> "systems/trinity/templates/actor/partials/edges.html"}}
+            {{> "systems/trinity/templates/actor/partials/tricks.html"}}
+            <!--
             <div class="flex-parent-evenly">
               <div class="flex-child-even">
                 {{> "systems/trinity/templates/actor/partials/healthboxes.html"}}
@@ -43,28 +63,27 @@
               </div>
               <div class="flex-child-even">{{> "systems/trinity/templates/actor/partials/conditions.html"}}</div>
             </div>
+            -->
+        </div>
+
+        {{!-- Combat Tab --}}
+        <div class="tab combat" data-group="primary" data-tab="combat">
+          {{> "systems/trinity/templates/actor/partials/combat.html"}}
         </div>
 
         {{!-- Talent Tab --}}
         <div class="tab talent" data-group="primary" data-tab="talent">
-          <div class="flex-parent-evenly">
-            <div class="flex-child-even">
-              {{> "systems/trinity/templates/actor/partials/facets.html"}}
-            </div>
-            <div class="flex-child-even">
-              {{> "systems/trinity/templates/actor/partials/inspiration.html"}}
-            </div>
-          </div>
-          {{> "systems/trinity/templates/actor/partials/gifts.html"}}
+          {{> "systems/trinity/templates/actor/partials/talent.html"}}
         </div>
 
-        {{!-- Background Tab --}}
-        <div class="tab background" data-group="primary" data-tab="background">
-          {{> "systems/trinity/templates/actor/partials/specialties.html"}}
-          {{> "systems/trinity/templates/actor/partials/edges.html"}}
-          {{> "systems/trinity/templates/actor/partials/tricks.html"}}
-          {{> "systems/trinity/templates/actor/partials/paths.html"}}
-          {{> "systems/trinity/templates/actor/partials/stunts.html"}}
+        {{!-- Psion Tab --}}
+        <div class="tab psion" data-group="primary" data-tab="psion">
+          {{> "systems/trinity/templates/actor/partials/psi.html"}}
+        </div>
+
+        {{!-- Nova Tab --}}
+        <div class="tab nova" data-group="primary" data-tab="nova">
+          {{> "systems/trinity/templates/actor/partials/nova.html"}}
         </div>
 
         {{!-- Equipment Tab --}}

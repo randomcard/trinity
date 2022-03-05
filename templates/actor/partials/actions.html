@@ -1,0 +1,91 @@
+{{!-- Action item Box --}}
+<ol class="items-list boxed no-top-margin">
+  <li class="item sub flexrow item-header">
+    <div class="flex-fit big item-name">Actions & Stunts</div>
+    <div class="flex-right title-note"></div>
+    </li>
+
+  {{#each actor.actions as |item id|}}
+  <li class="item sub" data-item-id="{{item._id}}">
+    <div class="flexrow">
+      {{#if item.data.stunts}}
+      <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
+      {{else}}
+      <i class="flex-fit flex-valign far fa-square"></i>
+      {{/if}}
+      <h4 class="flex-fit item-name item-edit clickable">
+        <b>{{item.name}}</b>
+        </h4>
+      <div>
+        {{#if item.data.flags.hasRoll}}{{{createChip item._id ../actor}}}{{/if}}
+        </div>
+      <!-- <div class="item-dots small icons rollable" id="{{item._id}}">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</div> -->
+      <div class="item-controls">
+        <a class="item-control item-favorite" title="Mark as Favorite">{{#if item.data.flags.isFavorite~}}<i class="fas fa-star"></i>{{~else~}}<i class="far fa-star"></i>{{~/if~}}</a>
+        <a class="item-control item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
+        <a class="item-control item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
+        </div>
+      </div>
+    <div class="flexcol sub-item-detail smaller hidden">
+      {{#each item.data.stunts as |subItem id|}}
+      <div class="">
+        <div class="flexrow sub-item" data-item-id="{{subItem.id}}">
+          <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
+          <div>{{subItem.name}}&ensp;-&ensp;<em>{{subItem.costDescription}}</em></div>
+          <div class="item-controls">
+            <a class="item-control sub-item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
+            </div>
+          </div>
+        <div class="hidden">{{{subItem.description}}}</div>
+        </div>
+      {{/each}}
+      </div>
+    </li>
+  {{/each}}
+  </ol>
+
+
+  {{!-- Other Stunts item Box --}}
+    <ol class="items-list boxed no-top-margin">
+      <li class="item sub flexrow item-header">
+        <div class="flex-fit big item-name">Other Stunt Sources</div>
+        <div class="flex-right title-note"></div>
+        </li>
+
+      {{#each actor.stunts as |item id|}}
+      <li class="item sub" data-item-id="{{item._id}}">
+        <div class="flexrow">
+          {{#if item.data.stunts}}
+          <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
+          {{else}}
+          <i class="flex-fit flex-valign far fa-square"></i>
+          {{/if}}
+          <h4 class="flex-fit item-name item-edit clickable">
+            <b>{{item.name}}</b>
+            </h4>
+          <div>
+            {{#if item.data.flags.hasRoll}}{{{createChip item._id ../actor}}}{{/if}}
+            </div>
+          <div class="item-controls">
+            <a class="item-control item-favorite" title="Mark as Favorite">{{#if item.data.flags.isFavorite~}}<i class="fas fa-star"></i>{{~else~}}<i class="far fa-star"></i>{{~/if~}}</a>
+            <a class="item-control item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
+            </div>
+          </div>
+        <div class="flexcol sub-item-detail smaller hidden">
+          {{#each item.data.stunts as |subItem id|}}
+          <div class="">
+            <div class="flexrow sub-item" data-item-id="{{subItem.id}}">
+              <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
+              <div>{{subItem.name}}&ensp;-&ensp;<em>{{subItem.costDescription}}</em></div>
+              <div class="item-controls">
+                <a class="item-control sub-item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
+                </div>
+              </div>
+            <div class="hidden">{{{subItem.description}}}</div>
+            </div>
+          {{/each}}
+          </div>
+        </li>
+      {{/each}}
+      </ol>

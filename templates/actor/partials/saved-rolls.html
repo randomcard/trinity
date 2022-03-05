@@ -1,31 +1,19 @@
 {{!-- Saved Rolls Partial - Read-Only --}}
 
-<h2>Saved Rolls</h2>
-<label class="resource-label" for="selectDIRoll">Default Initiative Roll: </label>
-<select id="selectDIRoll" name="data.initiativeRollID" data-dtype="String">
-  {{#select data.data.initiativeRollID}}
-  <option value="">None Selected</option>
-  {{#each this.actor.initRolls as |iRoll key|}}
-    <option value="{{iRoll}}">{{{lookupSavedRoll iRoll ../this}}}</option>
-  {{/each}}
-  {{/select}}
-</select>
-<hr>
+<h2>
+Saved Rolls
+<button type="button" id="rollButton" class="actor-roll-button">New Roll</button>
+</h2>
 <div class="saved-rolls grid grid-4col">
   {{#each data.data.savedRolls as |roll key|}}
-  <div class="boxed" id="{{key}}">
-    <div class="flexcol flex-group-center rollable saved-roll" data-rollID="{{key}}">
-      <span class="resource-label"> {{roll.name}} </span>
-      <!-- <span class="icons"> {{{toDots roll.value}}} </span>
-      <span class="small-note"> {{roll.approach}} - {{savedroll.arena}} </span> -->
+    <div class="flexcol flex-group-center boxed" id="{{key}}">
+      <div class="resource-label rollable saved-roll" data-rollID="{{key}}"> {{roll.name}} </div>
+      <div class="flexcol flex-parent-wide">
+        <div class="flex-child left-vcenter small-note">
+          <b>{{roll.diceTotal}}</b><i class="small fas fa-dice"></i>&nbsp;+&nbsp;<b>{{roll.enhaTotal}}</b><i class="small fas fa-hashtag"></i>
+        </div>
+        <i class="flex-child right-vcenter far fa-minus-square roll-delete clickable" data-rollID="{{key}}"></i>
+      </div>
     </div>
-    <div class="flex-parent">
-      <span class="flex-child left-vcenter small-note">
-        {{roll.dice}}d+{{roll.enh}}e
-      </span>
-      {{#if roll.elements.init.value}}<i class="flex-child right-vcenter fas fa-fist-raised"></i>{{/if}}
-      <i class="flex-child right-vcenter far fa-minus-square roll-delete clickable" data-rollID="{{key}}"></i>
-    </div>
-  </div>
   {{/each}}
 </div>

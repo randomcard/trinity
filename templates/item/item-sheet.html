@@ -1,14 +1,20 @@
+{{log "OMNI sheet logging, this:" this}}
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-        <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-        </div>
+      <div class="header-fields">
+        {{! Tabs/Traits at top }}
+        {{> "systems/trinity/templates/item/partials/top-traits.html"}}
+        <h1 class="itemname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        {{! Primary Value(s) }}
+        {{> "systems/trinity/templates/item/partials/primary-value.html"}}
+      </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">Description</a>
+        {{#if item.data.data.stunts}}<a class="item" data-tab="stunts">Stunts</a>{{/if}}
+        {{#if item.data.data.tags}}<a class="item" data-tab="tags">Tags</a>{{/if}}
         <a class="item" data-tab="attributes">Attributes</a>
     </nav>
 
@@ -20,9 +26,64 @@
             {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
 
+        {{!-- Stunts Tab --}}
+        <div class="tab stunts" data-group="primary" data-tab="stunts">
+          {{> "systems/trinity/templates/item/partials/stunt-list.html"}}
+        </div>
+
+        {{!-- Tags Tab --}}
+        <div class="tab tags" data-group="primary" data-tab="tags">
+          {{> "systems/trinity/templates/item/partials/tag-list.html"}}
+        </div>
+
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
-            {{!-- As you add new fields, add them in here! --}}
+
+          {{#if (isEqual item.data.type "attribute") }}
+          {{> "systems/trinity/templates/item/partials/attribute-settings.html"}}
+          {{/if}}
+
+            {{!-- The dots flag should be able to be removed from this section once all items are migrated to current templates --}}
+            <!--
+            <div class="boxed fit">
+              <div class="left-vcenter">
+                <input class="left-vcenter" type="checkbox" name="data.flags.hasDots" value="{{data.data.flags.hasDots}}" data-dtype="Boolean" {{checked data.data.flags.hasDots}}/>
+                <label class="resource-label left-vcenter" for="data.flags.hasDots">Dots</label>
+              </div>
+            </div>
+            -->
+
+            {{#if (isEqual item.data.type "equipment") }}
+            {{> "systems/trinity/templates/item/partials/item-flag.html"}}
+            {{/if}}
+
+            {{> "systems/trinity/templates/item/partials/enhancement-flag.html"}}
+
+            {{! Complication Box }}
+            <div class="boxed fit">
+              <div class="left-vcenter">
+                <input class="left-vcenter" type="checkbox" name="data.flags.isComplication" value="{{data.data.flags.isComplication}}" data-dtype="Boolean" {{checked data.data.flags.isComplication}}/>
+                <label class="resource-label left-vcenter" for="data.flags.isComplication">Complication</label>
+              </div>
+              {{#if data.data.flags.isComplication}}
+              <hr>
+              {{#unless (isEqual item.data.type "condition") }}
+              <div>
+                <label class="resource-label" for="complication-value">Complication Value</label>
+                <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="complication-value" name="data.complication.value" value="{{data.data.complication.value}}" data-dtype="Number"/>
+              </div>
+              {{/unless}}
+              <div>
+                <label class="resource-label" for="complication-condition">Complication Condition</label>
+                <input class="resource" type="text" id="complication-condition" name="data.complication.relevance" value="{{data.data.complication.relevance}}" data-dtype="String"/>
+              </div>
+              {{/if}}
+            </div>
+
+
+            {{> "systems/trinity/templates/item/partials/roll-flag.html"}}
+
+
         </div>
     </section>
 </form>

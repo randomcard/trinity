@@ -9,6 +9,8 @@ import { trinityRoll } from "./trinity-roll.js";
 import { TRoll } from "./roll/troll.js";
 import { OverviewApp } from "./overview/overview.js"; // Overview App
 import { TrinityCombat } from "./combat/trinity-combat.js"; // Custom Combat Class
+import { loadTrinityTemplates } from "./core/templates.js"; // HTML Templates
+import { handlebarHelpers } from "./core/handlebar-helpers.js"; // Handlebar Helpers
 
 // Overview
 let overview;
@@ -114,133 +116,7 @@ Hooks.once('init', async function() {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("trinity", TrinityItemSheet, { makeDefault: true });
 
-  // If you need to add Handlebars helpers, here are a few useful examples:
-  Handlebars.registerHelper('concat', function() {
-    var outStr = '';
-    for (var arg in arguments) {
-      if (typeof arguments[arg] != 'object') {
-        outStr += arguments[arg];
-      }
-    }
-    return outStr;
-  });
-
-  Handlebars.registerHelper('toLowerCase', function(str) {
-    return str.toLowerCase();
-  });
-
-/* Not used now, fixed template
-  Handlebars.registerHelper('varToString', function(v) {
-    return Object.keys({v})[0];
-  });
-*/
-
-  // From Party-Overview
-  Handlebars.registerHelper("ifEquals", function (arg1, arg2, options) {
-    return arg1 == arg2 ? options.fn(this) : options.inverse(this);
-  });
-
-  Handlebars.registerHelper('toDots', function(n) {
-    let dots = '';
-    let filled = '<i class="fa fa-circle"></i>';
-    let empty = '<i class="far fa-circle"></i>';
-    if (n > 10) {
-      dots = n.toString();
-      dots += filled;
-    } else {
-      for (let i = 0; i < Math.max(n, 5); i++) {
-        if (i === 5) { dots += ' '; }
-        if (i < n) { dots += filled; }
-          else {dots += empty;}
-  		}
-    }
-    return dots;
-	});
-
-  Handlebars.registerHelper('to10Dots', function(n) {
-    let dots = '';
-    let filled = '<i class="fa fa-circle"></i>';
-    let empty = '<i class="far fa-circle"></i>';
-    if (n > 10) {
-      dots = n.toString();
-      dots += filled;
-    } else {
-      for (let i = 0; i < Math.max(n, 10); i++) {
-        if (i < n) { dots += filled; }
-          else {dots += empty;}
-  		}
-    }
-    return dots;
-	});
-
-  Handlebars.registerHelper('to10Boxes', function(n) {
-    let dots = '';
-    let filled = '<i class="fas fa-square"></i>';
-    let empty = '<i class="far fa-square"></i>';
-    if (n > 10) {
-      dots = n.toString();
-      dots += filled;
-    } else {
-      for (let i = 0; i < Math.max(n, 10); i++) {
-        if (i < n) { dots += filled; }
-          else {dots += empty;}
-  		}
-    }
-    return dots;
-	});
-
-  Handlebars.registerHelper('toHealthBoxes', function(h) {
-    let boxes = '';
-    let extraBox = '<i class="fas fa-plus-square"></i>';
-    let filledBox = '<i class="fas fa-square"></i>';
-    let emptyBox = '<i class="far fa-square"></i>';
-    for (let i = 0; i < h.filled; i++) { boxes += filledBox; }
-    for (let i = 0; i < h.empty; i++) { boxes += emptyBox; }
-    for (let i = 0; i < h.extra; i++) { boxes += extraBox; }
-    return boxes;
-	});
-
-  Handlebars.registerHelper('toFilledBoxes', function(n) {
-    let boxes = '';
-    let filledBox = '<i class="fas fa-square"></i>';
-    for (let i = 0; i < n; i++) {
-      if (i < n) { boxes += filledBox; }
-		}
-    return boxes;
-	});
-
-  Handlebars.registerHelper('toExtraBoxes', function(n) {
-    let boxes = '';
-    let filledBox = '<i class="fas fa-plus-square"></i>';
-    for (let i = 0; i < n; i++) {
-      if (i < n) { boxes += filledBox; }
-		}
-    return boxes;
-	});
-
-  Handlebars.registerHelper('toEmptyBoxes', function(n) {
-    let boxes = '';
-    let emptyBox = '<i class="far fa-square"></i>';
-    for (let i = 0; i < n; i++) {
-      if (i < n) { boxes += emptyBox; }
-		}
-    return boxes;
-	});
-
-  Handlebars.registerHelper('lookupSavedRoll', function(rollID, context) {
-    let name = context.actor.data.data.savedRolls[rollID].name;
-    return name;
-	});
-
-  Handlebars.registerHelper('uniqueTypes', function(items) {
-    let types = [];
-    for (let i of items) {
-      if (types.indexOf(i.data.typeName) === -1) {
-        types.push(i.data.typeName);
-      }
-    }
-    return types;
-  });
+  handlebarHelpers();
 
 });
 
@@ -270,6 +146,20 @@ Hooks.once("ready", async function() {
 
 });
 
+// Enhancement roll modifier ae "add enhancement"
+Hooks.on("init", () => {
+    Die.MODIFIERS["ae"] = function addEnhancement(modifier) {
+        const enhaValue = parseInt(modifier.match(/\d+/));
+        var successCount = 0;
+        if (!enhaValue || !Number.isNumeric(enhaValue)) return;
+        for (var d = 0; d < this.results.length; d++) {
+          if (this.results[d].success) { successCount += 1; }
+        }
+        if (successCount > 0) {
+          this.results[0].count += enhaValue;
+        }
+    }
+});
 
 // Overview
 Hooks.on("ready", () => {
@@ -336,49 +226,6 @@ Hooks.once( "init", function() {
   loadTrinityTemplates();
 });
 
-// Templates:
-
-async function loadTrinityTemplates()
-{
-  // register templates parts
-  const templatePaths = [
-    "systems/trinity/templates/actor/partials/full-data.html",
-    "systems/trinity/templates/actor/partials/bio.html",
-    "systems/trinity/templates/actor/partials/character.html",
-    "systems/trinity/templates/actor/partials/contacts.html",
-    "systems/trinity/templates/actor/partials/bonds.html",
-    "systems/trinity/templates/actor/partials/attributes.html",
-    "systems/trinity/templates/actor/partials/healthboxes.html",
-    "systems/trinity/templates/actor/partials/skills.html",
-    "systems/trinity/templates/actor/partials/conditions.html",
-    "systems/trinity/templates/actor/partials/defense.html",
-    "systems/trinity/templates/actor/partials/edges.html",
-    "systems/trinity/templates/actor/partials/paths.html",
-    "systems/trinity/templates/actor/partials/specialties.html",
-    "systems/trinity/templates/actor/partials/stunts.html",
-    "systems/trinity/templates/actor/partials/tricks.html",
-    "systems/trinity/templates/actor/partials/gear.html",
-    "systems/trinity/templates/actor/partials/armors.html",
-    "systems/trinity/templates/actor/partials/vehicles.html",
-    "systems/trinity/templates/actor/partials/weapons.html",
-    "systems/trinity/templates/actor/partials/facets.html",
-    "systems/trinity/templates/actor/partials/inspiration.html",
-    "systems/trinity/templates/actor/partials/gifts.html",
-    "systems/trinity/templates/actor/partials/all-items.html",
-    "systems/trinity/templates/actor/partials/saved-rolls.html",
-    "systems/trinity/templates/actor/partials-npc/npc-attributes.html",
-    "systems/trinity/templates/actor/partials-npc/npc-stats.html",
-    "systems/trinity/templates/actor/partials-npc/npc-edit.html",
-    "systems/trinity/templates/item/partials/complication-flag.html",
-    "systems/trinity/templates/item/partials/enhancement-flag.html",
-    "systems/trinity/templates/item/partials/injury-flag.html",
-    "systems/trinity/templates/item/partials/dots-flag.html",
-    "systems/trinity/templates/item/partials/item-flag.html",
-    "systems/trinity/templates/item/partials/stunt-data.html",
-    "systems/trinity/templates/actor/partials/unflagged.html"
-  ];
-  return loadTemplates( templatePaths );
-}
 
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */

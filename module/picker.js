@@ -54,11 +54,7 @@ export class Picker {
                       pickedElements.attr = Object.values(targetActor.data.data.attributes).find(attribute => attribute.name === i.value) || pickedElements.attr;
                       break;
                     case "skil":
-                      console.log("skill case in picker");
-                      console.log("targetActor.items", targetActor.items);
                       pickedElements.skil = targetActor.items.find(item => item.id === i.id).data || pickedElements.skil;
-                      // pickedElements.skil = targetActor.items.find(item => item._id === i.id).data || pickedElements.skil;
-                      console.log("skill case in picker - assign skil value:", pickedElements.skil);
                       pickedElements.skil.value = pickedElements.skil.data.value;
                       break;
                     case "enha":

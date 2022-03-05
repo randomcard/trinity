@@ -1,3 +1,4 @@
+{{log "edge sheet logging, this:" this}}
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
       <div class="header-fields"> {{! Left Side of Header}}
@@ -11,6 +12,7 @@
           {{#if item.data.data.flags.isInjury}}<span class="boxed">Injury</span>{{/if}}
           {{#if item.data.data.flags.isComplication}}<span class="boxed">Complication</span>{{/if}}
           {{#if item.data.data.flags.isEnhancement}}<span class="boxed">Enhancement</span>{{/if}}
+          {{#if item.data.data.flags.hasRoll}}{{{createChip this.item.id}}}{{/if}}
         </div>
       </div>
     </header>
@@ -36,6 +38,7 @@
             {{> "systems/trinity/templates/item/partials/dots-flag.html"}}
             {{> "systems/trinity/templates/item/partials/enhancement-flag.html"}}
             {{> "systems/trinity/templates/item/partials/complication-flag.html"}}
+            {{> "systems/trinity/templates/item/partials/roll-flag.html"}}
 
 
         </div>

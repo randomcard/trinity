@@ -1,0 +1,456 @@
+{
+  "Actor": {
+    "types": ["TrinityCharacter", "TrinityNPC"],
+    "templates": {
+      "base": {
+        "biography": "",
+        "defense": {
+          "value": 1
+        },
+        "flags" : {
+          "isTalent" : false,
+          "isPsion" : false,
+          "isNova" : false,
+          "isActivePlayer" : false,
+          "isTakenOut" : false
+        },
+        "savedRolls": {},
+        "initiativeRollID" : "",
+        "linkedRolls" : {},
+        "tier" : 2,
+        "rollSettings" : {
+          "expl" : {
+            "name" : "Explode Threshold",
+            "value" : 10
+          },
+          "succ" : {
+            "name" : "Success Threshold",
+            "value" : 8
+          },
+          "nsca" : {
+            "name" : "Narrative Scale (Absolute)",
+            "value" : 1
+          },
+          "dsca" : {
+            "name" : "Dramatic Scale (Difference)",
+            "value" : 0
+          }
+        }
+      },
+      "talent" : {
+        "moment" : "",
+        "facets" : {
+          "des" : {
+            "name" : "Destructive",
+            "value" : 0
+          },
+          "int" : {
+            "name" : "Intuitive",
+            "value" : 0
+          },
+          "ref" : {
+            "name" : "Reflective",
+            "value" : 0
+          }
+        },
+        "inspiration" : {
+          "max" : 0,
+          "value" : 0
+        }
+      },
+      "psion" : {
+        "psiOrder" : "",
+        "psi" : {
+          "aptitude": "",
+          "rating" : 0,
+          "points" : {
+            "max" : 0,
+            "value" : 0
+          },
+          "tolerance" : {
+            "max" : 0,
+            "value" : 0,
+            "linkedItemIDs" : []
+          }
+        }
+      },
+      "nova" : {
+        "quantum" : {
+          "rating" : 1,
+          "points" : {
+            "max" : 0,
+            "value" : 0
+          }
+        },
+        "flux" : 0,
+        "transcendence" : 0
+      }
+    },
+    "TrinityNPC" : {
+      "templates": ["base"],
+      "npcType" : "",
+      "powerLevel" : "",
+      "healthboxes" : {
+        "health" : {
+          "value" : 1,
+          "conditionLevel" : 0,
+          "name" : "Health"
+        }
+      },
+      "attributes": {
+        "pri": {
+          "value": 1,
+          "name" : "Primary Action Pool",
+          "area" : ""
+        },
+        "sec": {
+          "value": 1,
+          "name" : "Secondary Action Pool",
+          "area" : ""
+        },
+        "des": {
+          "value": 1,
+          "name" : "Desperation Action Pool",
+          "area" : ""
+        }
+      },
+      "enhancements" : {
+        "value" : 1
+      },
+      "edgeDots" : {
+        "value" : 1
+      },
+      "source" : {
+        "max" : 1,
+        "value" : 1
+      },
+      "anomalyPowers" : {
+        "value" : 1
+      }
+    },
+    "TrinityCharacter": {
+      "templates": ["base", "talent", "psion"],
+      "player" : "",
+      "concept" : "",
+      "flags" : {
+        "isTalent" : true,
+        "isActivePlayer" : true
+      },
+      "experience": {
+        "earned": 0,
+        "available": 0
+      },
+      "aspirations" : {
+        "shortTerm1" : {
+          "name" : "Short Term Aspiration One",
+          "description" : "",
+          "complete" : false
+        },
+        "shortTerm2" : {
+          "name" : "Short Term Aspiration Two",
+          "description" : "",
+          "complete" : false
+        },
+        "longTerm" : {
+          "name" : "Long Term Aspiration",
+          "description" : "",
+          "complete" : false
+        }
+      },
+      "favoredApproach" : "",
+      "healthboxes" : {
+        "armor" : {
+          "value" : 0,
+          "conditionLevel" : 0,
+          "name" : "Armor"
+        },
+        "bruised" : {
+          "value" : 1,
+          "conditionLevel" : 1,
+          "name" : "Bruised"
+        },
+        "injured" : {
+          "value" : 1,
+          "conditionLevel" : 2,
+          "name" : "Injured"
+        },
+        "maimed" : {
+          "value" : 1,
+          "conditionLevel" : 4,
+          "name" : "Maimed"
+        },
+        "takenOut" : {
+          "value" : 1,
+          "conditionLevel" : 5,
+          "name" : "Taken Out"
+        }
+      },
+      "attributes": {
+        "int": {
+          "value": 1,
+          "name": "Intellect",
+          "arena": "Mental",
+          "approach": "Force"
+        },
+        "cun": {
+          "value": 1,
+          "name": "Cunning",
+          "arena": "Mental",
+          "approach": "Finesse"
+        },
+        "res": {
+          "value": 1,
+          "name": "Resolve",
+          "arena": "Mental",
+          "approach": "Resilience"
+        },
+        "mig": {
+          "value": 1,
+          "name": "Might",
+          "arena": "Physical",
+          "approach": "Force"
+        },
+        "dex": {
+          "value": 1,
+          "name": "Dexterity",
+          "arena": "Physical",
+          "approach": "Finesse"
+        },
+        "sta": {
+          "value": 1,
+          "name": "Stamina",
+          "arena": "Physical",
+          "approach": "Resilience"
+        },
+        "pre": {
+          "value": 1,
+          "name": "Presence",
+          "arena": "Social",
+          "approach": "Force"
+        },
+        "man": {
+          "value": 1,
+          "name": "Manipulation",
+          "arena": "Social",
+          "approach": "Finesse"
+        },
+        "com": {
+          "value": 1,
+          "name": "Composure",
+          "arena": "Social",
+          "approach": "Resilience"
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": ["item", "equipment", "attribute", "edge", "skill", "specialty", "path", "condition", "stunt", "gift", "trick", "contact", "bond", "mode", "action", "quantumPower"],
+    "templates": {
+      "base": {
+        "description": "",
+        "source": "",
+        "enhancement" : {
+          "value" : 0,
+          "relevance" : ""
+        },
+        "complication" : {
+          "value" : 0,
+          "relevance" : ""
+        },
+        "flags" : {
+          "isEnhancement" : false,
+          "isComplication" : false,
+          "isGear" : false,
+          "isWeapon" : false,
+          "isArmor" : false,
+          "isVehicle" : false,
+          "isInjury" : false,
+          "isEquipped" : true,
+          "hasDots" : true,
+          "isDice" : false,
+          "hasRoll" : false
+        },
+        "defaultSkill" : "",
+        "defaultAttribute" : "",
+        "linkedRollID": ""
+      }
+    },
+    "item": {
+      "templates": ["base"],
+      "typeName" : "Item",
+      "quantity": 1,
+      "gear": {
+        "tags" : ""
+      },
+      "weapon" : {
+        "tags" : "",
+        "damageType" : ""
+      },
+      "armor" : {
+        "tags" : "",
+        "hardArmor" : 0,
+        "softArmor" : 0
+      },
+      "vehicle" : {
+        "name" : "",
+        "tags" : "",
+        "size" : 1,
+        "handling" : 1,
+        "speed" : 1,
+        "cost" : 1
+      }
+    },
+    "equipment": {
+      "templates": ["base"],
+      "typeName" : "Equipment",
+      "quantity": 1,
+      "tolerance" : 0,
+      "gear": {
+        "tags" : ""
+      },
+      "weapon" : {
+        "tags" : "",
+        "damageType" : ""
+      },
+      "armor" : {
+        "tags" : "",
+        "hardArmor" : 0,
+        "softArmor" : 0
+      },
+      "vehicle" : {
+        "name" : "",
+        "tags" : "",
+        "size" : 1,
+        "handling" : 1,
+        "speed" : 1,
+        "cost" : 1
+      }
+    },
+    "attribute": {
+      "name": "",
+      "typeName" : "Attribute",
+      "value" : 0,
+      "megaValue" : 0,
+      "arena": "",
+      "approach": "",
+      "sortNum": 0,
+      "flags" : {
+        "hasDots" : true,
+        "isDice" : true,
+        "isMain" : true,
+        "isQuantum" : false
+      }
+    },
+    "edge": {
+      "templates": ["base"],
+      "typeName" : "Edge",
+      "value": 0,
+      "flags" : {
+        "isMega" : false
+      }
+    },
+    "skill": {
+      "templates": ["base"],
+      "typeName" : "Skill",
+      "value": 0,
+      "flags" : {
+        "isDice" : true
+      }
+    },
+    "specialty": {
+      "templates": ["base"],
+      "typeName" : "Specialty",
+      "skillOrigin": "",
+      "flags" : {
+        "hasDots" : false
+      }
+    },
+    "path": {
+      "templates": ["base"],
+      "typeName" : "Path",
+      "pathtype": ""
+    },
+    "condition": {
+      "templates": ["base"],
+      "typeName" : "Condition",
+      "injury" : {
+        "value" : 0
+      },
+      "flags" : {
+        "hasDots" : false
+      }
+    },
+    "stunt": {
+      "templates": ["base"],
+      "typeName" : "Stunt",
+      "costDescription": "",
+      "stuntType": "",
+      "costType": "",
+      "value": 0,
+      "flags" : {
+        "hasDots" : false
+      }
+    },
+    "gift" : {
+      "templates": ["base"],
+      "typeName" : "Gift",
+      "keywords" : "",
+      "system" : "",
+      "flags" : {
+        "hasDots" : false
+      }
+    },
+    "trick" : {
+      "templates": ["base"],
+      "typeName" : "Skill Trick",
+      "skillOrigin": "",
+      "flags" : {
+        "hasDots" : false
+      }
+    },
+    "contact" : {
+      "templates": ["base"],
+      "typeName" : "Contact",
+      "value" : 0,
+      "pathOrigin": ""
+    },
+    "bond" : {
+      "templates": ["base"],
+      "typeName" : "Bond",
+      "value" : 0,
+      "skillOrigin": ""
+    },
+    "mode" : {
+      "templates": ["base"],
+      "typeName" : "Mode",
+      "aptitude" : "",
+      "psiCost" : "",
+      "system" : "",
+      "flags" : {
+        "hasDots" : true,
+        "isBasicMode" : false,
+        "isAuxillary" : false
+      }
+    },
+    "action" : {
+      "templates": ["base"],
+      "typeName" : "Action",
+      "linkedItemIDs" : []
+    },
+    "quantumPower" : {
+      "templates": ["base"],
+      "typeName" : "Quantum Power",
+      "value" : 0,
+      "quantumMin" : "",
+      "actionType" : "",
+      "cost" : "",
+      "dicePool" : "",
+      "range" : "",
+      "duration" : "",
+      "flags" : {
+        "isPowerSuite" : false,
+        "isDice" : true
+      }
+    }
+  }
+}

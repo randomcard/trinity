@@ -1,20 +1,23 @@
 {{!-- allItems item Box --}}
 <ol class="items-list boxed">
     <li class="item flexrow item-header">
-      <div class="big item-name">All Items</div>
+      <div class="big item-name">Actor Items</div>
       <div class="item-dots"></div>
       <div class="item-controls">
-        <label class="resource-label" for="typeFilter">Filter: </label>
+        <label class="resource-label" for="typeFilter">Filter To: </label>
         {{log "all-item page, this:" this}}
-        <select id="typeFilter" name="this.actor.allItemsFilter" data-dtype="String">
-          <option value="">None</option>
+        <select id="typeFilter" name="data.allItemsFilter" data-dtype="String">
+          {{#select actor.data.data.allItemsFilter}}
+          <option value="All">All Items</option>
           {{#each (uniqueTypes actor.allItems) as |typeName id|}}
           <option value="{{typeName}}">{{typeName}}</option>
           {{/each}}
+          {{/select}}
         </select>
       </div>
     </li>
 {{#each actor.allItems as |item id|}}
+{{#if (isEqual ../actor.data.data.allItemsFilter item.data.typeName "All" ) ~}}
     <li class="item flexrow" data-item-id="{{item._id}}">
         <h4 class="item-name item-edit clickable">
           {{item.name}}
@@ -23,9 +26,11 @@
         </h4>
         <div class="item-dots small icons">{{#if item.data.flags.hasDots}}{{{toDots item.data.value}}}{{/if}}</div>
         <div class="item-controls">
-            <a class="item-control item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
+          <a class="item-control item-favorite" title="Mark as Favorite">{{#if item.data.flags.isFavorite~}}<i class="fas fa-star"></i>{{~else~}}<i class="far fa-star"></i>{{~/if~}}</a>
+          <a class="item-control item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
+          <a class="item-control item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
         </div>
     </li>
+{{~/if}}
 {{/each}}
 </ol>

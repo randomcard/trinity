@@ -18,7 +18,7 @@ export class TrinityCombat extends Combat
       if ( !combatant?.isOwner ) return results;
 
       // Actors w/o an initiative roll
-      if (combatant.actor.data.data.initiativeRollID === "") {
+      if (typeof combatant.actor.data.data.linkedRolls.initiative === "undefined" || combatant.actor.data.data.linkedRolls.initiative === "") {
         let chatData = {
           content: `${combatant.actor.data.name} has no initiative roll selected.`
         };
@@ -32,11 +32,12 @@ export class TrinityCombat extends Combat
       } else {
 
       // Actors w/ an initiative roll selected
-        let p = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].elements;
-        let breaker = combatant.actor.data.data.savedRolls[combatant.actor.data.data.initiativeRollID].dice;
-        let rollFormula = `(((${p.skil.value}+${p.attr.value})d10x>=${p.expl.value}cs>=${p.succ.value})*${p.nsca.value})+((${p.skil.value}+${p.attr.value})*0.01)`;
+        let p = combatant.actor.data.data.savedRolls[combatant.actor.data.data.linkedRolls.initiative];
+        let breaker = p.diceTotal * 0.01;
+        let rollFormula = `(${p.formula})+${breaker}`;
 
-        const roll = game.trinity.TRoll.create(rollFormula, {}, {}, p.enha.value);
+        // const roll = game.trinity.TRoll.create(rollFormula, {}, {}, p.enha.value);
+        let roll = new Roll(rollFormula);
         await roll.evaluate({async: true});
 
         updates.push({
@@ -62,10 +63,10 @@ export class TrinityCombat extends Combat
               }
             }
 
-        // Construct chat message data
-        ChatMessage.create({
-          speaker: ChatMessage.getSpeaker({ actor: combatant.actor }),
-          flavor: "Initiative Roll:<br>" + [p.skil.name, p.attr.name, p.enha.name].join(' • '),
+
+        roll.toMessage({
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          flavor: `Initiative Roll:<br>` + p.flavor,
           content: `${await roll.render()}` + compList
         });
 
