@@ -148,6 +148,7 @@ export function handlebarHelpers() {
         types.push(i.data.typeName);
       }
     }
+    types.sort(function(a, b) {return (a.name > b.name) ? 1 : -1;});
     return types;
   });
 
