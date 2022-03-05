@@ -548,6 +548,7 @@ export class TrinityActorSheet extends ActorSheet {
       let li = $(ev.currentTarget).parents(".sub-item");
       let liID = li.data("itemId");
       let item = this.actor.items.get(li.data("itemId"));
+      console.log(".sub-item-chat listener li, liID, item: ", li, liID, item);
       // let ownerItem =
       // console.log("chat output:", this, ev, li, liID);
       let ownerName = item.data.name;
