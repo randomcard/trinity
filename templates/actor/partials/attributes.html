@@ -2,7 +2,7 @@
 <h2>Attributes</h2>
 <div class="attributes grid grid-3row">
   {{#each actor.attributes as |attribute key|}}
-  <div class="flexcol flex-group-center boxed item can-hide" data-item-id="{{item._id}}">
+  <div class="flexcol flex-group-center boxed item can-hide" data-item-id="{{attribute._id}}">
     <div class="resource-label clickable item-edit"> {{attribute.name}} </div>
     <div class="icons rollable" data-attrid="{{attribute._id}}" id="{{attribute._id}}"> {{{toDots attribute.data.value attribute.data.megaValue}}} </div>
     <div class="small-note"> {{attribute.data.approach}} - {{attribute.data.arena}} </div>
