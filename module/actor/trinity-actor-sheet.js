@@ -543,6 +543,25 @@ export class TrinityActorSheet extends ActorSheet {
       // item.sheet.render(true);
     });
 
+    html.find('.sub-item-chat').click(ev => {
+      let li = $(ev.currentTarget).parents(".item");
+      let liID = li.data("itemId");
+      let item = this.actor.items.get(li.data("itemId"));
+      // let ownerItem =
+      // console.log("chat output:", this, ev, li, liID);
+      let ownerName = item.data.name;
+      let addinfo = (item.data.data.subItems[liID].type === "stunt") ? item.data.data.subItems[liID].costDescription : item.data.data.subItems[liID].tagValue;
+      let subItemName = item.data.data.subItems[liID].name+" ("+addinfo+")";
+      let subItemDesc = item.data.data.subItems[liID].description;
+      let chatData = {
+        user: game.user.id,
+        speaker: ChatMessage.getSpeaker(),
+        flavor: ("From "+ownerName),
+        content: ("<h2>"+subItemName+"</h2>"+subItemDesc)
+      };
+      ChatMessage.create(chatData);
+    });
+
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
