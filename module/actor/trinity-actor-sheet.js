@@ -524,7 +524,7 @@ export class TrinityActorSheet extends ActorSheet {
       console.log("item-favorite click:", ev);
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
-      item.update({ "data.favorite": !data.favorite });
+      item.update({ "data.flags.isFavorite": !data.favorite });
     });
 
     // Output Item Description to Chat
