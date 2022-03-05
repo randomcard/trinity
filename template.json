@@ -272,6 +272,7 @@
           "isVehicle" : false,
           "isInjury" : false,
           "isEquipped" : true,
+          "isFavorite" : false,
           "hasDots" : true,
           "isDice" : false,
           "hasRoll" : false
