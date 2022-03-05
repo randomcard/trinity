@@ -8,7 +8,7 @@
     <div class="small-note"> {{attribute.data.approach}} - {{attribute.data.arena}} </div>
   </div>
   <div class="flexcol flex-group-center boxed edit-area can-hide hidden" data-itemid="{{attribute._id}}">
-    <span class="resource-label"> {{attribute.name}} </span>
+    <span class="resource-label clickable item-edit"> {{attribute.name}} </span>
     <div class="flex-parent-nowrap-center">
       <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-itemid="{{attribute._id}}" data-target="data.value"></i>
       <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="{{attribute._id}}-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>

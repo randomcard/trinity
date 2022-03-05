@@ -3,12 +3,12 @@
 <h2>Skills</h2>
 <div class="skills grid grid-4row">
   {{#each actor.skills as |skill key|}}
-  <div class="flexcol flex-group-center rollable boxed can-hide" data-skillid="{{skill._id}}" id="{{skill._id}}">
-    <span class="resource-label"> {{skill.name}} </span>
-    <span class="icons"> {{{toDots skill.data.value}}} </span>
+  <div class="flexcol flex-group-center boxed can-hide item" data-item-id="{{skill._id}}">
+    <div class="resource-label clickable item-edit"> {{skill.name}} </div>
+    <div class="icons rollable" data-skillid="{{skill._id}}" id="{{skill._id}}"> {{{toDots skill.data.value}}} </div>
   </div>
   <div class="flexcol flex-group-center boxed edit-area can-hide hidden" data-itemid="{{skill._id}}">
-    <span class="resource-label"> {{skill.name}} </span>
+    <span class="resource-label clickable item-edit"> {{skill.name}} </span>
     <div class="flex-parent-nowrap-center">
       <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-itemid="{{skill._id}}" data-target="data.value"></i>
       <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="{{skill._id}}-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>
