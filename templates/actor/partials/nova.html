@@ -3,7 +3,7 @@
 
     <div class="quantum grid grid-1col no-top-margin">
       {{#each actor.quantum as |quantum key|}}
-      <div class="flexcol flex-group-center boxed can-hide" data-item-id="{{quantum._id}}">
+      <div class="flexcol flex-group-center boxed item can-hide" data-item-id="{{quantum._id}}">
         <span class="resource-label clickable item-edit"> {{quantum.name}} </span>
         <span class="icons rollable" data-itemid="{{quantum._id}}" id="{{quantum._id}}"> {{{toDots quantum.data.value}}} </span>
       </div>
