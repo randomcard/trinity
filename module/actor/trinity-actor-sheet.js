@@ -544,6 +544,7 @@ export class TrinityActorSheet extends ActorSheet {
     });
 
     html.find('.sub-item-chat').click(ev => {
+      console.log(".sub-item-chat listener ev: ", ev);
       let li = $(ev.currentTarget).parents(".sub-item");
       let liID = li.data("itemId");
       let item = this.actor.items.get(li.data("itemId"));
