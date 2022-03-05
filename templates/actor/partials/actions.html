@@ -67,6 +67,7 @@
             {{#if item.data.flags.hasRoll}}{{{createChip item._id ../actor}}}{{/if}}
             </div>
           <div class="item-controls">
+            <a class="item-control item-favorite" title="Mark as Favorite">{{#if item.data.flags.isFavorite~}}<i class="fas fa-star"></i>{{~else~}}<i class="far fa-star"></i>{{~/if~}}</a>
             <a class="item-control item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
             <a class="item-control item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
             </div>
