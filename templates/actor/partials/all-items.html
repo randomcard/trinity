@@ -7,10 +7,12 @@
         <label class="resource-label" for="typeFilter">Filter: </label>
         {{log "all-item page, this:" this}}
         <select id="typeFilter" name="data.allItemsFilter" data-dtype="String">
+          {{#select actor.data.data.allItemsFilter}}
           <option value="">None</option>
           {{#each (uniqueTypes actor.allItems) as |typeName id|}}
           <option value="{{typeName}}">{{typeName}}</option>
           {{/each}}
+          {{/select}}
         </select>
       </div>
     </li>
