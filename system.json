@@ -15,7 +15,7 @@
       "name": "basic-npc-attributes",
       "label": "Basic NPC Attributes",
       "system": "trinity",
-      "path": "./packs/basic-npc-attributes.db",
+      "path": "packs/basic-npc-attributes.db",
       "type": "Item"
     }
   ],
