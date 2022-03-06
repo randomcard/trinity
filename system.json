@@ -16,24 +16,21 @@
       "label": "Basic NPC Attributes",
       "system": "trinity",
       "path": "packs/basic-npc-attributes.db",
-      "type": "Item",
-      "folder": "character-basics"
+      "type": "Item"
     },
     {
       "name": "basic-pc-attributes",
       "label": "Basic PC Attributes",
       "system": "trinity",
       "path": "packs/basic-pc-attributes.db",
-      "type": "Item",
-      "folder": "character-basics"
+      "type": "Item"
     },
     {
       "name": "basic-pc-skills",
       "label": "Basic PC Skills",
       "system": "trinity",
       "path": "packs/basic-pc-skills.db",
-      "type": "Item",
-      "folder": "character-basics"
+      "type": "Item"
     }
   ],
   "languages": [
