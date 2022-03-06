@@ -17,6 +17,20 @@
       "system": "trinity",
       "path": "packs/basic-npc-attributes.db",
       "type": "Item"
+    },
+    {
+      "name": "basic-pc-attributes",
+      "label": "Basic PC Attributes",
+      "system": "trinity",
+      "path": "packs/basic-pc-attributes.db",
+      "type": "Item"
+    },
+    {
+      "name": "basic-pc-skills",
+      "label": "Basic PC Skills",
+      "system": "trinity",
+      "path": "packs/basic-pc-skills.db",
+      "type": "Item"
     }
   ],
   "languages": [
@@ -31,7 +45,7 @@
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/randomcard/trinity/",
-  "manifest": "https://raw.githubusercontent.com/randomcard/trinity/aeon/system.json",
+  "manifest": "https://raw.githubusercontent.com/randomcard/trinity/master/system.json",
   "download": "https://github.com/randomcard/trinity/archive/aeon.zip",
   "license": "LICENSE.txt"
 }
