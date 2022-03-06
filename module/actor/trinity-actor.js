@@ -6,6 +6,44 @@ export class TrinityActor extends Actor {
   /**
    * Augment the basic actor data with additional dynamic data.
    */
+   static async create(data, options) {
+     // If the created actor has items (only applicable to duplicated actors) bypass the new actor creation logic
+     if (data.items)
+     {
+       return super.create(data, options);
+     }
+
+     // Initialize empty items
+     data.items = [];
+
+     // Get items to be added
+     let npcAttribs = game.packs.get('trinity.basic-npc-attributes').getDocuments();
+     let pcAttribs = game.packs.get('trinity.basic-pc-attributes').getDocuments();
+     let pcSkills = game.packs.get('trinity.basic-pc-skills').getDocuments();
+
+
+     if (data.type == "TrinityCharacter")
+     {
+       for (let i of pcAttribs)
+       {
+         data.items.push(i);
+       }
+       for (let i of pcSkills)
+       {
+         data.items.push(i);
+       }
+       super.create(data, options); // Follow through the the rest of the Actor creation process upstream
+     }
+     else if ( data.type == "TrinityNPC" ) {
+       for (let i of npcAttribs) // Add basic skills
+       {
+         data.items.push(i);
+       }
+       super.create(data, options); // Follow through the the rest of the Actor creation process upstream
+     }
+ }
+
+
   prepareData() {
     super.prepareData();
 
