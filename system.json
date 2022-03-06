@@ -14,22 +14,22 @@
     {
       "name": "basic-npc-attributes",
       "label": "Basic NPC Attributes",
-      "path": "packs/basic-npc-attributes.db",
       "system": "trinity",
+      "path": "./packs/basic-npc-attributes.db",
       "type": "Item"
     },
     {
       "name": "basic-pc-attributes",
       "label": "Basic PC Attributes",
-      "path": "packs/basic-pc-attributes.db",
       "system": "trinity",
+      "path": "./packs/basic-pc-attributes.db",
       "type": "Item"
     },
     {
       "name": "basic-pc-skills",
       "label": "Basic PC Skills",
-      "path": "packs/basic-pc-skills.db",
       "system": "trinity",
+      "path": "./packs/basic-pc-skills.db",
       "type": "Item"
     }
   ],
