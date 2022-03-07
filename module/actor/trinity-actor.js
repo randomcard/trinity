@@ -59,7 +59,7 @@ export class TrinityActor extends Actor {
     console.log("prepareData this", this);
 
     // Add default Items
-    if (data.items && data.items.size === 0)
+    if (actorData.items && actorData.items.size === 0)
     {
 
       // Initialize empty items
