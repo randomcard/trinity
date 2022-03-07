@@ -45,7 +45,7 @@ After doing any of these, a Roll window will appear, where you can add or remove
 
 Most character elements that can't be dropped as an item on the character (such as facets or inspiration) can be edited in the "Configure" section on the character sheet.
 
-The Actors directory has a "Party Overview" button that launches a window to keep track of party Momentum, and the party's aspirations.
+The Actors directory has a "Party Overview" button that launches a window to keep track of party Momentum, and the party's aspirations. In order to show in this overview, characters must have a token in the scene, and the token needs to be owned by a player.
 
 Rolling for initiative requires creating a "Saved Roll":
 1. Click on a Skill or Attribute to open the "Roll Options" dialog.
