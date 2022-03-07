@@ -49,10 +49,10 @@ The Actors directory has a "Party Overview" button that launches a window to kee
 
 Rolling for initiative requires creating a "Saved Roll":
 1. Click on a Skill or Attribute to open the "Roll Options" dialog.
-2. Configure the roll as appropriate, **including checking the "Initiative Roll" box**.
+2. Configure the roll as appropriate.
 3. Select "Save As".
 4. Name the Saved Roll and select "Save".
-5. Select that Saved Roll from the "Default Initiative Roll" dropdown on the character sheet.
+5. Go to the "Combat" tab, go into edit mode (click the lock icon on the nav bar), and select that Saved Roll from the "Link Roll" dropdown in the Initiative area.
 
 ## Code Sources
 
