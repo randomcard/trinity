@@ -1,0 +1,27 @@
+<div class="flex-parent-evenly">
+  <div class="flex-child-even">
+    <div class="npcAttributes grid grid-1col no-top-margin">
+      {{#each actor.npcAttributes as |npcAttribute key|}}
+      <div class="flexcol flex-group-center boxed item can-hide" data-item-id="{{npcAttribute._id}}">
+        <span class="resource-label clickable item-edit"> {{npcAttribute.name}} </span>
+        <span class="icons rollable" data-itemid="{{npcAttribute._id}}" id="{{npcAttribute._id}}"> {{{toDots npcAttribute.data.value}}} </span>
+      </div>
+      <div class="flexcol flex-group-center boxed edit-area can-hide hidden" data-itemid="{{npcAttribute._id}}">
+        <span class="resource-label clickable item-edit"> {{npcAttribute.name}} </span>
+        <div class="flex-parent-nowrap-center">
+          <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-itemid="{{npcAttribute._id}}" data-target="data.value"></i>
+          <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="{{npcAttribute._id}}-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>
+          <i class="clickable add-value large flex-valign fas fa-plus-circle" data-itemid="{{npcAttribute._id}}" data-target="data.value"></i>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{> "systems/trinity/templates/actor/partials/initiative.html"}}
+    {{> "systems/trinity/templates/actor/partials/defense.html"}}
+    {{> "systems/trinity/templates/actor/partials/healthboxes.html"}}
+    {{> "systems/trinity/templates/actor/partials/conditions.html"}}
+  </div>
+  <div class="flex-child-even">
+    {{> "systems/trinity/templates/actor/partials/actions.html"}}
+  </div>
+</div>

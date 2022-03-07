@@ -200,6 +200,7 @@ export class TrinityActorSheet extends ActorSheet {
     const modes = [];
     const quantumPowers = [];
     const attributes = [];
+    const npcAttributes = [];
     const facets = [];
     const psi = [];
     const quantum = [];
@@ -336,6 +337,21 @@ export class TrinityActorSheet extends ActorSheet {
           });
         }
       }
+      if (i.type === 'attribute') {
+        if (i.data.flags.isMain) {
+          if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
+          npcAttributes.push(i);
+          npcAttributes.sort(function(a, b) {
+            return a.data.sortNum - b.data.sortNum;
+          });
+        } else if (i.data.flags.isEnhancement && !i.data.flags.isFacet) {
+          if (typeof i.data.sortNum === 'undefined' || i.data.sortNum === null) { i.data.sortNum = 0; }
+          npcAttributes.push(i);
+          npcAttributes.sort(function(a, b) {
+            return a.data.sortNum - b.data.sortNum;
+          });
+        }
+      }
       if (typeof(i.data.stunts) !== "undefined" && Object.keys(i.data.stunts).length > 0  && i.type !== 'action') { stunts.push(i); }
 
       // if (i.type === actorData.data.data.allItemsFilter) { allItems.push(i); }
@@ -367,6 +383,7 @@ export class TrinityActorSheet extends ActorSheet {
     actorData.modes = modes;
     actorData.quantumPowers = quantumPowers;
     actorData.attributes = attributes;
+    actorData.npcAttributes = npcAttributes;
     actorData.facets = facets;
     actorData.psi = psi;
     actorData.quantum = quantum;

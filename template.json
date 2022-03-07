@@ -93,7 +93,7 @@
       }
     },
     "TrinityNPC" : {
-      "templates": ["base"],
+      "templates": ["base", "talent", "psion", "nova"],
       "npcType" : "",
       "powerLevel" : "",
       "healthboxes" : {
@@ -135,7 +135,7 @@
       }
     },
     "TrinityCharacter": {
-      "templates": ["base", "talent", "psion"],
+      "templates": ["base", "talent", "psion", "nova"],
       "player" : "Player Name",
       "concept" : "Character Concept",
       "flags" : {

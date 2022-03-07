@@ -29,6 +29,7 @@ export async function loadTrinityTemplates()
     "systems/trinity/templates/actor/partials-npc/npc-attributes.html",
     "systems/trinity/templates/actor/partials-npc/npc-stats.html",
     "systems/trinity/templates/actor/partials-npc/npc-edit.html",
+    "systems/trinity/templates/actor/partials-npc/npc-main.html",
     "systems/trinity/templates/item/partials/complication-flag.html",
     "systems/trinity/templates/item/partials/enhancement-flag.html",
     "systems/trinity/templates/item/partials/injury-flag.html",
