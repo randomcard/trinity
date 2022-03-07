@@ -361,8 +361,8 @@
         "isSource" : false
       },
       "enhancement" : {
-        "value" : 1,
-        "relevance" : "Spend Inspiration"
+        "value" : 0,
+        "relevance" : ""
       }
     },
     "edge": {

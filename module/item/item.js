@@ -47,6 +47,8 @@ export class TrinityItem extends Item {
     if (this.data.type === "attribute" && typeof this.data.data.flags.isFacet !== "undefined" && this.data.data.flags.isFacet) {
       this.data.data.enhancement.value = this.data.data.value;
       this.data.data.flags.isEnhancement = true;
+    } else if ( this.data.type === "attribute" && typeof this.data.data.flags.isEnhancement ) {
+      this.data.data.enhancement.value = this.data.data.value;
     }
   }
 

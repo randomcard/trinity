@@ -51,7 +51,7 @@
     </div>
     {{/if}}
     {{#if item.data.data.flags.isEnhancement }}
-    {{#unless item.data.data.flags.isFacet }}
+    {{#unless (isEqual item.data.type "attribute") }}
     </div>
     <div class="flex-parent-nowrap">
       <label class="flex-fit flex-valign resource-label" for="enhancement-value">Enhancement:</label>
