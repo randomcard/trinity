@@ -349,6 +349,7 @@
       "megaValue" : 0,
       "arena": "",
       "approach": "",
+      "npcDescription": "",
       "sortNum": 0,
       "flags" : {
         "hasDots" : true,
