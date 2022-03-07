@@ -196,7 +196,8 @@ Hooks.on("updateActor", (actor, ...rest) => {
 });
 
 Hooks.on("createToken", (scene, sceneId, token, ...rest) => {
-  let actor = game.actors.entities.find((actor) => actor.id === token.actorId);
+  // let actor = game.actors.entities.find((actor) => actor.id === token.actorId);
+  let actor = game.actors.find((actor) => actor.id === token.actorId);
   if (actor && actor.hasPlayerOwner) {
     overview.update();
     overview.render(false);
