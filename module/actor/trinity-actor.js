@@ -58,7 +58,7 @@ export class TrinityActor extends Actor {
     console.log("prepareData this", this);
 
     // Add default Items
-    if (data.items.size === 0)
+    if (data.items && data.items.size === 0)
     {
 
       // Initialize empty items
@@ -75,19 +75,19 @@ export class TrinityActor extends Actor {
       {
         for (let i of Object.keys(pcAttribs) )
         {
-          await actor.createEmbeddedDocuments("Item", [pcAttribs[i].data])
+          await this.createEmbeddedDocuments("Item", [pcAttribs[i].data])
           // data.items.push(pcAttribs[i]);
         }
         for (let i of Object.keys(pcSkills) )
         {
-          await actor.createEmbeddedDocuments("Item", [pcSkills[i].data])
+          await this.createEmbeddedDocuments("Item", [pcSkills[i].data])
           // data.items.push(pcSkills[i]);
         }
       }
       else if ( data.type == "TrinityNPC" ) {
         for (let i of Object.keys(npcAttribs) ) // Add basic skills
         {
-          await actor.createEmbeddedDocuments("Item", [npcAttribs[i].data])
+          await this.createEmbeddedDocuments("Item", [npcAttribs[i].data])
           // data.items.push(npcAttribs[i]);
         }
       }
