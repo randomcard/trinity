@@ -26,7 +26,8 @@ export class TrinityActor extends Actor {
      {
        for (let i of Object.keys(pcAttribs) )
        {
-         data.items.push(pcAttribs[i]);
+         await actor.createEmbeddedDocuments("Item", [pcAttribs[i].data])
+         // data.items.push(pcAttribs[i]);
        }
        for (let i of Object.keys(pcSkills) )
        {
