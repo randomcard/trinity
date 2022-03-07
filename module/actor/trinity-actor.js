@@ -48,7 +48,7 @@ export class TrinityActor extends Actor {
  }
 
 
-  prepareData() {
+  async prepareData() {
     super.prepareData();
 
     const actorData = this.data;
