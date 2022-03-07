@@ -8,6 +8,7 @@ export class TrinityActor extends Actor {
    */
    static async create(data, options) {
      // If the created actor has items (only applicable to duplicated actors) bypass the new actor creation logic
+     /*
      if (data.items)
      {
        return super.create(data, options);
@@ -43,7 +44,7 @@ export class TrinityActor extends Actor {
        }
        super.create(data, options); // Follow through the the rest of the Actor creation process upstream
      }
-
+*/
      super.create(data, options); // Follow through the the rest of the Actor creation process upstream
  }
 
