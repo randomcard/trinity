@@ -10,10 +10,7 @@ This is a beginning work by the system author: Expect errors, bugs, and poor cod
 
 Install system in Foundry with: https://raw.githubusercontent.com/randomcard/trinity/master/system.json
 
-Due to IP concerns, this system is not playable on installation. It requires the creation of system elements (as Items) that can be added to new characters. The following elements must be created:
-* Attributes
-* Source Attributes (Facets, Psi, Quantum)
-* Skills
+Due to IP concerns, this system does not include most content. It does include Attributes, Skills and Sources (Facets/Psi/Nova), but does not have any descriptions for those items. Descriptions can be added manually. Other elements will need to be created (as Items) and added to characters via drag-and-drop. These elements include:
 * Paths
 * Contacts
 * Edges
