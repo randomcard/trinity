@@ -1,24 +1,80 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
 
-    {{!-- Sheet Header --}}
-    <header class="sheet-header flex-parent-evenly">
-        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="50" />
-        <div class="header-fields flex-child-fill">
-            <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
-            <input class="small-note" name="data.npcType" type="text" value="{{actor.data.data.npcType}}" />
-        </div>
-        <i class="flex-child-fit xx-large fa-pen-square" name="edit-button"></i>
-    </header>
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+      <img class="profile-img" src="{{actor.data.token.img}}" data-edit="token.img" title="{{actor.name}}" height="50" />
+      <div class="header-fields charname">
+          <h1>{{actor.name}}</h1>
+      </div>
+      <div class="header-fields charname flex-right">
+          <h1 class="large">{{actor.data.data.concept}}</h1>
+      </div>
+      <img class="large profile-img" src="{{actor.data.data.logo}}" data-edit="data.logo" height="50" />
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs actor" data-group="primary">
+    <a class="item" data-tab="roll"><i class="large clickable fas fa-dice"></i></a> {{!-- Saved Rolls --}}
+    <a class="item" data-tab="background">Background</a> {{!-- Bio, Aspirations, Details, Contacts, Bonds --}}
+    <a class="item" data-tab="main">Attributes & Combat</a>
+    {{#if actor.data.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
+    {{#if actor.data.data.flags.isPsion}}<a class="item" data-tab="psion">Psion</a>{{/if}}
+    {{#if actor.data.data.flags.isNova}}<a class="item" data-tab="nova">Nova</a>{{/if}}
+    <a class="item" data-tab="equip">Equipment</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
+    <a class="item config-tab can-hide hidden" data-tab="data-entry">Configure</a>
+    <div class="item">
+      <i class="large clickable edit-button fas fa-lock can-hide"></i> {{!-- No Tab Content, just unlocks editing mode --}}
+      <i class="large clickable edit-button fas fa-unlock can-hide hidden"></i>
+    </div>
+  </nav>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
-      {{> "systems/trinity/templates/actor/partials/saved-rolls.html"}}
-      {{> "systems/trinity/templates/actor/partials-npc/npc-attributes.html"}}
-      {{> "systems/trinity/templates/actor/partials-npc/npc-stats.html"}}
-      {{> "systems/trinity/templates/actor/partials/conditions.html"}}
-      {{> "systems/trinity/templates/actor/partials/edges.html"}}
-      {{> "systems/trinity/templates/actor/partials/gifts.html"}}
-      {{> "systems/trinity/templates/actor/partials/stunts.html"}}
-      {{> "systems/trinity/templates/actor/partials-npc/npc-edit.html"}}
+
+      {{!-- "Roll" Tab --}}
+      <div class="tab roll" data-group="primary" data-tab="roll">
+          {{> "systems/trinity/templates/actor/partials/saved-rolls.html"}}
+      </div>
+
+      {{!-- Talent Tab --}}
+      <div class="tab main" data-group="primary" data-tab="main">
+        {{> "systems/trinity/templates/actor/partials-npc/npc-attributes.html"}}
+        {{> "systems/trinity/templates/actor/partials-npc/npc-stats.html"}}
+        {{> "systems/trinity/templates/actor/partials/combat.html"}}
+      </div>
+
+      {{!-- Talent Tab --}}
+      <div class="tab talent" data-group="primary" data-tab="talent">
+        {{> "systems/trinity/templates/actor/partials/talent.html"}}
+      </div>
+
+      {{!-- Psion Tab --}}
+      <div class="tab psion" data-group="primary" data-tab="psion">
+        {{> "systems/trinity/templates/actor/partials/psi.html"}}
+      </div>
+
+      {{!-- Nova Tab --}}
+      <div class="tab nova" data-group="primary" data-tab="nova">
+        {{> "systems/trinity/templates/actor/partials/nova.html"}}
+      </div>
+
+      {{!-- Equipment Tab --}}
+      <div class="tab equip" data-group="primary" data-tab="equip">
+        {{> "systems/trinity/templates/actor/partials/weapons.html"}}
+        {{> "systems/trinity/templates/actor/partials/armors.html"}}
+        {{> "systems/trinity/templates/actor/partials/gear.html"}}
+        {{> "systems/trinity/templates/actor/partials/vehicles.html"}}
+        {{> "systems/trinity/templates/actor/partials/unflagged.html"}}
+      </div>
+
+      {{!-- Data Entry Tab --}}
+      <div class="tab data-entry" data-group="primary" data-tab="data-entry">
+        {{> "systems/trinity/templates/actor/partials/full-data.html"}}
+        {{> "systems/trinity/templates/actor/partials/all-items.html"}}
+      </div>
+
+
+
+
     </section>
 </form>

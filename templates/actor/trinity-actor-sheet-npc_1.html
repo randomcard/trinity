@@ -1,0 +1,24 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header flex-parent-evenly">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="50" />
+        <div class="header-fields flex-child-fill">
+            <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+            <input class="small-note" name="data.npcType" type="text" value="{{actor.data.data.npcType}}" />
+        </div>
+        <i class="flex-child-fit xx-large fa-pen-square" name="edit-button"></i>
+    </header>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+      {{> "systems/trinity/templates/actor/partials/saved-rolls.html"}}
+      {{> "systems/trinity/templates/actor/partials-npc/npc-attributes.html"}}
+      {{> "systems/trinity/templates/actor/partials-npc/npc-stats.html"}}
+      {{> "systems/trinity/templates/actor/partials/conditions.html"}}
+      {{> "systems/trinity/templates/actor/partials/edges.html"}}
+      {{> "systems/trinity/templates/actor/partials/gifts.html"}}
+      {{> "systems/trinity/templates/actor/partials/stunts.html"}}
+      {{> "systems/trinity/templates/actor/partials-npc/npc-edit.html"}}
+    </section>
+</form>
