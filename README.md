@@ -1,6 +1,6 @@
 # Trinity Continuum
 
-Unofficial Foundry Virtual Tabletop implementation of the Trinity Continuum Core RPG, by Onyx Path Publishing. The system currently supports Trinity Core, Adventure, Aeon, and Aberrant.
+Unofficial Foundry Virtual Tabletop implementation of the Trinity Continuum Core RPG, by Onyx Path Publishing. The system currently supports Trinity Core, Adventure, Aeon, and Aberrant. It is also homebrew friendly, to an extent.
 
 ## Info
 
