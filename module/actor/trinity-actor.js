@@ -20,7 +20,8 @@ export class TrinityActor extends Actor {
      let npcAttribs = await game.packs.get('trinity.basic-npc-attributes').getDocuments();
      let pcAttribs = await game.packs.get('trinity.basic-pc-attributes').getDocuments();
      let pcSkills = await game.packs.get('trinity.basic-pc-skills').getDocuments();
-     console.log("pcAttribs", pcAttribs)
+     console.log("pcAttribs", pcAttribs);
+     console.log("this", this);
 
      if (data.type == "TrinityCharacter")
      {
