@@ -43,6 +43,8 @@ export class TrinityActor extends Actor {
        }
        super.create(data, options); // Follow through the the rest of the Actor creation process upstream
      }
+
+     super.create(data, options); // Follow through the the rest of the Actor creation process upstream
  }
 
 
@@ -52,6 +54,45 @@ export class TrinityActor extends Actor {
     const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
+
+    console.log("prepareData this", this);
+
+    // Add default Items
+    if (data.items.size === 0)
+    {
+
+      // Initialize empty items
+      // data.items = [];
+
+      // Get items to be added
+      let npcAttribs = await game.packs.get('trinity.basic-npc-attributes').getDocuments();
+      let pcAttribs = await game.packs.get('trinity.basic-pc-attributes').getDocuments();
+      let pcSkills = await game.packs.get('trinity.basic-pc-skills').getDocuments();
+      console.log("pcAttribs", pcAttribs);
+      console.log("this", this);
+
+      if (data.type == "TrinityCharacter")
+      {
+        for (let i of Object.keys(pcAttribs) )
+        {
+          await actor.createEmbeddedDocuments("Item", [pcAttribs[i].data])
+          // data.items.push(pcAttribs[i]);
+        }
+        for (let i of Object.keys(pcSkills) )
+        {
+          await actor.createEmbeddedDocuments("Item", [pcSkills[i].data])
+          // data.items.push(pcSkills[i]);
+        }
+      }
+      else if ( data.type == "TrinityNPC" ) {
+        for (let i of Object.keys(npcAttribs) ) // Add basic skills
+        {
+          await actor.createEmbeddedDocuments("Item", [npcAttribs[i].data])
+          // data.items.push(npcAttribs[i]);
+        }
+      }
+
+    }
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
