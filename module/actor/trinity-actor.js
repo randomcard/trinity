@@ -42,6 +42,7 @@ export class TrinityActor extends Actor {
        for (let i of Object.keys(pcSkills) )
        {
          // data.items.push(pcSkills[i]);
+         data.items.push(game.items.fromCompendium(pcSkills[i]));
        }
        super.create(data, options); // Follow through the the rest of the Actor creation process upstream
      }
@@ -49,11 +50,12 @@ export class TrinityActor extends Actor {
        for (let i of Object.keys(npcAttribs) ) // Add basic skills
        {
          // data.items.push(npcAttribs[i]);
+         data.items.push(game.items.fromCompendium(npcAttribs[i]));
        }
        super.create(data, options); // Follow through the the rest of the Actor creation process upstream
      }
 
-     super.create(data, options); // Follow through the the rest of the Actor creation process upstream
+     // super.create(data, options); // Follow through the the rest of the Actor creation process upstream
  }
 
 
