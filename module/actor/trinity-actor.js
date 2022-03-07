@@ -8,7 +8,7 @@ export class TrinityActor extends Actor {
    */
    static async create(data, options) {
      // If the created actor has items (only applicable to duplicated actors) bypass the new actor creation logic
-     /*
+
      if (data.items)
      {
        return super.create(data, options);
@@ -28,8 +28,8 @@ export class TrinityActor extends Actor {
      {
        for (let i of Object.keys(pcAttribs) )
        {
-         await actor.createEmbeddedDocuments("Item", [pcAttribs[i].data])
-         // data.items.push(pcAttribs[i]);
+         //await actor.createEmbeddedDocuments("Item", [pcAttribs[i].data])
+         data.items.push(pcAttribs[i]);
        }
        for (let i of Object.keys(pcSkills) )
        {
@@ -44,7 +44,7 @@ export class TrinityActor extends Actor {
        }
        super.create(data, options); // Follow through the the rest of the Actor creation process upstream
      }
-*/
+
      super.create(data, options); // Follow through the the rest of the Actor creation process upstream
  }
 
@@ -55,7 +55,7 @@ export class TrinityActor extends Actor {
     const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
-
+/*
     console.log("prepareData this", this);
 
     // Add default Items
@@ -76,6 +76,7 @@ export class TrinityActor extends Actor {
       {
         for (let i of Object.keys(pcAttribs) )
         {
+
           await this.createEmbeddedDocuments("Item", [pcAttribs[i].data])
           // data.items.push(pcAttribs[i]);
         }
@@ -94,7 +95,7 @@ export class TrinityActor extends Actor {
       }
 
     }
-
+*/
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     if (actorData.type === 'TrinityCharacter') this._prepareTrinityCharacterData(actorData);
