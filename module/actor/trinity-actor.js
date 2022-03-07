@@ -72,7 +72,7 @@ export class TrinityActor extends Actor {
       console.log("pcAttribs", pcAttribs);
       console.log("this", this);
 
-      if (data.type == "TrinityCharacter")
+      if (actorData.type == "TrinityCharacter")
       {
         for (let i of Object.keys(pcAttribs) )
         {
@@ -85,7 +85,7 @@ export class TrinityActor extends Actor {
           // data.items.push(pcSkills[i]);
         }
       }
-      else if ( data.type == "TrinityNPC" ) {
+      else if ( actorData.type == "TrinityNPC" ) {
         for (let i of Object.keys(npcAttribs) ) // Add basic skills
         {
           await this.createEmbeddedDocuments("Item", [npcAttribs[i].data])
