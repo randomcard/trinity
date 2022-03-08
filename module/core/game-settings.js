@@ -146,7 +146,7 @@ overview = new OverviewApp();
   },
 ].forEach((setting) => {
   let options = {
-    name: "Overview Button - Player Access?", // game.i18n.localize(`party-overview.${setting.name}.Name`),
+    name: "Overview Button Player Access", // game.i18n.localize(`party-overview.${setting.name}.Name`),
     hint: "Allows players to access the overview.", // game.i18n.localize(`party-overview.${setting.name}.Hint`),
     scope: setting.scope,
     config: true,
