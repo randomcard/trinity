@@ -11,7 +11,7 @@ export class TrinityActor extends Actor {
    static async create(data, options) {
      // If the created actor has items (only applicable to duplicated actors) bypass the new actor creation logic
 
-     if (data.items)
+     if (data.items || game.settings.get("trinity", "basicItems") === false)
      {
        return super.create(data, options);
      }
