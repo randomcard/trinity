@@ -1,3 +1,5 @@
+import { setHealth } from "health.js"; // Overview App
+
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -66,6 +68,8 @@ export class TrinityActor extends Actor {
     actorData.data.rollSettings.nsca.value = actorData.data.rollSettings.nsca.value || game.settings.get("trinity", "defaultNScale");
     actorData.data.rollSettings.dsca.value = actorData.data.rollSettings.dsca.value || game.settings.get("trinity", "defaultDScale");
 
+    // Health Setup
+    setHealth(actorData);
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.

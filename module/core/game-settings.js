@@ -85,7 +85,7 @@ game.settings.register("trinity", "healthModel", {
   type: String,
   choices: {           // If choices are defined, the resulting setting will be a select menu
     "modelT": "Trinity Continuum Standard",
-    "modelM": "Storyteller/WoD"
+    "modelS": "Storyteller/WoD"
   },
   default: "modelT",        // The default value for the setting
   onChange: value => { // A callback function which triggers when the setting is changed

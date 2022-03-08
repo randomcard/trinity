@@ -16,6 +16,11 @@
           "isActivePlayer" : false,
           "isTakenOut" : false
         },
+        "health": {},
+        "healthModels": {
+          "ModelT" : [],
+          "ModelS" : []
+        },
         "savedRolls": {},
         "initiativeRollID" : "",
         "linkedRolls" : {},
