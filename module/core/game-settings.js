@@ -1,3 +1,5 @@
+import { OverviewApp } from "./overview/overview.js"; // Overview App
+
 export function gameSettings() {
 
 // World settings
