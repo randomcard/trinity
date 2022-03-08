@@ -23,23 +23,23 @@
         "rollSettings" : {
           "expl" : {
             "name" : "Explode Threshold",
-            "value" : 10
+            "value" : null
           },
           "succ" : {
             "name" : "Success Threshold",
-            "value" : 8
+            "value" : null
           },
           "nsca" : {
             "name" : "Narrative Scale (Absolute)",
-            "value" : 1
+            "value" : null
           },
           "dsca" : {
             "name" : "Dramatic Scale (Difference)",
-            "value" : 0
+            "value" : null
           },
           "fail" : {
             "name" : "Fail Threshold",
-            "value" : 0
+            "value" : null
           }
         }
       },

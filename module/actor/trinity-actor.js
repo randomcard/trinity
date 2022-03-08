@@ -14,13 +14,6 @@ export class TrinityActor extends Actor {
        return super.create(data, options);
      }
 
-     // Default roll Settings:
-     data.data.rollSettings.succ.value = game.settings.get("trinity", "defaultSuccess");
-     data.data.rollSettings.fail.value = game.settings.get("trinity", "defaultFail");
-     data.data.rollSettings.expl.value = game.settings.get("trinity", "defaultExplode");
-     data.data.rollSettings.nsca.value = game.settings.get("trinity", "defaultNScale");
-     data.data.rollSettings.dsca.value = game.settings.get("trinity", "defaultDScale");
-
      // Initialize empty items
      data.items = [];
 
@@ -65,6 +58,14 @@ export class TrinityActor extends Actor {
     const actorData = this.data;
     const data = actorData.data;
     const flags = actorData.flags;
+
+    // Default roll Settings:
+    actorData.data.rollSettings.succ.value = actorData.data.rollSettings.succ.value || game.settings.get("trinity", "defaultSuccess");
+    actorData.data.rollSettings.fail.value = actorData.data.rollSettings.fail.value || game.settings.get("trinity", "defaultFail");
+    actorData.data.rollSettings.expl.value = actorData.data.rollSettings.expl.value || game.settings.get("trinity", "defaultExplode");
+    actorData.data.rollSettings.nsca.value = actorData.data.rollSettings.nsca.value || game.settings.get("trinity", "defaultNScale");
+    actorData.data.rollSettings.dsca.value = actorData.data.rollSettings.dsca.value || game.settings.get("trinity", "defaultDScale");
+
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
