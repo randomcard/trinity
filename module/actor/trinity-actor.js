@@ -14,6 +14,13 @@ export class TrinityActor extends Actor {
        return super.create(data, options);
      }
 
+     // Default roll Settings:
+     data.data.rollSettings.succ.value = game.settings.get("trinity", "defaultSuccess");
+     data.data.rollSettings.fail.value = game.settings.get("trinity", "defaultFail");
+     data.data.rollSettings.expl.value = game.settings.get("trinity", "defaultExplode");
+     data.data.rollSettings.nsca.value = game.settings.get("trinity", "defaultNScale");
+     data.data.rollSettings.dsca.value = game.settings.get("trinity", "defaultDScale");
+
      // Initialize empty items
      data.items = [];
 

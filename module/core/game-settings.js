@@ -79,13 +79,13 @@ game.settings.register("trinity", "defaultDScale", {
 
 game.settings.register("trinity", "healthModel", {
   name: "Health Model",
-  hint: "Dice with the result or higher are counted as successes.",
+  hint: "Choose between standard and non-standard health models.",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
   type: String,
   choices: {           // If choices are defined, the resulting setting will be a select menu
     "modelT": "Trinity Continuum Standard",
-    "modelM": "Storyteller Standard"
+    "modelM": "Storyteller/WoD"
   },
   default: "modelT",        // The default value for the setting
   onChange: value => { // A callback function which triggers when the setting is changed
