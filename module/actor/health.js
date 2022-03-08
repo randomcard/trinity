@@ -60,7 +60,7 @@ function modelSetup(model) {
   ];
 
   // Model S - Storyteller / WoD
-  let modelT = [
+  let modelS = [
     {
       name : "Bruised (-0)",
       penalty : 0,
