@@ -1,4 +1,4 @@
-import { setHealth } from "/health.js"; // Overview App
+import { setHealth } from "./health.js"; // Overview App
 
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
