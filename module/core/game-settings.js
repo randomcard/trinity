@@ -132,6 +132,7 @@ game.settings.register("trinity", "momentum-spent", {
 // End World Settings
 
 // Overview
+let overview;
 overview = new OverviewApp();
 /**
  * Register settings
