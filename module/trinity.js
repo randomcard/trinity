@@ -11,6 +11,7 @@ import { OverviewApp } from "./overview/overview.js"; // Overview App
 import { TrinityCombat } from "./combat/trinity-combat.js"; // Custom Combat Class
 import { loadTrinityTemplates } from "./core/templates.js"; // HTML Templates
 import { handlebarHelpers } from "./core/handlebar-helpers.js"; // Handlebar Helpers
+import { gameSettings } from "./core/game-settings.js"; // Game Settings
 
 // Overview
 let overview;
@@ -24,8 +25,9 @@ Hooks.once('init', async function() {
     TRoll
   };
 
+  gameSettings();
 
-
+  /*
   // World settings
   // Register a world setting
   game.settings.register("trinity", "momentum-max", {
@@ -67,9 +69,6 @@ Hooks.once('init', async function() {
 
   // Overview
   overview = new OverviewApp();
-  /**
-   * Register settings
-   */
    [
     {
       name: "EnablePlayerAccess",
@@ -90,6 +89,7 @@ Hooks.once('init', async function() {
     game.settings.register("trinity", setting.name, options);
   });
   // Overview End
+  */
 
   /**
    * Set an initiative formula for the system
