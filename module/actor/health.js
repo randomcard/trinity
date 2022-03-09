@@ -26,6 +26,17 @@ export function setHealth(actorData) {
       console.log("boxGroup", boxGroup);
       if (typeof boxGroup !== 'undefined' ) {
         console.log("boxGroup not undefinded");
+        // by index?
+        for (let [index, state] of boxGroup.states.entries()) {
+          console.log("states loop: s", state);
+          if (state === 0) {
+            console.log("states loop - 0 state");
+            boxGroup.states[index] = 3;                          // SET HERE
+            console.log("states loop - 0 state: s", state);
+            assigned = true; break;
+          }
+        }
+        /*
         for (let s of boxGroup.states) {
           console.log("states loop: s", s);
           if (s === 0) {
@@ -33,10 +44,11 @@ export function setHealth(actorData) {
             s = 3;                                        // SET HERE
             console.log("states loop - 0 state: s", s);
             console.log("states loop - 0 state: boxGroup", boxGroup);
-            console.log("states loop - 0 state: boxGroup.states", boxGroup.states);
+            console.log("states loop - 0 state: boxGroup.states", boxGroup.states[0]);
             assigned = true; break;
           }
         }
+        */
         if ( !assigned ) { boxGroup.states.push(4); }
       }
       console.log("boxGroup at bottom", boxGroup);        // NOT SET HERE
