@@ -96,6 +96,7 @@ export function handlebarHelpers() {
     return dots;
   });
 
+/* Old Healthbox helper
   Handlebars.registerHelper('toHealthBoxes', function(h) {
     let boxes = '';
     let extraBox = '<i class="fas fa-plus-square"></i>';
@@ -106,7 +107,22 @@ export function handlebarHelpers() {
     for (let i = 0; i < h.extra; i++) { boxes += extraBox; }
     return boxes;
   });
+*/
 
+  Handlebars.registerHelper('toHealthBoxes', function(states) {
+    let boxes = '';
+    let extraBox = '<i class="fas fa-plus-square"></i>';
+    let filledBox = '<i class="fas fa-square"></i>';
+    let emptyBox = '<i class="far fa-square"></i>';
+    for (let s of states) {
+      if (s === 0) { boxes += emptyBox; }
+      if (s === 3) { boxes += filledBox; }
+      if (s === 4) { boxes += extraBox; }
+    }
+    return boxes;
+  });
+
+/* No longer used??
   Handlebars.registerHelper('toFilledBoxes', function(n) {
     let boxes = '';
     let filledBox = '<i class="fas fa-square"></i>';
@@ -133,6 +149,7 @@ export function handlebarHelpers() {
     }
     return boxes;
   });
+*/
 
   /* No longer needed
   Handlebars.registerHelper('lookupSavedRoll', function(rollID, context) {
