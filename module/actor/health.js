@@ -3,8 +3,8 @@ export function setHealth(actorData) {
   // Create default models, if not already present
   console.log("-------------length test", actorData.data.health.models.modelT.length);
   console.log("-------------length test - model T", actorData.data.health.models.modelT);
-  ( actorData.data.health.models.modelT.length > 0 ) ? actorData.data.health.models.modelT : modelSetup("modelT");
-  ( actorData.data.health.models.modelS.length > 0 ) ? actorData.data.health.models.modelS : modelSetup("modelS");
+  ( actorData.data.health.models.modelT.length !== 0 ) ? actorData.data.health.models.modelT : modelSetup("modelT");
+  ( actorData.data.health.models.modelS.length !== 0 ) ? actorData.data.health.models.modelS : modelSetup("modelS");
   console.log("-------------length test - model T after", actorData.data.health.models.modelT);
 
   // Set health, using model determined by game.setting
