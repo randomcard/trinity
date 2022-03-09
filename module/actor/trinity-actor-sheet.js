@@ -729,7 +729,7 @@ export class TrinityActorSheet extends ActorSheet {
       */
       itemData.data.injury = {};
       // itemData.data.injury.value = value;
-      itemData.data.injury.type = header.dataset.healthtype;
+      itemData.data.injury.type = +header.dataset.healthtype;
       itemData.data.flags = {};
       itemData.data.flags.isInjury = true;
       itemData.data.flags.isComplication = true;
