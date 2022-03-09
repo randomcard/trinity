@@ -17,7 +17,7 @@ export function handlebarHelpers() {
 
   // Used for the HealthBox edit - in need of FIXME / TODO
   Handlebars.registerHelper('hbPathFixer', function(str, act) {
-    return act.data.data.healthboxes[str].value;
+    return act.data.data.health.details[str].boxes;
   });
 
   /* Not used now, fixed template

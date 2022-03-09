@@ -710,9 +710,11 @@ export class TrinityActorSheet extends ActorSheet {
     }
 
     // Injury Handling
-    if (typeof header.dataset.hbname !== 'undefined' && header.dataset.hbname !== null) {
+    // if (typeof header.dataset.hbname !== 'undefined' && header.dataset.hbname !== null) {
+    if (typeof header.dataset.healthtype !== 'undefined' && header.dataset.healthtype !== null) {
       console.log("Create Item - Injury");
-      let value = 0;
+      //let type = header.dataset.healthtype;
+      /*
       console.log(header.dataset.hbname);
       switch(header.dataset.hbname) {
         case "Bruised":
@@ -724,14 +726,16 @@ export class TrinityActorSheet extends ActorSheet {
         case "Taken Out":
           value = 5; break;
       }
+      */
       itemData.data.injury = {};
       // itemData.data.injury.value = value;
-      itemData.data.injury.type = value;
+      itemData.data.injury.type = header.dataset.healthtype;
       itemData.data.flags = {};
       itemData.data.flags.isInjury = true;
       itemData.data.flags.isComplication = true;
       itemData.data.complication = {};
-      itemData.data.complication.value = value;
+      // itemData.data.complication.value = value;
+      itemData.data.complication.value = this.actor.data.data.health.details.find(b => (b.type === header.dataset.healthtype)).penalty;
 
       // pop-out new condition, bypass normal process
       delete itemData.data["type"];

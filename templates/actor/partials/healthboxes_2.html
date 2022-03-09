@@ -1,0 +1,17 @@
+{{!-- Healthboxes --}}
+<div class="boxed">
+  <div class="flex-fit flex-valign bold">Injuries:&ensp;</div>
+  <div class="healthboxes flexcol">
+    {{#each this.actor.healthBoxes as |healthBox key|}}
+    <div class="grid grid-2col lowmargin">
+      <div class="bold right-vcenter">{{healthBox.name}}</div>
+      <div class="big icons left-vcenter clickable item-create can-hide" data-hbname="{{healthBox.name}}" id="{{key}}" data-type="condition">{{{toHealthBoxes healthBox}}}</div>
+      <div class="flex-parent-nowrap-center edit-area can-hide hidden">
+        <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.healthboxes.{{key}}.value"></i>
+        <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="Defense-value" name="data.healthboxes.{{key}}.value" value="{{hbPathFixer key ../actor}}" data-dtype="Number"/>
+        <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.healthboxes.{{key}}.value"></i>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
