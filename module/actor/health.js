@@ -1,10 +1,60 @@
 export function setHealth(actorData) {
 
-  actorData.data.healthModels.modelT = actorData.data.healthModels.modelT || modelSetup("modelT");
-  actorData.data.healthModels.modelS = actorData.data.healthModels.modelS || modelSetup("modelS");
+  // Create default models, if not already present
+  actorData.data.health.models.modelT = actorData.data.health.models.modelT || modelSetup("modelT");
+  actorData.data.health.models.modelS = actorData.data.health.models.modelS || modelSetup("modelS");
 
-  if (game.settings.get("trinity", "healthModel") === "modelT") {actorData.data.health = actorData.data.healthModels.modelT;}
-  if (game.settings.get("trinity", "healthModel") === "modelS") {actorData.data.health = actorData.data.healthModels.modelS;}
+  // Set health, using model determined by game.setting
+  if (game.settings.get("trinity", "healthModel") === "modelT") {actorData.data.health.details = actorData.data.health.models.modelT;}
+  if (game.settings.get("trinity", "healthModel") === "modelS") {actorData.data.health.details = actorData.data.health.models.modelS;}
+
+  // update # of states based on # of boxes
+  for (let i of actorData.data.health.details) {
+    if (i.boxes < 0 ) { i.boxes = 0; }
+    while ( i.boxes > i.states.length ) { i.states.push(0); }
+    while ( i.boxes < i.states.length ) { i.states.length = i.boxes; }
+  }
+
+  // Model T:
+  // Assign states by injury item look-up & add extra states when needed
+  if (game.settings.get("trinity", "healthModel") === "modelT") {
+    let injuries = actorData.items.filter(i => i.data.data.flags.isInjury);
+    for (let i of injuries) {
+      let assigned = false;
+      let boxGroup = actorData.data.health.details.filter(b => (b.penalty === i.data.data.injury.value) ;
+      for (let s of boxGroup.states) {
+        if (s > 0) { s = 3; assigned = false; break; }
+      }
+      if ( !assigned ) { boxGroup.states.push(4); }
+    }
+  }
+
+  // Set health value/max for token bars, using # of Boxes,
+  // and set the highest order penalty/status for display and roller use
+  let totalBoxes = 0;
+  let filledBoxes = 0;
+  let topName = "";
+  let topPenalty = null;
+  let topOrder = 0;
+
+  for (let i of actorData.data.health.details) {
+    totalBoxes += i.boxes;
+    for (let s of i.states) {
+      if (s > 0) {
+        ++filledBoxes;
+        if (i.order > topOrder) {
+          topName = i.name;
+          topPenalty = i.penalty;
+          topOrder = i.order;
+        }
+      }
+    }
+  }
+
+  actorData.data.health.summary.max = totalBoxes;
+  actorData.data.health.summary.value = filledBoxes;
+  actorData.data.health.summary.status = topName;
+  actorData.data.health.summary.penalty = topPenalty;
 
 }
 
@@ -17,6 +67,7 @@ States: The state of each health box:
   1 - Non-Leathal (Model S)
   2 - Leathal (Model S)
   3 - Injured (Model T) / Aggravated (Model S)
+  4 - Excess Damage (Model T)
 */
 function modelSetup(model) {
 

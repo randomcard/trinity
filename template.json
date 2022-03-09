@@ -16,7 +16,19 @@
           "isActivePlayer" : false,
           "isTakenOut" : false
         },
-        "health": {},
+        "health": {
+          "details" : {},
+          "summary" : {
+            "value" : null,
+            "max" : null,
+            "status" : "",
+            "penalty" : 0
+          },
+          "models" : {
+            "ModelT" : [],
+            "ModelS" : []
+          }
+        },
         "healthModels": {
           "ModelT" : [],
           "ModelS" : []
