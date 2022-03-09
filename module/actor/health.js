@@ -21,7 +21,7 @@ export function setHealth(actorData) {
     let injuries = actorData.items.filter(i => i.data.data.flags.isInjury);
     for (let i of injuries) {
       let assigned = false;
-      let boxGroup = actorData.data.health.details.filter(b => (b.penalty === i.data.data.injury.value) ;
+      let boxGroup = actorData.data.health.details.filter(b => (b.penalty === i.data.data.injury.value)) ;
       for (let s of boxGroup.states) {
         if (s > 0) { s = 3; assigned = false; break; }
       }
