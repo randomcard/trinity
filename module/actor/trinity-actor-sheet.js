@@ -735,6 +735,7 @@ export class TrinityActorSheet extends ActorSheet {
       itemData.data.flags.isComplication = true;
       itemData.data.complication = {};
       // itemData.data.complication.value = value;
+      console.log("injury create itemdata top", itemData);
       console.log("header.dataset.healthtype", header.dataset.healthtype);
       console.log("this.actor.data.data.health.details", this.actor.data.data.health.details);
       console.log("find", this.actor.data.data.health.details.find(b => (b.type === +header.dataset.healthtype)));
@@ -743,7 +744,7 @@ export class TrinityActorSheet extends ActorSheet {
       // pop-out new condition, bypass normal process
       delete itemData.data["type"];
 
-
+      console.log("injury create itemdata bottom", itemData);
       this.actor.createEmbeddedDocuments('Item', [itemData], { renderSheet: true });
 
       return;
