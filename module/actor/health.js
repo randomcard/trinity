@@ -1,8 +1,8 @@
 export function setHealth(actorData) {
 
   // Create default models, if not already present
-  ( actorData.data.health.models.modelT !== [] ) ? actorData.data.health.models.modelT : modelSetup("modelT");
-  ( actorData.data.health.models.modelS !== [] ) ? actorData.data.health.models.modelS : modelSetup("modelS");
+  ( actorData.data.health.models.modelT.length > 0 ) ? actorData.data.health.models.modelT : modelSetup("modelT");
+  ( actorData.data.health.models.modelS.length > 0 ) ? actorData.data.health.models.modelS : modelSetup("modelS");
 
   // Set health, using model determined by game.setting
   if (game.settings.get("trinity", "healthModel") === "modelT") {actorData.data.health.details = actorData.data.health.models.modelT;}
