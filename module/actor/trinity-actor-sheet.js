@@ -740,6 +740,7 @@ export class TrinityActorSheet extends ActorSheet {
       console.log("this.actor.data.data.health.details", this.actor.data.data.health.details);
       console.log("find", this.actor.data.data.health.details.find(b => (b.type === +header.dataset.healthtype)));
       itemData.data.complication.value = this.actor.data.data.health.details.find(b => (b.type === +header.dataset.healthtype)).penalty;
+      itemData.data.injury.value = this.actor.data.data.health.details.find(b => (b.type === +header.dataset.healthtype)).penalty;
 
       // pop-out new condition, bypass normal process
       delete itemData.data["type"];

@@ -36,10 +36,13 @@ export class TrinityItem extends Item {
     if (this.data.data.complication.value > 0) {this.data.data.flags.isComplication = true;}
     else {{this.data.data.flags.isComplication = false;}
     */
+
+    /* Don't think this section is needed, if it ever was. Downgrading an injury should still keep it as an injury.
     if (typeof this.data.data.injury !== "undefined" && typeof this.data.data.injury.value !== "undefined") {
       if (this.data.data.injury.value < 1) {this.data.data.flags.isInjury = false;}
       else {this.data.data.flags.isInjury = true;}
     }
+    */
   }
 
   _matchValues(itemData) {
