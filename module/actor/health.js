@@ -24,8 +24,10 @@ export function setHealth(actorData) {
       console.log("boxGroup i", i);
       let boxGroup = actorData.data.health.details.find(b => (b.type === i.data.data.injury.type)) ;
       console.log("boxGroup", boxGroup);
-      if ( boxGroup ) {
+      if (typeof boxGroup !== 'undefined' ) {
+        console.log("boxGroup not undefinded");
         for (let s of boxGroup.states) {
+          console.log("states loop");
           if (s === 0) { s = 3; assigned = true; break; }
         }
         if ( !assigned ) { boxGroup.states.push(4); }
