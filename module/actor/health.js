@@ -3,9 +3,12 @@ export function setHealth(actorData) {
   // Create default models, if not already present
   console.log("-------------length test", actorData.data.health.models.modelT.length);
   console.log("-------------length test - model T", actorData.data.health.models.modelT);
+  if ( actorData.data.health.models.modelT.length !== 0 ) { actorData.data.health.models.modelT; } else { modelSetup("modelT"); }
+  if ( actorData.data.health.models.modelS.length !== 0 ) { actorData.data.health.models.modelS; } else { modelSetup("modelS"); }
+  /*
   ( actorData.data.health.models.modelT.length !== 0 ) ? actorData.data.health.models.modelT : modelSetup("modelT");
   ( actorData.data.health.models.modelS.length !== 0 ) ? actorData.data.health.models.modelS : modelSetup("modelS");
-  console.log("-------------length test - model T after", actorData.data.health.models.modelT);
+  console.log("-------------length test - model T after", actorData.data.health.models.modelT);*/
 
   // Set health, using model determined by game.setting
   if (game.settings.get("trinity", "healthModel") === "modelT") {actorData.data.health.details = actorData.data.health.models.modelT;}
