@@ -21,6 +21,7 @@ export function setHealth(actorData) {
     let injuries = actorData.items.filter(i => i.data.data.flags.isInjury);
     for (let i of injuries) {
       let assigned = false;
+      console.log("boxGroup i", i);
       let boxGroup = actorData.data.health.details.find(b => (b.type === i.data.data.injury.type)) ;
       console.log("boxGroup", boxGroup);
       if ( boxGroup ) {
