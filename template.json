@@ -17,7 +17,7 @@
           "isTakenOut" : false
         },
         "health": {
-          "details" : {},
+          "details" : [],
           "summary" : {
             "value" : null,
             "max" : null,
