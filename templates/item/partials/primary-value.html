@@ -75,7 +75,7 @@
       <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.complication.value"></i>
       <div class="flex-child flex-right flex-valign">
         <label class="flex-fit flex-valign resource-label" for="injury-level">Injury:</label>
-        <select id="injury-level" name="data.injury.value" data-dtype="Number">
+        <select id="injury-level" name="data.injury.type" data-dtype="Number">
           {{#select data.data.injury.type}}
             <option value="">None</option>
             {{#each item.parent.data.data.health.details as |healthtype id|}}
