@@ -3,7 +3,13 @@ export function setHealth(actorData) {
   // Create default models, if not already present
   console.log("-------------length test", actorData.data.health.models.modelT.length);
   console.log("-------------length test - model T", actorData.data.health.models.modelT);
-  if ( actorData.data.health.models.modelT.length !== 0 ) { actorData.data.health.models.modelT; } else { modelSetup("modelT"); }
+  if ( actorData.data.health.models.modelT.length !== 0 ) {
+    console.log("--picked up as true");
+    actorData.data.health.models.modelT; 
+  } else {
+    console.log("--picked up as false");
+    modelSetup("modelT");
+  }
   if ( actorData.data.health.models.modelS.length !== 0 ) { actorData.data.health.models.modelS; } else { modelSetup("modelS"); }
   /*
   ( actorData.data.health.models.modelT.length !== 0 ) ? actorData.data.health.models.modelT : modelSetup("modelT");
