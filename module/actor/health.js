@@ -30,13 +30,16 @@ export function setHealth(actorData) {
           console.log("states loop: s", s);
           if (s === 0) {
             console.log("states loop - 0 state");
-            s = 3; 
+            s = 3;                                        // SET HERE
             console.log("states loop - 0 state: s", s);
-            assigned = true; break; }
+            console.log("states loop - 0 state: boxGroup", boxGroup);
+            console.log("states loop - 0 state: boxGroup.states", boxGroup.states);
+            assigned = true; break;
+          }
         }
         if ( !assigned ) { boxGroup.states.push(4); }
       }
-      console.log("boxGroup at bottom", boxGroup);
+      console.log("boxGroup at bottom", boxGroup);        // NOT SET HERE
     }
   }
 
