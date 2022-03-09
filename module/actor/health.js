@@ -28,7 +28,9 @@ export function setHealth(actorData) {
         console.log("boxGroup not undefinded");
         for (let s of boxGroup.states) {
           console.log("states loop");
-          if (s === 0) { s = 3; assigned = true; break; }
+          if (s === 0) {
+            console.log("states loop - 0 state");
+            s = 3; assigned = true; break; }
         }
         if ( !assigned ) { boxGroup.states.push(4); }
       }
