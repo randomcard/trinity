@@ -71,6 +71,9 @@ export class TrinityActor extends Actor {
     // Health Setup
     setHealth(actorData);
 
+    // Default Token Bar setting
+    actorData.token.bar1 = actorData.token.bar1 || {"attribute" : "health.summary"},
+
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     if (actorData.type === 'TrinityCharacter') this._prepareTrinityCharacterData(actorData);

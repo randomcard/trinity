@@ -725,7 +725,8 @@ export class TrinityActorSheet extends ActorSheet {
           value = 5; break;
       }
       itemData.data.injury = {};
-      itemData.data.injury.value = value;
+      // itemData.data.injury.value = value;
+      itemData.data.injury.type = value;
       itemData.data.flags = {};
       itemData.data.flags.isInjury = true;
       itemData.data.flags.isComplication = true;

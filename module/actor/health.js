@@ -21,39 +21,41 @@ export function setHealth(actorData) {
     let injuries = actorData.items.filter(i => i.data.data.flags.isInjury);
     for (let i of injuries) {
       let assigned = false;
-      let boxGroup = actorData.data.health.details.find(b => (b.penalty === i.data.data.injury.value)) ;
+      let boxGroup = actorData.data.health.details.find(b => (b.type === i.data.data.injury.type)) ;
       console.log("boxGroup", boxGroup);
-      for (let s of boxGroup.states) {
-        if (s > 0) { s = 3; assigned = false; break; }
+      if ( boxGroup ) {
+        for (let s of boxGroup.states) {
+          if (s === 0) { s = 3; assigned = true; break; }
+        }
+        if ( !assigned ) { boxGroup.states.push(4); }
       }
-      if ( !assigned ) { boxGroup.states.push(4); }
     }
   }
 
   // Set health value/max for token bars, using # of Boxes,
-  // and set the highest order penalty/status for display and roller use
+  // and set the highest type penalty/status for display and roller use
   let totalBoxes = 0;
   let filledBoxes = 0;
   let topName = "";
   let topPenalty = null;
-  let topOrder = 0;
+  let topType = 0;
 
   for (let i of actorData.data.health.details) {
     totalBoxes += i.boxes;
     for (let s of i.states) {
       if (s > 0) {
         ++filledBoxes;
-        if (i.order > topOrder) {
+        if (i.type > topType) {
           topName = i.name;
           topPenalty = i.penalty;
-          topOrder = i.order;
+          topType = i.type;
         }
       }
     }
   }
 
-  actorData.data.health.summary.max = totalBoxes;
-  actorData.data.health.summary.value = filledBoxes;
+  actorData.data.health.summary.max = totalBoxes - 1; // Subtracting Taken Out / Incapacitated
+  actorData.data.health.summary.value = totalBoxes - 1 - filledBoxes;
   actorData.data.health.summary.status = topName;
   actorData.data.health.summary.penalty = topPenalty;
 
@@ -79,35 +81,35 @@ function modelSetup(model) {
       penalty : 0,
       boxes : 0,
       states : [],
-      order : 1
+      type : 1
     },
     {
       name : "Bruised",
       penalty : 1,
       boxes : 1,
       states : [0],
-      order : 2
+      type : 2
     },
     {
       name : "Injured",
       penalty : 2,
       boxes : 1,
       states : [0],
-      order : 3
+      type : 3
     },
     {
       name : "Maimed",
       penalty : 4,
       boxes : 1,
       states : [0],
-      order : 4
+      type : 4
     },
     {
       name : "Taken Out",
       penalty : 0,
       boxes : 1,
       states : [0],
-      order : 5
+      type : 5
     }
   ];
 
@@ -118,49 +120,49 @@ function modelSetup(model) {
       penalty : 0,
       boxes : 1,
       states : [0],
-      order : 1
+      type : 1
     },
     {
       name : "Hurt (-1)",
       penalty : -1,
       boxes : 1,
       states : [0],
-      order : 2
+      type : 2
     },
     {
       name : "Injured (-1)",
       penalty : -1,
       boxes : 1,
       states : [0],
-      order : 3
+      type : 3
     },
     {
       name : "Wounded (-2)",
       penalty : -2,
       boxes : 1,
       states : [0],
-      order : 4
+      type : 4
     },
     {
       name : "Mauled (-2)",
       penalty : -2,
       boxes : 1,
       states : [0],
-      order : 5
+      type : 5
     },
     {
       name : "Crippled (-5)",
       penalty : -5,
       boxes : 1,
       states : [0],
-      order : 6
+      type : 6
     },
     {
       name : "Incapacitated",
       penalty : 0,
       boxes : 1,
       states : [0],
-      order : 7
+      type : 7
     }
   ];
 
