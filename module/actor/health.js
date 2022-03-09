@@ -21,37 +21,16 @@ export function setHealth(actorData) {
     let injuries = actorData.items.filter(i => i.data.data.flags.isInjury);
     for (let i of injuries) {
       let assigned = false;
-      console.log("boxGroup i", i);
       let boxGroup = actorData.data.health.details.find(b => (b.type === i.data.data.injury.type)) ;
-      console.log("boxGroup", boxGroup);
       if (typeof boxGroup !== 'undefined' ) {
-        console.log("boxGroup not undefinded");
-        // by index?
         for (let [index, state] of boxGroup.states.entries()) {
-          console.log("states loop: s", state);
           if (state === 0) {
-            console.log("states loop - 0 state");
-            boxGroup.states[index] = 3;                          // SET HERE
-            console.log("states loop - 0 state: s", state);
+            boxGroup.states[index] = 3;
             assigned = true; break;
           }
         }
-        /*
-        for (let s of boxGroup.states) {
-          console.log("states loop: s", s);
-          if (s === 0) {
-            console.log("states loop - 0 state");
-            s = 3;                                        // SET HERE
-            console.log("states loop - 0 state: s", s);
-            console.log("states loop - 0 state: boxGroup", boxGroup);
-            console.log("states loop - 0 state: boxGroup.states", boxGroup.states[0]);
-            assigned = true; break;
-          }
-        }
-        */
         if ( !assigned ) { boxGroup.states.push(4); }
       }
-      console.log("boxGroup at bottom", boxGroup);        // NOT SET HERE
     }
   }
 
@@ -77,8 +56,8 @@ export function setHealth(actorData) {
     }
   }
 
-  actorData.data.health.summary.max = totalBoxes - 1; // Subtracting Taken Out / Incapacitated
-  actorData.data.health.summary.value = totalBoxes - 1 - filledBoxes;
+  actorData.data.health.summary.max = totalBoxes;
+  actorData.data.health.summary.value = totalBoxes - filledBoxes;
   actorData.data.health.summary.status = topName;
   actorData.data.health.summary.penalty = topPenalty;
 
