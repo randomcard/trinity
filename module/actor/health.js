@@ -34,6 +34,7 @@ export function setHealth(actorData) {
         }
         if ( !assigned ) { boxGroup.states.push(4); }
       }
+      console.log("boxGroup at bottom", boxGroup);
     }
   }
 
