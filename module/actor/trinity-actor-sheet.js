@@ -529,7 +529,8 @@ export class TrinityActorSheet extends ActorSheet {
         if (current === null || current < 0) {
           this.actor.update({ [target]: 0 });
         }
-        this.actor.update({ [target]: ++current });
+        // this.actor.update({ [target]: ++current });
+        this.actor.update({ `${target}`: ++current });
         // this._render(true);
       }
     });
