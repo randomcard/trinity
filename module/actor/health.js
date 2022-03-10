@@ -10,7 +10,16 @@ export function setHealth(actorData) {
   if (game.settings.get("trinity", "healthModel") === "modelS") {actorData.data.health.details = actorData.data.health.models.modelS;}
 
   // update # of states based on # of boxes
+  /*
   for (let i in actorData.data.health.details) {
+    if (i.boxes < 0 ) { i.boxes = 0; }
+    while ( i.boxes > i.states.length ) { i.states.push(0); }
+    while ( i.boxes < i.states.length ) { i.states.length = i.boxes; }
+  }
+  */
+
+  for (let e of Object.keys(actorData.data.health.details)) {
+    let i = actorData.data.health.details[e];
     if (i.boxes < 0 ) { i.boxes = 0; }
     while ( i.boxes > i.states.length ) { i.states.push(0); }
     while ( i.boxes < i.states.length ) { i.states.length = i.boxes; }
@@ -43,7 +52,9 @@ export function setHealth(actorData) {
   let topPenalty = null;
   let topType = 0;
 
-  for (let i in actorData.data.health.details) {
+  // for (let i in actorData.data.health.details) {
+  for (let e of Object.keys(actorData.data.health.details)) {
+    let i = actorData.data.health.details[e];
     totalBoxes += i.boxes;
     for (let s of i.states) {
       if (s > 0) {
