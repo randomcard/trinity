@@ -471,8 +471,8 @@ export class TrinityActorSheet extends ActorSheet {
     function getDescendantProp(obj, desc) {
       var arr = desc.split('.');
       while (arr.length) {
-        console.log("getDescendantProp while loop arr:", arr);
-        console.log("getDescendantProp while loop obj:", obj);
+        // console.log("getDescendantProp while loop arr:", arr);
+        // console.log("getDescendantProp while loop obj:", obj);
         obj = obj[arr.shift()];
       }
       return obj;
@@ -523,7 +523,9 @@ export class TrinityActorSheet extends ActorSheet {
         // this._render(true);
       } else {
         let current = getDescendantProp(this.actor.data, target);
-        console.log("Add Value:", ev);
+        console.log("Add Value, ev:", ev);
+        console.log("Add Value, current:", current);
+        console.log("Add Value, target:", target);
         if (current === null || current < 0) {
           this.actor.update({ [target]: 0 });
         }
