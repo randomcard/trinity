@@ -11,8 +11,8 @@ export function setHealth(actorData) {
   // update # of states based on # of boxes
   for (let i in actorData.data.health.details) {
     if (i.boxes < 0 ) { i.boxes = 0; }
-    while ( i.boxes > Object.keys(i.states).length ) { i.states.push(0); }
-    while ( i.boxes < Object.keys(i.states).length ) { Object.keys(i.states).length = i.boxes; }
+    while ( i.boxes > i.states.length ) { i.states.push(0); }
+    while ( i.boxes < i.states.length ) { i.states.length = i.boxes; }
   }
 
   // Model T:
