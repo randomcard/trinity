@@ -31,7 +31,7 @@ export function setHealth(actorData) {
     let injuries = actorData.items.filter(i => i.data.data.flags.isInjury);
     for (let i of injuries) {
       let assigned = false;
-      let boxGroup = actorData.data.health.details.find(b => (b.type === i.data.data.injury.type)) ;
+      let boxGroup = Object.values(actorData.data.health.details).find(b => (b.type === i.data.data.injury.type)) ;
       if (typeof boxGroup !== 'undefined' ) {
         for (let [index, state] of boxGroup.states.entries()) {
           if (state === 0) {
