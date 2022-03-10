@@ -8,7 +8,7 @@
       <div class="big icons left-vcenter clickable item-create can-hide" data-healthtype="{{healthBox.type}}" data-type="condition">{{{toHealthBoxes healthBox.states}}}</div>
       <div class="flex-parent-nowrap-center edit-area can-hide hidden">
         <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.health.details.{{index}}.boxes"></i>
-        <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="Defense-value" name="data.health.details.{{index}}.boxes" value="{{hbPathFixer index ../actor}}" data-dtype="Number"/>
+        <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="box-{{index}}-value" name="data.health.details.{{index}}.boxes" value="{{hbPathFixer index ../actor}}" data-dtype="Number"/>
         <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.health.details.{{index}}.boxes"></i>
       </div>
     </div>
