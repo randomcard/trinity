@@ -743,7 +743,8 @@ export class TrinityActorSheet extends ActorSheet {
       console.log("injury create itemdata top", itemData);
       console.log("header.dataset.healthtype", header.dataset.healthtype);
       console.log("this.actor.data.data.health.details", this.actor.data.data.health.details);
-      console.log("find", this.actor.data.data.health.details.find(b => (b.type === +header.dataset.healthtype)));
+      // console.log("find", this.actor.data.data.health.details.find(b => (b.type === +header.dataset.healthtype)));
+      // console.log("find", Object.hasOwn(this.actor.data.data.health.details, .find(b => (b.type === +header.dataset.healthtype)));
       itemData.data.complication.value = this.actor.data.data.health.details.find(b => (b.type === +header.dataset.healthtype)).penalty;
       itemData.data.injury.value = this.actor.data.data.health.details.find(b => (b.type === +header.dataset.healthtype)).penalty;
 
