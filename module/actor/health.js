@@ -178,7 +178,7 @@ function modelSetup(model) {
       states : [0],
       type : 7
     }
-  ];
+  };
 
   if (model === "modelT") {return modelT;}
   if (model === "modelTNPC") {return modelTNPC;}
