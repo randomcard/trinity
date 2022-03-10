@@ -1,8 +1,9 @@
 export function setHealth(actorData) {
 
   // Create default models, if not already present
-  if ( Object.keys(actorData.data.health.models.modelT).length === 0 ) { actorData.data.health.models.modelT = modelSetup("modelT"); }
-  if ( Object.keys(actorData.data.health.models.modelS).length === 0 ) { actorData.data.health.models.modelS = modelSetup("modelS"); }
+  console.log("modelT test:", modelSetup("modelT"));
+  if ( typeof actorData.data.health.models.modelT === "undefined" || Object.keys(actorData.data.health.models.modelT).length === 0 ) { actorData.data.health.models.modelT = modelSetup("modelT"); }
+  if ( typeof actorData.data.health.models.modelT === "undefined" || Object.keys(actorData.data.health.models.modelS).length === 0 ) { actorData.data.health.models.modelS = modelSetup("modelS"); }
 
   // Set health, using model determined by game.setting
   if (game.settings.get("trinity", "healthModel") === "modelT") {actorData.data.health.details = actorData.data.health.models.modelT;}
@@ -124,7 +125,7 @@ function modelSetup(model) {
       states : [],
       type : 1
     }
-  }
+  };
 
 
   // Model S - Storyteller / WoD
