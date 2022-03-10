@@ -471,6 +471,8 @@ export class TrinityActorSheet extends ActorSheet {
     function getDescendantProp(obj, desc) {
       var arr = desc.split('.');
       while (arr.length) {
+        console.log("getDescendantProp while loop arr:", arr);
+        console.log("getDescendantProp while loop obj:", obj);
         obj = obj[arr.shift()];
       }
       return obj;
