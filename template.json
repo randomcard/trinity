@@ -25,8 +25,8 @@
             "penalty" : 0
           },
           "models" : {
-            "modelT" : [],
-            "modelS" : []
+            "modelT" : {},
+            "modelS" : {}
           }
         },
         "healthModels": {

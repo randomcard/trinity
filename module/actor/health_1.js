@@ -1,18 +1,18 @@
 export function setHealth(actorData) {
 
   // Create default models, if not already present
-  if ( actorData.data.health.models.modelT.length === {} ) { actorData.data.health.models.modelT = modelSetup("modelT"); }
-  if ( actorData.data.health.models.modelS.length === {} ) { actorData.data.health.models.modelS = modelSetup("modelS"); }
+  if ( actorData.data.health.models.modelT.length === 0 ) { actorData.data.health.models.modelT = modelSetup("modelT"); }
+  if ( actorData.data.health.models.modelS.length === 0 ) { actorData.data.health.models.modelS = modelSetup("modelS"); }
 
   // Set health, using model determined by game.setting
   if (game.settings.get("trinity", "healthModel") === "modelT") {actorData.data.health.details = actorData.data.health.models.modelT;}
   if (game.settings.get("trinity", "healthModel") === "modelS") {actorData.data.health.details = actorData.data.health.models.modelS;}
 
   // update # of states based on # of boxes
-  for (let i in actorData.data.health.details) {
+  for (let i of actorData.data.health.details) {
     if (i.boxes < 0 ) { i.boxes = 0; }
-    while ( i.boxes > Object.keys(i.states).length ) { i.states.push(0); }
-    while ( i.boxes < Object.keys(i.states).length ) { Object.keys(i.states).length = i.boxes; }
+    while ( i.boxes > i.states.length ) { i.states.push(0); }
+    while ( i.boxes < i.states.length ) { i.states.length = i.boxes; }
   }
 
   // Model T:
@@ -42,7 +42,7 @@ export function setHealth(actorData) {
   let topPenalty = null;
   let topType = 0;
 
-  for (let i in actorData.data.health.details) {
+  for (let i of actorData.data.health.details) {
     totalBoxes += i.boxes;
     for (let s of i.states) {
       if (s > 0) {
@@ -77,101 +77,89 @@ States: The state of each health box:
 function modelSetup(model) {
 
   // Model T - Trinity Continuum
-  let modelT = {
-    armor : {
+  let modelT = [
+    {
       name : "Armor",
       penalty : 0,
       boxes : 0,
       states : [],
       type : 1
     },
-    bruised : {
+    {
       name : "Bruised",
       penalty : 1,
       boxes : 1,
       states : [0],
       type : 2
     },
-    injured : {
+    {
       name : "Injured",
       penalty : 2,
       boxes : 1,
       states : [0],
       type : 3
     },
-    maimed : {
+    {
       name : "Maimed",
       penalty : 4,
       boxes : 1,
       states : [0],
       type : 4
     },
-    out : {
+    {
       name : "Taken Out",
       penalty : 0,
       boxes : 1,
       states : [0],
       type : 5
     }
-  };
-
-  // ModelT NPC
-  let modelTNPC = {
-    health : {
-      name : "Health",
-      penalty : 0,
-      boxes : 0,
-      states : [],
-      type : 1
-    }
-  }
-
+  ];
 
   // Model S - Storyteller / WoD
-  let modelS = {
-    bruised : {
+  let modelS = [
+    {
       name : "Bruised (-0)",
       penalty : 0,
       boxes : 1,
       states : [0],
       type : 1
     },
-    hurt : {
+    {
       name : "Hurt (-1)",
       penalty : -1,
       boxes : 1,
       states : [0],
       type : 2
     },
-    injured : {
+    {
       name : "Injured (-1)",
       penalty : -1,
       boxes : 1,
       states : [0],
       type : 3
     },
-    wounded : {
+    {
       name : "Wounded (-2)",
       penalty : -2,
       boxes : 1,
       states : [0],
       type : 4
     },
-    mauled : {
+    {
       name : "Mauled (-2)",
       penalty : -2,
       boxes : 1,
       states : [0],
       type : 5
     },
-    crippled : {
+    {
       name : "Crippled (-5)",
       penalty : -5,
       boxes : 1,
       states : [0],
       type : 6
     },
-    incap : {
+    {
       name : "Incapacitated",
       penalty : 0,
       boxes : 1,
@@ -181,7 +169,6 @@ function modelSetup(model) {
   ];
 
   if (model === "modelT") {return modelT;}
-  if (model === "modelTNPC") {return modelTNPC;}
   if (model === "modelS") {return modelS;}
 
 }
