@@ -530,7 +530,7 @@ export class TrinityActorSheet extends ActorSheet {
           this.actor.update({ [target]: 0 });
         }
         // this.actor.update({ [target]: ++current });
-        this.actor.update({ `[${target}]`: ++current });
+        this.actor.update({ [`${target}`]: ++current });
         // this._render(true);
       }
     });
