@@ -1,6 +1,6 @@
 export function setHealth(actorData) {
   // let actor = game.actors.get(actorData._id);
-  console.log("setHealth Start", actordata, actorData.data.flags.isHealthModelUpdated);
+  console.log("setHealth Start", actorData, actorData.data.flags.isHealthModelUpdated);
 
   // Create default models, if not already present
   if ( Object.keys(actorData.data.health.models.modelT).length === 0 ) { actorData.data.health.models.modelT = modelSetup("modelT"); }
@@ -13,7 +13,7 @@ export function setHealth(actorData) {
     actorData.data.health.details = JSON.parse(JSON.stringify(actorData.data.health.models[modelName])); // JSON Deep Copy
     // actor.update({ "data.flags.isHealthModelUpdated": true });
     actorData.data.flags.isHealthModelUpdated = true;
-    console.log("Flag Handling End", actordata, actorData.data.flags.isHealthModelUpdated);
+    console.log("Flag Handling End", actorData, actorData.data.flags.isHealthModelUpdated);
   }
   // if (game.settings.get("trinity", "healthModel") === "modelT") {actorData.data.health.details = actorData.data.health.models.modelT;}
   // if (game.settings.get("trinity", "healthModel") === "modelS") {actorData.data.health.details = actorData.data.health.models.modelS;}
