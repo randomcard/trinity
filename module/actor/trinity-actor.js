@@ -85,10 +85,10 @@ export class TrinityActor extends Actor {
     // documents or derived data.
 
     // Health Setup
-    setHealth(actorData);
+    setHealth(this.data);
 
     // Default Token Bar setting
-    actorData.token.bar1 = actorData.token.bar1 || {"attribute" : "health.summary"};
+    this.data.token.bar1 = this.data.token.bar1 || {"attribute" : "health.summary"};
 
   }
 
