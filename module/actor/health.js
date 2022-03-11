@@ -1,13 +1,17 @@
 export function setHealth(actorData) {
 
   // Create default models, if not already present
-  console.log("modelT test:", modelSetup("modelT"));
-  if ( typeof actorData.data.health.models.modelT === "undefined" || Object.keys(actorData.data.health.models.modelT).length === 0 ) { actorData.data.health.models.modelT = modelSetup("modelT"); }
-  if ( typeof actorData.data.health.models.modelT === "undefined" || Object.keys(actorData.data.health.models.modelS).length === 0 ) { actorData.data.health.models.modelS = modelSetup("modelS"); }
+  if ( Object.keys(actorData.data.health.models.modelT).length === 0 ) { actorData.data.health.models.modelT = modelSetup("modelT"); }
+  if ( Object.keys(actorData.data.health.models.modelS).length === 0 ) { actorData.data.health.models.modelS = modelSetup("modelS"); }
 
   // Set health, using model determined by game.setting
-  if (game.settings.get("trinity", "healthModel") === "modelT") {actorData.data.health.details = actorData.data.health.models.modelT;}
-  if (game.settings.get("trinity", "healthModel") === "modelS") {actorData.data.health.details = actorData.data.health.models.modelS;}
+  if ( !actorData.data.flags.isHealthModelUpdated ) {
+    let modelName = game.settings.get("trinity", "healthModel");
+    actorData.data.health.details = JSON.parse(JSON.stringify(actorData.data.health.models[modelName])); // JSON Deep Copy
+    actorData.data.flags.isHealthModelUpdated = true;
+  }
+  // if (game.settings.get("trinity", "healthModel") === "modelT") {actorData.data.health.details = actorData.data.health.models.modelT;}
+  // if (game.settings.get("trinity", "healthModel") === "modelS") {actorData.data.health.details = actorData.data.health.models.modelS;}
 
   // update # of states based on # of boxes
   /*

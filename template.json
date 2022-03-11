@@ -14,7 +14,8 @@
           "isNova" : false,
           "isOther" : false,
           "isActivePlayer" : false,
-          "isTakenOut" : false
+          "isTakenOut" : false,
+          "isHealthModelUpdated" : false
         },
         "health": {
           "details" : [],
@@ -28,10 +29,6 @@
             "modelT" : {},
             "modelS" : {}
           }
-        },
-        "healthModels": {
-          "ModelT" : [],
-          "ModelS" : []
         },
         "savedRolls": {},
         "initiativeRollID" : "",
