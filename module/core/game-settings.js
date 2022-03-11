@@ -89,7 +89,9 @@ game.settings.register("trinity", "healthModel", {
   },
   default: "modelT",        // The default value for the setting
   onChange: value => { // A callback function which triggers when the setting is changed
+    console.log("Health Model Changed");
     game.actors.forEach((item, i) => {
+      console.log("Flagging Actor", item.data.name);
       item.update({ "data.flags.isHealthModelUpdated": false });
     });
   }
