@@ -69,7 +69,7 @@ export class TrinityActor extends Actor {
     actorData.data.rollSettings.dsca.value = actorData.data.rollSettings.dsca.value || game.settings.get("trinity", "defaultDScale");
 
     // Health Setup
-    setHealth(actorData);
+    await setHealth(actorData);
 
     // Default Token Bar setting
     actorData.token.bar1 = actorData.token.bar1 || {"attribute" : "health.summary"};
