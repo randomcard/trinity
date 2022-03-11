@@ -1,5 +1,5 @@
 import { OverviewApp } from "../overview/overview.js"; // Overview App
-import { modelSetup } from "./health.js"; // Set up Health Model
+import { modelSetup } from "../actor/health.js"; // Set up Health Model
 
 export function gameSettings() {
 
