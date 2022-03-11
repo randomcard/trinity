@@ -54,7 +54,7 @@ export class TrinityActor extends Actor {
  }
 
 
-  async prepareData() {
+  prepareData() {
     super.prepareData();
 
     const actorData = this.data;
@@ -69,14 +69,27 @@ export class TrinityActor extends Actor {
     actorData.data.rollSettings.dsca.value = actorData.data.rollSettings.dsca.value || game.settings.get("trinity", "defaultDScale");
 
     // Health Setup
-    await setHealth(actorData);
+    //setHealth(actorData);
 
     // Default Token Bar setting
-    actorData.token.bar1 = actorData.token.bar1 || {"attribute" : "health.summary"};
+    //actorData.token.bar1 = actorData.token.bar1 || {"attribute" : "health.summary"};
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     if (actorData.type === 'TrinityCharacter') this._prepareTrinityCharacterData(actorData);
+  }
+
+    /** @override */
+  prepareBaseData() {
+    // Data modifications in this step occur before processing embedded
+    // documents or derived data.
+
+    // Health Setup
+    setHealth(actorData);
+
+    // Default Token Bar setting
+    actorData.token.bar1 = actorData.token.bar1 || {"attribute" : "health.summary"};
+
   }
 
   /**
