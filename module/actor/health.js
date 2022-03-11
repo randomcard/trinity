@@ -7,6 +7,7 @@ export function setHealth(actorData) {
   if ( Object.keys(actorData.data.health.models.modelS).length === 0 ) { actorData.data.health.models.modelS = modelSetup("modelS"); }
 
   // Set health, using model determined by game.setting
+  /*
   if ( actorData.data.flags.isHealthModelUpdated === false ) {
     let modelName = game.settings.get("trinity", "healthModel");
     console.log("Health Model Flag False, Resetting Details/Model:", actorData.data.health.models[modelName], actorData.data.flags.isHealthModelUpdated);
@@ -15,6 +16,7 @@ export function setHealth(actorData) {
     actorData.data.flags.isHealthModelUpdated = true;
     console.log("Flag Handling End", actorData, actorData.data.flags.isHealthModelUpdated);
   }
+  */
   // if (game.settings.get("trinity", "healthModel") === "modelT") {actorData.data.health.details = actorData.data.health.models.modelT;}
   // if (game.settings.get("trinity", "healthModel") === "modelS") {actorData.data.health.details = actorData.data.health.models.modelS;}
 
@@ -95,7 +97,7 @@ States: The state of each health box:
   3 - Injured (Model T) / Aggravated (Model S)
   4 - Excess Damage (Model T)
 */
-function modelSetup(model) {
+export function modelSetup(model) {
 
   // Model T - Trinity Continuum
   let modelT = {

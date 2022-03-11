@@ -1,4 +1,5 @@
 import { OverviewApp } from "../overview/overview.js"; // Overview App
+import { modelSetup } from "./health.js"; // Set up Health Model
 
 export function gameSettings() {
 
@@ -79,7 +80,7 @@ game.settings.register("trinity", "defaultDScale", {
 
 game.settings.register("trinity", "healthModel", {
   name: "Health Model",
-  hint: "Choose between standard and non-standard health models.",
+  hint: "Choose between standard and non-standard health models. Changing this will cause the actor to go to the default settings for the model, and lose any adjustments (like added health boxes, or damage).",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
   type: String,
@@ -91,8 +92,17 @@ game.settings.register("trinity", "healthModel", {
   onChange: value => { // A callback function which triggers when the setting is changed
     console.log("Health Model Changed");
     game.actors.forEach((item, i) => {
-      console.log("Flagging Actor", item.data.name);
-      item.update({ "data.flags.isHealthModelUpdated": false });
+      console.log("Changing Health Model on Actor", item.data.name);
+      // item.update({ "data.flags.isHealthModelUpdated": false });
+
+      let model = modelSetup(value); // Expand this for NPCs
+
+      // console.log("Health Model Flag False, Resetting Details/Model:", actorData.data.health.models[modelName], actorData.data.flags.isHealthModelUpdated);
+      // actorData.data.health.details = JSON.parse(JSON.stringify(actorData.data.health.models[modelName])); // JSON Deep Copy
+      item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }); // Is a deep copy needed here?
+      // actor.update({ "data.flags.isHealthModelUpdated": true });
+
+
     });
   }
 });
