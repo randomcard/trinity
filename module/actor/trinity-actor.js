@@ -1,4 +1,5 @@
 import { setHealth } from "./health.js"; // Overview App
+import { modelSetup } from "./health.js"; // Overview App
 
 /**
  * Extend the base Actor entity by defining a custom roll data structure which is ideal for the Simple system.
@@ -9,8 +10,15 @@ export class TrinityActor extends Actor {
    * Augment the basic actor data with additional dynamic data.
    */
    static async create(data, options) {
-     // If the created actor has items (only applicable to duplicated actors) bypass the new actor creation logic
 
+     // Populate Health Details, if empty
+     if ( Object.keys(data.data.health.details).length === 0) {
+       let modelName = game.settings.get("trinity", "healthModel");
+       let model = modelSetup(modelName); // Expand this for NPCs
+       data.data.health.details = JSON.parse(JSON.stringify(model));
+     }
+
+     // If the created actor has items (only applicable to duplicated actors) bypass the new actor creation logic
      if (data.items || game.settings.get("trinity", "basicItems") === false)
      {
        return super.create(data, options);
