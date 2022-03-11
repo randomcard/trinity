@@ -6,7 +6,7 @@ export function setHealth(actorData) {
   if ( Object.keys(actorData.data.health.models.modelS).length === 0 ) { actorData.data.health.models.modelS = modelSetup("modelS"); }
 
   // Set health, using model determined by game.setting
-  if ( !actorData.data.flags.isHealthModelUpdated ) {
+  if ( actorData.data.flags.isHealthModelUpdated === false ) {
     let modelName = game.settings.get("trinity", "healthModel");
     console.log("Health Model Flag False, Resetting Details/Model:", actorData.data.health.models[modelName]);
     actorData.data.health.details = JSON.parse(JSON.stringify(actorData.data.health.models[modelName])); // JSON Deep Copy
