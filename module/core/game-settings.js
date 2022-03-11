@@ -92,7 +92,7 @@ game.settings.register("trinity", "healthModel", {
     console.log("Health Model Changed");
     game.actors.forEach((item, i) => {
       console.log("Flagging Actor", item.data.name);
-      item.update({ "data.flags.isHealthModelUpdated": false });
+      item.update({ "data.flags.isHealthModelUpdated": false }, {render: true});
     });
   }
 });
