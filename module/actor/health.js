@@ -1,5 +1,5 @@
 export function setHealth(actorData) {
-  let actor = game.actors.find(a => a.data._id = actorData._id);
+  let actor = game.actors.get(actorData._id);
 
   // Create default models, if not already present
   if ( Object.keys(actorData.data.health.models.modelT).length === 0 ) { actorData.data.health.models.modelT = modelSetup("modelT"); }
