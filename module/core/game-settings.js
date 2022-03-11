@@ -99,10 +99,7 @@ game.settings.register("trinity", "healthModel", {
 
       // console.log("Health Model Flag False, Resetting Details/Model:", actorData.data.health.models[modelName], actorData.data.flags.isHealthModelUpdated);
       // actorData.data.health.details = JSON.parse(JSON.stringify(actorData.data.health.models[modelName])); // JSON Deep Copy
-      item.update({
-        "data.health.-=details": null,
-        "data.health.details": JSON.parse(JSON.stringify(model))
-      }); // Is a deep copy needed here?
+      item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }, { recursive: false, diff: false }); // Is a deep copy needed here?
       // actor.update({ "data.flags.isHealthModelUpdated": true });
 
 
