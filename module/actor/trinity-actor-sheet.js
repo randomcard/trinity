@@ -691,7 +691,38 @@ export class TrinityActorSheet extends ActorSheet {
 
     // Model T handling: Create Injury Item
     if ( game.settings.get("trinity", "healthModel") === "modelT" ) {
-      this._onItemCreate.bind(event);
+      console.log("Create Item - Injury");
+
+      const header = event.currentTarget;
+      // Get the type of item to create.
+      const type = header.dataset.type;
+
+      // Grab any data associated with this control.
+      const data = duplicate(header.dataset);
+      // Initialize a default name.
+      const name = `New ${type.capitalize()}`;
+      // Prepare the item object.
+      const itemData = {
+        name: name,
+        type: type,
+        data: data
+      };
+
+      itemData.data.injury = {};
+      itemData.data.injury.type = +header.dataset.healthtype;
+      itemData.data.flags = {};
+      itemData.data.flags.isInjury = true;
+      itemData.data.flags.isComplication = true;
+      itemData.data.complication = {};
+      itemData.data.complication.value = Object.values(this.actor.data.data.health.details).find(b => (b.type === +header.dataset.healthtype)).penalty;
+      itemData.data.injury.value = Object.values(this.actor.data.data.health.details).find(b => (b.type === +header.dataset.healthtype)).penalty;
+
+      // pop-out new condition, bypass normal process
+      delete itemData.data["type"];
+
+      console.log("injury create itemdata bottom", itemData);
+      this.actor.createEmbeddedDocuments('Item', [itemData], { renderSheet: true });
+
       return;
     }
 
@@ -768,6 +799,7 @@ export class TrinityActorSheet extends ActorSheet {
 
     // Injury Handling
     // if (typeof header.dataset.hbname !== 'undefined' && header.dataset.hbname !== null) {
+    /*
     if (typeof header.dataset.healthtype !== 'undefined' && header.dataset.healthtype !== null) {
       if (game.settings.get("trinity", "healthModel") === "modelT") {
         console.log("Create Item - Injury");
@@ -787,10 +819,9 @@ export class TrinityActorSheet extends ActorSheet {
         this.actor.createEmbeddedDocuments('Item', [itemData], { renderSheet: true });
 
         return;
-      } else {
-        // Model S injury hanlding goes here. Might need another listener for right clicks as well.
       }
-    }
+
+    }*/
 
     console.log(itemData);
 

@@ -155,49 +155,49 @@ export function modelSetup(model) {
 
   // Model S - Storyteller / WoD
   let modelS = {
-    bruised : {
+    sBruised : {
       name : "Bruised (-0)",
       penalty : 0,
       boxes : 1,
       states : [0],
       type : 1
     },
-    hurt : {
+    sHurt : {
       name : "Hurt (-1)",
       penalty : -1,
       boxes : 1,
       states : [0],
       type : 2
     },
-    injured : {
+    sInjured : {
       name : "Injured (-1)",
       penalty : -1,
       boxes : 1,
       states : [0],
       type : 3
     },
-    wounded : {
+    sWounded : {
       name : "Wounded (-2)",
       penalty : -2,
       boxes : 1,
       states : [0],
       type : 4
     },
-    mauled : {
+    sMauled : {
       name : "Mauled (-2)",
       penalty : -2,
       boxes : 1,
       states : [0],
       type : 5
     },
-    crippled : {
+    sCrippled : {
       name : "Crippled (-5)",
       penalty : -5,
       boxes : 1,
       states : [0],
       type : 6
     },
-    incap : {
+    sIncap : {
       name : "Incapacitated",
       penalty : 0,
       boxes : 1,
