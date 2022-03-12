@@ -29,7 +29,7 @@ export function setHealth(actorData) {
   }
   */
 
-  console.log(Object.keys(actorData.data.health.details));
+  // console.log(Object.keys(actorData.data.health.details));
   for (let e of Object.keys(actorData.data.health.details)) {
     let i = actorData.data.health.details[e];
     if (typeof i.type === "undefined") {continue;}

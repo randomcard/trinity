@@ -17,7 +17,11 @@ export class TrinityActor extends Actor {
        let modelName = game.settings.get("trinity", "healthModel");
        let ifNPC = (data.type === "TrinityNPC") ? "NPC" : "";
        let model = modelSetup(`${modelName}${ifNPC}`); // Expand this for NPCs
-       data.data.health.details = JSON.parse(JSON.stringify(model));
+       data.data = {
+         health : {
+           details : JSON.parse(JSON.stringify(model))
+         }
+       }
      }
 
      // If the created actor has items (only applicable to duplicated actors) bypass the new actor creation logic
