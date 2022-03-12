@@ -6,11 +6,11 @@
     <div class="grid grid-2col lowmargin">
       <div class="bold right-vcenter">{{healthBox.name}}</div>
       <div class="big icons left-vcenter can-hide">
-        {{#each healthBox.states as |state index|}}
+        {{~#each healthBox.states as |state index|}}
           <span class="fa-stack fa-2x x-small clickable healthbox" data-healthtype="{{healthBox.type}}" data-healthkey="{{key}}" data-healthstate="{{index}}" data-type="condition">
             {{{toHealthBoxes state}}}
           </span>
-        {{/each}}
+        {{/each~}}
       </div>
       <div class="flex-parent-nowrap-center edit-area can-hide hidden">
         <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.health.details.{{key}}.boxes"></i>
