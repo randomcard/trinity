@@ -91,19 +91,20 @@ game.settings.register("trinity", "healthModel", {
   default: "modelT",        // The default value for the setting
   onChange: value => { // A callback function which triggers when the setting is changed
     console.log("Health Model Changed");
-    game.actors.forEach(async (item, i) => {
-      console.log("Changing Health Model on Actor", item.data.name);
+    game.actors.forEach(async (actor, i) => {
+      // console.log("Changing Health Model on Actor", actor.data.name);
       // item.update({ "data.flags.isHealthModelUpdated": false });
-
-      let model = modelSetup(value); // Expand this for NPCs
+      let ifNPC = (actor.data.type === "TrinityNPC") ? "NPC" : "";
+      let model = modelSetup(`${value}${ifNPC}`); // Expand this for NPCs
+      // let model = modelSetup(value); // Expand this for NPCs
 
       // console.log("Health Model Flag False, Resetting Details/Model:", actorData.data.health.models[modelName], actorData.data.flags.isHealthModelUpdated);
       // actorData.data.health.details = JSON.parse(JSON.stringify(actorData.data.health.models[modelName])); // JSON Deep Copy
       // item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }, { recursive: false, diff: false }); // Is a deep copy needed here?
       // item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }, { recursive: false }); // Is a deep copy needed here?
-      await item.update({ "data.health.-=details": null });
-      await item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }); // Is a deep copy needed here?
-      console.log("Adding Health Model:", JSON.parse(JSON.stringify(model)) );
+      await actor.update({ "data.health.-=details": null });
+      await actor.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }); // Is a deep copy needed here?
+      // console.log("Adding Health Model:", JSON.parse(JSON.stringify(model)) );
       // actor.update({ "data.flags.isHealthModelUpdated": true });
 
 

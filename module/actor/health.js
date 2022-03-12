@@ -206,5 +206,6 @@ export function modelSetup(model) {
   if (model === "modelT") {return modelT;}
   if (model === "modelTNPC") {return modelTNPC;}
   if (model === "modelS") {return modelS;}
+  if (model === "modelSNPC") {return modelS;}
 
 }
