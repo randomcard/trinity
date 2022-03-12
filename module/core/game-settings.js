@@ -91,7 +91,7 @@ game.settings.register("trinity", "healthModel", {
   default: "modelT",        // The default value for the setting
   onChange: value => { // A callback function which triggers when the setting is changed
     console.log("Health Model Changed");
-    game.actors.forEach((item, i) => {
+    game.actors.forEach(async (item, i) => {
       console.log("Changing Health Model on Actor", item.data.name);
       // item.update({ "data.flags.isHealthModelUpdated": false });
 
@@ -100,7 +100,9 @@ game.settings.register("trinity", "healthModel", {
       // console.log("Health Model Flag False, Resetting Details/Model:", actorData.data.health.models[modelName], actorData.data.flags.isHealthModelUpdated);
       // actorData.data.health.details = JSON.parse(JSON.stringify(actorData.data.health.models[modelName])); // JSON Deep Copy
       // item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }, { recursive: false, diff: false }); // Is a deep copy needed here?
-      item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }, { recursive: false }); // Is a deep copy needed here?
+      // item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }, { recursive: false }); // Is a deep copy needed here?
+      await item.update({ "data.health.-=details": null });
+      await item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }); // Is a deep copy needed here?
       // actor.update({ "data.flags.isHealthModelUpdated": true });
 
 

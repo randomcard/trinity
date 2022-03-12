@@ -110,6 +110,8 @@ export function handlebarHelpers() {
 */
 
   Handlebars.registerHelper('toHealthBoxes', function(states) {
+    if (typeof states === "undefined") { console.log("MISSING STATES"); return;}
+
     let boxes = '';
     let extraBox = '<i class="fas fa-plus-square"></i>';
     let filledBox = '<i class="fas fa-square"></i>';
