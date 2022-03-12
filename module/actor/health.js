@@ -147,7 +147,7 @@ export function modelSetup(model) {
       name : "Health",
       penalty : 0,
       boxes : 0,
-      states : [],
+      states : [0],
       type : 1
     }
   };
