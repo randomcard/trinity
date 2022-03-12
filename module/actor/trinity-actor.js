@@ -12,7 +12,8 @@ export class TrinityActor extends Actor {
    static async create(data, options) {
 
      // Populate Health Details, if empty
-     if ( typeof data.data.health.details === "undefined" || Object.keys(data.data.health.details).length === 0) {
+     // if ( typeof data.data.health.details === "undefined" || Object.keys(data.data.health.details).length === 0) {
+     if ( typeof data.data.health === "undefined") {
        let modelName = game.settings.get("trinity", "healthModel");
        let ifNPC = (data.type === "TrinityNPC") ? "NPC" : "";
        let model = modelSetup(`${modelName}${ifNPC}`); // Expand this for NPCs

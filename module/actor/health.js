@@ -32,6 +32,7 @@ export function setHealth(actorData) {
   console.log(Object.keys(actorData.data.health.details));
   for (let e of Object.keys(actorData.data.health.details)) {
     let i = actorData.data.health.details[e];
+    if (typeof i.type === "undefined") {continue;}
     if (i.boxes < 0 ) { i.boxes = 0; }
     while ( i.boxes > i.states.length ) { i.states.push(0); }
     while ( i.boxes < i.states.length ) { i.states.length = i.boxes; }
@@ -67,6 +68,7 @@ export function setHealth(actorData) {
   // for (let i in actorData.data.health.details) {
   for (let e of Object.keys(actorData.data.health.details)) {
     let i = actorData.data.health.details[e];
+    if (typeof i.type === "undefined") {continue;}
     totalBoxes += i.boxes;
     for (let s of i.states) {
       if (s > 0) {
