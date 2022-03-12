@@ -59,7 +59,7 @@ export class TrinityItem extends Item {
   _prepareSubItemData(itemData) {
     // console.log("_prepareSubItemData called", itemData);
     if (typeof this.data.data.subItems !== "undefined") {
-      this.data.data.subItems.sort((a, b) => a.name > b.name ? 1 : -1);
+      // this.data.data.subItems.sort((a, b) => a.name > b.name ? 1 : -1);
       const stunts = [];
       const tags = [];
       const modePowers = [];
@@ -72,8 +72,9 @@ export class TrinityItem extends Item {
       }
 
       // Additional Sorts & Assign
-      // this.data.data.stunts = stunts.sort((a, b) => a.name > b.name ? 1 : -1);
-      // this.data.data.tags = tags.sort((a, b) => a.name > b.name ? 1 : -1);
+      this.data.data.stunts = stunts.sort((a, b) => a.name > b.name ? 1 : -1);
+      this.data.data.tags = tags.sort((a, b) => a.name > b.name ? 1 : -1);
+      this.data.data.modePowers = modePowers.sort((a, b) => a.name > b.name ? 1 : -1);
       this.data.data.modePowers = modePowers.sort((a, b) => a.dotRequirement < b.dotRequirement ? 1 : -1);
       this.data.data.totalTagValue = this._getTotalTagValue(tags);
     }
