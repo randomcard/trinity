@@ -538,6 +538,10 @@ export class TrinityActorSheet extends ActorSheet {
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
 
+    // Healthbox Click Handling
+    html.find('.healthbox').click(this._healthBoxLClick.bind(this)); // Left Click
+    html.find('.healthbox').contextmenu(this._healthBoxRClick.bind(this)); // Right Click
+
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       console.log("item-edit click:", ev);
@@ -680,6 +684,50 @@ export class TrinityActorSheet extends ActorSheet {
       });
     }
   }
+
+  async _healthBoxLClick(event) {
+    event.preventDefault();
+    console.log("Health Box Left Click");
+
+    // Model T handling: Create Injury Item
+    if ( game.settings.get("trinity", "healthModel") === "modelT" ) {
+      this._onItemCreate.bind(this);
+      return;
+    }
+
+    // Model S handling: Update state
+    let header = event.currentTarget;
+    let healthtype = header.dataset.healthtype;
+    let healthkey = header.dataset.healthkey;
+    let healthstate = header.dataset.healthstate;
+
+    if ( this.actor.data.data.health.details[healthkey].states[healthstate] < 3 ) {
+      this.actor.update({ "data.health.details" : { [healthkey] : { states : [++healthstate] } } } );
+    }
+
+    return;
+  }
+
+  async _healthBoxRClick(event) {
+    event.preventDefault();
+    console.log("Health Box Right Click");
+
+    // Model T handling: Nothing happens
+    if ( game.settings.get("trinity", "healthModel") === "modelT" ) { return; }
+
+    // Model S handling: Update state
+    let header = event.currentTarget;
+    let healthtype = header.dataset.healthtype;
+    let healthkey = header.dataset.healthkey;
+    let healthstate = header.dataset.healthstate;
+
+    if ( this.actor.data.data.health.details[healthkey].states[healthstate] > 0 ) {
+      this.actor.update({ "data.health.details" : { [healthkey] : { states : [--healthstate] } } } );
+    }
+
+    return;
+  }
+
 
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset

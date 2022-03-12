@@ -109,19 +109,23 @@ export function handlebarHelpers() {
   });
 */
 
-  Handlebars.registerHelper('toHealthBoxes', function(states) {
-    if (typeof states === "undefined") { console.log("MISSING STATES"); return;}
+  Handlebars.registerHelper('toHealthBoxes', function(state) {
+    if (typeof state === "undefined") { console.log("MISSING STATES"); return;}
 
-    let boxes = '';
-    let extraBox = '<i class="fas fa-plus-square"></i>';
-    let filledBox = '<i class="fas fa-square"></i>';
-    let emptyBox = '<i class="far fa-square"></i>';
-    for (let s of states) {
-      if (s === 0) { boxes += emptyBox; }
-      if (s === 3) { boxes += filledBox; }
-      if (s === 4) { boxes += extraBox; }
+    let box = '';
+    let extraBox = '<i class="fas fa-plus-square fa-stack-2x"></i>';
+    let filledBox = '<i class="fas fa-square fa-stack-2x"></i>';
+    let emptyBox = '<i class="far fa-square fa-stack-2x"></i>';
+    let state1Box = '<i class="far fa-square fa-stack-2x"></i><i class="fas fa-slash fa-stack-1x"></i>';
+    let state2Box = '<i class="far fa-square fa-stack-2x"></i><i class="fas fa-times fa-stack-1x"></i>';
+    switch ( state ) {
+      case 0 : box = emptyBox; break;
+      case 1 : box = state1Box; break;
+      case 2 : box = state2Box; break;
+      case 3 : box = filledBox; break;
+      case 4 : box = extraBox; break;
     }
-    return boxes;
+    return box;
   });
 
 /* No longer used??

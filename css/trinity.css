@@ -441,6 +441,10 @@
   font-size: small;
 }
 
+.x-small {
+  font-size: x-small;
+}
+
 .min-content {
   width: -moz-min-content;
   width: min-content;
