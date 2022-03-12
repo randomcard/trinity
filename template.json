@@ -12,6 +12,7 @@
           "isTalent" : false,
           "isPsion" : false,
           "isNova" : false,
+          "isMage" : false,
           "isOther" : false,
           "isActivePlayer" : false,
           "isTakenOut" : false,
@@ -74,6 +75,28 @@
           }
         },
         "inspiration" : {
+          "max" : 0,
+          "value" : 0
+        }
+      },
+      "mage" : {
+        "tradition" : "",
+        "virtues" : "",
+        "vices" : "",
+        "nature" : "",
+        "demeanor" : "",
+        "paradigm" : "",
+        "essence" : "",
+        "avatar" : "",
+        "quintessence" : {
+          "max" : 20,
+          "value" : 0
+        },
+        "paradox" : {
+          "max" : 20,
+          "value" : 0
+        },
+        "willpower" : {
           "max" : 0,
           "value" : 0
         }
@@ -499,6 +522,16 @@
         "isPowerSuite" : false,
         "isDice" : true
       }
+    },
+    "modePower" : {
+      "templates": ["base"],
+      "typeName" : "Mode Power",
+      "actionType" : "",
+      "costDescription" : "",
+      "dotRequirement" : 0,
+      "dicePool" : "",
+      "range" : "",
+      "duration" : ""
     },
     "tag" : {
       "templates": ["base"],

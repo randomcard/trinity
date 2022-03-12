@@ -59,18 +59,22 @@ export class TrinityItem extends Item {
   _prepareSubItemData(itemData) {
     // console.log("_prepareSubItemData called", itemData);
     if (typeof this.data.data.subItems !== "undefined") {
+      this.data.data.subItems.sort((a, b) => a.name > b.name ? 1 : -1);
       const stunts = [];
       const tags = [];
+      const modePowers = [];
 
       for (let i of Object.keys(this.data.data.subItems)) {
         let subItem = this.data.data.subItems[i];
         if (subItem.type === 'stunt') { stunts.push(subItem); }
         if (subItem.type === 'tag') { tags.push(subItem); }
+        if (subItem.type === 'modePower') { modePowers.push(subItem); }
       }
 
-      // Sort & Assign
-      this.data.data.stunts = stunts.sort((a, b) => a.name > b.name ? 1 : -1);
-      this.data.data.tags = tags.sort((a, b) => a.name > b.name ? 1 : -1);
+      // Additional Sorts & Assign
+      // this.data.data.stunts = stunts.sort((a, b) => a.name > b.name ? 1 : -1);
+      // this.data.data.tags = tags.sort((a, b) => a.name > b.name ? 1 : -1);
+      this.data.data.modePowers = modePowers.sort((a, b) => a.dotRequirement < b.dotRequirement ? 1 : -1);
       this.data.data.totalTagValue = this._getTotalTagValue(tags);
     }
 

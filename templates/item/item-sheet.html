@@ -15,6 +15,7 @@
         <a class="item" data-tab="description">Description</a>
         {{#if item.data.data.stunts}}<a class="item" data-tab="stunts">Stunts</a>{{/if}}
         {{#if item.data.data.tags}}<a class="item" data-tab="tags">Tags</a>{{/if}}
+        {{#if item.data.data.modePowers}}<a class="item" data-tab="powers">Powers</a>{{/if}}
         <a class="item" data-tab="attributes">Attributes</a>
     </nav>
 
@@ -36,6 +37,11 @@
           {{> "systems/trinity/templates/item/partials/tag-list.html"}}
         </div>
 
+        {{!-- Stunts Tab --}}
+        <div class="tab powers" data-group="primary" data-tab="powers">
+          {{> "systems/trinity/templates/item/partials/power-list.html"}}
+        </div>
+
         {{!-- Attributes Tab --}}
         <div class="tab attributes" data-group="primary" data-tab="attributes">
 
@@ -43,7 +49,7 @@
           {{> "systems/trinity/templates/item/partials/attribute-settings.html"}}
           {{/if}}
 
-            {{#if (isEqual item.data.type "edge") }}
+            {{#if (isEqual item.data.type "edge" "power") }}
             <div class="boxed fit">
               <div class="left-vcenter">
                 <input class="left-vcenter" type="checkbox" name="data.flags.hasDots" value="{{data.data.flags.hasDots}}" data-dtype="Boolean" {{checked data.data.flags.hasDots}}/>

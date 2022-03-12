@@ -1,0 +1,23 @@
+{{!-- Mode Powers item Box --}}
+<ol class="items-list boxed">
+    <li class="item sub flexrow item-header">
+      <div class="flex-fit big item-name">Powers</div>
+      <div class="flex-right title-note">Add new stunts by dropping them here from the Items Directory</div>
+    </li>
+{{#each item.data.data.modePowers as |item id|}}
+    <li class="item sub" data-item-id="{{item.id}}">
+      <div class="flexrow">
+        <h4 class="item-name sub-item-name clickable">
+          <b>{{item.name}}</b>&ensp;-&ensp;<em>{{item.costDescription}}</em>
+        </h4>
+        <div class="item-controls">
+            <a class="item-control sub-item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
+            <a class="item-control sub-item-delete" title="Delete Item"><i class="far fa-minus-square"></i></a>
+        </div>
+      </div>
+      <div class="flexrow sub-item-detail hidden">
+        {{{item.description}}}
+      </div>
+    </li>
+{{/each}}
+</ol>

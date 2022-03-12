@@ -19,7 +19,7 @@ game.settings.register("trinity", "basicItems", {
 });
 
 game.settings.register("trinity", "defaultSuccess", {
-  name: "Default Success Threshold",
+  name: "Success Threshold",
   hint: "Dice with this result or higher are counted as successes. (New actor default, can be overriden by actor or roll settings.)",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
@@ -31,7 +31,7 @@ game.settings.register("trinity", "defaultSuccess", {
 });
 
 game.settings.register("trinity", "defaultFail", {
-  name: "Default Fail Threshold",
+  name: "Fail Threshold",
   hint: "Dice with this result or lower are counted as fails, and deduct from successes. (New actor default, can be overriden by actor or roll settings.)",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
@@ -43,7 +43,7 @@ game.settings.register("trinity", "defaultFail", {
 });
 
 game.settings.register("trinity", "defaultExplode", {
-  name: "Default Explode Threshold",
+  name: "Explode Threshold",
   hint: "Dice with this result or higher are rerolled. (New actor default, can be overriden by actor or roll settings.)",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
@@ -80,7 +80,7 @@ game.settings.register("trinity", "defaultDScale", {
 
 game.settings.register("trinity", "healthModel", {
   name: "Health Model",
-  hint: "Choose between standard and non-standard health models. Changing this will cause the actor to go to the default settings for the model, and lose any adjustments (like added health boxes, or damage).",
+  hint: "Choose between standard and non-standard health models. Changing this may cause the actor to lose any adjustments (like added health boxes, or damage).",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
   type: String,

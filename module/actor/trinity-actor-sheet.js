@@ -199,6 +199,7 @@ export class TrinityActorSheet extends ActorSheet {
     const unflaggedEquipment = [];
     const modes = [];
     const quantumPowers = [];
+    const modePowers = [];
     const attributes = [];
     const npcAttributes = [];
     const facets = [];
@@ -207,7 +208,7 @@ export class TrinityActorSheet extends ActorSheet {
     const miscAttributes = [];
     const actions = [];
 
-
+    /* Old Healthbox code
     for (let hb of Object.keys(this.actor.data.data.healthboxes)) {
       // console.log("Heathbox Logging - hb:", hb);
       let injuries = Object.keys(this.actor.data.items.filter(h => h.data.data.flags.isInjury && (h.data.data.injury.value === this.actor.data.data.healthboxes[hb].conditionLevel))).length;
@@ -239,6 +240,7 @@ export class TrinityActorSheet extends ActorSheet {
         }
       }
     }
+    */
 
     // Identify Saved Rolls w/ Initiative Flagged
     for (let sRoll of Object.keys(this.actor.data.data.savedRolls)) {
@@ -281,7 +283,7 @@ export class TrinityActorSheet extends ActorSheet {
       if ((i.type === 'item' || i.type === 'equipment') && i.data.flags.isWeapon === true) { weapons.push(i); }
       if ((i.type === 'item' || i.type === 'equipment') && i.data.flags.isArmor === true) { armors.push(i); }
       if ((i.type === 'item' || i.type === 'equipment') && i.data.flags.isVehicle === true) { vehicles.push(i); }
-      unflaggedEquipment
+      // unflaggedEquipment
       if ((i.type === 'item' || i.type === 'equipment')
         && i.data.flags.isGear !== true
         && i.data.flags.isWeapon !== true
@@ -303,6 +305,7 @@ export class TrinityActorSheet extends ActorSheet {
       if (i.type === 'bond') { bonds.push(i); }
       if (i.type === 'mode') { modes.push(i); }
       if (i.type === 'quantumPower') { quantumPowers.push(i); }
+      if (i.type === 'modePower') { modePowers.push(i); }
       if (i.type === 'action') { actions.push(i); }
       if (i.type === 'attribute') {
         if (i.data.flags.isMain) {
@@ -382,6 +385,7 @@ export class TrinityActorSheet extends ActorSheet {
     actorData.unflaggedEquipment = unflaggedEquipment;
     actorData.modes = modes;
     actorData.quantumPowers = quantumPowers;
+    actorData.modePowers = modePowers;
     actorData.attributes = attributes;
     actorData.npcAttributes = npcAttributes;
     actorData.facets = facets;

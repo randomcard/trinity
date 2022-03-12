@@ -291,6 +291,18 @@ export class TrinityItemSheet extends ItemSheet {
           };
           this.item.update({'data.subItems': subItems});
           break;
+        case "modePower":
+          subItems = this.item.data.data.subItems;
+          subItems[droppedItem._id] = {
+            id : droppedItem._id,
+            name : droppedItem.name,
+            type : droppedItem.type,
+            description : droppedItem.data.description,
+            costDescription : droppedItem.data.costDescription,
+            dotRequirement : droppedItem.data.dotRequirement
+          };
+          this.item.update({'data.subItems': subItems});
+          break;
       }
     }
     //console.log("_onDropGetInfo updates", updates);
