@@ -29,10 +29,10 @@ export function setHealth(actorData) {
   }
   */
 
+  console.log(Object.keys(actorData.data.health.details));
   for (let e of Object.keys(actorData.data.health.details)) {
     let i = actorData.data.health.details[e];
     if (i.boxes < 0 ) { i.boxes = 0; }
-    console.log("states check:", i.states);
     while ( i.boxes > i.states.length ) { i.states.push(0); }
     while ( i.boxes < i.states.length ) { i.states.length = i.boxes; }
   }
