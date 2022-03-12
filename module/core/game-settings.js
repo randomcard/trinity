@@ -102,7 +102,8 @@ game.settings.register("trinity", "healthModel", {
       // item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }, { recursive: false, diff: false }); // Is a deep copy needed here?
       // item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }, { recursive: false }); // Is a deep copy needed here?
       await item.update({ "data.health.-=details": null });
-      //await item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }); // Is a deep copy needed here?
+      await item.update({ "data.health.details": JSON.parse(JSON.stringify(model)) }); // Is a deep copy needed here?
+      console.log("Adding Health Model:", JSON.parse(JSON.stringify(model)) );
       // actor.update({ "data.flags.isHealthModelUpdated": true });
 
 
