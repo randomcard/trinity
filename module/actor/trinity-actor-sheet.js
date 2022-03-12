@@ -717,44 +717,27 @@ export class TrinityActorSheet extends ActorSheet {
     // Injury Handling
     // if (typeof header.dataset.hbname !== 'undefined' && header.dataset.hbname !== null) {
     if (typeof header.dataset.healthtype !== 'undefined' && header.dataset.healthtype !== null) {
-      console.log("Create Item - Injury");
-      //let type = header.dataset.healthtype;
-      /*
-      console.log(header.dataset.hbname);
-      switch(header.dataset.hbname) {
-        case "Bruised":
-          value = 1; break;
-        case "Injured":
-          value = 2; break;
-        case "Maimed":
-          value = 4; break;
-        case "Taken Out":
-          value = 5; break;
+      if (game.settings.get("trinity", "healthModel") === "modelT") {
+        console.log("Create Item - Injury");
+        itemData.data.injury = {};
+        itemData.data.injury.type = +header.dataset.healthtype;
+        itemData.data.flags = {};
+        itemData.data.flags.isInjury = true;
+        itemData.data.flags.isComplication = true;
+        itemData.data.complication = {};
+        itemData.data.complication.value = Object.values(this.actor.data.data.health.details).find(b => (b.type === +header.dataset.healthtype)).penalty;
+        itemData.data.injury.value = Object.values(this.actor.data.data.health.details).find(b => (b.type === +header.dataset.healthtype)).penalty;
+
+        // pop-out new condition, bypass normal process
+        delete itemData.data["type"];
+
+        console.log("injury create itemdata bottom", itemData);
+        this.actor.createEmbeddedDocuments('Item', [itemData], { renderSheet: true });
+
+        return;
+      } else {
+        // Model S injury hanlding goes here. Might need another listener for right clicks as well.
       }
-      */
-      itemData.data.injury = {};
-      // itemData.data.injury.value = value;
-      itemData.data.injury.type = +header.dataset.healthtype;
-      itemData.data.flags = {};
-      itemData.data.flags.isInjury = true;
-      itemData.data.flags.isComplication = true;
-      itemData.data.complication = {};
-      // itemData.data.complication.value = value;
-      console.log("injury create itemdata top", itemData);
-      console.log("header.dataset.healthtype", header.dataset.healthtype);
-      console.log("this.actor.data.data.health.details", this.actor.data.data.health.details);
-      // console.log("find", this.actor.data.data.health.details.find(b => (b.type === +header.dataset.healthtype)));
-      console.log("find", Object.values(this.actor.data.data.health.details).find(b => (b.type === +header.dataset.healthtype)));
-      itemData.data.complication.value = Object.values(this.actor.data.data.health.details).find(b => (b.type === +header.dataset.healthtype)).penalty;
-      itemData.data.injury.value = Object.values(this.actor.data.data.health.details).find(b => (b.type === +header.dataset.healthtype)).penalty;
-
-      // pop-out new condition, bypass normal process
-      delete itemData.data["type"];
-
-      console.log("injury create itemdata bottom", itemData);
-      this.actor.createEmbeddedDocuments('Item', [itemData], { renderSheet: true });
-
-      return;
     }
 
     console.log(itemData);
