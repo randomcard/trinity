@@ -3,8 +3,8 @@ export function setHealth(actorData) {
   // console.log("setHealth Start", actorData, actorData.data.flags.isHealthModelUpdated);
 
   // Create default models, if not already present
-  if ( Object.keys(actorData.data.health.models.modelT).length === 0 ) { actorData.data.health.models.modelT = modelSetup("modelT"); }
-  if ( Object.keys(actorData.data.health.models.modelS).length === 0 ) { actorData.data.health.models.modelS = modelSetup("modelS"); }
+  // if ( Object.keys(actorData.data.health.models.modelT).length === 0 ) { actorData.data.health.models.modelT = modelSetup("modelT"); }
+  // if ( Object.keys(actorData.data.health.models.modelS).length === 0 ) { actorData.data.health.models.modelS = modelSetup("modelS"); }
 
   // Set health, using model determined by game.setting
   /*
