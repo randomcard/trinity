@@ -7,7 +7,7 @@
       <div class="bold right-vcenter">{{healthBox.name}}</div>
       <div class="big icons left-vcenter can-hide">
         {{#each healthBox.states as |state index|}}
-          <span class="fa-stack fa-2x x-small clickable healthbox" data-healthtype="{{../healthBox.type}}" data-healthkey="{{../key}}" data-healthstate="{{index}}" data-type="condition">
+          <span class="fa-stack fa-2x x-small clickable healthbox" data-healthtype="{{healthBox.type}}" data-healthkey="{{key}}" data-healthstate="{{index}}" data-type="condition">
             {{{toHealthBoxes state}}}
           </span>
         {{/each}}
