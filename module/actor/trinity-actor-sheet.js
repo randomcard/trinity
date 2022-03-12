@@ -691,18 +691,18 @@ export class TrinityActorSheet extends ActorSheet {
 
     // Model T handling: Create Injury Item
     if ( game.settings.get("trinity", "healthModel") === "modelT" ) {
-      this._onItemCreate.bind(this);
+      this._onItemCreate.bind(event);
       return;
     }
 
     // Model S handling: Update state
     let header = event.currentTarget;
-    let healthtype = header.dataset.healthtype;
-    let healthkey = header.dataset.healthkey;
-    let healthstate = header.dataset.healthstate;
+    let hKey = header.dataset.healthkey;
+    let hStateIndex = header.dataset.healthstate;
+    let hState = this.actor.data.data.health.details[hKey].states[hStateIndex];
 
-    if ( this.actor.data.data.health.details[healthkey].states[healthstate] < 3 ) {
-      this.actor.update({ "data.health.details" : { [healthkey] : { states : [++healthstate] } } } );
+    if ( hState < 3 ) {
+      this.actor.update({ "data.health.details" : { [hKey] : { states : { [hStateIndex] : ++hState } } } } );
     }
 
     return;
@@ -717,12 +717,12 @@ export class TrinityActorSheet extends ActorSheet {
 
     // Model S handling: Update state
     let header = event.currentTarget;
-    let healthtype = header.dataset.healthtype;
-    let healthkey = header.dataset.healthkey;
-    let healthstate = header.dataset.healthstate;
+    let hKey = header.dataset.healthkey;
+    let hStateIndex = header.dataset.healthstate;
+    let hState = this.actor.data.data.health.details[hKey].states[hStateIndex];
 
-    if ( this.actor.data.data.health.details[healthkey].states[healthstate] > 0 ) {
-      this.actor.update({ "data.health.details" : { [healthkey] : { states : [--healthstate] } } } );
+    if ( hState > 0 ) {
+      this.actor.update({ "data.health.details" : { [hKey] : { states : { [hStateIndex] : --hState } } } } );
     }
 
     return;
