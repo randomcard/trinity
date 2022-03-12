@@ -698,11 +698,13 @@ export class TrinityActorSheet extends ActorSheet {
     // Model S handling: Update state
     let header = event.currentTarget;
     let hKey = header.dataset.healthkey;
+    let hStates = this.actor.data.data.health.details[hKey].states;
     let hStateIndex = header.dataset.healthstate;
     let hState = this.actor.data.data.health.details[hKey].states[hStateIndex];
 
     if ( hState < 3 ) {
-      this.actor.update({ "data.health.details" : { [hKey] : { states : { [hStateIndex] : ++hState } } } } );
+      hStates[hStateIndex] = ++hState;
+      this.actor.update({ "data.health.details" : { [hKey] : { states : hStates } } } );
     }
 
     return;
@@ -718,11 +720,13 @@ export class TrinityActorSheet extends ActorSheet {
     // Model S handling: Update state
     let header = event.currentTarget;
     let hKey = header.dataset.healthkey;
+    let hStates = this.actor.data.data.health.details[hKey].states;
     let hStateIndex = header.dataset.healthstate;
     let hState = this.actor.data.data.health.details[hKey].states[hStateIndex];
 
     if ( hState > 0 ) {
-      this.actor.update({ "data.health.details" : { [hKey] : { states : { [hStateIndex] : --hState } } } } );
+      hStates[hStateIndex] = --hState;
+      this.actor.update({ "data.health.details" : { [hKey] : { states : hStates } } } );
     }
 
     return;
