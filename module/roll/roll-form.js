@@ -68,6 +68,22 @@ export class RollForm extends FormApplication {
       this.object.favorite = object.favorite ? true : false;
       // this.rollname = Object.assign({}, object.name);
     }
+
+    // Model S: Check for penalties, add if needed.
+    if ( game.settings.get("trinity", "healthModel") === "modelS" && actor.data.data.health.summary.penalty < 0 ) {
+      let rollItemID = randomID(16);
+      this.object.items[rollItemID] = {
+        value : actor.data.data.health.summary.penalty,
+        name : actor.data.data.health.summary.status,
+        SourceType : "Injury",
+        note : "Injury Penalty",
+        isDice : true,
+        multiplier : 1,
+        id : rollItemID,
+        isCustom : true
+      }
+    }
+
     console.log("RollForm Object Post-Check this: ", this);
   }
 
