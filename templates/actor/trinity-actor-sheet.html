@@ -2,7 +2,7 @@
 
     {{!-- Sheet Header --}}
     <header class="sheet-header">
-        <img class="profile-img" src="{{actor.data.token.img}}" data-edit="token.img" title="{{actor.name}}" height="50" />
+        <img class="profile-img" src="{{actor.data.token.img}}" data-edit="token.img" title="Token Image" height="50" />
         <div class="header-fields charname">
             <h1>{{actor.name}}</h1>
             {{actor.data.data.concept}}
@@ -13,16 +13,16 @@
           {{/if}}
           {{#if actor.data.data.flags.isMage}}
             <h1 class="large">{{actor.data.data.tradition}}</h1>
-            {{actor.data.data.virtues}}<br>
-            {{actor.data.data.vices}}
+            {{actor.data.data.virtues}} <i class="fas fa-chevron-up" title="Virture"></i><br>
+            {{actor.data.data.vices}} <i class="fas fa-chevron-down" title="Vice"></i>
           {{/if}}
         </div>
-        <img class="large profile-img" src="{{actor.data.data.logo}}" data-edit="data.logo" height="50" />
+        <img class="large profile-img" src="{{actor.data.data.logo}}" data-edit="data.logo" height="50" title="Flavor Image"/>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs actor" data-group="primary">
-      <a class="item" data-tab="roll"><i class="large clickable fas fa-dice"></i></a> {{!-- Saved Rolls --}}
+      <a class="item" data-tab="roll"><i class="large clickable fas fa-dice" title="Rolls"></i></a> {{!-- Saved Rolls --}}
       <a class="item" data-tab="background">Background</a> {{!-- Bio, Aspirations, Details, Contacts, Bonds --}}
       <a class="item" data-tab="main">Attributes & Skills</a>
       <a class="item" data-tab="combat">Combat</a>
@@ -32,7 +32,7 @@
       {{#if actor.data.data.flags.isMage}}<a class="item" data-tab="mage">Magick</a>{{/if}}
       <a class="item" data-tab="equip">Equipment</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
       <a class="item config-tab can-hide hidden" data-tab="data-entry">Configure</a>
-      <div class="item">
+      <div class="item" title="Toggle Edit View">
         <i class="large clickable edit-button fas fa-lock can-hide"></i> {{!-- No Tab Content, just unlocks editing mode --}}
         <i class="large clickable edit-button fas fa-unlock can-hide hidden"></i>
       </div>
