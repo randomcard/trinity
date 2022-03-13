@@ -171,7 +171,7 @@ Hooks.on("init", () => {
         let [comparison, target] = match.slice(1);
         comparison = comparison || "=";
         target = parseInt(target) ?? this.faces;
-        for ( let r of results ) {
+        for ( let r of this.results ) {
           let success = this.compareResult(r.result, comparison, target);
           if (success) {r.count += 1;}
         }
