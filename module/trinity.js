@@ -158,7 +158,21 @@ Hooks.on("init", () => {
         if (successCount > 0) {
           this.results[0].count += enhaValue;
         }
-    }
+    };
+    Die.MODIFIERS["csa"] = function countSuccessAgain(modifier) {
+        const successValue = parseInt(modifier.match(/\d+/));
+        // var successCount = 0;
+        if (!successValue || !Number.isNumeric(successValue)) return;
+        console.log(this);
+        /*
+        for (var d = 0; d < this.results.length; d++) {
+          if (this.results[d].success) { successCount += 1; }
+        }
+        if (successCount > 0) {
+          this.results[0].count += enhaValue;
+        }
+        */
+    };
 });
 
 // Overview
