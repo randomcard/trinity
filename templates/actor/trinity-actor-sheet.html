@@ -21,6 +21,7 @@
       {{#if actor.data.data.flags.isTalent}}<a class="item" data-tab="talent">Talent</a>{{/if}}
       {{#if actor.data.data.flags.isPsion}}<a class="item" data-tab="psion">Psion</a>{{/if}}
       {{#if actor.data.data.flags.isNova}}<a class="item" data-tab="nova">Nova</a>{{/if}}
+      {{#if actor.data.data.flags.isMage}}<a class="item" data-tab="mage">Magick</a>{{/if}}
       <a class="item" data-tab="equip">Equipment</a> {{!-- Gear, Weapons, Armor, Vehicles --}}
       <a class="item config-tab can-hide hidden" data-tab="data-entry">Configure</a>
       <div class="item">
@@ -84,6 +85,11 @@
         {{!-- Nova Tab --}}
         <div class="tab nova" data-group="primary" data-tab="nova">
           {{> "systems/trinity/templates/actor/partials/nova.html"}}
+        </div>
+
+        {{!-- Mage Tab --}}
+        <div class="tab mage" data-group="primary" data-tab="mage">
+          {{> "systems/trinity/templates/actor/partials/mage.html"}}
         </div>
 
         {{!-- Equipment Tab --}}

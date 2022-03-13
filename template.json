@@ -287,7 +287,7 @@
     }
   },
   "Item": {
-    "types": ["equipment", "attribute", "edge", "skill", "specialty", "path", "condition", "stunt", "gift", "trick", "contact", "bond", "mode", "action", "quantumPower", "tag"],
+    "types": ["equipment", "attribute", "edge", "skill", "specialty", "path", "condition", "stunt", "gift", "trick", "contact", "bond", "mode", "action", "quantumPower", "modePower", "tag"],
     "templates": {
       "base": {
         "description": "",

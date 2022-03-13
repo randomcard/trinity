@@ -47,6 +47,7 @@ export async function loadTrinityTemplates()
     "systems/trinity/templates/actor/partials/talent.html",
     "systems/trinity/templates/actor/partials/psi.html",
     "systems/trinity/templates/actor/partials/nova.html",
+    "systems/trinity/templates/actor/partials/mage.html",
     "systems/trinity/templates/actor/partials/actions.html",
     "systems/trinity/templates/actor/partials/combat.html",
     "systems/trinity/templates/actor/partials/initiative.html",
