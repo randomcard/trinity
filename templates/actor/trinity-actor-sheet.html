@@ -5,9 +5,17 @@
         <img class="profile-img" src="{{actor.data.token.img}}" data-edit="token.img" title="{{actor.name}}" height="50" />
         <div class="header-fields charname">
             <h1>{{actor.name}}</h1>
+            {{actor.data.data.concept}}
         </div>
         <div class="header-fields charname flex-right">
-            <h1 class="large">{{actor.data.data.concept}}</h1>
+          {{#if actor.data.data.flags.isPsion}}
+            <h1 class="large">{{actor.data.data.psiOrder}}</h1>
+          {{/if}}
+          {{#if actor.data.data.flags.isMage}}
+            <h1 class="large">{{actor.data.data.tradition}}</h1>
+            {{actor.data.data.virtues}}<br>
+            {{actor.data.data.vices}}
+          {{/if}}
         </div>
         <img class="large profile-img" src="{{actor.data.data.logo}}" data-edit="data.logo" height="50" />
     </header>
