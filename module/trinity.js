@@ -146,7 +146,9 @@ Hooks.once("ready", async function() {
 
 });
 
-// Enhancement roll modifier ae "add enhancement"
+// Enhancement roll modifiers:
+// ae "add enhancement" ex: "ae5" will add 5 successes if any success are rolled
+// csa "count successes again" ex: "csa>=9" will add 1 additional success on 9's and up. Use after "cs"
 Hooks.on("init", () => {
     Die.MODIFIERS["ae"] = function addEnhancement(modifier) {
         const enhaValue = parseInt(modifier.match(/\d+/));
@@ -160,11 +162,6 @@ Hooks.on("init", () => {
         }
     };
     Die.MODIFIERS["csa"] = function countSuccessAgain(modifier) {
-        // const successValue = parseInt(modifier.match(/\d+/));
-        // var successCount = 0;
-        // if (!successValue || !Number.isNumeric(successValue)) return;
-        console.log(this);
-
         let rgx = /(?:csa)([<>=]+)?([0-9]+)?/i;
         let match = modifier.match(rgx);
         if ( !match ) return false;
@@ -180,59 +177,11 @@ Hooks.on("init", () => {
             case ">":  success = (r.result > target);
             case ">=": success = (r.result >= target);
           };
-          // this.compareResult(r.result, comparison, target);
           if (success) {r.count += 1;}
         }
 
-        /*
-        for (var d = 0; d < this.results.length; d++) {
-          if (this.results[d].result >= successValue ) { this.results[d].count += 1; }
-        }
-        */
     };
 });
-
-/*
-countSuccess(modifier) {
-const rgx = /(?:cs)([<>=]+)?([0-9]+)?/i;
-const match = modifier.match(rgx);
-if ( !match ) return false;
-let [comparison, target] = match.slice(1);
-comparison = comparison || "=";
-target = parseInt(target) ?? this.faces;
-DiceTerm._applyCount(this.results, comparison, target, {flagSuccess: true});
-}
-
-static _applyCount(results, comparison, target, {flagSuccess=false, flagFailure=false}={}) {
-for ( let r of results ) {
-let success = this.compareResult(r.result, comparison, target);
-if (flagSuccess) {
-r.success = success;
-if (success) delete r.failure;
-}
-else if (flagFailure ) {
-r.failure = success;
-if (success) delete r.success;
-}
-r.count = success ? 1 : 0;
-}
-}
-
-static compareResult(result, comparison, target) {
-switch ( comparison ) {
-case "=":
-return result === target;
-case "<":
-return result < target;
-case "<=":
-return result <= target;
-case ">":
-return result > target;
-case ">=":
-return result >= target;
-}
-}
-*/
 
 // Overview
 Hooks.on("ready", () => {
