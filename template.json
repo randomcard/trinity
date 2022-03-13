@@ -4,7 +4,7 @@
     "templates": {
       "base": {
         "biography": "",
-        "logo" : "",
+        "logo" : "systems/trinity/assets/emptycircle.webp",
         "defense": {
           "value": 1
         },
@@ -60,20 +60,6 @@
       },
       "talent" : {
         "moment" : "",
-        "facets" : {
-          "des" : {
-            "name" : "Destructive",
-            "value" : 0
-          },
-          "int" : {
-            "name" : "Intuitive",
-            "value" : 0
-          },
-          "ref" : {
-            "name" : "Reflective",
-            "value" : 0
-          }
-        },
         "inspiration" : {
           "max" : 0,
           "value" : 0
@@ -133,33 +119,6 @@
       "templates": ["base", "talent", "psion", "nova"],
       "npcType" : "",
       "powerLevel" : "",
-      "healthboxes" : {
-        "health" : {
-          "value" : 1,
-          "conditionLevel" : 0,
-          "name" : "Health"
-        }
-      },
-      "attributes": {
-        "pri": {
-          "value": 1,
-          "name" : "Primary Action Pool",
-          "area" : ""
-        },
-        "sec": {
-          "value": 1,
-          "name" : "Secondary Action Pool",
-          "area" : ""
-        },
-        "des": {
-          "value": 1,
-          "name" : "Desperation Action Pool",
-          "area" : ""
-        }
-      },
-      "enhancements" : {
-        "value" : 1
-      },
       "edgeDots" : {
         "value" : 1
       },
@@ -200,90 +159,7 @@
           "complete" : false
         }
       },
-      "favoredApproach" : "",
-      "healthboxes" : {
-        "armor" : {
-          "value" : 0,
-          "conditionLevel" : 0,
-          "name" : "Armor"
-        },
-        "bruised" : {
-          "value" : 1,
-          "conditionLevel" : 1,
-          "name" : "Bruised"
-        },
-        "injured" : {
-          "value" : 1,
-          "conditionLevel" : 2,
-          "name" : "Injured"
-        },
-        "maimed" : {
-          "value" : 1,
-          "conditionLevel" : 4,
-          "name" : "Maimed"
-        },
-        "takenOut" : {
-          "value" : 1,
-          "conditionLevel" : 5,
-          "name" : "Taken Out"
-        }
-      },
-      "attributes": {
-        "int": {
-          "value": 1,
-          "name": "Intellect",
-          "arena": "Mental",
-          "approach": "Force"
-        },
-        "cun": {
-          "value": 1,
-          "name": "Cunning",
-          "arena": "Mental",
-          "approach": "Finesse"
-        },
-        "res": {
-          "value": 1,
-          "name": "Resolve",
-          "arena": "Mental",
-          "approach": "Resilience"
-        },
-        "mig": {
-          "value": 1,
-          "name": "Might",
-          "arena": "Physical",
-          "approach": "Force"
-        },
-        "dex": {
-          "value": 1,
-          "name": "Dexterity",
-          "arena": "Physical",
-          "approach": "Finesse"
-        },
-        "sta": {
-          "value": 1,
-          "name": "Stamina",
-          "arena": "Physical",
-          "approach": "Resilience"
-        },
-        "pre": {
-          "value": 1,
-          "name": "Presence",
-          "arena": "Social",
-          "approach": "Force"
-        },
-        "man": {
-          "value": 1,
-          "name": "Manipulation",
-          "arena": "Social",
-          "approach": "Finesse"
-        },
-        "com": {
-          "value": 1,
-          "name": "Composure",
-          "arena": "Social",
-          "approach": "Resilience"
-        }
-      }
+      "favoredApproach" : ""
     }
   },
   "Item": {
