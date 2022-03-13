@@ -3,6 +3,7 @@
   <div class="flex-fit flex-valign bold">Injuries:&ensp;</div>
   <div class="healthboxes flexcol">
     {{#each this.actor.data.data.health.details as |healthBox key|}}
+    {{#if healthBox.type}}
     <div class="grid grid-2col lowmargin">
       <div class="bold right-vcenter">{{healthBox.name}}</div>
       <div class="big icons left-vcenter can-hide">
@@ -18,6 +19,7 @@
         <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.health.details.{{key}}.boxes"></i>
       </div>
     </div>
+    {{/if}}
     {{/each}}
   </div>
 </div>
