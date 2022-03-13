@@ -160,20 +160,71 @@ Hooks.on("init", () => {
         }
     };
     Die.MODIFIERS["csa"] = function countSuccessAgain(modifier) {
-        const successValue = parseInt(modifier.match(/\d+/));
+        // const successValue = parseInt(modifier.match(/\d+/));
         // var successCount = 0;
-        if (!successValue || !Number.isNumeric(successValue)) return;
+        // if (!successValue || !Number.isNumeric(successValue)) return;
         console.log(this);
+
+        let rgx = /(?:csa)([<>=]+)?([0-9]+)?/i;
+        let match = modifier.match(rgx);
+        if ( !match ) return false;
+        let [comparison, target] = match.slice(1);
+        comparison = comparison || "=";
+        target = parseInt(target) ?? this.faces;
+        for ( let r of results ) {
+          let success = this.compareResult(r.result, comparison, target);
+          if (success) {r.count += 1;}
+        }
+
         /*
         for (var d = 0; d < this.results.length; d++) {
-          if (this.results[d].success) { successCount += 1; }
-        }
-        if (successCount > 0) {
-          this.results[0].count += enhaValue;
+          if (this.results[d].result >= successValue ) { this.results[d].count += 1; }
         }
         */
     };
 });
+
+/*
+countSuccess(modifier) {
+const rgx = /(?:cs)([<>=]+)?([0-9]+)?/i;
+const match = modifier.match(rgx);
+if ( !match ) return false;
+let [comparison, target] = match.slice(1);
+comparison = comparison || "=";
+target = parseInt(target) ?? this.faces;
+DiceTerm._applyCount(this.results, comparison, target, {flagSuccess: true});
+}
+
+static _applyCount(results, comparison, target, {flagSuccess=false, flagFailure=false}={}) {
+for ( let r of results ) {
+let success = this.compareResult(r.result, comparison, target);
+if (flagSuccess) {
+r.success = success;
+if (success) delete r.failure;
+}
+else if (flagFailure ) {
+r.failure = success;
+if (success) delete r.success;
+}
+r.count = success ? 1 : 0;
+}
+}
+
+static compareResult(result, comparison, target) {
+switch ( comparison ) {
+case "=":
+return result === target;
+case "<":
+return result < target;
+case "<=":
+return result <= target;
+case ">":
+return result > target;
+case ">=":
+return result >= target;
+}
+}
+*/
 
 // Overview
 Hooks.on("ready", () => {
