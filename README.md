@@ -40,7 +40,6 @@ Start rolling dice in one of four ways:
 
 After doing any of these, a Roll window will appear, where you can add or remove dice, enhancements, and change roll options like the success value. You can also save the roll settings to use them again later, or to associate with a roll icon.
 
-
 ## Other Notes
 
 Most character elements that can't be dropped as an item on the character (such as facets or inspiration) can be edited in the "Configure" section on the character sheet.
@@ -61,3 +60,11 @@ Some code was obtained from other sources:
 - Elements from party-overview were used. (https://github.com/League-of-Foundry-Developers/party-overview)
 - Custom combat class adapted from a sample by Tommycore. (https://discordapp.com/channels/170995199584108546/670336275496042502/893041317637132288)
 - And many, many more. I didn't think to keep track until recently. Big thanks to the Discord community!
+
+## Bonus Features
+
+A rough facsimile of the Mage20 can be made in this system:
+1. Create the appropriate attributes and skills. Talents & Knowledges would be considered skills.
+2. Rename existing Quantum item (if present) to Arete, or create a new Attribute item as if it was Quantum.
+3. Go to Game Settings > Configure Settings > System Settings > Health Model, and change it to Storyteller/WoD.
+4. In System Settings, change the default roll settings (such as the Success Value) to match the system.

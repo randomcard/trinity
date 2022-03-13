@@ -19,47 +19,42 @@
     </div>
 
 
-    <div class="inspiration boxed">
-      <div class="quantum flex-parent-center-column">
-        <div class="flex-child resource-label">Quantum Points</div>
-        <div class="quantum flex-parent-nowrap-center">
-          <div class="flex-parent-center-column flex-child">
-            <div class="flex-child resource-label">Current</div>
-            <div class="flex-parent-nowrap-center">
-              <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.quantum.points.value"></i>
-              <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="quantumPointsMax-value" name="data.quantum.points.value" value="{{this.actor.data.data.quantum.points.value}}" data-dtype="Number"/>
-              <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.quantum.points.value"></i>
-            </div>
-          </div>
-          <div class="flex-child resource-label">&nbsp;/&nbsp;</div>
-          <div class="flex-parent-center-column flex-child">
-            <div class="flex-child resource-label">Max</div>
-            <div class="flex-child resource can-hide">{{this.actor.data.data.quantum.points.max}}</div>
-            <div class="flex-parent-nowrap-center edit-area can-hide hidden">
-              <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.quantum.points.max"></i>
-              <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="quantumPointsMax-value" name="data.quantum.points.max" value="{{this.actor.data.data.quantum.points.max}}" data-dtype="Number"/>
-              <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.quantum.points.max"></i>
-            </div>
-          </div>
+    <div class="mage boxed">
+      <div class="flex-parent-center-column">
+        <div class="flex-child resource-label">Max Willpower</div>
+        <div class="flex-child big icons can-hide">{{{to10Dots this.actor.data.data.willpower.max}}}</div>
+        <div class="flex-parent-nowrap-center edit-area can-hide hidden">
+          <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.willpower.max"></i>
+          <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="maxInsp-value" name="data.willpower.max" value="{{data.data.willpower.max}}" data-dtype="Number"/>
+          <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.willpower.max"></i>
         </div>
       </div>
       <hr>
-      <div class="flex-parent-center-column flex-child">
+      <div class="flex-parent-center-column">
         <div class="flex-child big icons">
-          <i class="clickable sub-value far fa-caret-square-left" data-target="data.flux"></i>
-          {{{to10Boxes this.actor.data.data.flux}}}
-          <i class="clickable add-value far fa-caret-square-right" data-target="data.flux"></i>
+          <i class="clickable sub-value far fa-caret-square-left" data-target="data.willpower.value"></i>
+          {{{to10Boxes this.actor.data.data.willpower.value}}}
+          <i class="clickable add-value far fa-caret-square-right" data-target="data.willpower.value"></i>
         </div>
-        <div class="flex-child resource-label">Flux</div>
+        <div class="flex-child resource-label">Current Willpower</div>
       </div>
       <hr>
       <div class="flex-parent-center-column flex-child">
-        <div class="flex-child big icons">
-          <i class="clickable sub-value far fa-caret-square-left" data-target="data.transcendence"></i>
-          {{{to10Boxes this.actor.data.data.transcendence}}}
-          <i class="clickable add-value far fa-caret-square-right" data-target="data.transcendence"></i>
+        <div class="flex-parent-nowrap-center">
+          <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.quintessence.value"></i>
+          <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="quantumPointsMax-value" name="data.quintessence.value" value="{{this.actor.data.data.quintessence.value}}" data-dtype="Number"/>
+          <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.quintessence.value"></i>
         </div>
-        <div class="flex-child resource-label">Transcendence</div>
+        <div class="flex-child resource-label">Quintessence</div>
+      </div>
+      <hr>
+      <div class="flex-parent-center-column flex-child">
+        <div class="flex-parent-nowrap-center">
+          <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.paradox.value"></i>
+          <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="quantumPointsMax-value" name="data.paradox.value" value="{{this.actor.data.data.paradox.value}}" data-dtype="Number"/>
+          <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.paradox.value"></i>
+        </div>
+        <div class="flex-child resource-label">Paradox</div>
       </div>
     </div>
 
@@ -68,7 +63,7 @@
     {{!-- Quantum Powers item Box --}}
     <ol class="items-list boxed no-top-margin">
         <li class="item flexrow item-header">
-          <div class="big item-name">Quantum Powers</div>
+          <div class="big item-name">Spheres</div>
           <div class="item-dots"></div>
           <div class="item-controls">
             <a class="item-control item-create" title="Create item" data-type="quantumPower"><i class="far fa-plus-square"></i></a>
