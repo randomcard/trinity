@@ -172,18 +172,13 @@ Hooks.on("init", () => {
         comparison = comparison || "=";
         target = parseInt(target) ?? this.faces;
         for ( let r of this.results ) {
-          let success = 
+          let success = null;
           switch ( comparison ) {
-            case "=":
-            return r.result === target;
-            case "<":
-            return r.result < target;
-            case "<=":
-            return r.result <= target;
-            case ">":
-            return r.result > target;
-            case ">=":
-            return r.result >= target;
+            case "=":  success = (r.result === target);
+            case "<":  success = (r.result < target);
+            case "<=": success = (r.result <= target);
+            case ">":  success = (r.result > target);
+            case ">=": success = (r.result >= target);
           };
           // this.compareResult(r.result, comparison, target);
           if (success) {r.count += 1;}
