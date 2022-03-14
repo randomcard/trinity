@@ -677,6 +677,7 @@
 .flex-middle-wrap {
   flex: 1 1;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .flex-child-fit {
