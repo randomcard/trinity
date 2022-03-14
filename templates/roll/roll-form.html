@@ -82,7 +82,7 @@
           {{#if this.saved}}<button type="button" id="save" class="save">Save <i class="fas fa-save"></i></button>{{/if}}
           <button type="button" id="save-as" class="save-as">Save As <i class="fas fa-save"></i></button>
         </div>
-        <div class="grid grid-4col center-text options" id="options" style="display:none;">
+        <div class="grid grid-6col center-text options" id="options" style="display:none;">
           <div class="">
             <label class="center-text small-note" for="succ" id="succ-label">
               Success
@@ -106,6 +106,20 @@
               D. Scale
             </label><br>
             <input class="narrow-input setting" type="number" id="dsca" name="object.settings.dsca" value="{{rollData.settings.dsca}}" data-dtype="Number"/>
+          </div>
+          <div class="">
+            <label class="center-text small-note" for="fail" id="fail-label">
+              Fails
+            </label><br>
+            <!--<input class="narrow-input setting" type="number" id="fail" name="object.settings.fail" value="{{rollData.settings.fail}}" data-dtype="Number"/>-->
+            <input type="checkbox setting" id="fail" name="object.flags.fail" value="{{rollData.flags.fail}}" data-dtype="Boolean" {{checked rollData.flags.fail}}/>
+          </div>
+          <div class="">
+            <label class="center-text small-note" for="doub" id="doub-label">
+              Doubles
+            </label><br>
+            <!-- <input class="narrow-input setting" type="number" id="doub" name="object.settings.doub" value="{{rollData.settings.doub}}" data-dtype="Number"/> -->
+            <input type="checkbox setting" id="doub" name="object.flags.doub" value="{{rollData.flags.doub}}" data-dtype="Boolean" {{checked rollData.flags.doub}}/>
           </div>
         </div>
       </div>

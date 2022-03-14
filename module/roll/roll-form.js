@@ -65,6 +65,7 @@ export class RollForm extends FormApplication {
       this.object.id = JSON.parse(JSON.stringify(object.id));
       this.object.items = Object.assign({}, object.items);
       this.object.settings = Object.assign({}, object.settings);
+      this.object.flags = Object.assign({}, object.flags);
       this.object.favorite = object.favorite ? true : false;
       // this.rollname = Object.assign({}, object.name);
     }
@@ -321,8 +322,14 @@ export class RollForm extends FormApplication {
         if (!this.items) { return 0; }
         let enhaScale = this.enhaTotal + (this.settings.dsca * 2);
         let fail = '';
-        if (typeof this.settings.fail !== "undefined" && this.settings.fail > 0) {fail = `df<=${this.settings.fail}`;}
-        let rollFormula = `(${this.diceTotal}d10x>=${this.settings.expl}cs>=${this.settings.succ}${fail}ae${enhaScale})*${this.settings.nsca}`;
+        let doub = '';
+        let enha = '';
+        let nsca = '';
+        if (this.flags.fail) {fail = `df<=${this.settings.fail}`;}
+        if (this.flags.doub) {doub = `csa>=${this.settings.doub}`;}
+        if (enhaScale > 0) {enha = `ae${enhaScale}`;}
+        if (this.settings.nsca > 1) {nsca = `*${this.settings.nsca}`;}
+        let rollFormula = `(${this.diceTotal}d10x>=${this.settings.expl}cs>=${this.settings.succ}${doub}${fail}${enha})${nsca}`;
         return rollFormula;
       },
       items : {
@@ -354,8 +361,13 @@ export class RollForm extends FormApplication {
         succ : this.actor.data.data.rollSettings.succ.value,
         nsca : this.actor.data.data.rollSettings.nsca.value, // Narrative Scale (Absolute)
         dsca : this.actor.data.data.rollSettings.dsca.value, // Dramatic Scale (Difference)
-        fail : this.actor.data.data.rollSettings.fail.value, // Fail value, for old-school homebrew
+        fail : game.settings.get("trinity", "defaultFail"), // Fail value, for old-school homebrew
+        doub : game.settings.get("trinity", "defaultFail"), // Double Success value, for old-school homebrew
         init : false // For Compatibility
+      },
+      flags : {
+        fail : false,
+        doub : false
       },
       favorite : false
     };

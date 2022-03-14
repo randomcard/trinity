@@ -30,18 +30,6 @@ game.settings.register("trinity", "defaultSuccess", {
   }
 });
 
-game.settings.register("trinity", "defaultFail", {
-  name: "Fail Threshold",
-  hint: "Dice with this result or lower are counted as fails, and deduct from successes. (New actor default, can be overriden by actor or roll settings.)",
-  scope: "world",      // This specifies a world-level setting
-  config: true,        // This specifies that the setting appears in the configuration view
-  type: Number,
-  default: 0,         // The default value for the setting
-  onChange: value => { // A callback function which triggers when the setting is changed
-    console.log(value)
-  }
-});
-
 game.settings.register("trinity", "defaultExplode", {
   name: "Explode Threshold",
   hint: "Dice with this result or higher are rerolled. (New actor default, can be overriden by actor or roll settings.)",
@@ -73,6 +61,30 @@ game.settings.register("trinity", "defaultDScale", {
   config: true,        // This specifies that the setting appears in the configuration view
   type: Number,
   default: 0,         // The default value for the setting
+  onChange: value => { // A callback function which triggers when the setting is changed
+    console.log(value)
+  }
+});
+
+game.settings.register("trinity", "defaultFail", {
+  name: "Fail Threshold",
+  hint: "Dice with this result or lower are counted as fails, and deduct from successes. (Can be enabled on a per roll basis in roll settings.)",
+  scope: "world",      // This specifies a world-level setting
+  config: true,        // This specifies that the setting appears in the configuration view
+  type: Number,
+  default: 0,         // The default value for the setting
+  onChange: value => { // A callback function which triggers when the setting is changed
+    console.log(value)
+  }
+});
+
+game.settings.register("trinity", "defaultDouble", {
+  name: "Double Success Threshold",
+  hint: "Dice with this result or higher will add an additional success to the total. (Can be enabled on a per roll basis in roll settings.)",
+  scope: "world",      // This specifies a world-level setting
+  config: true,        // This specifies that the setting appears in the configuration view
+  type: Number,
+  default: 11,         // The default value for the setting
   onChange: value => { // A callback function which triggers when the setting is changed
     console.log(value)
   }
