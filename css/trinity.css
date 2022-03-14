@@ -237,6 +237,14 @@
   flex: 1;
 }
 
+.trinity .sheet-header div.header-fields.flex-child {
+    flex: auto;
+}
+
+.trinity .sheet-header div.header-fields.flex-fit {
+    flex: 0 0 auto;
+}
+
 .trinity .sheet-header h1.charname {
   height: 50px;
   padding: 0px;
