@@ -269,6 +269,7 @@
 
 .trinity nav.sheet-tabs.actor {
   justify-content: space-between;
+  flex-wrap: nowrap;
   background-color: linen;
   box-shadow: 0 0 5px 5px linen;
   border: 0;
@@ -306,7 +307,7 @@
 }
 
 .trinity .tabs .item {
-  line-height: 1em;
+  line-height: 1.2em;
   font-weight: bold;
   margin: 7px;
 }
@@ -673,6 +674,11 @@
   width: 100%;
 }
 
+.flex-middle-wrap {
+  flex: 1 1;
+  flex-wrap: wrap;
+}
+
 .flex-child-fit {
   flex: 1 0px;
   margin: 3px;
@@ -809,11 +815,11 @@ input[type=radio].hidden-input:focus + label {
   padding: 0;
 }
 
-/*
+
 .trinity.sheet.actor section.window-content {
-  padding-top: 0;
+  overflow-y: scroll;
 }
-*/
+
 
 .flex-flavor {
   display: flex;
