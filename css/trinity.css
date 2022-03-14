@@ -214,6 +214,7 @@
   margin: 0px;
   background-color: linen;
   box-shadow: 0 0 5px 5px linen;
+  flex-wrap: nowrap;
 }
 
 .trinity .sheet-header .profile-img .token-img {
@@ -238,7 +239,7 @@
 }
 
 .trinity .sheet-header div.header-fields.flex-child {
-    flex: auto;
+    flex: 0 1 auto;
 }
 
 .trinity .sheet-header div.header-fields.flex-fit {
@@ -317,7 +318,7 @@
 .trinity .tabs .item {
   line-height: 1.2em;
   font-weight: bold;
-  margin: 7px;
+  margin: 3px;
 }
 
 .trinity .tabs .item.active {
