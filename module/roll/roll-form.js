@@ -362,7 +362,7 @@ export class RollForm extends FormApplication {
         nsca : this.actor.data.data.rollSettings.nsca.value, // Narrative Scale (Absolute)
         dsca : this.actor.data.data.rollSettings.dsca.value, // Dramatic Scale (Difference)
         fail : game.settings.get("trinity", "defaultFail"), // Fail value, for old-school homebrew
-        doub : game.settings.get("trinity", "defaultFail"), // Double Success value, for old-school homebrew
+        doub : game.settings.get("trinity", "defaultDouble"), // Double Success value, for old-school homebrew
         init : false // For Compatibility
       },
       flags : {

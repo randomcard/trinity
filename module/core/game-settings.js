@@ -20,7 +20,7 @@ game.settings.register("trinity", "basicItems", {
 
 game.settings.register("trinity", "defaultSuccess", {
   name: "Success Threshold",
-  hint: "Dice with this result or higher are counted as successes. (New actor default, can be overriden by actor or roll settings.)",
+  hint: "Dice with this result or higher are counted as successes. (New actor default, can be overriden/adjusted by actor or roll settings.)",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
   type: Number,
@@ -32,7 +32,7 @@ game.settings.register("trinity", "defaultSuccess", {
 
 game.settings.register("trinity", "defaultExplode", {
   name: "Explode Threshold",
-  hint: "Dice with this result or higher are rerolled. (New actor default, can be overriden by actor or roll settings.)",
+  hint: "Dice with this result or higher are rerolled. (New actor default, can be overriden/adjusted by actor or roll settings.)",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
   type: Number,
@@ -44,7 +44,7 @@ game.settings.register("trinity", "defaultExplode", {
 
 game.settings.register("trinity", "defaultNScale", {
   name: "Narrative Scale (Absolute)",
-  hint: "A multiplier to successes. (New actor default, can be overriden by actor or roll settings.)",
+  hint: "A multiplier to successes. (New actor default, can be overriden/adjusted by actor or roll settings.)",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
   type: Number,
@@ -56,7 +56,7 @@ game.settings.register("trinity", "defaultNScale", {
 
 game.settings.register("trinity", "defaultDScale", {
   name: "Dramatic Scale (Difference)",
-  hint: "Additional enhancements. (New actor default, can be overriden by actor or roll settings.)",
+  hint: "Additional enhancements. (New actor default, can be overriden/adjusted by actor or roll settings.)",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
   type: Number,
@@ -68,7 +68,7 @@ game.settings.register("trinity", "defaultDScale", {
 
 game.settings.register("trinity", "defaultFail", {
   name: "Fail Threshold",
-  hint: "Dice with this result or lower are counted as fails, and deduct from successes. (Can be enabled on a per roll basis in roll settings.)",
+  hint: "Dice with this result or lower are counted as fails, and deduct from successes. (Can be enabled, but not adjusted, on a per roll basis in roll settings.)",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
   type: Number,
@@ -80,7 +80,7 @@ game.settings.register("trinity", "defaultFail", {
 
 game.settings.register("trinity", "defaultDouble", {
   name: "Double Success Threshold",
-  hint: "Dice with this result or higher will add an additional success to the total. (Can be enabled on a per roll basis in roll settings.)",
+  hint: "Dice with this result or higher will add an additional success to the total. (Can be enabled, but not adjusted, on a per roll basis in roll settings.)",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
   type: Number,
