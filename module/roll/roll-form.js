@@ -367,7 +367,7 @@ export class RollForm extends FormApplication {
       },
       flags : {
         fail : false,
-        doub : false
+        doub : this.actor.data.data.flags.isMage
       },
       favorite : false
     };
