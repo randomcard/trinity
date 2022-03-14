@@ -72,7 +72,7 @@ game.settings.register("trinity", "defaultFail", {
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
   type: Number,
-  default: 0,         // The default value for the setting
+  default: 1,         // The default value for the setting
   onChange: value => { // A callback function which triggers when the setting is changed
     console.log(value)
   }
@@ -84,7 +84,7 @@ game.settings.register("trinity", "defaultDouble", {
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
   type: Number,
-  default: 11,         // The default value for the setting
+  default: 10,         // The default value for the setting
   onChange: value => { // A callback function which triggers when the setting is changed
     console.log(value)
   }
