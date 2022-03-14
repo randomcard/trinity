@@ -243,7 +243,8 @@
 }
 
 .trinity .sheet-header div.header-fields.flex-fit {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
+    margin: 0px;
 }
 
 .trinity .sheet-header h1.charname {
