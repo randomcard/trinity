@@ -69,3 +69,11 @@ A rough facsimile of the Mage20 can be made in this system:
 3. Go to Game Settings > Configure Settings > System Settings > Health Model, and change it to Storyteller/WoD.
 4. In System Settings, change the default roll settings (such as the Success Value) to match the system.
 5. Spheres would be created as Quantum Powers.
+
+## Homebrew options
+
+A number of settings are available in Game Settings > Configure Settings > System Settings to tweak behavior.
+
+### Skill subtypes
+
+If you enable Skill Subtypes, all skills must have a subtype or they will not show on the Attribute/Skill tab. Remember that you can always access skills from the "Config" tab if you need to edit an existing skill. (Such as adding a sub-type so it does show properly.)

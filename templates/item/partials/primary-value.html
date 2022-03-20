@@ -50,6 +50,21 @@
       <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.megaValue"></i>
     </div>
     {{/if}}
+    {{#if (isEqual item.data.type "skill") }}
+    {{~#if (getSetting "useSkillSubTypes") }}
+    <div class="flex-child flex-right flex-valign">
+      <label class="flex-fit flex-valign resource-label" for="skill-subtype">Skill Subtype:</label>
+      <select id="skill-subtype" name="data.subType" data-dtype="String">
+        {{#select data.data.subType}}
+          <option value="No Subtype">No Subtype</option>
+          {{#each (getSetting "skillSubTypes") as |subtype key|}}
+          <option value="{{subtype}}">{{subtype}}</option>
+          {{/each}}
+        {{/select}}
+      </select>
+    </div>
+    {{/if~}}
+    {{/if}}
     {{#if item.data.data.flags.isEnhancement }}
     {{#unless (isEqual item.data.type "attribute") }}
     </div>
