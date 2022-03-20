@@ -41,8 +41,8 @@ export class TrinityActor extends Actor {
      // console.log("pcAttribs", pcAttribs);
      // console.log("this", this);
 
-     if (data.type == "TrinityCharacter")
      data.token = {actorLink : true};
+     if (data.type == "TrinityCharacter")
      {
        for (let i of Object.keys(pcAttribs) )
        {
