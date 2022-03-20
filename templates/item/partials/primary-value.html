@@ -20,7 +20,7 @@
 
   {{#if (isEqual item.data.type "tag") }}
     <label class="flex-fit flex-valign resource-label" for="tag-value">Tag Value:</label>
-    <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.tagValue"></i>
+    <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.tagValue" data-negative="true"></i>
     <input
         class="flex-valign short-input resource"
         type="number"
@@ -50,6 +50,21 @@
       <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.megaValue"></i>
     </div>
     {{/if}}
+    {{#if (isEqual item.data.type "skill") }}
+    {{~#if (getSetting "useSkillSubTypes") }}
+    <div class="flex-child flex-right flex-valign">
+      <label class="flex-fit flex-valign resource-label" for="skill-subtype">Skill Subtype:</label>
+      <select id="skill-subtype" name="data.subType" data-dtype="String">
+        {{#select data.data.subType}}
+          <option value="No Subtype">No Subtype</option>
+          {{#each (getSetting "skillSubTypes") as |subtype key|}}
+          <option value="{{subtype}}">{{subtype}}</option>
+          {{/each}}
+        {{/select}}
+      </select>
+    </div>
+    {{/if~}}
+    {{/if}}
     {{#if item.data.data.flags.isEnhancement }}
     {{#unless (isEqual item.data.type "attribute") }}
     </div>
@@ -65,6 +80,12 @@
   {{#if (isEqual item.data.type "specialty") }}
     <label class="flex-fit flex-valign resource-label" for="enhancement-condition">Short Description:</label>
     <input class="flex-valign short-input resource" type="text" id="enhancement-condition" name="data.enhancement.relevance" value="{{data.data.enhancement.relevance}}" data-dtype="String"/>
+  </div>
+  <div class="flex-parent-nowrap">
+    <label class="flex-fit flex-right flex-valign resource-label" for="enhancement-value">Enhancement:</label>
+    <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.enhancement.value"></i>
+    <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="enhancement-value" name="data.enhancement.value" value="{{data.data.enhancement.value}}" data-dtype="Number"/>
+    <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.enhancement.value"></i>
   {{/if}}
 
   {{#if (isEqual item.data.type "condition") }}

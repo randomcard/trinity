@@ -289,6 +289,7 @@
     "skill": {
       "templates": ["base"],
       "typeName" : "Skill",
+      "subType" : "",
       "value": 0,
       "flags" : {
         "isDice" : true
@@ -303,6 +304,7 @@
         "relevance" : "Specialty: Skill Name"
       },
       "flags" : {
+        "isEnhancement" : true,
         "hasDots" : false
       }
     },
@@ -310,7 +312,7 @@
       "templates": ["base"],
       "typeName" : "Path",
       "pathtype": "",
-      "value" : 0
+      "value" : 1
     },
     "condition": {
       "templates": ["base"],

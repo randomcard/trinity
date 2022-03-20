@@ -1,10 +1,10 @@
 # Trinity Continuum
 
-Unofficial Foundry Virtual Tabletop implementation of the Trinity Continuum Core RPG, by Onyx Path Publishing. The system currently supports Trinity Core, Adventure, Aeon, and Aberrant. It is also homebrew friendly, to an extent.
+Unofficial Foundry Virtual Tabletop implementation of the Trinity Continuum Core RPG, by Onyx Path Publishing. The system currently supports Trinity Core, Adventure, Aeon, and Aberrant. (Talents, Psions, and Novas.) It is also homebrew friendly, to an extent.
 
 ## Info
 
-This is a beginning work by the system author: Expect errors, bugs, and poor coding & design in general.
+This is a beginning work by the system author: Expect errors, bugs, and poor coding & design in general. See the GitHub Issues page for details on known bugs.
 
 ## How to Use
 
@@ -38,13 +38,13 @@ Start rolling dice in one of four ways:
 3. Go to the "Saved Rolls" tab (the dice on the left of the character navigation bar), and click on the "New Roll" button.
 4. Go to the "Saved Rolls" tab, and click on any of the saved rolls there, if any.
 
-After doing any of these, a Roll window will appear, where you can add or remove dice, enhancements, and change roll options like the success value. You can also save the roll settings to use them again later, or to associate with a roll icon.
+After doing any of these, a Roll window will appear, where you can add or remove dice, enhancements, and change roll options like the success value. You can also save the roll settings to use them again later, or to associate the settings with a roll icon on an actor/character or item.
 
 ## Other Notes
 
 Most character elements that can't be dropped as an item on the character (such as facets or inspiration) can be edited in the "Configure" section on the character sheet.
 
-The Actors directory has a "Party Overview" button that launches a window to keep track of party Momentum, and the party's aspirations. In order to show in this overview, characters must have a token in the scene, and the token needs to be owned by a player.
+The Actors directory has a "Party Overview" button that launches a window to keep track of party Momentum, and the party's aspirations. In order to show in this overview, characters must have a token in the scene, and the token and actor/character needs to be owned by a player.
 
 Rolling for initiative requires creating a "Saved Roll":
 1. Click on a Skill or Attribute to open the "Roll Options" dialog.
@@ -68,3 +68,12 @@ A rough facsimile of the Mage20 can be made in this system:
 2. Rename existing Quantum item (if present) to Arete, or create a new Attribute item as if it was Quantum.
 3. Go to Game Settings > Configure Settings > System Settings > Health Model, and change it to Storyteller/WoD.
 4. In System Settings, change the default roll settings (such as the Success Value) to match the system.
+5. Spheres would be created as Quantum Powers.
+
+## Homebrew options
+
+A number of settings are available in Game Settings > Configure Settings > System Settings to tweak behavior.
+
+### Skill subtypes
+
+If you enable Skill Subtypes, all skills must have a subtype or they will not show on the Attribute/Skill tab. Remember that you can always access skills from the "Config" tab if you need to edit an existing skill. (Such as adding a sub-type so it does show properly.)

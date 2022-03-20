@@ -37,6 +37,17 @@ export function handlebarHelpers() {
     return isEqual;
   });
 
+  // return value of trinity game setting
+  Handlebars.registerHelper("getSetting", function (arg) {
+    return JSON.parse(game.settings.get("trinity", arg));
+  });
+
+  Handlebars.registerHelper("getSettingArray", function (arg1) {
+    let settingArray = JSON.parse(game.settings.get("trinity", arg1));
+    // if (arg2) {settingArray.push("");}
+    return settingArray;
+  });
+
 /*
   Handlebars.registerHelper('isPopulated', function (arg) {
     return value !== undefined;

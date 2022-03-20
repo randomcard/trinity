@@ -41,6 +41,7 @@ export class TrinityActor extends Actor {
      // console.log("pcAttribs", pcAttribs);
      // console.log("this", this);
 
+     data.token = {actorLink : true};
      if (data.type == "TrinityCharacter")
      {
        for (let i of Object.keys(pcAttribs) )
@@ -68,7 +69,7 @@ export class TrinityActor extends Actor {
  }
 
 
-  prepareData() {
+  async prepareData() {
     super.prepareData();
 
     const actorData = this.data;
@@ -84,11 +85,16 @@ export class TrinityActor extends Actor {
 
     // Health Setup
     if ( actorData.data.health.details ) {
-      setHealth(actorData);
+      await setHealth(actorData);
+      // setHealth doesn't trigger a redraw of token bars - this does it manually
+      if ( typeof canvas.tokens !== "undefined" ) {
+        let token = canvas.tokens.placeables.find(i=>i.data.actorId === this.data._id );
+        token.drawBars();
+      }
     } else {console.log("NO HEALTH DETAILS");}
 
     // Default Token Bar setting
-    actorData.token.bar1 = actorData.token.bar1 || {"attribute" : "health.summary"};
+    // actorData.token.bar1 = actorData.token.bar1 || {"attribute" : "health.summary"};
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
