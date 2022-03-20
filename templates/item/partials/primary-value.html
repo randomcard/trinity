@@ -20,7 +20,7 @@
 
   {{#if (isEqual item.data.type "tag") }}
     <label class="flex-fit flex-valign resource-label" for="tag-value">Tag Value:</label>
-    <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.tagValue"></i>
+    <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.tagValue" data-negative="true"></i>
     <input
         class="flex-valign short-input resource"
         type="number"

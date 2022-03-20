@@ -484,7 +484,10 @@ export class TrinityActorSheet extends ActorSheet {
 
     // Subtract 1 from value target
     html.find('.sub-value').click(ev => {
+      // console.log("sub-value, ev:", ev);
       let target = event.currentTarget.dataset.target;
+      if (typeof event.currentTarget.dataset.negative !== "undefined" && event.currentTarget.dataset.negative == "true" )
+        { let negative = true; } else { let negative = false; }
       // console.log("event.currentTarget.dataset", event.currentTarget.dataset, event.currentTarget.dataset.itemid);
       if (typeof event.currentTarget.dataset.itemid !== "undefined") {
         let itemid = event.currentTarget.dataset.itemid;
@@ -494,7 +497,8 @@ export class TrinityActorSheet extends ActorSheet {
           item.update({ [target]: 2 });
           // this._setToggleStates();
         }
-        if (current > 0) {
+        if (current > 0 || negative ) {
+          // console.log("sub-value, ev 2:", ev);
           item.update({ [target]: --current });
           // this._render(true);
           // this._setToggleStates();
@@ -505,7 +509,7 @@ export class TrinityActorSheet extends ActorSheet {
           this.actor.update({ [target]: 2 });
           // this._setToggleStates();
         }
-        if (current > 0) {
+        if (current > 0 || negative ) {
           this.actor.update({ [target]: --current });
           // this._render(true);
           // this._setToggleStates();

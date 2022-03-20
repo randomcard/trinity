@@ -311,7 +311,7 @@
       "templates": ["base"],
       "typeName" : "Path",
       "pathtype": "",
-      "value" : 0
+      "value" : 1
     },
     "condition": {
       "templates": ["base"],

@@ -185,12 +185,15 @@ export class TrinityItemSheet extends ItemSheet {
 
     // Remove value
     html.find('.sub-value').click(ev => {
+      console.log("sub-value, ev:", ev);
       let target = event.currentTarget.dataset.target;
+      let negative = false;
+      if (typeof event.currentTarget.dataset.negative !== "undefined" && event.currentTarget.dataset.negative == "true" ) { negative = true; }
       let current = getDescendantProp(this.item.data, target);
       if (current === null) {
         this.item.update({ [target]: 2 });
       }
-      if (current > 0) {
+      if (current > 0 || negative) {
         this.item.update({ [target]: --current });
         this.render(true);
       }
