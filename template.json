@@ -303,6 +303,7 @@
         "relevance" : "Specialty: Skill Name"
       },
       "flags" : {
+        "isEnhancement" : true,
         "hasDots" : false
       }
     },
