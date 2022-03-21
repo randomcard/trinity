@@ -144,8 +144,8 @@ game.settings.register("trinity", "skillSubTypes", {
   hint: 'Add custom Skill subtypes. Format: ["Subtype1","Subtype2","Subtype3"]',
   scope: "world",      // This specifies a world-level setting
   config: arg,        // This specifies that the setting appears in the configuration view
-  type: Array,
-  default: ["Talent","Skill","Knowledge"],         // The default value for the setting
+  type: String,
+  default: '["Talent","Skill","Knowledge"]',         // The default value for the setting
   onChange: value => { // A callback function which triggers when the setting is changed
     console.log("Settings - skillSubTypes Changed:", value);
   }
