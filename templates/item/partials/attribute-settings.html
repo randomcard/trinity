@@ -31,6 +31,10 @@
     <input class="resource" type="text" id="approach-text" name="data.approach" value="{{data.data.approach}}" data-dtype="String"/>
   </div>
   <div>
+    <label class="resource-label" for="npcDescription-text">NPC Description</label>
+    <input class="resource" type="text" id="npcDescription-text" name="data.npcDescription" value="{{data.data.npcDescription}}" data-dtype="String"/>
+  </div>
+  <div>
     <label class="resource-label" for="sortNum-value">Sort Order</label>
     <input class="resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="sortNum-value" name="data.sortNum" value="{{data.data.sortNum}}" data-dtype="Number"/>
   </div>
