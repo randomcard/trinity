@@ -16,7 +16,7 @@
       <span class="resource-label clickable item-edit"> {{skill.name}} </span>
       <div class="flex-parent-nowrap-center">
         <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-itemid="{{skill._id}}" data-target="data.value"></i>
-        <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="{{skill._id}}-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>
+        <input class="flex-valign short-input resource item-value-edit" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="{{skill._id}}-value" value="{{data.value}}" data-dtype="Number" data-itemid="{{skill._id}}" data-target="data.value"/>
         <i class="clickable add-value large flex-valign fas fa-plus-circle" data-itemid="{{skill._id}}" data-target="data.value"></i>
       </div>
     </div>
@@ -49,7 +49,7 @@
     <span class="resource-label clickable item-edit"> {{skill.name}} </span>
     <div class="flex-parent-nowrap-center">
       <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-itemid="{{skill._id}}" data-target="data.value"></i>
-      <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="{{skill._id}}-value" name="data.value" value="{{data.value}}" data-dtype="Number"/>
+      <input class="flex-valign short-input resource item-value-edit" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="{{skill._id}}-value" value="{{data.value}}" data-dtype="Number" data-itemid="{{skill._id}}" data-target="data.value"/>
       <i class="clickable add-value large flex-valign fas fa-plus-circle" data-itemid="{{skill._id}}" data-target="data.value"></i>
     </div>
   </div>

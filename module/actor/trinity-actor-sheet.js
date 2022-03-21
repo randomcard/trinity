@@ -511,6 +511,17 @@ export class TrinityActorSheet extends ActorSheet {
       return obj;
     }
 
+    // Item edits
+    html.find('.item-value-edit').change(ev => {
+      // console.log("sub-value, ev:", ev);
+      let target = event.currentTarget.dataset.target;
+      if (typeof event.currentTarget.dataset.itemid !== "undefined") {
+        let itemid = event.currentTarget.dataset.itemid;
+        let item = this.actor.items.get(itemid);
+        item.update({ [target]: event.currentTarget.value });
+      }
+    });
+
     // Subtract 1 from value target
     html.find('.sub-value').click(ev => {
       // console.log("sub-value, ev:", ev);
