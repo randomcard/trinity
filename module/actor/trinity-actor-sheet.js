@@ -406,6 +406,35 @@ export class TrinityActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
+/*
+    html.find('.portrait').hover(ev => {
+      event.previousElementSibling.classList.toggle("hidden");
+    });
+*/
+
+    html.on("mouseenter mouseleave", ".portrait-area", function (event) {
+      event.preventDefault();
+      // event.currentTarget.nextElementSibling.classList.toggle("hidden");
+      // event.currentTarget.parentElement.querySelector(".portrait-popout")?.classList.toggle("hidden", event.type == "mouseenter");
+      event.currentTarget.parentElement.querySelector(".portrait-popout")?.classList.toggle("hidden");
+    });
+
+    html.find('.portrait-popout').click(ev => {
+      let ip = new ImagePopout(event.currentTarget.previousElementSibling.src, {
+        title: this.actor.name,
+        shareable: true,
+        uuid: this.actor.uuid
+      });
+      console.log("ip",ip);
+      // Display the image popout
+      ip.render(true);
+
+      // Share the image with other connected players
+      // ip.share();
+
+    });
+
+
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 

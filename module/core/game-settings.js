@@ -126,7 +126,7 @@ game.settings.register("trinity", "healthModel", {
 
 // Skill Sub-Types
 game.settings.register("trinity", "useSkillSubTypes", {
-  name: "Skill Sub-Types",
+  name: "Use Skill Subtypes",
   hint: "Assign & Sort skills by sub-type. After saving this change, reopen this settings window to see specific subtypes. Any open actor sheets should be closed & reopened. (Homebrew)",
   scope: "world",      // This specifies a world-level setting
   config: true,        // This specifies that the setting appears in the configuration view
@@ -140,7 +140,7 @@ game.settings.register("trinity", "useSkillSubTypes", {
 
 function _skillTypeRegister(arg) {
 game.settings.register("trinity", "skillSubTypes", {
-  name: "Skill Subtypes",
+  name: "Configure Skill Subtypes",
   hint: 'Add custom Skill subtypes. Format: ["Subtype1","Subtype2","Subtype3"]',
   scope: "world",      // This specifies a world-level setting
   config: arg,        // This specifies that the setting appears in the configuration view
