@@ -1005,3 +1005,16 @@ input[type="text"].short-input {
   width: auto;
   margin-left: 1em;
 }
+
+.portrait-popout {
+  /* display: none; */
+  font-size: 1.25em;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: rgba(187, 187, 187, 0.75);
+  border: 1px solid var(--color-border-dark-1);
+  border-radius: 4px;
+  padding: 1px 2px;
+  box-shadow: 0 0 1px var(--color-shadow-dark);
+}

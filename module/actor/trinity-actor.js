@@ -89,7 +89,7 @@ export class TrinityActor extends Actor {
       // setHealth doesn't trigger a redraw of token bars - this does it manually
       if ( typeof canvas.tokens !== "undefined" ) {
         let token = canvas.tokens.placeables.find(i=>i.data.actorId === this.data._id );
-        token.drawBars();
+        if ( typeof token !== "undefined" ) { token.drawBars(); }
       }
     } else {console.log("NO HEALTH DETAILS");}
 

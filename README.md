@@ -59,21 +59,21 @@ Some code was obtained from other sources:
 - Original code was the Boilerplate System, a lightweight starter set. (https://gitlab.com/asacolips-projects/foundry-mods/boilerplate)
 - Elements from party-overview were used. (https://github.com/League-of-Foundry-Developers/party-overview)
 - Custom combat class adapted from a sample by Tommycore. (https://discordapp.com/channels/170995199584108546/670336275496042502/893041317637132288)
-- And many, many more. I didn't think to keep track until recently. Big thanks to the Discord community!
+- And many, many more. Big thanks to the Discord community!
 
-## Bonus Features
-
-A rough facsimile of the Mage20 can be made in this system:
-1. Create the appropriate attributes and skills. Talents & Knowledges would be considered skills.
-2. Rename existing Quantum item (if present) to Arete, or create a new Attribute item as if it was Quantum.
-3. Go to Game Settings > Configure Settings > System Settings > Health Model, and change it to Storyteller/WoD.
-4. In System Settings, change the default roll settings (such as the Success Value) to match the system.
-5. Spheres would be created as Quantum Powers.
-
-## Homebrew options
+## Bonus Features & Homebrew Options
 
 A number of settings are available in Game Settings > Configure Settings > System Settings to tweak behavior.
 
 ### Skill subtypes
 
-If you enable Skill Subtypes, all skills must have a subtype or they will not show on the Attribute/Skill tab. Remember that you can always access skills from the "Config" tab if you need to edit an existing skill. (Such as adding a sub-type so it does show properly.)
+If you enable Skill Subtypes, all skills must have a subtype that matches one of the designated skill types or they will not show on the Attribute/Skill tab. Remember that you can always access skills from the "Config" tab if you need to edit an existing skill. (Such as adding a sub-type so it does show properly.)
+
+### Mage20
+
+A rough facsimile of the Mage20 can be made in this system:
+1. Create the appropriate attributes and skills. Talents, Skills, and Knowledges would be considered sub-types of skills (see above).
+2. Rename existing Quantum item (if present) to Arete, or create a new Attribute item as if it was Quantum.
+3. Go to Game Settings > Configure Settings > System Settings > Health Model, and change it to Storyteller/WoD.
+4. In System Settings, change the default roll settings (such as the Success Value) to match the system.
+5. Spheres would be created as Quantum Powers.

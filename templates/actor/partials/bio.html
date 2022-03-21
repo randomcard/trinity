@@ -1,5 +1,10 @@
 <div class="flex-parent boxed">
-  <img class="bio-image flex-child-fit" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+  <div class="portrait-area" style="position: relative;">
+    <img class="bio-image flex-child-fit portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    <a class="portrait-popout hidden">
+      <i class="fas fa-share-square"></i>
+    </a>
+  </div>
   <div class="flex-child-fit">
       {{editor content=data.data.biography target="data.biography" button=true owner=owner editable=editable}}
   </div>
