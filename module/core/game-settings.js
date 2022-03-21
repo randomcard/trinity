@@ -124,6 +124,22 @@ game.settings.register("trinity", "healthModel", {
   }
 });
 
+game.settings.register("trinity", "initModel", {
+  name: "Initiative Model",
+  hint: "Choose between standard and non-standard initiative models.",
+  scope: "world",      // This specifies a world-level setting
+  config: true,        // This specifies that the setting appears in the configuration view
+  type: String,
+  choices: {           // If choices are defined, the resulting setting will be a select menu
+    "modelT": "Trinity Continuum Standard",
+    "modelS": "Storyteller/WoD"
+  },
+  default: "modelT",        // The default value for the setting
+  onChange: value => { // A callback function which triggers when the setting is changed
+    console.log("Initiative Model Changed");
+  }
+});
+
 // Skill Sub-Types
 game.settings.register("trinity", "useSkillSubTypes", {
   name: "Use Skill Subtypes",

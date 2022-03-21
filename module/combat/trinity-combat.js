@@ -34,7 +34,13 @@ export class TrinityCombat extends Combat
       // Actors w/ an initiative roll selected
         let p = combatant.actor.data.data.savedRolls[combatant.actor.data.data.linkedRolls.initiative];
         let breaker = p.diceTotal * 0.01;
-        let rollFormula = `(${p.formula})+${breaker}`;
+        let initModel = game.settings.get("trinity", "initModel");
+        let rollFormula = "";
+        if (initModel === "modelT") {
+          rollFormula = `(${p.formula})+${breaker}`;
+        } else if (initModel === "modelS") {
+          rollFormula = `1d10+${p.diceTotal}`;
+        }
 
         // const roll = game.trinity.TRoll.create(rollFormula, {}, {}, p.enha.value);
         let roll = new Roll(rollFormula);
