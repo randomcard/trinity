@@ -3,6 +3,19 @@ import { trinityRoll } from "/systems/trinity/module/trinity-roll.js";
 export class TrinityCombat extends Combat
 {
 
+  async startCombat() {
+
+    // Group Initiative
+    let isGrouped = game.settings.get("trinity", "initGroup");
+    let updates = {};
+    if ( isGrouped ) {
+      updates = game.combat.data.combatants.map(c => { return this._hasPlayer(c) });
+      game.combat.updateEmbeddedDocuments("Combatant", updates);
+    }
+
+    return this.update({round: 1, turn: 0});
+  }
+
   async rollInitiative(ids, {formula=null, updateTurn=true, messageOptions={}}={})
   {
     // Structure input data
@@ -89,6 +102,19 @@ export class TrinityCombat extends Combat
     }
 
     return this;
+  }
+
+  _hasPlayer(c) {
+    console.log("combat c:", c);
+    if (c.token?.data?.disposition === 1) {
+      return { _id: c.id, img: "systems/trinity/assets/icons-color/team-friendly.png", name: "Friendly" };
+    }
+    else if (c.token?.data?.disposition === 0) {
+      return { _id: c.id, img: "systems/trinity/assets/icons-color/team-neutral.png", name: "Neutral" };
+    }
+    else {
+      return { _id: c.id, img: "systems/trinity/assets/icons-color/team-hostile.png", name: "Hostile" };
+    }
   }
 
 }

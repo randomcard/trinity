@@ -18,6 +18,18 @@ game.settings.register("trinity", "basicItems", {
   }
 });
 
+game.settings.register("trinity", "initGroup", {
+  name: "Group Initiative",
+  hint: `If enabled, after rolling initative the character name will be replaced by Friendly, Hostile, or Neutral as appropriate.`,
+  scope: "world",      // This specifies a world-level setting
+  config: true,        // This specifies that the setting appears in the configuration view
+  type: Boolean,
+  default: true,         // The default value for the setting
+  onChange: value => { // A callback function which triggers when the setting is changed
+    console.log(value)
+  }
+});
+
 game.settings.register("trinity", "defaultSuccess", {
   name: "Success Threshold",
   hint: "Dice with this result or higher are counted as successes. (New actor default, can be overriden/adjusted by actor or roll settings.)",

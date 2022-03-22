@@ -53,14 +53,6 @@ Rolling for initiative requires creating a "Saved Roll":
 4. Name the Saved Roll and select "Save".
 5. Go to the "Combat" tab, go into edit mode (click the lock icon on the nav bar), and select that Saved Roll from the "Link Roll" dropdown in the Initiative area.
 
-## Code Sources
-
-Some code was obtained from other sources:
-- Original code was the Boilerplate System, a lightweight starter set. (https://gitlab.com/asacolips-projects/foundry-mods/boilerplate)
-- Elements from party-overview were used. (https://github.com/League-of-Foundry-Developers/party-overview)
-- Custom combat class adapted from a sample by Tommycore. (https://discordapp.com/channels/170995199584108546/670336275496042502/893041317637132288)
-- And many, many more. Big thanks to the Discord community!
-
 ## Bonus Features & Homebrew Options
 
 A number of settings are available in Game Settings > Configure Settings > System Settings to tweak behavior.
@@ -77,3 +69,14 @@ A rough facsimile of the Mage20 can be made in this system:
 3. Go to Game Settings > Configure Settings > System Settings > Health Model, and change it to Storyteller/WoD.
 4. In System Settings, change the default roll settings (such as the Success Value) to match the system.
 5. Spheres would be created as Quantum Powers.
+
+## Attribution
+
+Some code was obtained from other sources:
+- Original code was the Boilerplate System, a lightweight starter set. (https://gitlab.com/asacolips-projects/foundry-mods/boilerplate)
+- Elements from party-overview were used. (https://github.com/League-of-Foundry-Developers/party-overview)
+- Custom combat class adapted from a sample by Tommycore. (https://discordapp.com/channels/170995199584108546/670336275496042502/893041317637132288)
+- And many, many more. Big thanks to the Discord community!
+
+Some graphics adapted from:
+- https://game-icons.net/. CC BY 3.0 License: http://creativecommons.org/licenses/by/3.0/.
