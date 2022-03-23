@@ -7,15 +7,14 @@ import { TrinityItem } from "./item/item.js";
 import { TrinityItemSheet } from "./item/item-sheet.js";
 import { trinityRoll } from "./trinity-roll.js";
 import { TRoll } from "./roll/troll.js";
-import { OverviewApp } from "./overview/overview.js"; // Overview App
+// import { OverviewApp } from "./overview/overview.js"; // Overview App
 import { TrinityCombat } from "./combat/trinity-combat.js"; // Custom Combat Class
-import { loadTrinityTemplates } from "./core/templates.js"; // HTML Templates
+// import { loadTrinityTemplates } from "./core/templates.js"; // HTML Templates
 import { handlebarHelpers } from "./core/handlebar-helpers.js"; // Handlebar Helpers
 import { gameSettings } from "./core/game-settings.js"; // Game Settings
+import { gameHooks } from "./core/hooks.js"; // Game Settings
 
-// Overview
-let overview;
-
+// Init Hook
 Hooks.once('init', async function() {
 
   game.trinity = {
@@ -26,70 +25,6 @@ Hooks.once('init', async function() {
   };
 
   gameSettings();
-
-  /*
-  // World settings
-  // Register a world setting
-  game.settings.register("trinity", "momentum-max", {
-    name: "Maximum Momentum",
-    hint: "Maximum momentum, 3x number of players",
-    scope: "world",      // This specifies a world-level setting
-    config: false,        // This specifies that the setting appears in the configuration view
-    type: Number,
-    default: 3,         // The default value for the setting
-    onChange: value => { // A callback function which triggers when the setting is changed
-      console.log("Settings - Max Momentum Changed:", value)
-    }
-  });
-
-  game.settings.register("trinity", "momentum-current", {
-    name: "Current Momentum",
-    hint: "Current momentum, starts session at # of players",
-    scope: "world",      // This specifies a world-level setting
-    config: false,        // This specifies that the setting appears in the configuration view
-    type: Number,
-    default: 0,         // The default value for the setting
-    onChange: value => { // A callback function which triggers when the setting is changed
-      console.log("Settings - Current Momentum Changed:", value)
-    }
-  });
-
-  game.settings.register("trinity", "momentum-spent", {
-    name: "Spent Momentum",
-    hint: "Spent momentum",
-    scope: "world",      // This specifies a world-level setting
-    config: false,        // This specifies that the setting appears in the configuration view
-    type: Number,
-    default: 0,         // The default value for the setting
-    onChange: value => { // A callback function which triggers when the setting is changed
-      console.log("Settings - Spent Momentum Changed:", value)
-    }
-  });
-  // End World Settings
-
-  // Overview
-  overview = new OverviewApp();
-   [
-    {
-      name: "EnablePlayerAccess",
-      scope: "world",
-      default: true,
-      type: Boolean,
-    },
-  ].forEach((setting) => {
-    let options = {
-      name: "Overview Button - Player Access?", // game.i18n.localize(`party-overview.${setting.name}.Name`),
-      hint: "Hint", // game.i18n.localize(`party-overview.${setting.name}.Hint`),
-      scope: setting.scope,
-      config: true,
-      default: setting.default,
-      type: setting.type,
-    };
-    if (setting.choices) options.choices = setting.choices;
-    game.settings.register("trinity", setting.name, options);
-  });
-  // Overview End
-  */
 
   /**
    * Set an initiative formula for the system
@@ -125,24 +60,12 @@ Hooks.once('init', async function() {
 /*  Hooks                                       */
 /* -------------------------------------------- */
 
+gameHooks();
+/*
+
 Hooks.once("ready", async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on("hotbarDrop", (bar, data, slot) => createTrinityMacro(data, slot));
-  // Hook for roll dialog - perhaps better done with extening dialog class and using active listeners, but this seems earier for now:
-/* Hook off
-  Hooks.on('renderDialog', (dialog, html, data, input) => {
-    if (dialog.data.id === "rdialog") {
-      html.find(".attr").on('click', event => {
-        console.log("Test: Attr Roller Hook");
-        console.log(dialog);
-        console.log(html);
-        console.log(html[0]);
-        console.log(html[1]);
-        console.log(data);
-        console.log(input);
-      });
-    }
-  }); */
 
 });
 
@@ -248,7 +171,7 @@ Hooks.on("updateScene", (scene, changes, ...rest) => {
 Hooks.once( "init", function() {
   loadTrinityTemplates();
 });
-
+*/
 
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
