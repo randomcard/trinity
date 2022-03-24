@@ -40,6 +40,12 @@ Start rolling dice in one of four ways:
 
 After doing any of these, a Roll window will appear, where you can add or remove dice, enhancements, and change roll options like the success value. You can also save the roll settings to use them again later, or to associate the settings with a roll icon on an actor/character or item.
 
+## Group Initiative
+
+Group initiative is on by default (Edit in system Settings). After you `Start Combat`, all combatants will be replaced by placeholder Friendly, Neutral, or Hostile tokens depending on the token's disposition. **Important:** Make sure all tokens added to the combat tracker have the appropriate disposition.
+
+If you would like to keep track of who had focus, when, then you can right-click on the entry in the combat tracker and select `Give Focus`. This will show a menu of all combatants with that disposition. If you select one of them, the placeholder image and name will be replaced with that character. When you move to the next (or previous) round, the list will reset to the placeholders.
+
 ## Other Notes
 
 Most character elements that can't be dropped as an item on the character (such as facets or inspiration) can be edited in the "Configure" section on the character sheet.
@@ -52,14 +58,6 @@ Rolling for initiative requires creating a "Saved Roll":
 3. Select "Save As".
 4. Name the Saved Roll and select "Save".
 5. Go to the "Combat" tab, go into edit mode (click the lock icon on the nav bar), and select that Saved Roll from the "Link Roll" dropdown in the Initiative area.
-
-## Code Sources
-
-Some code was obtained from other sources:
-- Original code was the Boilerplate System, a lightweight starter set. (https://gitlab.com/asacolips-projects/foundry-mods/boilerplate)
-- Elements from party-overview were used. (https://github.com/League-of-Foundry-Developers/party-overview)
-- Custom combat class adapted from a sample by Tommycore. (https://discordapp.com/channels/170995199584108546/670336275496042502/893041317637132288)
-- And many, many more. Big thanks to the Discord community!
 
 ## Bonus Features & Homebrew Options
 
@@ -77,3 +75,14 @@ A rough facsimile of the Mage20 can be made in this system:
 3. Go to Game Settings > Configure Settings > System Settings > Health Model, and change it to Storyteller/WoD.
 4. In System Settings, change the default roll settings (such as the Success Value) to match the system.
 5. Spheres would be created as Quantum Powers.
+
+## Attribution
+
+Some code was obtained from other sources:
+- Original code was the Boilerplate System, a lightweight starter set. (https://gitlab.com/asacolips-projects/foundry-mods/boilerplate)
+- Elements from party-overview were used. (https://github.com/League-of-Foundry-Developers/party-overview)
+- Custom combat class adapted from a sample by Tommycore. (https://discordapp.com/channels/170995199584108546/670336275496042502/893041317637132288)
+- And many, many more. Big thanks to the Discord community!
+
+Some graphics adapted from:
+- https://game-icons.net/. CC BY 3.0 License: http://creativecommons.org/licenses/by/3.0/.

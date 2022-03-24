@@ -1,5 +1,6 @@
 //* Import Functions *//
 // import { rollDataTemplate } from "/systems/trinity/module/protos.js";
+import { TRoll } from "/systems/trinity/module/roll/troll.js";
 
 /**
  * DOCUMENTATION FOR ORIGINAL FormApplication:
@@ -285,7 +286,7 @@ export class RollForm extends FormApplication {
 
   _roll() {
     var rollData = this.object;
-    let roll = new Roll(rollData.formula);
+    let roll = new TRoll(rollData.formula);
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: rollData.flavor
