@@ -12,24 +12,17 @@
   "scripts": [],
   "packs": [
     {
-      "name": "basic-npc-attributes",
-      "label": "Basic NPC Attributes",
+      "name": "basic-npc-setup",
+      "label": "Basic NPC Setup",
       "system": "trinity",
-      "path": "packs/basic-npc-attributes.db",
+      "path": "packs/basic-npc-setup.db",
       "type": "Item"
     },
     {
-      "name": "basic-pc-attributes",
-      "label": "Basic PC Attributes",
+      "name": "basic-pc-setup",
+      "label": "Basic PC Setup",
       "system": "trinity",
-      "path": "packs/basic-pc-attributes.db",
-      "type": "Item"
-    },
-    {
-      "name": "basic-pc-skills",
-      "label": "Basic PC Skills",
-      "system": "trinity",
-      "path": "packs/basic-pc-skills.db",
+      "path": "packs/basic-pc-setup.db",
       "type": "Item"
     }
   ],
