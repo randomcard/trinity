@@ -40,6 +40,12 @@ Start rolling dice in one of four ways:
 
 After doing any of these, a Roll window will appear, where you can add or remove dice, enhancements, and change roll options like the success value. You can also save the roll settings to use them again later, or to associate the settings with a roll icon on an actor/character or item.
 
+## Group Initiative
+
+Group initiative is on by default (Edit in system Settings). After you `Start Combat`, all combatants will be replaced by placeholder Friendly, Neutral, or Hostile tokens depending on the token's disposition. **Important:** Make sure all tokens added to the combat tracker have the appropriate disposition.
+
+If you would like to keep track of who had focus, when, then you can right-click on the entry in the combat tracker and select `Give Focus`. This will show a menu of all combatants with that disposition. If you select one of them, the placeholder image and name will be replaced with that character. When you move to the next (or previous) round, the list will reset to the placeholders.
+
 ## Other Notes
 
 Most character elements that can't be dropped as an item on the character (such as facets or inspiration) can be edited in the "Configure" section on the character sheet.

@@ -2,6 +2,8 @@ import { loadTrinityTemplates } from "./templates.js"; // HTML Templates
 import { createTrinityMacro } from "./macro-helpers.js";
 import { rollItemMacro } from "./macro-helpers.js";
 import { OverviewApp } from "../overview/overview.js"; // Overview App
+// import { giveFocus } from "../combat/trinity-combat.js"; // Overview App
+import { setFocusName } from "/systems/trinity/module/combat/focus-dialog.js";
 
 export function gameHooks() {
 
@@ -70,6 +72,35 @@ export function gameHooks() {
     if (overview) overview.update();
     else overview = new OverviewApp();
   });
+
+  Hooks.on("getCombatTrackerEntryContext", (html, options) => {
+    console.log("CombatTrackerEntryContext options", options);
+    options.push(
+      {
+        name: "Give Focus",
+        condition: true,
+        icon: '<i class="fas fa-eye"></i>',
+        callback: target => {
+          // WFRP_Utility.displayStatus(game.combat.combatants.find(i => i._id == target.attr("data-combatant-id")).actor);
+          // $(`#sidebar-tabs`).find(`.item[data-tab="chat"]`).click();
+          if ( game.settings.get("trinity", "initGroup") ) {
+            console.log("getCombatTrackerEntryContext hook fired");
+            console.log(this);
+            console.log(target);
+            console.log(target[0].dataset.combatantId);
+            let targetCombatant = target[0].dataset.combatantId;
+            console.log(game.combat.data.combatants);
+            let c = game.combat.data.combatants.get(targetCombatant);
+            console.log(c);
+            setFocusName(c);
+          } else {
+            ui.notifications.warn(`Enable Group Initiative in System Settings.`);
+          }
+
+        }
+      })
+  })
+
 
   Hooks.on("renderActorDirectory", (app, html, data) => {
     if (!game.user.isGM && !game.settings.get("overview", "EnablePlayerAccess"))

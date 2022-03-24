@@ -226,6 +226,12 @@
   border: 0px;
 }
 
+.actorbox img.token-img {
+  height: 50px;
+  margin-right: 10px;
+  border: 0px;
+}
+
 .sheet header.sheet-header img.profile-img {
   margin-right: 10px;
   margin-left: 10px;

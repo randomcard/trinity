@@ -1,0 +1,13 @@
+{{log this}}
+<h2>Give Focus To</h2>
+<div class="flexcol">
+{{#each group as |actor id|}}
+  <div class="combatant boxed flex-parent actorbox" data-actorID="{{actor.id}}">
+    <img class="token-img" src="{{actor.data.token.img}}" title="Token" />
+    <div class="flexcol flex-left">
+      <div class="x-large">{{actor.name}}</div>
+      <div class="smaller">{{actor.data.data.player}}</div>
+    </div>
+  </div>
+{{/each}}
+</div>
