@@ -82,6 +82,7 @@ Some code was obtained from other sources:
 - Original code was the Boilerplate System, a lightweight starter set. (https://gitlab.com/asacolips-projects/foundry-mods/boilerplate)
 - Elements from party-overview were used. (https://github.com/League-of-Foundry-Developers/party-overview)
 - Custom combat class adapted from a sample by Tommycore. (https://discordapp.com/channels/170995199584108546/670336275496042502/893041317637132288)
+- Combat elements adapted from Combat-Modify-Initiative by taMiF (https://github.com/taMiF/Combat-Modify-Initiative) and sample code from Rysarian. (https://discordapp.com/channels/170995199584108546/718281676333252660/939977489822933042)
 - And many, many more. Big thanks to the Discord community!
 
 Some graphics adapted from:
