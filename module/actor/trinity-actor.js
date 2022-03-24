@@ -34,9 +34,9 @@ export class TrinityActor extends Actor {
      data.items = [];
 
      // Get items to be added
-     let npcAttribs = await game.packs.get('trinity.basic-npc-attributes').getDocuments();
-     let pcAttribs = await game.packs.get('trinity.basic-pc-attributes').getDocuments();
-     let pcSkills = await game.packs.get('trinity.basic-pc-skills').getDocuments();
+     let npcAttribs = await game.packs.get('trinity.basic-npc-setup').getDocuments();
+     let pcAttribs = await game.packs.get('trinity.basic-pc-setup').getDocuments();
+     // let pcSkills = await game.packs.get('trinity.basic-pc-skills').getDocuments();
 
      // console.log("pcAttribs", pcAttribs);
      // console.log("this", this);
@@ -50,11 +50,12 @@ export class TrinityActor extends Actor {
          // data.items.push(pcAttribs[i]);
          data.items.push(game.items.fromCompendium(pcAttribs[i]));
        }
+       /*
        for (let i of Object.keys(pcSkills) )
        {
          // data.items.push(pcSkills[i]);
          data.items.push(game.items.fromCompendium(pcSkills[i]));
-       }
+       } */
        super.create(data, options); // Follow through the the rest of the Actor creation process upstream
      }
      else if ( data.type == "TrinityNPC" ) {
