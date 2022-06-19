@@ -25,6 +25,7 @@
       <input class="flex-child-fit" id="moment" name="data.moment" type="text" value="{{actor.data.data.moment}}"/>
   </div>
   {{/if}}
+  <!--
   {{#if actor.data.data.flags.isMage}}
   <div class="flex-parent">
     <label class="flex-child-fit" for="tradition">Tradition:</label>
@@ -59,6 +60,7 @@
       <input class="flex-child-fit" id="avatar" name="data.avatar" type="text" value="{{actor.data.data.avatar}}"/>
   </div>
   {{/if}}
+  -->
   <div class="flex-parent">
     <label class="flex-child-fit" for="char-xp-avail">Experience Available:</label>
       <input class="flex-child-fit" id="char-xp-avail" name="data.experience.available" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" value="{{data.data.experience.available}}"/>

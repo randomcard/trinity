@@ -1024,3 +1024,12 @@ input[type="text"].short-input {
   padding: 1px 2px;
   box-shadow: 0 0 1px var(--color-shadow-dark);
 }
+
+.left-label {
+  margin-right: 5px;
+  align-self: center;
+}
+
+.right-text {
+  text-align: end !important;;
+}
