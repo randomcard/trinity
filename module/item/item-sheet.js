@@ -128,8 +128,11 @@ export class TrinityItemSheet extends ItemSheet {
               console.log("li", li);
               console.log("liID", liID);
               console.log("ev", ev);
-              //this.item.update({`data.subItems.-=${liID}`: null});
-              this.item.update({[`data.subItems.-=${liID}`] : null});
+              // This bit was working, not sure why it stopped working in all instances.
+              // Replaced it with code that nulls out the item, rather than deleting it.
+              // this.item.update({[`data.subItems.-=${liID}`] : null});
+              this.item.update({[`data.subItems.${liID}`] : null});
+              console.log("after delete", this);
               // li.slideUp(200, () => this.render(false));
             }
           },

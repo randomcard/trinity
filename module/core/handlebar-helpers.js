@@ -197,6 +197,23 @@ export function handlebarHelpers() {
     }
   });
 
+// Quintessence / Paradox Circle
+  Handlebars.registerHelper('qpCircle', function(tracker) {
+    let html = '';
+    let emptyBox = '<i class="qpicon far fa-square"></i>';
+    let qBox = '<i class="qpicon far fa-sun"></i>';
+    let pBox = '<i class="qpicon fas fa-pastafarianism"></i>';
+
+    for (var i = 0; i <= tracker.length; i++) {
+      switch ( tracker[i] ) {
+        case "" : html += emptyBox; break;
+        case "Q" : html += qBox; break;
+        case "P" : html += pBox; break;
+      }
+    }
+    console.log("QP tracker", tracker);
+    return html;
+  });
 
 // Use on an actor sheet like: {{{createChip "data.defense.value"}}} or simply {{{createChip "defense"}}}
 // Use on an actor sheet, within an #each, like: {{{createChip item._id ../actor}}}
