@@ -199,6 +199,7 @@ export function handlebarHelpers() {
 
 // Quintessence / Paradox Circle
   Handlebars.registerHelper('qpCircle', function(tracker) {
+    if ( !tracker ) { return; }
     let html = '';
     let emptyBox = '<i class="qpicon far fa-square"></i>';
     let qBox = '<i class="qpicon far fa-sun"></i>';
