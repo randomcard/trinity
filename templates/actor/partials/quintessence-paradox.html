@@ -1,0 +1,51 @@
+<div class="boxed">
+  <div class="qp20">
+    {{{qpCircle this.actor.data.data.qpTracker}}}
+    <!--
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+      <i class="far fa-square"></i>
+    -->
+      <i class="qpicon mark fas fa-chevron-right"></i>
+
+      <div class="center-info flex-parent-center-column">
+        <div class="flex-parent-center-column flex-child-bottom">
+          <div class="flex-child resource-label">Quintessence</div>
+          <div class="flex-parent-nowrap-center">
+            <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.quintessence.value"></i>
+            <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="quantumPointsMax-value" name="data.quintessence.value" value="{{this.actor.data.data.quintessence.value}}" data-dtype="Number"/>
+            <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.quintessence.value"></i>
+          </div>
+        </div>
+        <div class="flex-parent-center-column flex-child">
+          <div class="flex-parent-nowrap-center">
+            <i class="clickable sub-value large flex-valign fas fa-minus-circle" data-target="data.paradox.value"></i>
+            <input class="flex-valign short-input resource" type="number" min="0" step="1" onfocus="this.previousValue = this.value" onkeydown="this.previousValue = this.value" oninput="validity.valid || (value = this.previousValue)" id="quantumPointsMax-value" name="data.paradox.value" value="{{this.actor.data.data.paradox.value}}" data-dtype="Number"/>
+            <i class="clickable add-value large flex-valign fas fa-plus-circle" data-target="data.paradox.value"></i>
+          </div>
+          <div class="flex-child resource-label">Paradox</div>
+        </div>
+      </div>
+
+  </div>
+
+
+
+</div>

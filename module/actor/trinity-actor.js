@@ -94,6 +94,43 @@ export class TrinityActor extends Actor {
       }
     } else {console.log("NO HEALTH DETAILS");}
 
+    // Mage Support: Quintessence & Paradox
+    if (data.flags.isMage) {
+      //console.log("QP adjust 1", actorData.qAdjust);
+      //if (typeof actorData.qAdjust === "undefined" ) {actorData.qAdjust = 0};
+      console.log("QP start", data.quintessence.value);
+      /*
+      while (data.quintessence.value > 20-data.paradox.value) {
+        --data.quintessence.value;
+      }
+      */
+      // if (data.quintessence.value + actorData.qAdjust > 20-data.paradox.value) {
+      if (data.quintessence.value > 20-data.paradox.value) {
+        console.log("QP Quin over Para", data.quintessence.value, data.paradox.value);
+        // actorData.qAdjust = data.quintessence.value - (20 - data.paradox.value);
+        // console.log("QP adjust 2", actorData.qAdjust);
+        data.quintessence.value = 20-data.paradox.value;
+        //data.quintessence.value = 20-qpAdjust;
+      }
+      // data.quintessence.value -= actorData.qAdjust;
+
+      console.log("QP mid 1", data.quintessence.value);
+      if (data.quintessence.value < 0) {data.quintessence.value = 0}
+      if (data.paradox.value < 0) {data.paradox.value = 0}
+      if (data.quintessence.value > 20) {data.quintessence.value = 20}
+      if (data.paradox.value > 20) {data.paradox.value = 20}
+      console.log("QP end", data.quintessence.value);
+
+      const qpTracker = [];
+
+      for (var i = 0; i < 20; i++) {
+        if (data.quintessence.value >= i+1) { qpTracker[i] = "Q" } else { qpTracker[i] = "" }
+        if (data.paradox.value >= 20-i) { qpTracker[i] = "P" }
+      }
+
+      data.qpTracker = qpTracker;
+    }
+
     // Default Token Bar setting
     // actorData.token.bar1 = actorData.token.bar1 || {"attribute" : "health.summary"};
 
