@@ -66,6 +66,7 @@ export class TrinityItem extends Item {
 
       for (let i of Object.keys(this.data.data.subItems)) {
         let subItem = this.data.data.subItems[i];
+        if (subItem === null) { continue; }
         if (subItem.type === 'stunt') { stunts.push(subItem); }
         if (subItem.type === 'tag') { tags.push(subItem); }
         if (subItem.type === 'modePower') { modePowers.push(subItem); }
