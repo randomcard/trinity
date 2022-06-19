@@ -72,9 +72,7 @@
         <li class="item sub flexcol" data-item-id="{{item._id}}">
           <div class="flexrow">
             {{#if item.data.modePowers}}
-            <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
-            {{else}}
-            <i class="flex-fit flex-valign far fa-square"></i>
+            <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>{{else}}<i class="flex-fit flex-valign far fa-square"></i>
             {{/if}}
             <h4 class="flex-fit item-name item-edit clickable">
               {{item.name}}
@@ -92,7 +90,10 @@
             {{#each item.data.modePowers as |subItem id|}}
             <div class="">
               <div class="flexrow sub-item" data-item-id="{{subItem.id}}">
-                <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>
+                <!-- <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i> -->
+                {{#if subItem.description}}
+                <i class="flex-fit flex-valign far fa-caret-square-down show-detail clickable"></i>{{else}}<i class="flex-fit flex-valign far fa-square"></i>
+                {{/if}}
                 <div>{{subItem.name}}</div>
                 <div class="item-controls">
                   <a class="item-control sub-item-chat" title="Output Description to Chat"><i class="far fa-comment-dots"></i></a>
